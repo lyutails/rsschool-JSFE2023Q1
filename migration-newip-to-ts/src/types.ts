@@ -38,3 +38,14 @@ export interface NewsItem {
     url: string;
     urlToImage: string;
 }
+
+export interface HeadlinesResponseObject {
+    status: Status;
+    totalResults: number;
+    articles: NewsItem[];
+}
+
+export interface SourcesResponseObject {
+    status: Status;
+    sources: Source[];
+}

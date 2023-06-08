@@ -14,7 +14,6 @@ class Sources {
             if (!(sourceClone instanceof DocumentFragment)) {
                 throw new Error('incorrect source');
             }
-            console.log(item);
 
             const itemName = sourceClone.querySelector('.source__item-name');
             if (itemName) {
