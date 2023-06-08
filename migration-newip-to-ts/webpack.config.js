@@ -27,10 +27,14 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+            favicon: './src/refs/favicon.png',
         }),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
     ],
+    devServer: {
+        port: 9000
+    }
 };
 
 module.exports = ({ mode }) => {
