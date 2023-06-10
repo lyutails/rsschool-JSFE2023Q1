@@ -23,12 +23,16 @@ body {
     margin: 0 auto;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+.body::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+.body::-webkit-scrollbar-thumb {
     background: linear-gradient(#30ffe0, #fc38de);
     outline: none;
     border-radius: 20px;
@@ -87,22 +91,36 @@ h1::after {
 }
 
 @keyframes shake {
-    5%, 15%, 25%, 35%, 65%, 75%, 95% {
+    5%,
+    15%,
+    25%,
+    35%,
+    65%,
+    75%,
+    95% {
         filter: blur(0.05rem);
         transform: translateY(0.05rem) rotate(0deg);
     }
 
-    10%, 30%, 40%, 50%, 70%, 80%, 90% {
+    10%,
+    30%,
+    40%,
+    50%,
+    70%,
+    80%,
+    90% {
         filter: blur(0.04rem);
         transform: translateY(-0.05rem) rotate(0deg);
     }
 
-    20%, 60% {
+    20%,
+    60% {
         filter: blur(0.03rem);
         transform: translate(-0.02rem, 0.02rem) rotate(0deg);
     }
 
-    45%, 85% {
+    45%,
+    85% {
         filter: blur(0.03rem);
         transform: translate(0.02rem, -0.02rem) rotate(0deg);
     }
@@ -114,7 +132,8 @@ h1::after {
 }
 
 @keyframes crack1 {
-    0%, 95% {
+    0%,
+    95% {
         transform: translate(-50%, -50%);
     }
 
@@ -124,7 +143,8 @@ h1::after {
 }
 
 @keyframes crack2 {
-    0%, 95% {
+    0%,
+    95% {
         transform: translate(-50%, -50%);
     }
 
