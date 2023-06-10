@@ -27,7 +27,7 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
-            favicon: './src/refs/favicon.png',
+            favicon: path.resolve(__dirname, './src/refs/favicon.png'),
         }),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
