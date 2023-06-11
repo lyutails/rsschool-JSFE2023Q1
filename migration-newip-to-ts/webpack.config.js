@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index'),
@@ -13,7 +14,7 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
-            { test: /\.ts$/i, use: 'ts-loader', exclude: /node_modules/ },
+            { test: /\.ts$/i, use: 'ts-loader', exclude: /node_modules/ }
         ],
     },
     resolve: {
@@ -21,7 +22,7 @@ const baseConfig = {
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, './dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -31,6 +32,14 @@ const baseConfig = {
         }),
         new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: 'ts' }),
+        new CopyWebpackPlugin({
+            patterns: [
+              {
+                from: path.resolve(__dirname, 'src/assets'),
+                to: path.resolve(__dirname, 'dist/assets')
+              }
+            ]
+        })
     ],
     devServer: {
         port: 9000
