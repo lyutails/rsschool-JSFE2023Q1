@@ -1,9 +1,12 @@
-import { NewsItem } from '../../../types/types';
+import { NewsItem } from '../../../types';
 import './news.css';
 
 class News {
   draw(data: NewsItem[]) {
     const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+    // to cut first letter from incoming source's name
+    // create divs with alphabet letters
+    // by click on letter show sources whose names start with letter
 
     const fragment = document.createDocumentFragment();
     const newsItemTemp = document.querySelector<HTMLTemplateElement>('#newsItemTemp');
@@ -28,7 +31,7 @@ class News {
 
       const metaPhoto = newsClone.querySelector<HTMLDivElement>('.news__meta-photo');
       if (metaPhoto) {
-        metaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
+        metaPhoto.style.backgroundImage = `url(${item.urlToImage || '/assets/placeholder.png'})`;
       } else {
         throw new Error('no photo out there');
       }
