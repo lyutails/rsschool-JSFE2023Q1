@@ -11,9 +11,10 @@ class Sources {
       throw new Error('no sources found out there');
     } else {
       sources?.insertAdjacentElement('afterend', buttonsWrapper);
-      const firstLetters = data.map((elem) => elem.name[0]);
+      const firstLetters = data.map((elem) => elem.name.charAt(0)); // if string is empty there will be not error
       const uniqueLettersArray = firstLetters.filter((item, i, arr) => arr.indexOf(item) === i);
       const lettersButtonsArray = [];
+
       for (let i = 0; i < uniqueLettersArray.length; i++) {
         const sourceLetter = document.createElement('div');
         sourceLetter.classList.add('source_letter');
@@ -21,6 +22,7 @@ class Sources {
         lettersButtonsArray.push(sourceLetter);
         buttonsWrapper.append(sourceLetter);
       }
+
       const allSourcesButton = document.createElement('div');
       allSourcesButton.classList.add('all_sources_button');
       allSourcesButton.textContent = 'All';
@@ -33,7 +35,7 @@ class Sources {
           // const relevantSources = data.filter((sourceElement) => sourceElement.name[0] === element.textContent);
           for (let i = 0; i < sourceItems.length; i++) {
             const parentOfLetter = sourceItems[i].parentElement;
-            if(parentOfLetter) {
+            if (parentOfLetter) {
               parentOfLetter.style.display = 'block';
             } else {
               throw new Error('nothing to remove display none from');
@@ -45,7 +47,7 @@ class Sources {
                 parentOfLetter.style.display = 'none';
               }
             }
-            if(element.textContent === 'All') {
+            if (element.textContent === 'All') {
               parentOfLetter.style.display = 'block';
             }
           }
