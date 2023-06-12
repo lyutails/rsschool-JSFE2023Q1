@@ -1,8 +1,26 @@
 import { Source } from '../../../types';
 import './sources.css';
+import '../../filter/filter.css';
 
 class Sources {
   draw(data: Source[]) {
+    const sources = document.querySelector('.sources');
+    const buttonsWrapper = document.createElement('div');
+    buttonsWrapper.classList.add('buttons_wrapper');
+    if (!sources) {
+      throw new Error('no sources found out there');
+    } else {
+      sources?.insertAdjacentElement('afterend', buttonsWrapper);
+      const firstLetters = data.map((elem) => elem.name[0]);
+      const uniqueLettersArray = firstLetters.filter((item, i, arr) => arr.indexOf(item) === i);
+      for (let i = 0; i < uniqueLettersArray.length; i++) {
+        const sourceLetter = document.createElement('div');
+        sourceLetter.classList.add('source_letter');
+        sourceLetter.textContent = `${uniqueLettersArray[i]}`;
+        buttonsWrapper.append(sourceLetter);
+      }
+    }
+
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = document.querySelector<HTMLTemplateElement>('#sourceItemTemp');
     if (!sourceItemTemp) {
