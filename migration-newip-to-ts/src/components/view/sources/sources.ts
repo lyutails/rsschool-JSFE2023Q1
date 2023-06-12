@@ -21,6 +21,11 @@ class Sources {
         lettersButtonsArray.push(sourceLetter);
         buttonsWrapper.append(sourceLetter);
       }
+      const allSourcesButton = document.createElement('div');
+      allSourcesButton.classList.add('all_sources_button');
+      allSourcesButton.textContent = 'All';
+      lettersButtonsArray.push(allSourcesButton);
+      buttonsWrapper.append(allSourcesButton);
 
       lettersButtonsArray.forEach((element) =>
         element.addEventListener('click', () => {
@@ -39,6 +44,9 @@ class Sources {
               } else {
                 parentOfLetter.style.display = 'none';
               }
+            }
+            if(element.textContent === 'All') {
+              parentOfLetter.style.display = 'block';
             }
           }
         })

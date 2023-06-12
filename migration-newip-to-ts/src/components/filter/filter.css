@@ -28,3 +28,25 @@
   border: 1px solid #30ffe0;
   color: #30ffe0;
 }
+
+.all_sources_button {
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #fc38de;
+  border-radius: 5px;
+  color: #fc38de;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+  user-select: none;
+  opacity: 0.8;
+  margin-right: 0.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.all_sources_button:hover {
+  cursor: pointer;
+  border: 1px solid #30ffe0;
+  color: #30ffe0;
+}
