@@ -13,12 +13,36 @@ class Sources {
       sources?.insertAdjacentElement('afterend', buttonsWrapper);
       const firstLetters = data.map((elem) => elem.name[0]);
       const uniqueLettersArray = firstLetters.filter((item, i, arr) => arr.indexOf(item) === i);
+      const lettersButtonsArray = [];
       for (let i = 0; i < uniqueLettersArray.length; i++) {
         const sourceLetter = document.createElement('div');
         sourceLetter.classList.add('source_letter');
         sourceLetter.textContent = `${uniqueLettersArray[i]}`;
+        lettersButtonsArray.push(sourceLetter);
         buttonsWrapper.append(sourceLetter);
       }
+
+      lettersButtonsArray.forEach((element) =>
+        element.addEventListener('click', () => {
+          const sourceItems = document.querySelectorAll<HTMLSpanElement>('.source__item-name');
+          // const relevantSources = data.filter((sourceElement) => sourceElement.name[0] === element.textContent);
+          for (let i = 0; i < sourceItems.length; i++) {
+            const parentOfLetter = sourceItems[i].parentElement;
+            if(parentOfLetter) {
+              parentOfLetter.style.display = 'block';
+            } else {
+              throw new Error('nothing to remove display none from');
+            }
+            if (sourceItems[i].textContent?.slice(0, 1) !== element.textContent?.slice(0, 1)) {
+              if (!parentOfLetter) {
+                throw new Error('no parent element out there');
+              } else {
+                parentOfLetter.style.display = 'none';
+              }
+            }
+          }
+        })
+      );
     }
 
     const fragment = document.createDocumentFragment();
