@@ -31,8 +31,6 @@ export type Source = {
   country?: string;
 };
 
-// type Picked = Pick<Source, 'description' | 'category'>;
-
 export interface SourcesResponse {
   status: Status;
   sources: Source[];
