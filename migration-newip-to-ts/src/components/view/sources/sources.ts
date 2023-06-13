@@ -1,15 +1,15 @@
-import { Source } from '../../../types';
+import { Source, SourceReadonly } from '../../../types';
 import './sources.css';
 import './filter.css';
 
 class Sources {
-  private _data: Source[];
+  private _data: SourceReadonly[];
 
   constructor() {
     this._data = [];
   }
 
-  set data(data: Source[]) {
+  set data(data: SourceReadonly[]) {
     this._data = data;
   }
 

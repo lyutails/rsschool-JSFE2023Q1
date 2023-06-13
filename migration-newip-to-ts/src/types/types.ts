@@ -19,6 +19,8 @@ export type EndpointOptions = {
   options?: Options;
 };
 
+export type SourceReadonly = Readonly<Source>;
+
 export type Source = {
   id: string;
   name: string;
@@ -28,6 +30,8 @@ export type Source = {
   language?: string;
   country?: string;
 };
+
+// type Picked = Pick<Source, 'description' | 'category'>;
 
 export interface SourcesResponse {
   status: Status;
