@@ -1,0 +1,10 @@
+import { BaseComponent } from '@/core/base-component';
+
+export class Hints extends BaseComponent<'div'> {
+  constructor() {
+    super({
+      tagName: 'div',
+      classList: ['hints']
+    });
+  }
+}
