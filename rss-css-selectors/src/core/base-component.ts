@@ -34,4 +34,44 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   public addLink(link: string): void {
     this.node.setAttribute('href', link);
   }
+
+  public addTextContent(text: string): void {
+    this.node.textContent = text;
+  }
+
+  public addMoreClasses(className: string): void {
+    this.node.classList.add(className);
+  }
+
+  public removeClass(className: string): void {
+    this.node.classList.remove(className);
+  }
+
+  public addPlaceholder(placeholder: string): void {
+    this.node.setAttribute('placeholder', placeholder);
+  }
+
+  public toggleClassOnClick = (): void => {
+    this.node.addEventListener('click', (e) => {
+      if (e.target instanceof HTMLElement) {
+        e.target.classList.toggle('active');
+      } else {
+        throw new Error('no target element found');
+      }
+    });
+  };
+
+  public static addRemoveClassOnClick(
+    element_one: BaseComponent,
+    element_two: BaseComponent
+  ): void {
+    element_one.node.addEventListener('click', () => {
+      element_one.node.classList.add('active');
+      element_two.node.classList.remove('active');
+    });
+    element_two.node.addEventListener('click', () => {
+      element_two.node.classList.add('active');
+      element_one.node.classList.remove('active');
+    });
+  }
 }
