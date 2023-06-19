@@ -15,7 +15,7 @@ const plugins = [
   }),
   new HtmlWebpackPlugin({
     template: 'index.html',
-    favicon: '@/refs/seasons/seasons_tree.png',
+    favicon: './refs/seasons/seasons_tree.png',
     minify: {
       collapseWhitespace: !isDev,
       removeComments: !isDev
