@@ -25,12 +25,6 @@ export class Instructions extends BaseComponent<'div'> {
       textContent: 'Level'
     });
 
-    const instructionsBody = new BaseComponent({
-      tagName: 'div',
-      classList: ['instructions_body'],
-      children: [level, description, example]
-    });
-
-    this.node.append(instructionsBody.node);
+    this.node.append(level.node, description.node, example.node);
   }
 }
