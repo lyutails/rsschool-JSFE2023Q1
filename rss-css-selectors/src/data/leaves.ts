@@ -1,5 +1,3 @@
-import { LeavesPics } from '../types/types';
-
 import leaf_01 from '@/refs/tree_night/leaf_01_night.png';
 import leaf_02 from '@/refs/tree_night/leaf_02_night.png';
 import leaf_03 from '@/refs/tree_night/leaf_03_night.png';
@@ -26,6 +24,7 @@ import leaf_23 from '@/refs/tree_night/leaf_23_night.png';
 import leaf_24 from '@/refs/tree_night/leaf_24_night.png';
 import leaf_25 from '@/refs/tree_night/leaf_25_night.png';
 import leaf_26 from '@/refs/tree_night/leaf_26_night.png';
+import { LeavesPics } from '@/types/types';
 
 export const leavesArray: LeavesPics[] = [
   {
