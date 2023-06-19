@@ -1,5 +1,7 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { Button } from '@/UI/button';
+
 export class Header extends BaseComponent<'header'> {
   // eslint-disable-next-line max-lines-per-function
   constructor() {
@@ -36,15 +38,44 @@ export class Header extends BaseComponent<'header'> {
       children: [RSSchool, year, author]
     });
 
+    const timer = new BaseComponent({
+      tagName: 'div',
+      classList: ['header_timer'],
+      textContent: '00:00'
+    });
+
+    const buttonPause = new Button();
+    buttonPause.addTextContent('Pause');
+    buttonPause.addMoreClasses('pause');
+
+    const buttonStart = new Button();
+    buttonStart.addTextContent('Start');
+    buttonStart.addMoreClasses('start');
+
+    const controls = new BaseComponent({
+      tagName: 'div',
+      classList: ['header_controls'],
+      children: [buttonStart, buttonPause, timer]
+    });
+
+    const sound = new BaseComponent({
+      tagName: 'div',
+      classList: ['header_sound']
+    });
+
+    sound.toggleClassOnClick();
+
     const headerDay = new BaseComponent({
-      tagName: 'span',
+      tagName: 'div',
       classList: ['header_icon', 'day']
     });
 
     const headerNight = new BaseComponent({
-      tagName: 'span',
-      classList: ['header_icon', 'night']
+      tagName: 'div',
+      classList: ['header_icon', 'night', 'active']
     });
+
+    Header.addRemoveClassOnClick(headerDay, headerNight);
 
     const headerTheme = new BaseComponent({
       tagName: 'div',
@@ -60,7 +91,7 @@ export class Header extends BaseComponent<'header'> {
     const headerWrapper = new BaseComponent({
       tagName: 'div',
       classList: ['header_wrapper'],
-      children: [headerLogo, headerTheme, headerLinksWrapper]
+      children: [headerLogo, headerTheme, sound, controls, headerLinksWrapper]
     });
 
     this.node.append(headerWrapper.node);
