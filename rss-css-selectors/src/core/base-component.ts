@@ -47,6 +47,10 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     this.node.classList.remove(className);
   }
 
+  public toggleClass(className: string): void {
+    this.node.classList.toggle(className);
+  }
+
   public addPlaceholder(placeholder: string): void {
     this.node.setAttribute('placeholder', placeholder);
   }
@@ -60,18 +64,4 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       }
     });
   };
-
-  public static addRemoveClassOnClick(
-    element_one: BaseComponent,
-    element_two: BaseComponent
-  ): void {
-    element_one.node.addEventListener('click', () => {
-      element_one.node.classList.add('active');
-      element_two.node.classList.remove('active');
-    });
-    element_two.node.addEventListener('click', () => {
-      element_two.node.classList.add('active');
-      element_one.node.classList.remove('active');
-    });
-  }
 }

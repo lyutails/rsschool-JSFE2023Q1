@@ -27,82 +27,30 @@ import leaf_26 from '@/refs/tree_night/leaf_26_night.png';
 import { LeavesPics } from '@/types/types';
 
 export const leavesArray: LeavesPics[] = [
-  {
-    '@/refs/tree_night/leaf_01_night.png': leaf_01
-  },
-  {
-    '@/refs/tree_night/leaf_02_night.png': leaf_02
-  },
-  {
-    '@/refs/tree_night/leaf_03_night.png': leaf_03
-  },
-  {
-    '@/refs/tree_night/leaf_04_night.png': leaf_04
-  },
-  {
-    '@/refs/tree_night/leaf_05_night.png': leaf_05
-  },
-  {
-    '@/refs/tree_night/leaf_06_night.png': leaf_06
-  },
-  {
-    '@/refs/tree_night/leaf_07_night.png': leaf_07
-  },
-  {
-    '@/refs/tree_night/leaf_08_night.png': leaf_08
-  },
-  {
-    '@/refs/tree_night/leaf_09_night.png': leaf_09
-  },
-  {
-    '@/refs/tree_night/leaf_10_night.png': leaf_10
-  },
-  {
-    '@/refs/tree_night/leaf_11_night.png': leaf_11
-  },
-  {
-    '@/refs/tree_night/leaf_12_night.png': leaf_12
-  },
-  {
-    '@/refs/tree_night/leaf_13_night.png': leaf_13
-  },
-  {
-    '@/refs/tree_night/leaf_14_night.png': leaf_14
-  },
-  {
-    '@/refs/tree_night/leaf_15_night.png': leaf_15
-  },
-  {
-    '@/refs/tree_night/leaf_16_night.png': leaf_16
-  },
-  {
-    '@/refs/tree_night/leaf_17_night.png': leaf_17
-  },
-  {
-    '@/refs/tree_night/leaf_18_night.png': leaf_18
-  },
-  {
-    '@/refs/tree_night/leaf_19_night.png': leaf_19
-  },
-  {
-    '@/refs/tree_night/leaf_20_night.png': leaf_20
-  },
-  {
-    '@/refs/tree_night/leaf_21_night.png': leaf_21
-  },
-  {
-    '@/refs/tree_night/leaf_22_night.png': leaf_22
-  },
-  {
-    '@/refs/tree_night/leaf_23_night.png': leaf_23
-  },
-  {
-    '@/refs/tree_night/leaf_24_night.png': leaf_24
-  },
-  {
-    '@/refs/tree_night/leaf_25_night.png': leaf_25
-  },
-  {
-    '@/refs/tree_night/leaf_26_night.png': leaf_26
-  }
+  leaf_01,
+  leaf_02,
+  leaf_03,
+  leaf_04,
+  leaf_05,
+  leaf_06,
+  leaf_07,
+  leaf_08,
+  leaf_09,
+  leaf_10,
+  leaf_11,
+  leaf_12,
+  leaf_13,
+  leaf_14,
+  leaf_15,
+  leaf_16,
+  leaf_17,
+  leaf_18,
+  leaf_19,
+  leaf_20,
+  leaf_21,
+  leaf_22,
+  leaf_23,
+  leaf_24,
+  leaf_25,
+  leaf_26
 ];

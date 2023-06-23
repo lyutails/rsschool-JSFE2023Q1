@@ -1,13 +1,18 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { Observer } from '../observer';
+
+export const burgerObserver = new Observer();
+
 export class LevelsBurger extends BaseComponent {
+  public static burgerIcon: BaseComponent;
   constructor() {
     super({
       tagName: 'div',
       classList: ['levels_burger']
     });
 
-    const burgerIcon = new BaseComponent({
+    LevelsBurger.burgerIcon = new BaseComponent({
       tagName: 'div',
       classList: ['levels_burger_icon']
     });
@@ -19,13 +24,14 @@ export class LevelsBurger extends BaseComponent {
         tagName: 'span',
         classList: ['levels_burger_line']
       });
-      burgerIcon.append(burgerIconLine);
+      LevelsBurger.burgerIcon.append(burgerIconLine);
     }
 
-    burgerIcon.node.addEventListener('click', () => {
-      burgerIcon.toggleClass('active');
+    LevelsBurger.burgerIcon.node.addEventListener('click', () => {
+      LevelsBurger.burgerIcon.toggleClass('active');
+      burgerObserver.notify('lalala');
     });
 
-    this.append(burgerIcon);
+    this.append(LevelsBurger.burgerIcon);
   }
 }

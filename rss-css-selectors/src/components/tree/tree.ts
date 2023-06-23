@@ -1,6 +1,14 @@
 import { BaseComponent } from '@/core/base-component';
 
-import { leavesArray } from '@/data';
+import { Branch } from '../branch';
+import { Leaf } from '../leaf';
+import { Observer } from '../observer';
+import { QeteqTag } from '../qeteq_custom_tag';
+
+export const treeObserverDay = new Observer();
+export const treeObserverNight = new Observer();
+export const treePicObserverDay = new Observer();
+export const treePicObserverNight = new Observer();
 
 export class Tree extends BaseComponent<'div'> {
   constructor() {
@@ -9,21 +17,46 @@ export class Tree extends BaseComponent<'div'> {
       classList: ['tree']
     });
 
-    const leafPic = new BaseComponent({
+    const tooltipQeteq = new BaseComponent({
       tagName: 'span',
-      classList: ['tree_leaf']
+      classList: ['tooltip_qeteq'],
+      textContent: '<qeteq>'
     });
+
+    const qeteq = document.createElement('qeteq');
+    qeteq.classList.add('qeteq');
+    qeteq.addEventListener('mouseover', () => {
+      qeteq.append(tooltipQeteq.node);
+    });
+    qeteq.addEventListener('mouseout', () => {
+      tooltipQeteq.node.remove();
+    });
+
+    const qeteq1 = new QeteqTag();
+
+    const leafPic = new Leaf();
+
+    const branches = new Branch();
 
     const treePic = new BaseComponent({
       tagName: 'div',
-      classList: ['tree_pic']
+      classList: ['tree_pic'],
+      children: [branches]
     });
 
-    const flowerMagenta = new BaseComponent({
-      tagName: 'span',
-      classList: ['tree_flower_magenta']
+    const toDo = new BaseComponent({
+      tagName: 'div',
+      classList: ['tree_todo'],
+      textContent: 'What to pick on this level'
     });
 
-    this.node.append(treePic.node);
+    treeObserverDay.subscribe(() => this.node.classList.add('recolour'));
+    treeObserverNight.subscribe(() => this.node.classList.remove('recolour'));
+    treePicObserverDay.subscribe(() => treePic.node.classList.add('recolour'));
+    treePicObserverNight.subscribe(() =>
+      treePic.node.classList.remove('recolour')
+    );
+
+    this.node.append(leafPic.node, treePic.node, toDo.node, qeteq, qeteq1);
   }
 }

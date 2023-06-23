@@ -1,5 +1,10 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { Observer } from '../observer';
+
+export const hintsObserverDay = new Observer();
+export const hintsObserverNight = new Observer();
+
 export class Hints extends BaseComponent<'div'> {
   constructor() {
     super({
@@ -18,6 +23,9 @@ export class Hints extends BaseComponent<'div'> {
     });
 
     eyeVisibility.toggleClassOnClick();
+
+    hintsObserverDay.subscribe(() => this.node.classList.add('recolour'));
+    hintsObserverNight.subscribe(() => this.node.classList.remove('recolour'));
 
     this.node.append(eyeVisibility.node, text.node);
   }

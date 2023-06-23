@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 * {
   padding: 0;
   margin: 0;
@@ -7,20 +9,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
 
-$ui-elements-color: rgb(73, 0, 73);
+$ui-elements-color: rgb(62, 17, 62);
+$ui-elements-color-day: #e5fff4;
 $ui-border-color: rgb(32, 1, 32);
 $font-color-night: rgb(246, 227, 246);
-$link-hover: rgb(255, 253, 134);
+$font-color-day: rgb(58, 16, 66);
+$link-hover: rgb(240, 130, 108);
 $shadow-color: rgba(0, 0, 0, 0.4);
 $scroll-color: linear-gradient(#7affca, #e75e8a);
-$button-text-color: rgb(73, 0, 73);
+$button-text-color: rgb(62, 17, 62);
 $button-color: #7affca;
 $button-hover-color: #e75e8a;
+$tooltip-background: rgb(231, 94, 138, 0.4);
+
+$leaf-position: (
+  transform1: translate(10vw, 10vh),
+  transform2: translate(20vw, 50vh),
+  transform3: translate(5vw, 25vh),
+  transform4: translate(30vw, 11vh),
+  transform5: translate(39vw, 20vh),
+  transform6: translate(31vw, 30vh),
+  transform7: translate(18vw, 6vh),
+  transform8: translate(4vw, 5vh),
+  transform9: translate(32vw, 44vh),
+  transform10: translate(24vw, 3vh),
+  transform11: translate(27vw, 36vh),
+  transform12: translate(25vw, 22vh),
+  transform13: translate(13vw, 38vh),
+  transform14: translate(16vw, 29vh),
+  transform15: translate(22vw, 30vh),
+  transform16: translate(7vw, 21vh),
+  transform17: translate(1vw, 10vh),
+  transform18: translate(2vw, 7vh),
+  transform19: translate(3vw, 28vh),
+  transform20: translate(8vw, 11vh),
+  transform21: translate(5vw, 6vh),
+  transform22: translate(11vw, 7vh),
+  transform23: translate(8vw, 31vh),
+  transform24: translate(16vw, 33vh),
+  transform25: translate(9vw, 13vh),
+  transform26: translate(4vw, 28vh)
+);
 
 html {
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   color: $font-color-night;
   height: 100%;
 }
@@ -28,7 +62,7 @@ html {
 a {
   text-decoration: none;
   color: $font-color-night;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:visited {
     color: $font-color-night;
@@ -66,6 +100,11 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid $ui-border-color;
   flex-shrink: 0;
 
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
+
   &_wrapper {
     width: 96vw;
     margin: 0 auto;
@@ -98,6 +137,14 @@ body::-webkit-scrollbar-thumb {
 
   &_rsschool {
     user-select: none;
+
+    &.recolour {
+      color: $font-color-day;
+
+      &:hover {
+        color: rgb(193, 35, 161);
+      }
+    }
   }
 
   &_year {
@@ -106,6 +153,14 @@ body::-webkit-scrollbar-thumb {
 
   &_author {
     user-select: none;
+
+    &.recolour {
+      color: $font-color-day;
+
+      &:hover {
+        color: rgb(193, 35, 161);
+      }
+    }
   }
 
   &_theme {
@@ -179,6 +234,10 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     align-items: center;
   }
+
+  &_timer {
+    user-select: none;
+  }
 }
 
 @keyframes wind_chime_anim {
@@ -217,7 +276,8 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   color: $button-text-color;
   -webkit-text-stroke: 1px $button-text-color;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
 
   &:hover {
     cursor: pointer;
@@ -247,29 +307,261 @@ body::-webkit-scrollbar-thumb {
   grid-template-rows: 1fr 1fr 1fr;
   background-color: $ui-elements-color;
   border: 1px solid $ui-border-color;
-  padding-left: 1vw;
-  padding-top: 1vw;
+  z-index: 1;
+
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
+
+  &_example {
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+  }
+
+  &_description {
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+  }
+
+  &_level {
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+  }
+
+  &_current {
+    margin-left: 0.5vw;
+  }
+
+  &_next {
+    width: 1.2vw;
+    aspect-ratio: 1 / 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    background-image: url('./refs/icons/paw-prints_right_magical.svg');
+    display: inline-block;
+    z-index: 10;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      background-image: url('./refs/icons/paw-prints_right_hover.svg');
+    }
+  }
+
+  &_previous {
+    width: 1.2vw;
+    aspect-ratio: 1 / 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    background-image: url('./refs/icons/paw-prints_left_magical.svg');
+    display: inline-block;
+    margin-left: 0.5vw;
+    z-index: 10;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      background-image: url('./refs/icons/paw-prints_left_hover.svg');
+    }
+  }
+}
+
+.levels {
+  position: fixed;
+  width: 16%;
+  height: 100%;
+  background-color: $ui-elements-color;
+  border: 1px solid $ui-border-color;
+  transform: translateX(-105%);
+  transition: all 0.4s ease-in-out;
+
+  &.active {
+    transform: translateX(0%);
+  }
+
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
+
+  &_title {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    padding-left: 1vw;
+    user-select: none;
+  }
+
+  &_item {
+    margin-bottom: 5px;
+    transition: all 0.2s ease-in-out;
+    padding-left: 1vw;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+      color: $button-color;
+    }
+  }
+}
+
+.levels_burger {
+  position: fixed;
+  width: 16%;
+  // transform: translateX(80%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   padding-right: 1vw;
+  border-bottom: 1px solid $ui-border-color;
+  z-index: 5;
+
+  &_icon {
+    display: inline-block;
+    width: 16%;
+    max-width: 40px;
+    min-width: 20px;
+    aspect-ratio: 1 / 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+
+      > .levels_burger_line:nth-child(1) {
+        position: relative;
+        transform-origin: left 50%;
+        transform: rotate(45deg);
+        background-color: $button-hover-color;
+      }
+
+      > .levels_burger_line:nth-child(4) {
+        position: relative;
+        transform-origin: left -50%;
+        transform: rotate(45deg);
+        transform: rotate(-45deg);
+        background-color: $button-hover-color;
+      }
+
+      > .levels_burger_line:nth-child(2) {
+        width: 0%;
+      }
+
+      > .levels_burger_line:nth-child(3) {
+        width: 0%;
+      }
+    }
+  }
+
+  &_line {
+    display: inline-block;
+    width: 100%;
+    height: 8%;
+    background-color: $button-color;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.levels_burger_icon {
+  transition: all 0.2s ease-in-out;
+
+  &.active {
+    > .levels_burger_line:nth-child(1) {
+      position: relative;
+      transform-origin: left 50%;
+      transform: rotate(45deg);
+      background-color: $button-hover-color;
+    }
+
+    > .levels_burger_line:nth-child(4) {
+      position: relative;
+      transform-origin: left -50%;
+      transform: rotate(45deg);
+      transform: rotate(-45deg);
+      background-color: $button-hover-color;
+    }
+
+    > .levels_burger_line:nth-child(2) {
+      width: 0%;
+    }
+
+    > .levels_burger_line:nth-child(3) {
+      width: 0%;
+    }
+  }
 }
 
 .viewport {
   width: 54%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .tree {
   position: relative;
   width: 100%;
-  height: 70%;
+  aspect-ratio: 1 / 0.7;
+  max-height: 840px;
   background: linear-gradient(#1e145f, #fb5f96, #fbb75f);
   border: 1px solid $ui-border-color;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  &.recolour {
+    background: linear-gradient(#e2fff5, #fba95f, #fb5f96);
+  }
+
   &_pic {
     width: 100%;
-    height: 100%;
+    min-width: 100px;
+    max-width: 1100px;
+    aspect-ratio: 1 / 0.7;
     background-image: url('./refs/tree_night/tree_night.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    resize: both;
+
+    &.recolour {
+      width: 100%;
+      min-width: 100px;
+      max-width: 1100px;
+      aspect-ratio: 1 / 0.7;
+      background-image: url('./refs/tree_day/tree_day.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      resize: both;
+    }
+  }
+
+  &_leaves {
+    width: 100%;
+    height: 100%;
+    position: absolute;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -277,7 +569,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   &_leaf {
-    position: absolute;
+    position: relative;
     width: 1vw;
     aspect-ratio: 1 / 1;
     display: inline-block;
@@ -285,6 +577,114 @@ body::-webkit-scrollbar-thumb {
     background-size: contain;
     background-position: center center;
     resize: both;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transition: all 0.2s linear;
+
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.8s;
+    }
+
+    &:nth-child(6) {
+      animation-delay: 1s;
+    }
+
+    &:nth-child(7) {
+      animation-delay: 1.2s;
+    }
+
+    &:nth-child(8) {
+      animation-delay: 1.4s;
+    }
+
+    &:nth-child(9) {
+      animation-delay: 1.6s;
+    }
+
+    &:nth-child(10) {
+      animation-delay: 1.8s;
+    }
+
+    &:nth-child(11) {
+      animation-delay: 2s;
+    }
+
+    &:nth-child(12) {
+      animation-delay: 2.2s;
+    }
+
+    &:nth-child(13) {
+      animation-delay: 2.4s;
+    }
+
+    &:nth-child(14) {
+      animation-delay: 2.6s;
+    }
+
+    &:nth-child(15) {
+      animation-delay: 2.8s;
+    }
+
+    &:nth-child(16) {
+      animation-delay: 3s;
+    }
+
+    &:nth-child(17) {
+      animation-delay: 3.2s;
+    }
+
+    &:nth-child(18) {
+      animation-delay: 3.4s;
+    }
+
+    &:nth-child(19) {
+      animation-delay: 3.6s;
+    }
+
+    &:nth-child(20) {
+      animation-delay: 3.8s;
+    }
+
+    &:nth-child(21) {
+      animation-delay: 4s;
+    }
+
+    &:nth-child(22) {
+      animation-delay: 4.2s;
+    }
+
+    &:nth-child(23) {
+      animation-delay: 4.4s;
+    }
+
+    &:nth-child(24) {
+      animation-delay: 4.6s;
+    }
+
+    &:nth-child(25) {
+      animation-delay: 4.8s;
+    }
+
+    &:nth-child(26) {
+      animation-delay: 5s;
+    }
   }
 
   &_todo {
@@ -297,21 +697,233 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+@for $i from 1 through 26 {
+  .tree_leaf:nth-child(#{$i}) {
+    transform: map.get($leaf-position, 'transform#{$i}') translate(0vw, 0vh);
+    animation-name: leaf_anim#{$i};
+    @keyframes leaf_anim#{$i} {
+      0% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(0vw, 0vh);
+      }
+      5% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(2vw, 2vh);
+      }
+      10% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(4vw, 6vh);
+      }
+      15% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(5vw, 8vh);
+      }
+      20% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(6vw, 12vh);
+      }
+      25% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(7vw, 15vh);
+      }
+      30% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(8vw, 18vh);
+      }
+      35% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(6vw, 21vh);
+      }
+      40% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(4vw, 25vh);
+      }
+      45% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(2vw, 20vh);
+      }
+      50% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(1vw, 10vh);
+      }
+      55% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(0.5vw, 5vh);
+      }
+      60% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(3vw, 3vh);
+      }
+      65% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(5vw, 7vh);
+      }
+      70% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(7vw, 9vh);
+      }
+      75% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(8vw, 14vh);
+      }
+      80% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(5vw, 10vh);
+      }
+      85% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(4vw, 8vh);
+      }
+      90% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(3vw, 1vh);
+      }
+      95% {
+        transform: map.get($leaf-position, 'transform#{$i}')
+          translate(1vw, -4vh);
+      }
+      100% {
+        transform: map.get($leaf-position, 'transform#{$i}') translate(0vw, 0vh);
+      }
+    }
+  }
+}
+
+.branches {
+  width: 100%;
+  min-width: 100px;
+  max-width: 1100px;
+  height: 100%;
+  max-height: 850px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.branch {
+  position: absolute;
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  resize: both;
+
+  &:nth-child(1) {
+    width: 40.5%;
+    background-image: url('./refs/tree_night/branch_01_night.png');
+    transform: translate(-73.2%, 8.4%);
+
+    &.recolour {
+      background-image: url('./refs/tree_day/branch_01_day.png');
+    }
+  }
+
+  &:nth-child(2) {
+    width: 40.5%;
+    background-image: url('./refs/tree_night/branch_02_night.png');
+    transform: translate(-48%, -27%);
+
+    &.recolour {
+      background-image: url('./refs/tree_day/branch_02_day.png');
+    }
+  }
+
+  &:nth-child(3) {
+    width: 41.5%;
+    background-image: url('./refs/tree_night/branch_03_night.png');
+    transform: translate(15.7%, -30.5%);
+
+    &.recolour {
+      background-image: url('./refs/tree_day/branch_03_day.png');
+    }
+  }
+
+  &:nth-child(4) {
+    width: 52%;
+    background-image: url('./refs/tree_night/branch_04_night.png');
+    transform: translate(56%, 6%);
+
+    &.recolour {
+      background-image: url('./refs/tree_day/branch_04_day.png');
+    }
+  }
+}
+
+.qeteq {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  width: 5vw;
+  aspect-ratio: 1 / 1;
+  min-width: 30px;
+  max-width: 80px;
+  background-image: url('./refs/pics/cat-qeteq.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  resize: both;
+  animation-name: qeteq_cat_anim;
+  animation-duration: 28s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes qeteq_cat_anim {
+  0% {
+    background-image: url('./refs/pics/cat-qeteq.svg');
+  }
+  9% {
+    background-image: url('./refs/pics/cat-qeteq.svg');
+  }
+  10% {
+    background-image: url('./refs/pics/cat-qeteq_move.svg');
+  }
+  23% {
+    background-image: url('./refs/pics/cat-qeteq_move.svg');
+  }
+  24% {
+    background-image: url('./refs/pics/cat-qeteq.svg');
+  }
+  100% {
+    background-image: url('./refs/pics/cat-qeteq.svg');
+  }
+}
+
+.tooltip {
+  &_qeteq {
+    position: absolute;
+    padding: 4px 8px;
+    transform: translate(-8%, -24px);
+    border-radius: 5px;
+    border: 2px solid $ui-elements-color;
+    background-color: $tooltip-background;
+    transition: all 0.2s linear;
+    font-size: 1rem;
+  }
+}
+
 .game_progress {
   height: 8%;
   background-color: $ui-elements-color;
   border: 1px solid $ui-border-color;
+  flex-shrink: 0;
+
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
 }
 
 .hints {
   width: 100%;
-  height: 22%;
   background-color: $ui-elements-color;
   border: 1px solid $ui-border-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  flex: 1 0 auto;
+
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
 
   &_eye {
     width: 15%;
@@ -354,6 +966,32 @@ body::-webkit-scrollbar-thumb {
   padding-right: 1vw;
   display: flex;
   flex-direction: column;
+  user-select: none;
+
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
+
+  &_markup {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &_numbers {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_text {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .css_editor {
@@ -365,12 +1003,18 @@ body::-webkit-scrollbar-thumb {
   padding-right: 1vw;
   display: flex;
   flex-direction: column;
+  user-select: none;
+
+  &.recolour {
+    background-color: $ui-elements-color-day;
+    color: $font-color-day;
+  }
 
   &_input {
     width: 100%;
-    height: 2vw;
+    height: 3vh;
     min-height: 20px;
-    background-color: rgba(255, 255, 44, 0.2);
+    background-color: rgb(252, 136, 115, 0.2);
     outline: none;
     border: none;
     margin-top: 1vw;
@@ -392,35 +1036,62 @@ body::-webkit-scrollbar-thumb {
     &:focus::placeholder {
       color: transparent;
     }
+
+    &.recolour {
+      background-color: $ui-elements-color;
+      animation-name: input_anim_day;
+      color: $font-color-day;
+
+      &::placeholder {
+        font-size: 1rem;
+        color: $font-color-day;
+      }
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
   }
 }
 
 @keyframes input_anim {
   0% {
-    background-color: rgba(255, 255, 44, 0.1);
+    background-color: rgba(252, 136, 115, 0.1);
   }
   50% {
-    background-color: rgba(255, 255, 44, 0.3);
+    background-color: rgba(252, 136, 115, 0.3);
   }
   100% {
-    background-color: rgba(255, 255, 44, 0.1);
+    background-color: rgba(252, 136, 115, 0.1);
+  }
+}
+
+@keyframes input_anim_day {
+  0% {
+    background-color: rgba(191, 72, 169, 0.1);
+  }
+  50% {
+    background-color: rgba(191, 72, 169, 0.3);
+  }
+  100% {
+    background-color: rgba(191, 72, 169, 0.1);
   }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
   html {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199.98px) {
   html {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
 @media screen and (min-width: 379.98px) and (max-width: 767.98px) {
   html {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }

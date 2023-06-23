@@ -1,9 +1,52 @@
 import { BaseComponent } from '@/core/base-component';
 
+import {
+  branchFourObserverDay,
+  branchOneObserverDay,
+  branchThreeObserverDay,
+  branchTwoObserverDay
+} from '../branch';
+import {
+  branchFourObserverNight,
+  branchOneObserverNight,
+  branchThreeObserverNight,
+  branchTwoObserverNight
+} from '../branch/branch';
+import {
+  csseditorObserverDay,
+  csseditorObserverNight,
+  inputObserverDay,
+  inputObserverNight
+} from '../css_editor';
+import { progressObserverDay, progressObserverNight } from '../game_progress';
+import { hintsObserverDay, hintsObserverNight } from '../hints';
+import { htmlviewerObserverDay, htmlviewerObserverNight } from '../html_viewer';
+import {
+  instructionsObserverDay,
+  instructionsObserverNight
+} from '../instructions/instructions';
+import { leavesObserverDay, leavesObserverNight } from '../leaf';
+import { levelsObserverDay, levelsObserverNight } from '../levels_menu';
+import { Observer } from '../observer';
+import {
+  treeObserverDay,
+  treeObserverNight,
+  treePicObserverDay,
+  treePicObserverNight
+} from '../tree';
+
 import { Button } from '@/UI/button';
 
+export const dayObserver = new Observer();
+export const nightObserver = new Observer();
+
+export const rsschoolObserverDay = new Observer();
+export const rsschoolObserverNight = new Observer();
+
+export const lyutailsObserverDay = new Observer();
+export const lyutailsObserverNight = new Observer();
+
 export class Header extends BaseComponent<'header'> {
-  // eslint-disable-next-line max-lines-per-function
   constructor() {
     super({
       tagName: 'header',
@@ -94,6 +137,69 @@ export class Header extends BaseComponent<'header'> {
       children: [headerLogo, headerTheme, sound, controls, headerLinksWrapper]
     });
 
+    dayObserver.subscribe(() => this.node.classList.add('recolour'));
+    nightObserver.subscribe(() => this.node.classList.remove('recolour'));
+
+    rsschoolObserverDay.subscribe(() =>
+      RSSchool.node.classList.add('recolour')
+    );
+    rsschoolObserverNight.subscribe(() =>
+      RSSchool.node.classList.remove('recolour')
+    );
+
+    lyutailsObserverDay.subscribe(() => author.node.classList.add('recolour'));
+    lyutailsObserverNight.subscribe(() =>
+      author.node.classList.remove('recolour')
+    );
+
     this.node.append(headerWrapper.node);
+  }
+
+  public static addRemoveClassOnClick(
+    element_one: BaseComponent,
+    element_two: BaseComponent
+  ): void {
+    element_one.node.addEventListener('click', () => {
+      element_one.node.classList.add('active');
+      element_two.node.classList.remove('active');
+      dayObserver.notify('lalala');
+      instructionsObserverDay.notify('lalala');
+      progressObserverDay.notify('lalala');
+      levelsObserverDay.notify('lalala');
+      hintsObserverDay.notify('lalala');
+      htmlviewerObserverDay.notify('lalala');
+      csseditorObserverDay.notify('lalala');
+      inputObserverDay.notify('lalala');
+      rsschoolObserverDay.notify('lalala');
+      lyutailsObserverDay.notify('lalala');
+      treeObserverDay.notify('lalala');
+      treePicObserverDay.notify('lalala');
+      branchOneObserverDay.notify('lalala');
+      branchTwoObserverDay.notify('lalala');
+      branchThreeObserverDay.notify('lalala');
+      branchFourObserverDay.notify('lalala');
+      leavesObserverDay.notify('lalala');
+    });
+    element_two.node.addEventListener('click', () => {
+      element_two.node.classList.add('active');
+      element_one.node.classList.remove('active');
+      nightObserver.notify('lalala');
+      instructionsObserverNight.notify('lalala');
+      progressObserverNight.notify('lalala');
+      levelsObserverNight.notify('lalala');
+      hintsObserverNight.notify('lalala');
+      htmlviewerObserverNight.notify('lalala');
+      csseditorObserverNight.notify('lalala');
+      inputObserverNight.notify('lalala');
+      rsschoolObserverNight.notify('lalala');
+      lyutailsObserverNight.notify('lalala');
+      treeObserverNight.notify('lalala');
+      treePicObserverNight.notify('lalala');
+      branchOneObserverNight.notify('lalala');
+      branchTwoObserverNight.notify('lalala');
+      branchThreeObserverNight.notify('lalala');
+      branchFourObserverNight.notify('lalala');
+      leavesObserverNight.notify('lalala');
+    });
   }
 }
