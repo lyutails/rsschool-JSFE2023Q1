@@ -54,7 +54,7 @@ $leaf-position: (
 html {
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   color: $font-color-night;
   height: 100%;
 }
@@ -1075,6 +1075,78 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     background-color: rgba(191, 72, 169, 0.1);
+  }
+}
+
+apple {
+  position: relative;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/apple.png');
+  z-index: 20;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.apple {
+  position: relative;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/apple.png');
+  z-index: 20;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.markup {
+  &_tree_opening {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &_tree_closing {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &_branch {
+    transition: all 0.2s ease-in-out;
+    padding-left: 1vw;
+
+    &:hover {
+      cursor: pointer;
+      color: aqua;
+    }
+  }
+
+  &_apple {
+    transition: all 0.2s ease-in-out;
+    padding-left: 2vw;
+
+    &:hover {
+      cursor: pointer;
+      color: plum;
+    }
   }
 }
 

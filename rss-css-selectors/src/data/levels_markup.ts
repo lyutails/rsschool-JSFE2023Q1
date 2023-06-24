@@ -1,6 +1,13 @@
 export const levelsMarkup = [
   {
-    level: 1,
-    tag: 'apple'
+    currentLevel: 1,
+    config: [[{ tagName: 'apple', classList: [], children: [] }]]
+  },
+  {
+    currentLevel: 2,
+    config: [
+      [{ tagName: 'banana', classList: [], children: [] }],
+      [{ tagName: 'banana', classList: [], children: [] }]
+    ]
   }
 ];

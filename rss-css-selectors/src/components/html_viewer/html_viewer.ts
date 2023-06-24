@@ -2,11 +2,23 @@ import { BaseComponent } from '@/core/base-component';
 
 import { Observer } from '../observer';
 
-import { levels } from '@/data/levels';
-import { LevelsDescription } from '@/types';
-
 export const htmlviewerObserverDay = new Observer();
 export const htmlviewerObserverNight = new Observer();
+
+export const treeObserverHighlight = new Observer();
+export const treeObserverUnhighlight = new Observer();
+
+export const branchOneObserverHighlight = new Observer();
+export const branchOneObserverUnhighlight = new Observer();
+
+export const branchTwoObserverHighlight = new Observer();
+export const branchTwoObserverUnhighlight = new Observer();
+
+export const branchThreeObserverHighlight = new Observer();
+export const branchThreeObserverUnhighlight = new Observer();
+
+export const branchFourObserverHighlight = new Observer();
+export const branchFourObserverUnhighlight = new Observer();
 
 export class HTMLViewer extends BaseComponent<'div'> {
   constructor() {
@@ -21,7 +33,28 @@ export class HTMLViewer extends BaseComponent<'div'> {
       this.node.classList.remove('recolour')
     );
 
-    const markupNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+    const markupNumbers = [
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10',
+      '11',
+      '12',
+      '13',
+      '14',
+      '15',
+      '16',
+      '17',
+      '18',
+      '19',
+      '20'
+    ];
 
     const htmlNumbers = new BaseComponent({
       tagName: 'div',
@@ -37,12 +70,170 @@ export class HTMLViewer extends BaseComponent<'div'> {
       htmlNumbers.append(markupNumber);
     }
 
-    const levelMarkup = levels[0].boardMarkup;
+    const appleTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_apple'],
+      textContent: '<apple>'
+    });
+
+    const branchOneOpeningViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '<branch>'
+    });
+
+    const branchOneClosingViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '</branch>'
+    });
+
+    const branchTwoOpeningViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '<branch>'
+    });
+
+    const branchTwoClosingViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '</branch>'
+    });
+
+    const branchThreeOpeningViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '<branch>'
+    });
+
+    const branchThreeClosingViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '</branch>'
+    });
+
+    const branchFourOpeningViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '<branch>'
+    });
+
+    const branchFourClosingViewerTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_branch'],
+      textContent: '</branch>'
+    });
+
+    const treeViewerOpeningTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_tree_opening'],
+      textContent: '<tree>'
+    });
+
+    const treeViewerClosingTag = new BaseComponent({
+      tagName: 'div',
+      classList: ['markup_tree_closing'],
+      textContent: '</tree>'
+    });
 
     const htmlText = new BaseComponent({
       tagName: 'div',
-      classList: ['html_viewer_text'],
-      textContent: levelMarkup
+      classList: ['html_viewer_text']
+    });
+
+    htmlText.append(
+      treeViewerOpeningTag,
+      branchOneOpeningViewerTag,
+      appleTag,
+      branchOneClosingViewerTag,
+      branchTwoOpeningViewerTag,
+      branchTwoClosingViewerTag,
+      branchThreeOpeningViewerTag,
+      branchThreeClosingViewerTag,
+      branchFourOpeningViewerTag,
+      branchFourClosingViewerTag,
+      treeViewerClosingTag
+    );
+
+    treeViewerOpeningTag.node.addEventListener('mouseover', () => {
+      treeObserverHighlight.notify('lalala');
+      treeViewerClosingTag.node.style.color = 'red';
+      treeViewerOpeningTag.node.style.color = 'red';
+    });
+    treeViewerOpeningTag.node.addEventListener('mouseout', () => {
+      treeObserverUnhighlight.notify('lalala');
+      treeViewerClosingTag.node.style.color = 'unset';
+      treeViewerOpeningTag.node.style.color = 'unset';
+    });
+    treeViewerClosingTag.node.addEventListener('mouseover', () => {
+      treeObserverHighlight.notify('lalala');
+      treeViewerOpeningTag.node.style.color = 'red';
+      treeViewerClosingTag.node.style.color = 'red';
+    });
+    treeViewerClosingTag.node.addEventListener('mouseout', () => {
+      treeObserverUnhighlight.notify('lalala');
+      treeViewerOpeningTag.node.style.color = 'unset';
+      treeViewerClosingTag.node.style.color = 'unset';
+    });
+
+    const branchesOpeningTags = [
+      branchOneOpeningViewerTag,
+      branchTwoOpeningViewerTag,
+      branchThreeOpeningViewerTag,
+      branchFourOpeningViewerTag
+    ];
+
+    const branchesClosingTags = [
+      branchOneClosingViewerTag,
+      branchTwoClosingViewerTag,
+      branchThreeClosingViewerTag,
+      branchFourClosingViewerTag
+    ];
+
+    const observersBranchHightlight = [
+      branchOneObserverHighlight,
+      branchTwoObserverHighlight,
+      branchThreeObserverHighlight,
+      branchFourObserverHighlight
+    ];
+
+    const observersBranchUnhighlight = [
+      branchOneObserverUnhighlight,
+      branchTwoObserverUnhighlight,
+      branchThreeObserverUnhighlight,
+      branchFourObserverUnhighlight
+    ];
+
+    branchesOpeningTags.forEach((branch, index) => {
+      branch.node.addEventListener('mouseover', () => {
+        observersBranchHightlight[index].notify('lalala');
+        branchesOpeningTags[index].node.style.color = 'aqua';
+        branchesClosingTags[index].node.style.color = 'aqua';
+      });
+    });
+
+    branchesOpeningTags.forEach((branch, index) => {
+      branch.node.addEventListener('mouseout', () => {
+        observersBranchUnhighlight[index].notify('lalala');
+        branchesOpeningTags[index].node.style.color = 'unset';
+        branchesClosingTags[index].node.style.color = 'unset';
+      });
+    });
+
+    branchesClosingTags.forEach((branch, index) => {
+      branch.node.addEventListener('mouseover', () => {
+        observersBranchHightlight[index].notify('lalala');
+        branchesOpeningTags[index].node.style.color = 'aqua';
+        branchesClosingTags[index].node.style.color = 'aqua';
+      });
+    });
+
+    branchesClosingTags.forEach((branch, index) => {
+      branch.node.addEventListener('mouseout', () => {
+        observersBranchUnhighlight[index].notify('lalala');
+        branchesOpeningTags[index].node.style.color = 'unset';
+        branchesClosingTags[index].node.style.color = 'unset';
+      });
     });
 
     const htmlMarkup = new BaseComponent({

@@ -137,8 +137,8 @@ export const levels = [
   {
     helpTitle: 'Combine the Descendant & ID Selectors',
     selectorName: 'Descendant & ID Selectors',
-    doThis: 'Select the ladybug on the pear',
-    selector: '#pear ladybug',
+    doThis: 'Select the ladybug on the leaf',
+    selector: '#leaf ladybug',
     syntax: '#id&nbsp;&nbsp;A',
     help: 'You can combine any selector with the descendent selector.',
     examples: [
@@ -147,9 +147,9 @@ export const levels = [
     boardMarkup: `
     <branch></branch>
     <branch>
-      <pear id="pear">
+      <leaf id="leaf">
         <ladybug>
-      </pear>
+      </leaf>
     </branch>
     <branch></branch>
     <branch></branch>

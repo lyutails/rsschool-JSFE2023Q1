@@ -1,6 +1,7 @@
 import { BaseComponent } from '@/core/base-component';
 
 import { Branch } from '../branch';
+import { treeObserverHighlight, treeObserverUnhighlight } from '../html_viewer';
 import { Leaf } from '../leaf';
 import { Observer } from '../observer';
 import { QeteqTag } from '../qeteq_custom_tag';
@@ -42,6 +43,14 @@ export class Tree extends BaseComponent<'div'> {
       tagName: 'div',
       classList: ['tree_pic'],
       children: [branches]
+    });
+
+    treeObserverHighlight.subscribe(() => {
+      treePic.node.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    treeObserverUnhighlight.subscribe(() => {
+      treePic.node.style.filter = 'none';
     });
 
     const toDo = new BaseComponent({
