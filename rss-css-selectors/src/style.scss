@@ -799,10 +799,12 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat;
   background-size: contain;
   resize: both;
+  z-index: 30;
 
   &:nth-child(1) {
     width: 40.5%;
     background-image: url('./refs/tree_night/branch_01_night.png');
+    z-index: 30;
     transform: translate(-73.2%, 8.4%);
 
     &.recolour {
@@ -813,6 +815,7 @@ body::-webkit-scrollbar-thumb {
   &:nth-child(2) {
     width: 40.5%;
     background-image: url('./refs/tree_night/branch_02_night.png');
+    z-index: 30;
     transform: translate(-48%, -27%);
 
     &.recolour {
@@ -823,6 +826,7 @@ body::-webkit-scrollbar-thumb {
   &:nth-child(3) {
     width: 41.5%;
     background-image: url('./refs/tree_night/branch_03_night.png');
+    z-index: 30;
     transform: translate(15.7%, -30.5%);
 
     &.recolour {
@@ -833,6 +837,7 @@ body::-webkit-scrollbar-thumb {
   &:nth-child(4) {
     width: 52%;
     background-image: url('./refs/tree_night/branch_04_night.png');
+    z-index: 30;
     transform: translate(56%, 6%);
 
     &.recolour {
@@ -882,19 +887,6 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     background-image: url('./refs/pics/cat-qeteq.svg');
-  }
-}
-
-.tooltip {
-  &_qeteq {
-    position: absolute;
-    padding: 4px 8px;
-    transform: translate(-8%, -24px);
-    border-radius: 5px;
-    border: 2px solid $ui-elements-color;
-    background-color: $tooltip-background;
-    transition: all 0.2s linear;
-    font-size: 1rem;
   }
 }
 
@@ -1054,6 +1046,30 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.tooltip {
+  &_qeteq {
+    position: absolute;
+    padding: 4px 8px;
+    transform: translate(-8%, -24px);
+    border-radius: 5px;
+    border: 2px solid $ui-elements-color;
+    background-color: $tooltip-background;
+    transition: all 0.2s linear;
+    font-size: 1rem;
+  }
+
+  &_apple {
+    position: absolute;
+    padding: 4px 8px;
+    transform: translate(-8%, -24px);
+    border-radius: 5px;
+    border: 2px solid $ui-elements-color;
+    background-color: $tooltip-background;
+    transition: all 0.2s linear;
+    font-size: 1rem;
+  }
+}
+
 @keyframes input_anim {
   0% {
     background-color: rgba(252, 136, 115, 0.1);
@@ -1079,7 +1095,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 apple {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 4vw;
   aspect-ratio: 1 / 1;
@@ -1088,7 +1104,11 @@ apple {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/apple.png');
-  z-index: 20;
+  z-index: 100 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 
   &:hover {
     cursor: pointer;
@@ -1096,7 +1116,7 @@ apple {
 }
 
 .apple {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 4vw;
   aspect-ratio: 1 / 1;
@@ -1105,7 +1125,7 @@ apple {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/apple.png');
-  z-index: 20;
+  z-index: 100 !important;
 
   &:hover {
     cursor: pointer;
@@ -1147,6 +1167,24 @@ apple {
       cursor: pointer;
       color: plum;
     }
+  }
+}
+
+@keyframes pick_me_anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 

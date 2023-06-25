@@ -2,6 +2,12 @@ import { BaseComponent } from '@/core/base-component';
 
 import { Observer } from '../observer';
 
+import { levelsMarkup } from '@/data/levels_markup';
+import { markupNumbers } from '@/data/markup_numbers';
+
+export const appleTooltipAppendObserverTagHover = new Observer();
+export const appleTooltipRemoveObserverTagHover = new Observer();
+
 export const htmlviewerObserverDay = new Observer();
 export const htmlviewerObserverNight = new Observer();
 
@@ -20,6 +26,12 @@ export const branchThreeObserverUnhighlight = new Observer();
 export const branchFourObserverHighlight = new Observer();
 export const branchFourObserverUnhighlight = new Observer();
 
+export const appleObserverHighlightTagHover = new Observer();
+export const appleObserverUnhighlightTagHover = new Observer();
+
+export const appleObserverHighlihgtActualElementHover = new Observer();
+export const appleObserverUnhighlihgtActualElementHover = new Observer();
+
 export class HTMLViewer extends BaseComponent<'div'> {
   constructor() {
     super({
@@ -32,29 +44,6 @@ export class HTMLViewer extends BaseComponent<'div'> {
     htmlviewerObserverNight.subscribe(() =>
       this.node.classList.remove('recolour')
     );
-
-    const markupNumbers = [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '10',
-      '11',
-      '12',
-      '13',
-      '14',
-      '15',
-      '16',
-      '17',
-      '18',
-      '19',
-      '20'
-    ];
 
     const htmlNumbers = new BaseComponent({
       tagName: 'div',
@@ -73,7 +62,17 @@ export class HTMLViewer extends BaseComponent<'div'> {
     const appleTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_apple'],
-      textContent: '<apple>'
+      textContent: `<${levelsMarkup[0].config[0][0].tagName}>`
+    });
+
+    appleTag.node.addEventListener('mouseover', () => {
+      appleObserverHighlightTagHover.notify('lalala');
+      appleTooltipAppendObserverTagHover.notify('lalala');
+    });
+
+    appleTag.node.addEventListener('mouseout', () => {
+      appleObserverUnhighlightTagHover.notify('lalala');
+      appleTooltipRemoveObserverTagHover.notify('lalala');
     });
 
     const branchOneOpeningViewerTag = new BaseComponent({

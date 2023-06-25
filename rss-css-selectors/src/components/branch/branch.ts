@@ -1,6 +1,12 @@
 import { BaseComponent } from '@/core/base-component';
 
 import {
+  appleObserverHighlightTagHover,
+  appleObserverHighlihgtActualElementHover,
+  appleObserverUnhighlightTagHover,
+  appleObserverUnhighlihgtActualElementHover,
+  appleTooltipAppendObserverTagHover,
+  appleTooltipRemoveObserverTagHover,
   branchFourObserverHighlight,
   branchFourObserverUnhighlight,
   branchOneObserverHighlight,
@@ -30,9 +36,53 @@ export class Branch extends BaseComponent<'div'> {
       classList: ['branches']
     });
 
+    const tooltipApple = new BaseComponent({
+      tagName: 'div',
+      classList: ['tooltip_apple'],
+      textContent: '<apple>'
+    });
+
     const apple = levelsMarkup[0].config[0][0].tagName;
     const appleElement = document.createElement(apple);
-    appleElement.style.transform = 'translate(5vw, 6vh)';
+    appleElement.classList.add('apple');
+
+    Branch.setRandomPosition(appleElement, 20, 1);
+
+    Branch.setTransformOrigin(appleElement);
+
+    Branch.appendRemoveTooltip(appleElement, tooltipApple);
+
+    appleObserverHighlightTagHover.subscribe(() => {
+      appleElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    appleObserverUnhighlightTagHover.subscribe(() => {
+      appleElement.style.filter = 'none';
+    });
+
+    appleTooltipAppendObserverTagHover.subscribe(() => {
+      appleElement.append(tooltipApple.node);
+    });
+
+    appleTooltipRemoveObserverTagHover.subscribe(() => {
+      tooltipApple.node.remove();
+    });
+
+    appleObserverHighlihgtActualElementHover.subscribe(() => {
+      appleElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    appleElement.addEventListener('mouseover', () => {
+      appleObserverHighlihgtActualElementHover.notify('lalala');
+    });
+
+    appleObserverUnhighlihgtActualElementHover.subscribe(() => {
+      appleElement.style.filter = 'none';
+    });
+
+    appleElement.addEventListener('mouseout', () => {
+      appleObserverUnhighlihgtActualElementHover.notify('lalala');
+    });
 
     const branchOne = document.createElement('branch');
     branchOne.classList.add('branch');

@@ -19,19 +19,15 @@ export class Tree extends BaseComponent<'div'> {
     });
 
     const tooltipQeteq = new BaseComponent({
-      tagName: 'span',
+      tagName: 'div',
       classList: ['tooltip_qeteq'],
       textContent: '<qeteq>'
     });
 
     const qeteq = document.createElement('qeteq');
     qeteq.classList.add('qeteq');
-    qeteq.addEventListener('mouseover', () => {
-      qeteq.append(tooltipQeteq.node);
-    });
-    qeteq.addEventListener('mouseout', () => {
-      tooltipQeteq.node.remove();
-    });
+
+    Tree.appendRemoveTooltip(qeteq, tooltipQeteq);
 
     const qeteq1 = new QeteqTag();
 

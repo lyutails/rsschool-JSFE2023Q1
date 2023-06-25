@@ -539,5 +539,97 @@ export const levels = [
       <butterfly class="blue">
     </branch>
       `
+  },
+  {
+    helpTitle:
+      'Select all elements with an attribute value that contains specific characters anywhere',
+    selectorName: 'Attribute Wildcard Selector',
+    doThis: "Select the meals for names that contain 'obb'",
+    selector: '[for*="me"]',
+    syntax: '[attribute*="value"]',
+    help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
+    examples: [
+      '<strong>img[src*="/thumbnails/"]</strong> selects all image elements that show images from the "thumbnails" folder.',
+      '<strong>[class*="heading"]</strong> selects all elements with "heading" in their class, like <strong>class="main-heading"</strong> and <strong>class="sub-heading"</strong>'
+    ],
+    boardMarkup: `
+    <branch>
+      <cherry for="game">
+      <pear for="me">
+      <bee>
+    </branch>
+    <branch>
+      <mango for="game">
+      <mango">
+    </branch>
+    <branch>
+      <banana for="me">
+      <pear for="game">
+      <apple for="food">
+    </branch>
+    <branch>
+      <cherry for="game">
+      <strawberry for="me">
+      <ladybug>
+      <butterfly class="blue">
+    </branch>
+      `
+  },
+  {
+    selectorName: 'Only of Type Selector',
+    helpTitle:
+      'Select elements that are the only ones of their type within their parent element',
+    selector: 'dumpling:only-of-type',
+    syntax: ':only-of-type',
+    doThis: 'Select the dumpling only',
+    help: 'Selects the only element of its type within another element.',
+    examples: [
+      '<strong>p span:only-of-type</strong> selects a <tag>span</tag> within any <tag>p</tag> if it is the only <tag>span</tag> in there.'
+    ],
+    boardMarkup: `
+    <branch>
+      <cherry>
+      <cherry>
+      <cherry>
+    </branch>
+    <branch>
+      <mango>
+      <mango>
+    </branch>
+    <branch>
+      <strawberry>
+      <strawberry>
+    </branch>
+    <branch>
+      <dumpling>
+    </branch>
+      `
+  },
+  {
+    selectorName: 'Attribute Wildcard Selector',
+    helpTitle:
+      'Select all elements with an attribute value that contains specific characters anywhere',
+    syntax: '[attribute*="value"]',
+    doThis: "Select the dumpling for the name containing 'qe'",
+    selector: '[for*="qe"]',
+    help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
+    examples: [
+      '<strong>img[src*="/thumbnails/"]</strong> selects all image elements that show images from the "thumbnails" folder.',
+      '<strong>[class*="heading"]</strong> selects all elements with "heading" in their class, like <strong>class="main-heading"</strong> and <strong>class="sub-heading"</strong>'
+    ],
+    boardMarkup: `
+    <branch>
+      <apple for='you'>
+    </branch>
+    <branch>
+      <banana for='me'>
+    </branch>
+    <branch>
+      <dumpling for='supply'>
+    </branch>
+    <branch>
+      <dumpling for='qeteq'>
+    </branch>
+      `
   }
 ];

@@ -64,4 +64,36 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       }
     });
   };
+
+  public static appendRemoveTooltip = (
+    element: HTMLElement,
+    tooltip: BaseComponent
+  ): void => {
+    const thisElement = element;
+    thisElement.addEventListener('mouseover', () => {
+      thisElement.append(tooltip.node);
+    });
+    thisElement.addEventListener('mouseout', () => {
+      tooltip.node.remove();
+    });
+  };
+
+  public static setRandomPosition(
+    element: HTMLElement,
+    max: number,
+    min: number
+  ): void {
+    const thisElement = element;
+    thisElement.style.marginTop = `${Math.floor(
+      Math.random() * ((max - min) * 0.8)
+    )}vw`;
+    thisElement.style.marginLeft = `${Math.floor(
+      Math.random() * ((max - min) * 0.8)
+    )}vh`;
+  }
+
+  public static setTransformOrigin = (element: HTMLElement): void => {
+    const thisElement = element;
+    thisElement.style.transformOrigin = 'center top';
+  };
 }
