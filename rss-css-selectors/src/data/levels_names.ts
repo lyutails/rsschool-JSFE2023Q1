@@ -18,9 +18,5 @@ export const levelsNamesArray = [
   'Level Seventeen',
   'Level Eighteen',
   'Level Nineteen',
-  'Level Twenty',
-  'Level Twenty One',
-  'Level Twenty Two',
-  'Level Twenty Three',
-  'Level Twenty Four'
+  'Level Twenty'
 ];

@@ -66,32 +66,10 @@ export const levels = [
       `
   },
   {
-    helpTitle: 'Select an element inside another element',
-    selectorName: 'Descendant Selector',
-    doThis: 'Select the butterfly on the leaf',
-    selector: 'leaf butterfly',
-    syntax: 'A&nbsp;&nbsp;B',
-    help: 'Selects all <strong>B</strong> inside of <strong>A</strong>. <strong>B</strong> is called a descendant because it is inside of another element.',
-    examples: [
-      '<strong>p&nbsp;&nbsp;strong</strong> selects all <tag>strong</tag> elements that are inside of any <tag>p</tag>',
-      '<strong>#fancy&nbsp;&nbsp;span</strong> selects any <tag>span</tag> elements that are inside of the element with <strong>id="fancy"</strong>'
-    ],
-    boardMarkup: `
-    <branch></branch>
-    <branch></branch>
-    <branch></branch>
-    <branch>
-      <leaf>
-        <butterfly>
-      </leaf>
-    </branch>
-      `
-  },
-  {
     helpTitle: 'Select the elements inside another elements',
     selectorName: 'Descendant Selector',
     doThis: 'Select the butterfly on the leaf and the bee in the beehive',
-    selector: 'leaf butterfly, beehive bee',
+    selector: 'beehive bee, leaf butterfly',
     syntax: 'A&nbsp;&nbsp;B',
     help: 'Selects all <strong>B</strong> inside of <strong>A</strong>. <strong>B</strong> is called a descendant because it is inside of another element.',
     examples: [
@@ -116,8 +94,8 @@ export const levels = [
   {
     helpTitle: 'Select direct children of an element',
     selectorName: 'Child Selector',
-    doThis: 'Select the sparrow directly in the birdhouse',
-    selector: 'birdhouse > sparrow',
+    doThis: 'Select the sparrow directly in the birdhouse by class',
+    selector: '.birdhouse > .sparrow',
     syntax: 'A > B&nbsp;',
     help: 'You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element. <br><br>Elements that are nested deeper than that are called descendant elements.',
     examples: [
@@ -126,19 +104,19 @@ export const levels = [
     boardMarkup: `
     <branch></branch>
     <branch>
-      <birdhouse>
-        <sparrow>
-      </birdhouse>
+      <birdhouse class='birdhouse'>
+        <sparrow class='sparrow'>
+      </birdhouse class='birdhouse'>
     </branch>
     <branch></branch>
     <branch></branch>
       `
   },
   {
-    helpTitle: 'Combine the Descendant & ID Selectors',
-    selectorName: 'Descendant & ID Selectors',
+    helpTitle: 'Combine the Class & ID Selectors',
+    selectorName: 'Class & ID Selectors',
     doThis: 'Select the ladybug on the leaf',
-    selector: '#leaf ladybug',
+    selector: '#leaf .ladybug',
     syntax: '#id&nbsp;&nbsp;A',
     help: 'You can combine any selector with the descendent selector.',
     examples: [
@@ -148,7 +126,7 @@ export const levels = [
     <branch></branch>
     <branch>
       <leaf id="leaf">
-        <ladybug>
+        <ladybug class='ladybug'>
       </leaf>
     </branch>
     <branch></branch>
@@ -158,7 +136,7 @@ export const levels = [
   {
     helpTitle: 'Select elements by their class',
     selectorName: 'Class Selector',
-    doThis: 'Select the cherry',
+    doThis: 'Select the cherries',
     selector: '.cherry',
     syntax: '.classname',
     help: 'The class selector selects all elements with that class attribute. Elements can only have one ID, but many classes.',
@@ -166,39 +144,53 @@ export const levels = [
       '<strong>.neato</strong> selects all elements with <strong>class="neato"</strong>'
     ],
     boardMarkup: `
-    <branch></branch>
-    <branch></branch>
     <branch>
-      <cherry>
+      <cherry class='cherry'>
     </branch>
-    <branch></branch>
+    <branch>
+      <cherry class='cherry'>
+    </branch>
+    <branch>
+      <cherry class='cherry'>
+    </branch>
+    <branch>
+      <cherry class='cherry'>
+    </branch>
       `
   },
   {
     helpTitle: 'Combine the Class Selector',
     selectorName: 'Tag Class Selector',
-    doThis: 'Select the banana',
-    selector: 'banana.big',
+    doThis: 'Select the green bananas',
+    selector: 'banana .green',
     syntax: 'A.className',
-    help: 'You can combine the class selector with other selectors, like the type selector.',
+    help: 'You can combine the class selector with other selectors, like the tag selector.',
     examples: [
       '<strong>ul.important</strong> selects all <tag>ul</tag> elements that have <strong>class="important"</strong>',
       '<strong>#big.wide</strong> selects all elements with <strong>id="big"</strong> that also have <strong>class="wide"</strong>'
     ],
     boardMarkup: `
-    <branch></branch>
-    <branch></branch>
-    <branch></branch>
     <branch>
-      <banana class="big">
+      <banana class="yellow">
+      <banana class="green">
+    </branch>
+    <branch>
+      <banana class="yellow">
+    </branch>
+    <branch>
+      <banana class="yellow">
+    </branch>
+    <branch>
+      <banana class="green">
     </branch>
     `
   },
   {
     helpTitle: 'Combine, selectors, with... commas!',
     selectorName: 'Comma Combinator',
-    doThis: 'Select all the bees, ladybugs and blue butterflies',
-    selector: 'bee,ladybug,butterfly',
+    doThis:
+      'Select all the bees, ladybugs and blue butterflies by their classes',
+    selector: '.bee, .ladybug, .butterfly_blue',
     syntax: 'A, B',
     help: 'Thanks to Shatner technology, this selects all <strong>A</strong> and <strong>B</strong> elements. You can combine any selectors this way, and you can specify more than two.',
     examples: [
@@ -207,19 +199,20 @@ export const levels = [
     ],
     boardMarkup: `
     <branch>
-      <butterfly id="blue">
+      <butterfly class="butterfly_blue">
+      <butterfly class="butterfly_purple">
     </branch>
     <branch>
-      <bee>
-      <bee>
+      <bee class="bee">
+      <bee class="bee">
     </branch>
     <branch>
-      <butterfly id="purple">
-      <butterfly id="blue">
-      <ladybug>
+      <butterfly class="butterfly_purple">
+      <butterfly class="butterfly_blue">
+      <ladybug class="ladybug">
     </branch>
     <branch>
-      <bee/>
+      <bee class="bee">
     </branch>
       `
   },
@@ -239,7 +232,8 @@ export const levels = [
       <cherry>
     </branch>
     <branch>
-      <butterfly id="purple">
+      <mango>
+      <dumpling>
     </branch>
     <branch>
       <pear>
@@ -287,20 +281,34 @@ export const levels = [
       '<strong>div + a</strong> selects every <tag>a</tag> element that directly follows a <tag>div</tag>'
     ],
     boardMarkup: `
-    <branch></branch>
+    <branch>
+      <cherry>
+      <apple>
+      <mango>
+    </branch>
     <branch>
       <mango>
       <apple>
+      <mango>
     </branch>
-    <branch></branch>
-    <branch></branch>
+    <branch>
+      <apple>
+      <apple>
+      <mango>
+      <pear>
+    </branch>
+    <branch>
+      <apple>
+      <mango>
+      <mango>
+    </branch>
       `
   },
   {
     helpTitle: 'Select elements that follows another element',
     selectorName: 'General Sibling Selector',
-    doThis: 'Select the pear beside the strawberry',
-    selector: 'strawberry ~ pear',
+    doThis: 'Select the pears next to the strawberry by class',
+    selector: '.strawberry ~ .pear',
     syntax: 'A ~ B',
     help: 'You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.',
     examples: [
@@ -310,10 +318,11 @@ export const levels = [
     <branch></branch>
     <branch></branch>
     <branch>
-      <strawberry>
-      <pear>
-      <pear>
-      <pear>
+      <pear class='pear'>
+      <strawberry class='strawberry'>
+      <pear class='pear'>
+      <pear class='pear'>
+      <pear class='pear'>
     </branch>
     <branch></branch>
       `
@@ -321,8 +330,8 @@ export const levels = [
   {
     helpTitle: 'Select a first child element inside of another element',
     selectorName: 'First Child Pseudo-selector',
-    doThis: 'Select the top mango',
-    selector: 'plate :first-child',
+    doThis: 'Select the top mango and banana',
+    selector: 'mango:first-child, banana:first-child',
     syntax: ':first-child',
     help: 'You can select the first child element. A child element is any element that is directly nested in another element. You can combine this pseudo-selector with other selectors.',
     examples: [
@@ -336,7 +345,10 @@ export const levels = [
       <mango>
       <mango>
     </branch>
-    <branch></branch>
+    <branch>
+      <banana>
+      <banana>
+    </branch>
     <branch></branch>
     <branch></branch>
       `
@@ -344,8 +356,8 @@ export const levels = [
   {
     helpTitle: 'Select the last element inside of another element',
     selectorName: 'Last Child Pseudo-selector',
-    doThis: 'Select the blue butterfly',
-    selector: '.blue:last-child',
+    doThis: 'Select the blue butterfly by class',
+    selector: '.butterfly_blue:last-child',
     syntax: ':last-child',
     help: 'You can use this selector to select an element that is the last child element inside of another element. <br><br>Pro Tip &rarr; In cases where there is only one element, that element counts as the first-child, only-child and last-child!',
     examples: [
@@ -354,73 +366,52 @@ export const levels = [
       '<strong>ul li:last-child</strong> selects the last <tag>li</tag> elements inside of any <tag>ul</tag>.'
     ],
     boardMarkup: `
-    <branch></branch>
+    <branch>
+      <butterfly class="butterfly_blue">
+      <butterfly class="butterfly_blue">
+      <butterfly class="butterfly_blue">
+    </branch>
     <branch></branch>
     <branch></branch>
     <branch>
-      <butterfly class="purple">
-      <butterfly class="blue">
-      <butterfly class="purple">
+      <butterfly class="butterfly_purple">
+      <butterfly class="butterfly_blue">
+      <butterfly class="butterfly_purple">
     </branch>
     `
   },
   {
-    helpTitle: 'Select the first element of a specific type',
-    selectorName: 'First of Type Selector',
-    doThis: 'Select first strawberry',
-    selector: 'strawberry:first-of-type',
-    syntax: ':first-of-type',
-    help: 'Selects the first element of that type within another element.',
+    helpTitle: 'Select all elements except last',
+    selectorName: 'Not last child selector',
+    doThis: 'Select not last dumplings by their class',
+    selector: '.dumpling:not(:last-child)',
+    syntax: ':not(:last-child)',
+    help: "Selects elements that don't have any other elements inside of them.",
     examples: [
-      '<strong>span:first-of-type</strong> selects the first <tag>span</tag> in any element.'
-    ],
-    boardMarkup: `
-    <branch></branch>
-    <branch>
-      <strawberry>
-      <strawberry>
-      <strawberry>
-    </branch>
-    <branch></branch>
-    <branch></branch>
-      `
-  },
-  {
-    helpTitle: 'Make some selectors math',
-    selectorName: 'Nth-of-type Selector with Formula',
-    doThis:
-      'Select every 2nd ladybug, starting from the 2nd and every 1st bee starting from the 3rd',
-    selector: 'ladybug:nth-of-type(2n+2), bee:nth-of-type(1n+3)',
-    syntax: ':nth-of-type(An+B)',
-    help: 'The nth-of-type formula selects every nth element, starting the count at a specific instance of that element.',
-    examples: [
-      '<strong>span:nth-of-type(6n+2)</strong> selects every 6th instance of a <tag>span</tag>, starting from (and including) the second instance.'
+      '<strong>div:empty</strong> selects all empty <tag>div</tag> elements.'
     ],
     boardMarkup: `
     <branch>
-      <ladybug>
-      <ladybug>
-      <ladybug>
-      <ladybug>
-      <ladybug>
-      <ladybug>
+      <dumpling class="dumpling">
+      <dumpling class="dumpling">
+      <dumpling class="dumpling">
     </branch>
     <branch></branch>
     <branch>
-      <bee>
-      <bee>
-      <bee>
-      <bee>
-      <bee>
+      <dumpling class="dumpling">
+      <dumpling class="dumpling">
+      <dumpling class="dumpling">
+      <dumpling class="dumpling">
+      <dumpling class="dumpling">
     </branch>
     <branch></branch>
-      `
+  `
   },
   {
-    helpTitle: "Select elements that don't have children",
     selectorName: 'Empty Selector',
-    doThis: 'Select the empty leaves',
-    selector: 'leaf:empty',
+    helpTitle: "Select elements that don't have children",
+    doThis: 'Select by class the empty beehives and birdhouses',
+    selector: '.birdhouse:empty, .beehive:empty',
     syntax: ':empty',
     help: "Selects elements that don't have any other elements inside of them.",
     examples: [
@@ -428,55 +419,50 @@ export const levels = [
     ],
     boardMarkup: `
     <branch>
-      <leaf></leaf>
-      <leaf>
-        <butterfly class="purple">
-      </leaf>
-    </branch>
-    <branch></branch>
-    <branch>
-      <leaf></leaf>
-    </branch>
-    <branch></branch>
-  `
-  },
-  {
-    helpTitle: "Select all elements that don't match the negation selector",
-    selectorName: 'Negation Pseudo-class',
-    doThis: 'Select the blue butterflies',
-    selector: 'butterfly:not(.purple)',
-    syntax: ':not(X)',
-    help: 'You can use this to select all elements that do not match selector <strong>"X"</strong>.',
-    examples: [
-      '<strong>:not(#fancy)</strong> selects all elements that do not have <strong>id="fancy"</strong>.',
-      '<strong>div:not(:first-child)</strong> selects every <tag>div</tag> that is not a first child.',
-      '<strong>:not(.big, .medium)</strong> selects all elements that do not have <strong>class="big"</strong> or <strong>class="medium"</strong>.'
-    ],
-    boardMarkup: `
-    <branch>
-      <butterfly class="purple">
-      <butterfly class="blue">
-      <butterfly class="purple">
+      <birdhouse class="birdhouse">
+        <sparrow>
+      </birdhouse>
+      <beehive class="beehive">
+      </beehive>
+      <beehive class="beehive">
+        <bee>
+      </beehive>
     </branch>
     <branch>
-      <butterfly class="blue">
-      <butterfly class="blue">
+      <birdhouse class="birdhouse">
+        <sparrow>
+      </birdhouse>
+      <birdhouse class="birdhouse">
+        <sparrow>
+      </birdhouse>
+      <beehive class="beehive">
+        <bee>
+      </beehive>
     </branch>
     <branch>
-      <butterfly class="blue">
-      <butterfly class="purple">
-      <butterfly class="blue">
+      <birdhouse class="birdhouse">
+        <sparrow>
+      </birdhouse>
+      <beehive class="beehive">
+        <bee>
+      </beehive>
+    </birdhouse>
     </branch>
     <branch>
-      <butterfly class="blue">
-      <butterfly class="purple">
+      <beehive class="beehive">
+      </beehive>
+      <beehive class="beehive">
+        <bee>
+      </beehive>
+      <birdhouse class="birdhouse">
+      </birdhouse>
     </branch>
       `
   },
   {
     helpTitle: 'Select all elements that have a specific attribute',
     selectorName: 'Attribute Selector',
-    doThis: 'Select the items for fun',
+    doThis: 'Select the items for fun by class',
     selector: '[for="fun"]',
     syntax: '[attribute]',
     help: 'Attributes appear inside the opening tag of an element, like this: <tag>span attribute="value"</tag>. An attribute does not always have a value, it can be blank!',
@@ -490,9 +476,7 @@ export const levels = [
       <pear for="fun">
     </branch>
     <branch>
-      <birdhouse>
-        <sparrow for="fun">
-      <birdhouse>
+      <strawberry for="fun">
     </branch>
     <branch>
       <mango for="fun">
@@ -507,10 +491,10 @@ export const levels = [
   },
   {
     helpTitle:
-      'Select all elements with an attribute value that contains specific characters anywhere',
-    selectorName: 'Attribute Wildcard Selector',
-    doThis: "Select the meals for names that contain 'obb'",
-    selector: '[for*="me"]',
+      'Select all elements with an attribute value that starts with specific characters',
+    selectorName: 'Attribute Starts With Selector',
+    doThis: "Select the meals for name that starts with 'qe'",
+    selector: '[for^="qe"]',
     syntax: '[attribute*="value"]',
     help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
     examples: [
@@ -519,89 +503,22 @@ export const levels = [
     ],
     boardMarkup: `
     <branch>
+      <mango for="qeteq">
       <cherry for="game">
-      <pear for="me">
-      <bee>
+      <pear for="qeteq">
     </branch>
     <branch>
       <mango for="game">
-      <mango">
+      <mango for="tomorrow">
     </branch>
     <branch>
       <banana for="me">
-      <pear for="game">
+      <dumpling for="game">
       <apple for="food">
     </branch>
     <branch>
-      <cherry for="game">
+      <dumpling for="qeteq">
       <strawberry for="me">
-      <ladybug>
-      <butterfly class="blue">
-    </branch>
-      `
-  },
-  {
-    helpTitle:
-      'Select all elements with an attribute value that contains specific characters anywhere',
-    selectorName: 'Attribute Wildcard Selector',
-    doThis: "Select the meals for names that contain 'obb'",
-    selector: '[for*="me"]',
-    syntax: '[attribute*="value"]',
-    help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
-    examples: [
-      '<strong>img[src*="/thumbnails/"]</strong> selects all image elements that show images from the "thumbnails" folder.',
-      '<strong>[class*="heading"]</strong> selects all elements with "heading" in their class, like <strong>class="main-heading"</strong> and <strong>class="sub-heading"</strong>'
-    ],
-    boardMarkup: `
-    <branch>
-      <cherry for="game">
-      <pear for="me">
-      <bee>
-    </branch>
-    <branch>
-      <mango for="game">
-      <mango">
-    </branch>
-    <branch>
-      <banana for="me">
-      <pear for="game">
-      <apple for="food">
-    </branch>
-    <branch>
-      <cherry for="game">
-      <strawberry for="me">
-      <ladybug>
-      <butterfly class="blue">
-    </branch>
-      `
-  },
-  {
-    selectorName: 'Only of Type Selector',
-    helpTitle:
-      'Select elements that are the only ones of their type within their parent element',
-    selector: 'dumpling:only-of-type',
-    syntax: ':only-of-type',
-    doThis: 'Select the dumpling only',
-    help: 'Selects the only element of its type within another element.',
-    examples: [
-      '<strong>p span:only-of-type</strong> selects a <tag>span</tag> within any <tag>p</tag> if it is the only <tag>span</tag> in there.'
-    ],
-    boardMarkup: `
-    <branch>
-      <cherry>
-      <cherry>
-      <cherry>
-    </branch>
-    <branch>
-      <mango>
-      <mango>
-    </branch>
-    <branch>
-      <strawberry>
-      <strawberry>
-    </branch>
-    <branch>
-      <dumpling>
     </branch>
       `
   },
@@ -610,8 +527,8 @@ export const levels = [
     helpTitle:
       'Select all elements with an attribute value that contains specific characters anywhere',
     syntax: '[attribute*="value"]',
-    doThis: "Select the dumpling for the name containing 'qe'",
-    selector: '[for*="qe"]',
+    doThis: "Select the dumpling for someone with the name containing 'teq'",
+    selector: '[for*="teq"]',
     help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
     examples: [
       '<strong>img[src*="/thumbnails/"]</strong> selects all image elements that show images from the "thumbnails" folder.',
@@ -622,7 +539,7 @@ export const levels = [
       <apple for='you'>
     </branch>
     <branch>
-      <banana for='me'>
+      <mango for='me'>
     </branch>
     <branch>
       <dumpling for='supply'>
@@ -632,4 +549,4 @@ export const levels = [
     </branch>
       `
   }
-];
+] as const;

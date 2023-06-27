@@ -1104,7 +1104,7 @@ apple {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/apple.png');
-  z-index: 100 !important;
+  z-index: 1000 !important;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1125,7 +1125,284 @@ apple {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/apple.png');
-  z-index: 100 !important;
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+banana {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/banana.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.banana_green {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/banana_green.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+mango {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/mango.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+strawberry {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/strawberry.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+cherry {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/cherry.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+pear {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/pear.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+butterfly {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/butterfly_blue.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+leaf {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/leaf.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+beehive {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/beehive.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+bee {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/bee.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+birdhouse {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/birdhouse.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+sparrow {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/sparrow.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+ladybug {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/ladybug.png');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 
   &:hover {
     cursor: pointer;

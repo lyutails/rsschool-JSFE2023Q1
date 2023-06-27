@@ -26,11 +26,11 @@ export const branchThreeObserverUnhighlight = new Observer();
 export const branchFourObserverHighlight = new Observer();
 export const branchFourObserverUnhighlight = new Observer();
 
-export const appleObserverHighlightTagHover = new Observer();
-export const appleObserverUnhighlightTagHover = new Observer();
+export const gameElementHighlightTagHover = new Observer();
+export const gameElementUnhighlightTagHover = new Observer();
 
-export const appleObserverHighlihgtActualElementHover = new Observer();
-export const appleObserverUnhighlihgtActualElementHover = new Observer();
+export const gameElementHighlihgtActualElementHover = new Observer();
+export const gameElementUnhighlihgtActualElementHover = new Observer();
 
 export class HTMLViewer extends BaseComponent<'div'> {
   constructor() {
@@ -62,16 +62,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
     const appleTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_apple'],
-      textContent: `<${levelsMarkup[0].config[0][0].tagName}>`
+      textContent: `<${levelsMarkup[0][0][0].tagName}>`
     });
 
     appleTag.node.addEventListener('mouseover', () => {
-      appleObserverHighlightTagHover.notify('lalala');
+      gameElementHighlightTagHover.notify('lalala');
       appleTooltipAppendObserverTagHover.notify('lalala');
     });
 
     appleTag.node.addEventListener('mouseout', () => {
-      appleObserverUnhighlightTagHover.notify('lalala');
+      gameElementUnhighlightTagHover.notify('lalala');
       appleTooltipRemoveObserverTagHover.notify('lalala');
     });
 

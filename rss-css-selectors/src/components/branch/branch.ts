@@ -1,10 +1,7 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { currentLevelObserver } from '../css_editor/css_editor';
 import {
-  appleObserverHighlightTagHover,
-  appleObserverHighlihgtActualElementHover,
-  appleObserverUnhighlightTagHover,
-  appleObserverUnhighlihgtActualElementHover,
   appleTooltipAppendObserverTagHover,
   appleTooltipRemoveObserverTagHover,
   branchFourObserverHighlight,
@@ -14,7 +11,11 @@ import {
   branchThreeObserverHighlight,
   branchThreeObserverUnhighlight,
   branchTwoObserverHighlight,
-  branchTwoObserverUnhighlight
+  branchTwoObserverUnhighlight,
+  gameElementHighlightTagHover,
+  gameElementHighlihgtActualElementHover,
+  gameElementUnhighlightTagHover,
+  gameElementUnhighlihgtActualElementHover
 } from '../html_viewer';
 import { Observer } from '../observer';
 
@@ -30,127 +31,268 @@ export const branchFourObserverDay = new Observer();
 export const branchFourObserverNight = new Observer();
 
 export class Branch extends BaseComponent<'div'> {
+  public currentLevel = 0;
+  public branchOne: HTMLElement;
+  public branchTwo: HTMLElement;
+  public branchThree: HTMLElement;
+  public branchFour: HTMLElement;
   constructor() {
     super({
       tagName: 'div',
       classList: ['branches']
     });
 
-    const tooltipApple = new BaseComponent({
-      tagName: 'div',
-      classList: ['tooltip_apple'],
-      textContent: '<apple>'
-    });
-
-    const apple = levelsMarkup[0].config[0][0].tagName;
-    const appleElement = document.createElement(apple);
-    appleElement.classList.add('apple');
-
-    Branch.setRandomPosition(appleElement, 20, 1);
-
-    Branch.setTransformOrigin(appleElement);
-
-    Branch.appendRemoveTooltip(appleElement, tooltipApple);
-
-    appleObserverHighlightTagHover.subscribe(() => {
-      appleElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
-    });
-
-    appleObserverUnhighlightTagHover.subscribe(() => {
-      appleElement.style.filter = 'none';
-    });
-
-    appleTooltipAppendObserverTagHover.subscribe(() => {
-      appleElement.append(tooltipApple.node);
-    });
-
-    appleTooltipRemoveObserverTagHover.subscribe(() => {
-      tooltipApple.node.remove();
-    });
-
-    appleObserverHighlihgtActualElementHover.subscribe(() => {
-      appleElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
-    });
-
-    appleElement.addEventListener('mouseover', () => {
-      appleObserverHighlihgtActualElementHover.notify('lalala');
-    });
-
-    appleObserverUnhighlihgtActualElementHover.subscribe(() => {
-      appleElement.style.filter = 'none';
-    });
-
-    appleElement.addEventListener('mouseout', () => {
-      appleObserverUnhighlihgtActualElementHover.notify('lalala');
-    });
-
-    const branchOne = document.createElement('branch');
-    branchOne.classList.add('branch');
-    branchOne.append(appleElement);
+    this.branchOne = document.createElement('branch');
+    this.branchOne.classList.add('branch');
 
     branchOneObserverHighlight.subscribe(() => {
-      branchOne.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+      this.branchOne.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
     });
 
     branchOneObserverUnhighlight.subscribe(() => {
-      branchOne.style.filter = 'none';
+      this.branchOne.style.filter = 'none';
     });
 
-    const branchTwo = document.createElement('branch');
-    branchTwo.classList.add('branch');
+    this.branchTwo = document.createElement('branch');
+    this.branchTwo.classList.add('branch');
 
     branchTwoObserverHighlight.subscribe(() => {
-      branchTwo.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+      this.branchTwo.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
     });
 
     branchTwoObserverUnhighlight.subscribe(() => {
-      branchTwo.style.filter = 'none';
+      this.branchTwo.style.filter = 'none';
     });
 
-    const branchThree = document.createElement('branch');
-    branchThree.classList.add('branch');
+    this.branchThree = document.createElement('branch');
+    this.branchThree.classList.add('branch');
 
     branchThreeObserverHighlight.subscribe(() => {
-      branchThree.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+      this.branchThree.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
     });
 
     branchThreeObserverUnhighlight.subscribe(() => {
-      branchThree.style.filter = 'none';
+      this.branchThree.style.filter = 'none';
     });
 
-    const branchFour = document.createElement('branch');
-    branchFour.classList.add('branch');
+    this.branchFour = document.createElement('branch');
+    this.branchFour.classList.add('branch');
 
     branchFourObserverHighlight.subscribe(() => {
-      branchFour.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+      this.branchFour.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
     });
 
     branchFourObserverUnhighlight.subscribe(() => {
-      branchFour.style.filter = 'none';
+      this.branchFour.style.filter = 'none';
     });
 
-    branchOneObserverDay.subscribe(() => branchOne.classList.add('recolour'));
+    branchOneObserverDay.subscribe(() =>
+      this.branchOne.classList.add('recolour')
+    );
     branchOneObserverNight.subscribe(() =>
-      branchOne.classList.remove('recolour')
+      this.branchOne.classList.remove('recolour')
     );
 
-    branchTwoObserverDay.subscribe(() => branchTwo.classList.add('recolour'));
+    branchTwoObserverDay.subscribe(() =>
+      this.branchTwo.classList.add('recolour')
+    );
     branchTwoObserverNight.subscribe(() =>
-      branchTwo.classList.remove('recolour')
+      this.branchTwo.classList.remove('recolour')
     );
 
     branchThreeObserverDay.subscribe(() =>
-      branchThree.classList.add('recolour')
+      this.branchThree.classList.add('recolour')
     );
     branchThreeObserverNight.subscribe(() =>
-      branchThree.classList.remove('recolour')
+      this.branchThree.classList.remove('recolour')
     );
 
-    branchFourObserverDay.subscribe(() => branchFour.classList.add('recolour'));
+    branchFourObserverDay.subscribe(() =>
+      this.branchFour.classList.add('recolour')
+    );
     branchFourObserverNight.subscribe(() =>
-      branchFour.classList.remove('recolour')
+      this.branchFour.classList.remove('recolour')
     );
 
-    this.node.append(branchOne, branchTwo, branchThree, branchFour);
+    currentLevelObserver.subscribe(() => this.updateLevel());
+
+    this.render();
+  }
+
+  public updateLevel(): void {
+    this.currentLevel++;
+    this.render();
+  }
+
+  public render(): void {
+    this.branchOne.textContent = '';
+    this.branchTwo.textContent = '';
+    this.branchThree.textContent = '';
+    this.branchFour.textContent = '';
+
+    for (let i = 0; i < levelsMarkup[this.currentLevel].length; i++) {
+      for (
+        let index = 0;
+        index < levelsMarkup[this.currentLevel][i].length;
+        index++
+      ) {
+        if (levelsMarkup[this.currentLevel][i][index].tagName === '') {
+          // eslint-disable-next-line no-continue
+          continue;
+        }
+
+        const gameLevelElementTagName =
+          levelsMarkup[this.currentLevel][i][index].tagName;
+        const gameElement = document.createElement(gameLevelElementTagName);
+
+        const gameLevelElementClassName =
+          levelsMarkup[this.currentLevel][i][index].classList;
+        if (levelsMarkup[this.currentLevel][i][index].classList !== '') {
+          gameElement.classList.add(gameLevelElementClassName);
+        }
+
+        const gameLevelElementID = levelsMarkup[this.currentLevel][i][index].id;
+        if (levelsMarkup[this.currentLevel][i][index].id !== '') {
+          gameElement.setAttribute('id', gameLevelElementID);
+        }
+
+        const gameLevelElementAttribute =
+          levelsMarkup[this.currentLevel][i][index].attribute;
+        if (levelsMarkup[this.currentLevel][i][index].attribute !== '') {
+          gameElement.setAttribute('for', gameLevelElementAttribute);
+        }
+
+        const gameElementTooltip = new BaseComponent({
+          tagName: 'div',
+          classList: ['tooltip_apple'],
+          textContent: `<${gameLevelElementTagName}>`
+        });
+
+        Branch.setRandomPosition(gameElement, 20, 1);
+
+        Branch.setTransformOrigin(gameElement);
+
+        Branch.appendRemoveTooltip(gameElement, gameElementTooltip);
+
+        gameElementHighlightTagHover.subscribe(() => {
+          gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+        });
+
+        gameElementUnhighlightTagHover.subscribe(() => {
+          gameElement.style.filter = 'none';
+        });
+
+        appleTooltipAppendObserverTagHover.subscribe(() => {
+          gameElement.append(gameElementTooltip.node);
+        });
+
+        appleTooltipRemoveObserverTagHover.subscribe(() => {
+          gameElementTooltip.node.remove();
+        });
+
+        gameElementHighlihgtActualElementHover.subscribe(() => {
+          gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+        });
+
+        gameElement.addEventListener('mouseover', () => {
+          gameElementHighlihgtActualElementHover.notify('lalala');
+        });
+
+        gameElementUnhighlihgtActualElementHover.subscribe(() => {
+          gameElement.style.filter = 'none';
+        });
+
+        gameElement.addEventListener('mouseout', () => {
+          gameElementUnhighlihgtActualElementHover.notify('lalala');
+        });
+
+        this.node.append(
+          this.branchOne,
+          this.branchTwo,
+          this.branchThree,
+          this.branchFour
+        );
+
+        if (
+          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          i === 0
+        ) {
+          this.branchOne.append(gameElement);
+          gameElement.style.display = 'flex';
+          gameElement.style.justifyContent = 'center';
+          gameElement.style.alignItems = 'center';
+          if (
+            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+          ) {
+            const childTag =
+              levelsMarkup[this.currentLevel][i][index].children.tagName;
+            const gameElementChild = document.createElement(childTag);
+            gameElement.append(gameElementChild);
+            gameElementChild.style.width = '2vw';
+            gameElementChild.style.aspectRatio = '1 / 1';
+          }
+        }
+
+        if (
+          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          i === 1
+        ) {
+          this.branchTwo.append(gameElement);
+          gameElement.style.display = 'flex';
+          gameElement.style.justifyContent = 'center';
+          gameElement.style.alignItems = 'center';
+          if (
+            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+          ) {
+            const childTag =
+              levelsMarkup[this.currentLevel][i][index].children.tagName;
+            const gameElementChild = document.createElement(childTag);
+            gameElement.append(gameElementChild);
+            gameElementChild.style.width = '2vw';
+            gameElementChild.style.aspectRatio = '1 / 1';
+          }
+        }
+
+        if (
+          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          i === 2
+        ) {
+          this.branchThree.append(gameElement);
+          gameElement.style.display = 'flex';
+          gameElement.style.justifyContent = 'center';
+          gameElement.style.alignItems = 'center';
+          if (
+            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+          ) {
+            const childTag =
+              levelsMarkup[this.currentLevel][i][index].children.tagName;
+            const gameElementChild = document.createElement(childTag);
+            gameElement.append(gameElementChild);
+            gameElementChild.style.width = '2vw';
+            gameElementChild.style.aspectRatio = '1 / 1';
+          }
+        }
+
+        if (
+          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          i === 3
+        ) {
+          this.branchFour.append(gameElement);
+          gameElement.style.display = 'flex';
+          gameElement.style.justifyContent = 'center';
+          gameElement.style.alignItems = 'center';
+          if (
+            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+          ) {
+            const childTag =
+              levelsMarkup[this.currentLevel][i][index].children.tagName;
+            const gameElementChild = document.createElement(childTag);
+            gameElement.append(gameElementChild);
+            gameElementChild.style.width = '2vw';
+            gameElementChild.style.aspectRatio = '1 / 1';
+          }
+        }
+      }
+    }
   }
 }
