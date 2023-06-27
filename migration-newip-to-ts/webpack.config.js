@@ -6,49 +6,49 @@ const EslintPlugin = require('eslint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index'),
-    mode: 'development',
-    module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
-            { test: /\.ts$/i, use: 'ts-loader', exclude: /node_modules/ }
-        ],
-    },
-    resolve: {
-        extensions: ['.ts', '.js'],
-    },
-    output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, './dist'),
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
-            filename: 'index.html',
-            favicon: path.resolve(__dirname, './src/refs/favicon.png'),
-        }),
-        new CleanWebpackPlugin(),
-        new EslintPlugin({ extensions: 'ts' }),
-        new CopyWebpackPlugin({
-            patterns: [
-              {
-                from: path.resolve(__dirname, 'src/assets'),
-                to: path.resolve(__dirname, 'dist/assets')
-              }
-            ]
-        })
+  entry: path.resolve(__dirname, './src/index'),
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      { test: /\.ts$/i, use: 'ts-loader', exclude: /node_modules/ },
     ],
-    devServer: {
-        port: 9000
-    }
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, './dist'),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/index.html'),
+      filename: 'index.html',
+      favicon: path.resolve(__dirname, './src/refs/favicon.png'),
+    }),
+    new CleanWebpackPlugin(),
+    new EslintPlugin({ extensions: 'ts' }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/assets'),
+          to: path.resolve(__dirname, 'dist/assets'),
+        },
+      ],
+    }),
+  ],
+  devServer: {
+    port: 9000,
+  },
 };
 
 module.exports = ({ mode }) => {
-    const isProductionMode = mode === 'prod';
-    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+  const isProductionMode = mode === 'prod';
+  const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
 
-    return merge(baseConfig, envConfig);
+  return merge(baseConfig, envConfig);
 };
