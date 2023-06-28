@@ -5,7 +5,6 @@ import { Header } from './components/header';
 import { Hints } from './components/hints';
 import { HTMLViewer } from './components/html_viewer';
 import { Instructions } from './components/instructions/instructions';
-import { Observer } from './components/observer';
 import { ViewerEditor } from './components/viewer_editor/viewer_editor';
 import { Viewport } from './components/viewport';
 import { BaseComponent } from './core/base-component';

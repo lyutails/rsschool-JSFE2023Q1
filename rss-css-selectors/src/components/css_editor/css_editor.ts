@@ -4,14 +4,20 @@ import { Observer } from '../observer';
 
 import { Button } from '@/UI/button';
 import { levels } from '@/data/levels';
+import { store } from '@/store';
 
 export const csseditorObserverDay = new Observer();
 export const csseditorObserverNight = new Observer();
 export const inputObserverDay = new Observer();
 export const inputObserverNight = new Observer();
-export const currentLevelObserver = new Observer();
 
 export class CSSEditor extends BaseComponent<'div'> {
+  public selectorsInput: BaseComponent<'input'>;
+  public enterButton: Button;
+  // public currentLevel = store.currentLevel;
+  public store = store;
+  public incrementLevelEvent = new CustomEvent('increment_level');
+  public shakeInput = new Observer();
   constructor() {
     super({
       tagName: 'div',
@@ -19,21 +25,26 @@ export class CSSEditor extends BaseComponent<'div'> {
       textContent: 'CSS Editor'
     });
 
+    window.addEventListener('keydown', (event: KeyboardEvent) =>
+      this.registerEnterPress(event)
+    );
+
     const helpButton = new Button();
     helpButton.addTextContent('Help');
     helpButton.addMoreClasses('help');
 
-    const enterButton = new Button();
-    enterButton.addTextContent('Enter');
-    enterButton.addMoreClasses('enter');
+    this.enterButton = new Button();
+    this.enterButton.addTextContent('Enter');
+    this.enterButton.addMoreClasses('enter');
+    this.enterButton.node.addEventListener('click', () => this.onButtonClick());
 
-    const selectorsInput = new BaseComponent({
+    this.selectorsInput = new BaseComponent({
       tagName: 'input',
       classList: ['css_editor_input'],
       textContent: ''
     });
 
-    selectorsInput.addPlaceholder('Type in a CSS selector');
+    this.selectorsInput.addPlaceholder('Type in a CSS selector');
 
     csseditorObserverDay.subscribe(() => this.node.classList.add('recolour'));
     csseditorObserverNight.subscribe(() =>
@@ -41,31 +52,60 @@ export class CSSEditor extends BaseComponent<'div'> {
     );
 
     inputObserverDay.subscribe(() =>
-      selectorsInput.node.classList.add('recolour')
+      this.selectorsInput.node.classList.add('recolour')
     );
     inputObserverNight.subscribe(() =>
-      selectorsInput.node.classList.remove('recolour')
+      this.selectorsInput.node.classList.remove('recolour')
     );
 
-    for (let i = 0; i < levels.length; i++) {
-      selectorsInput.node.addEventListener('input', () => {
-        if (selectorsInput.node.value === `${levels[i].selector}`) {
-          enterButton.node.addEventListener('click', () => {
-            currentLevelObserver.notify('lalala');
-            selectorsInput.node.value = '';
-          });
-        }
-      });
-    }
-
-    this.node.append(selectorsInput.node, enterButton.node, helpButton.node);
+    this.node.append(
+      this.selectorsInput.node,
+      this.enterButton.node,
+      helpButton.node
+    );
   }
-  // public static registerEnterPress(e: KeyboardEvent): void {
-  //   window.addEventListener('keydown', () => {
-  //     if (e.key === 'Enter') {
-  //       e.preventDefault();
-  //       thisLevelObserver.notify('lalala');
-  //     }
-  //   });
-  // }
+
+  public onButtonClick(): void {
+    const { value } = this.selectorsInput.node;
+    const { currentLevel } = this.store;
+    if (value === `${levels[currentLevel].selector}`) {
+      this.clearInput();
+      this.incrementLevel();
+    }
+    if (value !== `${levels[currentLevel].selector}`) {
+      this.catchIncorrectSelector();
+    }
+  }
+
+  public registerEnterPress(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const { value } = this.selectorsInput.node;
+      const { currentLevel } = this.store;
+      if (value === `${levels[currentLevel].selector}`) {
+        this.clearInput();
+        this.incrementLevel();
+      }
+      if (value !== `${levels[currentLevel].selector}`) {
+        console.log(value);
+        this.catchIncorrectSelector();
+      }
+    }
+  }
+
+  public incrementLevel(): void {
+    const { currentLevel } = this.store;
+    this.store.currentLevel = currentLevel + 1;
+  }
+
+  public clearInput(): void {
+    this.selectorsInput.node.value = '';
+  }
+
+  public catchIncorrectSelector(): void {
+    this.selectorsInput.node.classList.add('shake');
+    setTimeout(() => {
+      this.selectorsInput.node.classList.remove('shake');
+    }, 500);
+  }
 }

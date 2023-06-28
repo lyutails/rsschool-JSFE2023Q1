@@ -1,6 +1,5 @@
 import { BaseComponent } from '@/core/base-component';
 
-import { currentLevelObserver } from '../css_editor/css_editor';
 import {
   appleTooltipAppendObserverTagHover,
   appleTooltipRemoveObserverTagHover,
@@ -20,6 +19,7 @@ import {
 import { Observer } from '../observer';
 
 import { levelsMarkup } from '@/data/levels_markup';
+import { currentLevelObserver, store } from '@/store';
 
 export const branchOneObserverDay = new Observer();
 export const branchOneObserverNight = new Observer();
@@ -31,11 +31,11 @@ export const branchFourObserverDay = new Observer();
 export const branchFourObserverNight = new Observer();
 
 export class Branch extends BaseComponent<'div'> {
-  public currentLevel = 0;
   public branchOne: HTMLElement;
   public branchTwo: HTMLElement;
   public branchThree: HTMLElement;
   public branchFour: HTMLElement;
+  public store = store;
   constructor() {
     super({
       tagName: 'div',
@@ -114,13 +114,8 @@ export class Branch extends BaseComponent<'div'> {
       this.branchFour.classList.remove('recolour')
     );
 
-    currentLevelObserver.subscribe(() => this.updateLevel());
+    currentLevelObserver.subscribe(() => this.render());
 
-    this.render();
-  }
-
-  public updateLevel(): void {
-    this.currentLevel++;
     this.render();
   }
 
@@ -130,35 +125,36 @@ export class Branch extends BaseComponent<'div'> {
     this.branchThree.textContent = '';
     this.branchFour.textContent = '';
 
-    for (let i = 0; i < levelsMarkup[this.currentLevel].length; i++) {
+    for (let i = 0; i < levelsMarkup[this.store.currentLevel].length; i++) {
       for (
         let index = 0;
-        index < levelsMarkup[this.currentLevel][i].length;
+        index < levelsMarkup[this.store.currentLevel][i].length;
         index++
       ) {
-        if (levelsMarkup[this.currentLevel][i][index].tagName === '') {
+        if (levelsMarkup[this.store.currentLevel][i][index].tagName === '') {
           // eslint-disable-next-line no-continue
           continue;
         }
 
         const gameLevelElementTagName =
-          levelsMarkup[this.currentLevel][i][index].tagName;
+          levelsMarkup[this.store.currentLevel][i][index].tagName;
         const gameElement = document.createElement(gameLevelElementTagName);
 
         const gameLevelElementClassName =
-          levelsMarkup[this.currentLevel][i][index].classList;
-        if (levelsMarkup[this.currentLevel][i][index].classList !== '') {
+          levelsMarkup[this.store.currentLevel][i][index].classList;
+        if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
           gameElement.classList.add(gameLevelElementClassName);
         }
 
-        const gameLevelElementID = levelsMarkup[this.currentLevel][i][index].id;
-        if (levelsMarkup[this.currentLevel][i][index].id !== '') {
+        const gameLevelElementID =
+          levelsMarkup[this.store.currentLevel][i][index].id;
+        if (levelsMarkup[this.store.currentLevel][i][index].id !== '') {
           gameElement.setAttribute('id', gameLevelElementID);
         }
 
         const gameLevelElementAttribute =
-          levelsMarkup[this.currentLevel][i][index].attribute;
-        if (levelsMarkup[this.currentLevel][i][index].attribute !== '') {
+          levelsMarkup[this.store.currentLevel][i][index].attribute;
+        if (levelsMarkup[this.store.currentLevel][i][index].attribute !== '') {
           gameElement.setAttribute('for', gameLevelElementAttribute);
         }
 
@@ -214,7 +210,7 @@ export class Branch extends BaseComponent<'div'> {
         );
 
         if (
-          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
           i === 0
         ) {
           this.branchOne.append(gameElement);
@@ -222,10 +218,11 @@ export class Branch extends BaseComponent<'div'> {
           gameElement.style.justifyContent = 'center';
           gameElement.style.alignItems = 'center';
           if (
-            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
+            ''
           ) {
             const childTag =
-              levelsMarkup[this.currentLevel][i][index].children.tagName;
+              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
             const gameElementChild = document.createElement(childTag);
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
@@ -234,7 +231,7 @@ export class Branch extends BaseComponent<'div'> {
         }
 
         if (
-          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
           i === 1
         ) {
           this.branchTwo.append(gameElement);
@@ -242,10 +239,11 @@ export class Branch extends BaseComponent<'div'> {
           gameElement.style.justifyContent = 'center';
           gameElement.style.alignItems = 'center';
           if (
-            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
+            ''
           ) {
             const childTag =
-              levelsMarkup[this.currentLevel][i][index].children.tagName;
+              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
             const gameElementChild = document.createElement(childTag);
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
@@ -254,7 +252,7 @@ export class Branch extends BaseComponent<'div'> {
         }
 
         if (
-          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
           i === 2
         ) {
           this.branchThree.append(gameElement);
@@ -262,10 +260,11 @@ export class Branch extends BaseComponent<'div'> {
           gameElement.style.justifyContent = 'center';
           gameElement.style.alignItems = 'center';
           if (
-            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
+            ''
           ) {
             const childTag =
-              levelsMarkup[this.currentLevel][i][index].children.tagName;
+              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
             const gameElementChild = document.createElement(childTag);
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
@@ -274,7 +273,7 @@ export class Branch extends BaseComponent<'div'> {
         }
 
         if (
-          levelsMarkup[this.currentLevel][i][index].tagName !== '' &&
+          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
           i === 3
         ) {
           this.branchFour.append(gameElement);
@@ -282,10 +281,11 @@ export class Branch extends BaseComponent<'div'> {
           gameElement.style.justifyContent = 'center';
           gameElement.style.alignItems = 'center';
           if (
-            levelsMarkup[this.currentLevel][i][index].children.tagName !== ''
+            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
+            ''
           ) {
             const childTag =
-              levelsMarkup[this.currentLevel][i][index].children.tagName;
+              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
             const gameElementChild = document.createElement(childTag);
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';

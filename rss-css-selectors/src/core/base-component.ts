@@ -65,6 +65,10 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     });
   };
 
+  public matches(selector: string): void {
+    this.node.matches(selector);
+  }
+
   public static appendRemoveTooltip = (
     element: HTMLElement,
     tooltip: BaseComponent

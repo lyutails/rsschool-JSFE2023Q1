@@ -115,7 +115,7 @@ export const levels = [
   {
     helpTitle: 'Combine the Class & ID Selectors',
     selectorName: 'Class & ID Selectors',
-    doThis: 'Select the ladybug on the leaf',
+    doThis: 'Select the ladybugs on the leaves',
     selector: '#leaf .ladybug',
     syntax: '#id&nbsp;&nbsp;A',
     help: 'You can combine any selector with the descendent selector.',
@@ -162,7 +162,7 @@ export const levels = [
     helpTitle: 'Combine the Class Selector',
     selectorName: 'Tag Class Selector',
     doThis: 'Select the green bananas',
-    selector: 'banana .green',
+    selector: 'banana .banana_green',
     syntax: 'A.className',
     help: 'You can combine the class selector with other selectors, like the tag selector.',
     examples: [

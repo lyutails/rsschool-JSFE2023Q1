@@ -799,12 +799,11 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat;
   background-size: contain;
   resize: both;
-  z-index: 30;
+  z-index: 200;
 
   &:nth-child(1) {
     width: 40.5%;
     background-image: url('./refs/tree_night/branch_01_night.png');
-    z-index: 30;
     transform: translate(-73.2%, 8.4%);
 
     &.recolour {
@@ -815,7 +814,6 @@ body::-webkit-scrollbar-thumb {
   &:nth-child(2) {
     width: 40.5%;
     background-image: url('./refs/tree_night/branch_02_night.png');
-    z-index: 30;
     transform: translate(-48%, -27%);
 
     &.recolour {
@@ -826,7 +824,6 @@ body::-webkit-scrollbar-thumb {
   &:nth-child(3) {
     width: 41.5%;
     background-image: url('./refs/tree_night/branch_03_night.png');
-    z-index: 30;
     transform: translate(15.7%, -30.5%);
 
     &.recolour {
@@ -837,7 +834,6 @@ body::-webkit-scrollbar-thumb {
   &:nth-child(4) {
     width: 52%;
     background-image: url('./refs/tree_night/branch_04_night.png');
-    z-index: 30;
     transform: translate(56%, 6%);
 
     &.recolour {
@@ -1044,6 +1040,13 @@ body::-webkit-scrollbar-thumb {
       }
     }
   }
+}
+
+.css_editor_input.shake {
+  animation-name: css_shake_anim;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
 }
 
 .tooltip {
@@ -1283,6 +1286,48 @@ butterfly {
   }
 }
 
+.butterfly_blue {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/butterfly_blue.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.butterfly_purple {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/butterfly_purple.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 leaf {
   position: absolute;
   display: inline-block;
@@ -1409,6 +1454,48 @@ ladybug {
   }
 }
 
+dumpling {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/dumpling.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dumpling {
+  position: absolute;
+  display: inline-block;
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  resize: both;
+  background-image: url('./refs/fruits/dumpling.svg');
+  z-index: 1000 !important;
+  animation-name: pick_me_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .markup {
   &_tree_opening {
     transition: all 0.2s ease-in-out;
@@ -1462,6 +1549,72 @@ ladybug {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes css_shake_anim {
+  0% {
+    transform: translate(0vw, 0vh);
+  }
+  5% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  10% {
+    transform: translate(0.5vw, 0vh);
+  }
+  15% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  20% {
+    transform: translate(0.5vw, 0vh);
+  }
+  25% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  30% {
+    transform: translate(0.5vw, 0vh);
+  }
+  35% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  40% {
+    transform: translate(0.5vw, 0vh);
+  }
+  45% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  50% {
+    transform: translate(0.5vw, 0vh);
+  }
+  55% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  60% {
+    transform: translate(0.5vw, 0vh);
+  }
+  65% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  70% {
+    transform: translate(0.5vw, 0vh);
+  }
+  75% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  80% {
+    transform: translate(0.5vw, 0vh);
+  }
+  85% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  90% {
+    transform: translate(0.5vw, 0vh);
+  }
+  95% {
+    transform: translate(-0.5vw, 0vh);
+  }
+  100% {
+    transform: translate(0vw, 0vh);
   }
 }
 

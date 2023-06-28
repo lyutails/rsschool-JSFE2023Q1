@@ -51,9 +51,10 @@ export class Tree extends BaseComponent<'div'> {
 
     const toDo = new BaseComponent({
       tagName: 'div',
-      classList: ['tree_todo'],
-      textContent: 'What to pick on this level'
+      classList: ['tree_todo']
     });
+
+    toDo.node.textContent = 'What to pick on this level';
 
     treeObserverDay.subscribe(() => this.node.classList.add('recolour'));
     treeObserverNight.subscribe(() => this.node.classList.remove('recolour'));
