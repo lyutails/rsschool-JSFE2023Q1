@@ -4,7 +4,7 @@ import { Observer } from '../observer';
 
 import { Button } from '@/UI/button';
 import { levels } from '@/data/levels';
-import { store } from '@/store';
+import { currentLevelObserver, store } from '@/store';
 
 export const csseditorObserverDay = new Observer();
 export const csseditorObserverNight = new Observer();
@@ -52,6 +52,12 @@ export class CSSEditor extends BaseComponent<'div'> {
     this.selectorsInput.addPlaceholder('Type in a CSS selector');
     this.selectorsInput.node.setAttribute('maxlength', '50');
 
+    helpButton.node.addEventListener('click', () => {
+      this.selectorsInput.node.disabled = true;
+      this.selfInputTyping();
+      this.selectorsInput.node.disabled = false;
+    });
+
     csseditorObserverDay.subscribe(() => this.node.classList.add('recolour'));
     csseditorObserverNight.subscribe(() =>
       this.node.classList.remove('recolour')
@@ -70,6 +76,12 @@ export class CSSEditor extends BaseComponent<'div'> {
       this.enterButton.node,
       helpButton.node
     );
+  }
+
+  public selfInputTyping(): void {
+    const { currentLevel } = this.store;
+    const { selector } = levels[currentLevel];
+    this.selectorsInput.node.value = selector;
   }
 
   public onButtonClick(): void {
