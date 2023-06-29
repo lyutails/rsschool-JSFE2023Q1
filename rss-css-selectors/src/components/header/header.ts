@@ -139,11 +139,11 @@ export class Header extends BaseComponent<'header'> {
     });
 
     const soundControl = new BaseComponent({
-      tagName: 'progress',
+      tagName: 'input',
       classList: ['header_sound_control']
     });
 
-    soundControl.node.setAttribute('value', '0');
+    soundControl.node.setAttribute('type', 'range');
 
     const soundWrapper = new BaseComponent({
       tagName: 'div',

@@ -82,7 +82,6 @@ export class CSSEditor extends BaseComponent<'div'> {
     const { currentLevel } = this.store;
     const { selector } = levels[currentLevel];
     let i = 0;
-    console.log(selector);
     setInterval(() => {
       if (i < selector.length) {
         this.selectorsInput.node.value += selector[i++];

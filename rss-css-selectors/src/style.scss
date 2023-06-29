@@ -1008,6 +1008,10 @@ body::-webkit-scrollbar-thumb {
     background-color: $ui-elements-color-day;
     color: $font-color-day;
   }
+
+  &_progress_bar {
+    width: 90%;
+  }
 }
 
 .hints {
