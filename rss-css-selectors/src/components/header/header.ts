@@ -1,5 +1,9 @@
 import { BaseComponent } from '@/core/base-component';
 
+import windChimeSoundOne from '../../refs/sounds/wind_chimes_01.mp3';
+import windChimeSoundTwo from '../../refs/sounds/wind_chimes_02.mp3';
+import windChimeSoundThree from '../../refs/sounds/wind_chimes_03.mp3';
+import windChimeSoundFour from '../../refs/sounds/wind_chimes_04.mp3';
 import {
   branchFourObserverDay,
   branchOneObserverDay,
@@ -46,7 +50,12 @@ export const rsschoolObserverNight = new Observer();
 export const lyutailsObserverDay = new Observer();
 export const lyutailsObserverNight = new Observer();
 
+export const windChimeSoundObserver = new Observer();
+export const windChimeSoundObserverPause = new Observer();
+
 export class Header extends BaseComponent<'header'> {
+  public windChimeSoundsArray: string[];
+  public isSoundClicked = false;
   constructor() {
     super({
       tagName: 'header',
@@ -101,12 +110,46 @@ export class Header extends BaseComponent<'header'> {
       children: [buttonStart, buttonPause, timer]
     });
 
+    this.windChimeSoundsArray = [
+      windChimeSoundOne,
+      windChimeSoundTwo,
+      windChimeSoundThree,
+      windChimeSoundFour
+    ];
+
     const sound = new BaseComponent({
       tagName: 'div',
       classList: ['header_sound']
     });
 
     sound.toggleClassOnClick();
+
+    sound.node.addEventListener('click', () => {
+      this.isSoundClicked = !this.isSoundClicked;
+      if (this.isSoundClicked === true) {
+        windChimeSoundObserver.notify('lalala');
+      }
+      if (this.isSoundClicked === false) {
+        windChimeSoundObserverPause.notify('lalala');
+      }
+    });
+
+    windChimeSoundObserver.subscribe(() => {
+      this.playWindChimeSound();
+    });
+
+    const soundControl = new BaseComponent({
+      tagName: 'progress',
+      classList: ['header_sound_control']
+    });
+
+    soundControl.node.setAttribute('value', '0');
+
+    const soundWrapper = new BaseComponent({
+      tagName: 'div',
+      classList: ['header_sound_wrapper'],
+      children: [sound, soundControl]
+    });
 
     const headerDay = new BaseComponent({
       tagName: 'div',
@@ -134,7 +177,13 @@ export class Header extends BaseComponent<'header'> {
     const headerWrapper = new BaseComponent({
       tagName: 'div',
       classList: ['header_wrapper'],
-      children: [headerLogo, headerTheme, sound, controls, headerLinksWrapper]
+      children: [
+        headerLogo,
+        headerTheme,
+        soundWrapper,
+        controls,
+        headerLinksWrapper
+      ]
     });
 
     dayObserver.subscribe(() => this.node.classList.add('recolour'));
@@ -153,6 +202,26 @@ export class Header extends BaseComponent<'header'> {
     );
 
     this.node.append(headerWrapper.node);
+  }
+
+  public playWindChimeSound(): void {
+    let soundIndex = 0;
+    const playSound = (index: number): void => {
+      soundIndex = index;
+      if (index >= this.windChimeSoundsArray.length) {
+        soundIndex = 0;
+      }
+      const windChime = new Audio(this.windChimeSoundsArray[soundIndex]);
+      console.log(soundIndex);
+      windChime.play();
+      windChimeSoundObserverPause.subscribe(() => {
+        windChime.pause();
+      });
+      windChime.addEventListener('ended', () => {
+        playSound(soundIndex + 1);
+      });
+    };
+    playSound(soundIndex);
   }
 
   public static addRemoveClassOnClick(

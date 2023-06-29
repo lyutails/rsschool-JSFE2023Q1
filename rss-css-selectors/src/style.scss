@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
 
 $ui-elements-color: rgb(62, 17, 62);
-$ui-elements-color-day: #e5fff4;
+$ui-elements-color-day: #ecfff7;
 $ui-border-color: rgb(32, 1, 32);
 $font-color-night: rgb(246, 227, 246);
 $font-color-day: rgb(58, 16, 66);
@@ -201,16 +201,23 @@ body::-webkit-scrollbar-thumb {
     }
   }
 
+  &_sound_wrapper {
+    width: 12vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &_sound {
     display: inline-block;
-    width: 4%;
+    width: 4vw;
     min-width: 30px;
     aspect-ratio: 0.85 / 1;
-    background-image: url('./refs/icons/wind-chime-1.svg');
+    background-image: url('./refs/icons/wind-chime-1-off.svg');
     background-repeat: no-repeat;
     background-size: contain;
     resize: both;
-    animation-name: wind_chime_anim;
+    animation-name: wind_chime_off_anim;
     animation-duration: 1.8s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -221,13 +228,17 @@ body::-webkit-scrollbar-thumb {
     }
 
     &.active {
-      background-image: url('./refs/icons/wind-chime-1-off.svg');
-      animation-name: wind_chime_off_anim;
+      background-image: url('./refs/icons/wind-chime-1.svg');
+      animation-name: wind_chime_anim;
       animation-duration: 1.8s;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       transition: all 0.1s ease-in-out;
     }
+  }
+
+  &_sound_control {
+    width: 6vw;
   }
 
   &_controls {
