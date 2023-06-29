@@ -53,9 +53,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     this.selectorsInput.node.setAttribute('maxlength', '50');
 
     helpButton.node.addEventListener('click', () => {
-      this.selectorsInput.node.disabled = true;
       this.selfInputTyping();
-      this.selectorsInput.node.disabled = false;
     });
 
     csseditorObserverDay.subscribe(() => this.node.classList.add('recolour'));
@@ -79,9 +77,20 @@ export class CSSEditor extends BaseComponent<'div'> {
   }
 
   public selfInputTyping(): void {
+    this.selectorsInput.node.disabled = true;
+    this.selectorsInput.node.value = '';
     const { currentLevel } = this.store;
     const { selector } = levels[currentLevel];
-    this.selectorsInput.node.value = selector;
+    let i = 0;
+    console.log(selector);
+    setInterval(() => {
+      if (i < selector.length) {
+        this.selectorsInput.node.value += selector[i++];
+      }
+      if (this.selectorsInput.node.value === selector) {
+        this.selectorsInput.node.disabled = false;
+      }
+    }, 100);
   }
 
   public onButtonClick(): void {
