@@ -21,13 +21,18 @@ export class CSSEditor extends BaseComponent<'div'> {
   constructor() {
     super({
       tagName: 'div',
-      classList: ['css_editor'],
-      textContent: 'CSS Editor'
+      classList: ['css_editor']
     });
 
     window.addEventListener('keydown', (event: KeyboardEvent) =>
       this.registerEnterPress(event)
     );
+
+    const csseditorTitle = new BaseComponent({
+      tagName: 'div',
+      classList: ['css_editor_title'],
+      textContent: 'CSS Editor'
+    });
 
     const helpButton = new Button();
     helpButton.addTextContent('Help');
@@ -45,6 +50,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     });
 
     this.selectorsInput.addPlaceholder('Type in a CSS selector');
+    this.selectorsInput.node.setAttribute('maxlength', '50');
 
     csseditorObserverDay.subscribe(() => this.node.classList.add('recolour'));
     csseditorObserverNight.subscribe(() =>
@@ -59,6 +65,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     );
 
     this.node.append(
+      csseditorTitle.node,
       this.selectorsInput.node,
       this.enterButton.node,
       helpButton.node
@@ -87,7 +94,6 @@ export class CSSEditor extends BaseComponent<'div'> {
         this.incrementLevel();
       }
       if (value !== `${levels[currentLevel].selector}`) {
-        console.log(value);
         this.catchIncorrectSelector();
       }
     }
@@ -103,9 +109,9 @@ export class CSSEditor extends BaseComponent<'div'> {
   }
 
   public catchIncorrectSelector(): void {
-    this.selectorsInput.node.classList.add('shake');
+    this.selectorsInput.node.classList.add('shake_anim');
     setTimeout(() => {
-      this.selectorsInput.node.classList.remove('shake');
+      this.selectorsInput.node.classList.remove('shake_anim');
     }, 500);
   }
 }

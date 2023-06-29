@@ -1,15 +1,12 @@
 export const levels = [
   {
-    helpTitle: 'Select elements by their type',
+    helpTitle: 'Select elements by their tag',
     selectorName: 'Type Selector',
     doThis: 'Select the apple',
     selector: 'apple',
     syntax: 'A',
-    help: 'Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.',
-    examples: [
-      '<strong>div</strong> selects all <tag>div</tag> elements.',
-      '<strong>p</strong> selects all <tag>p</tag> elements.'
-    ],
+    help: 'Selects all elements of type A. Type refers to the type of tag, so <div></div>, <p></p> and <ul></ul> are all different element types.',
+    examples: ['div selects all div elements', 'p selects all p elements'],
     boardMarkup: `
     <tree>
       <branch>
@@ -22,16 +19,13 @@ export const levels = [
       `
   },
   {
-    helpTitle: 'Select elements by their type',
+    helpTitle: 'Select elements by their tag',
     selectorName: 'Type Selector',
     doThis: 'Select the bananas',
     selector: 'banana',
     syntax: 'A',
-    help: 'Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <tag>div</tag>, <tag>p</tag> and <tag>ul</tag> are all different element types.',
-    examples: [
-      '<strong>div</strong> selects all <tag>div</tag> elements.',
-      '<strong>p</strong> selects all <tag>p</tag> elements.'
-    ],
+    help: 'Selects all elements of type A. Type refers to the type of tag, so <div></div>, <p></p> and <ul></ul> are all different element types.',
+    examples: ['div selects all div elements', 'p selects all p elements'],
     boardMarkup: `
       <branch>
         <banana>
@@ -49,10 +43,10 @@ export const levels = [
     doThis: 'Select the mango',
     selector: '#mango',
     syntax: '#id',
-    help: 'Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.',
+    help: 'Selects the element with a specific id. You can also combine the ID selector with the type selector.',
     examples: [
-      '<strong>#cool</strong> selects any element with <strong>id="cool"</strong>',
-      '<strong>ul#long</strong> selects <tag>ul id="long"</tag>'
+      '#cool selects any element with id="cool"',
+      'ul#long selects ul id="long"'
     ],
     boardMarkup: `
     <branch></branch>
@@ -70,11 +64,11 @@ export const levels = [
     selectorName: 'Descendant Selector',
     doThis: 'Select the butterfly on the leaf and the bee in the beehive',
     selector: 'beehive bee, leaf butterfly',
-    syntax: 'A&nbsp;&nbsp;B',
-    help: 'Selects all <strong>B</strong> inside of <strong>A</strong>. <strong>B</strong> is called a descendant because it is inside of another element.',
+    syntax: 'A B',
+    help: 'Selects all B inside of A. B is called a descendant because it is inside of another element.',
     examples: [
-      '<strong>p&nbsp;&nbsp;strong</strong> selects all <tag>strong</tag> elements that are inside of any <tag>p</tag>',
-      '<strong>#fancy&nbsp;&nbsp;span</strong> selects any <tag>span</tag> elements that are inside of the element with <strong>id="fancy"</strong>'
+      'p&nbsp;&nbsp;strong selects all strong elements that are inside of any p',
+      '#fancy&nbsp;&nbsp;span selects any span elements that are inside of the element with id="fancy"'
     ],
     boardMarkup: `
     <branch>
@@ -96,11 +90,9 @@ export const levels = [
     selectorName: 'Child Selector',
     doThis: 'Select the sparrow directly in the birdhouse by class',
     selector: '.birdhouse > .sparrow',
-    syntax: 'A > B&nbsp;',
-    help: 'You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element. <br><br>Elements that are nested deeper than that are called descendant elements.',
-    examples: [
-      '<strong>A > B</strong> selects all <strong>B</strong> that are a direct children <strong>A</strong>'
-    ],
+    syntax: '.classnameA > .classnameB',
+    help: 'You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element. Elements that are nested deeper than that are called descendant elements.',
+    examples: ['A > B selects all B that are a direct children A'],
     boardMarkup: `
     <branch></branch>
     <branch>
@@ -117,10 +109,10 @@ export const levels = [
     selectorName: 'Class & ID Selectors',
     doThis: 'Select the ladybugs on the leaves',
     selector: '#leaf .ladybug',
-    syntax: '#id&nbsp;&nbsp;A',
+    syntax: '#id .classname',
     help: 'You can combine any selector with the descendent selector.',
     examples: [
-      '<strong>#cool&nbsp;span</strong> selects all <tag>span</tag> elements that are inside of elements with <strong>id="cool"</strong>'
+      '#cool&nbsp;span selects all span elements that are inside of elements with id="cool"'
     ],
     boardMarkup: `
     <branch></branch>
@@ -140,9 +132,7 @@ export const levels = [
     selector: '.cherry',
     syntax: '.classname',
     help: 'The class selector selects all elements with that class attribute. Elements can only have one ID, but many classes.',
-    examples: [
-      '<strong>.neato</strong> selects all elements with <strong>class="neato"</strong>'
-    ],
+    examples: ['.neato selects all elements with class="neato"'],
     boardMarkup: `
     <branch>
       <cherry class='cherry'>
@@ -166,8 +156,8 @@ export const levels = [
     syntax: 'A.className',
     help: 'You can combine the class selector with other selectors, like the tag selector.',
     examples: [
-      '<strong>ul.important</strong> selects all <tag>ul</tag> elements that have <strong>class="important"</strong>',
-      '<strong>#big.wide</strong> selects all elements with <strong>id="big"</strong> that also have <strong>class="wide"</strong>'
+      'ul.important selects all ul elements that have class="important"',
+      '#big.wide selects all elements with id="big" that also have class="wide"'
     ],
     boardMarkup: `
     <branch>
@@ -192,10 +182,10 @@ export const levels = [
       'Select all the bees, ladybugs and blue butterflies by their classes',
     selector: '.bee, .ladybug, .butterfly_blue',
     syntax: 'A, B',
-    help: 'Thanks to Shatner technology, this selects all <strong>A</strong> and <strong>B</strong> elements. You can combine any selectors this way, and you can specify more than two.',
+    help: 'Thanks to Shatner technology, this selects all A and B elements. You can combine any selectors this way, and you can specify more than two.',
     examples: [
-      '<strong>p, .fun</strong> selects all <tag>p</tag> elements as well as all elements with <strong>class="fun"</strong>',
-      '<strong>a, p, div</strong> selects all <tag>a</tag>, <tag>p</tag> and <tag>div</tag> elements'
+      'p, .fun selects all p elements as well as all elements with class="fun"',
+      'a, p, div selects all a, p and div elements'
     ],
     boardMarkup: `
     <branch>
@@ -222,10 +212,8 @@ export const levels = [
     doThis: 'Select all the things!',
     selector: '*',
     syntax: '*',
-    help: 'You can select all elements with the universal selector! ',
-    examples: [
-      '<strong>p *</strong> selects any element inside all <tag>p</tag> elements.'
-    ],
+    help: 'You can select all elements with the universal selector!',
+    examples: ['p * selects any element inside all p elements.'],
     boardMarkup: `
     <branch>
       <banana>
@@ -248,11 +236,11 @@ export const levels = [
     selectorName: 'Select all',
     doThis: 'Select everything on a leaf',
     selector: 'leaf *',
-    syntax: 'A&nbsp;&nbsp;*',
-    help: 'This selects all elements inside of <strong>A</strong>.',
+    syntax: 'A *',
+    help: 'This selects all elements inside of A.',
     examples: [
-      '<strong>p *</strong> selects every element inside all <tag>p</tag> elements.',
-      '<strong>ul.fancy *</strong> selects every element inside all <tag>ul class="fancy"</tag> elements.'
+      'p * selects every element inside all p elements.',
+      'ul.fancy * selects every element inside all ul class="fancy" elements.'
     ],
     boardMarkup: `
     <branch>
@@ -275,10 +263,10 @@ export const levels = [
     doThis: "Select every mango that's next to an apple",
     selector: 'apple + mango',
     syntax: 'A + B',
-    help: "This selects all <strong>B</strong> elements that directly follow <strong>A</strong>. Elements that follow one another are called siblings. They're on the same level, or depth. <br/><br/>In the HTML markup for this level, elements that have the same indentation are siblings.",
+    help: "This selects all B elements that directly follow A. Elements that follow one another are called siblings. They're on the same level, or depth. In the HTML markup for this level, elements that have the same indentation are siblings.",
     examples: [
-      '<strong>p + .intro</strong> selects every element with <strong>class="intro"</strong> that directly follows a <tag>p</tag>',
-      '<strong>div + a</strong> selects every <tag>a</tag> element that directly follows a <tag>div</tag>'
+      'p + .intro selects every element with class="intro" that directly follows a p',
+      'div + a selects every a element that directly follows a div'
     ],
     boardMarkup: `
     <branch>
@@ -307,13 +295,11 @@ export const levels = [
   {
     helpTitle: 'Select elements that follows another element',
     selectorName: 'General Sibling Selector',
-    doThis: 'Select the pears next to the strawberry by class',
+    doThis: 'Select the pears next to the strawberries by class',
     selector: '.strawberry ~ .pear',
-    syntax: 'A ~ B',
+    syntax: '.classnameA ~ .classnameB',
     help: 'You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.',
-    examples: [
-      '<strong>A ~ B</strong> selects all <strong>B</strong> that follow a <strong>A</strong>'
-    ],
+    examples: ['A ~ B selects all B that follow a A'],
     boardMarkup: `
     <branch></branch>
     <branch></branch>
@@ -335,9 +321,9 @@ export const levels = [
     syntax: ':first-child',
     help: 'You can select the first child element. A child element is any element that is directly nested in another element. You can combine this pseudo-selector with other selectors.',
     examples: [
-      '<strong>:first-child</strong> selects all first child elements.',
-      '<strong>p:first-child</strong> selects all first child <tag>p</tag> elements.',
-      '<strong>div p:first-child</strong> selects all first child <tag>p</tag> elements that are in a <tag>div</tag>.'
+      ':first-child selects all first child elements.',
+      'p:first-child selects all first child p elements.',
+      'div p:first-child selects all first child p elements that are in a div.'
     ],
     boardMarkup: `
     <branch>
@@ -359,11 +345,11 @@ export const levels = [
     doThis: 'Select the blue butterfly by class',
     selector: '.butterfly_blue:last-child',
     syntax: ':last-child',
-    help: 'You can use this selector to select an element that is the last child element inside of another element. <br><br>Pro Tip &rarr; In cases where there is only one element, that element counts as the first-child, only-child and last-child!',
+    help: 'You can use this selector to select an element that is the last child element inside of another element. In cases where there is only one element, that element counts as the first-child, only-child and last-child!',
     examples: [
-      '<strong>:last-child</strong> selects all last-child elements.',
-      '<strong>span:last-child</strong> selects all last-child <tag>span</tag> elements.',
-      '<strong>ul li:last-child</strong> selects the last <tag>li</tag> elements inside of any <tag>ul</tag>.'
+      ':last-child selects all last-child elements.',
+      'span:last-child selects all last-child span elements.',
+      'ul li:last-child selects the last li elements inside of any ul.'
     ],
     boardMarkup: `
     <branch>
@@ -387,9 +373,7 @@ export const levels = [
     selector: '.dumpling:not(:last-child)',
     syntax: ':not(:last-child)',
     help: "Selects elements that don't have any other elements inside of them.",
-    examples: [
-      '<strong>div:empty</strong> selects all empty <tag>div</tag> elements.'
-    ],
+    examples: ['div:empty selects all empty div elements.'],
     boardMarkup: `
     <branch>
       <dumpling class="dumpling">
@@ -414,9 +398,7 @@ export const levels = [
     selector: '.birdhouse:empty, .beehive:empty',
     syntax: ':empty',
     help: "Selects elements that don't have any other elements inside of them.",
-    examples: [
-      '<strong>div:empty</strong> selects all empty <tag>div</tag> elements.'
-    ],
+    examples: ['div:empty selects all empty div elements.'],
     boardMarkup: `
     <branch>
       <birdhouse class="birdhouse">
@@ -465,10 +447,10 @@ export const levels = [
     doThis: 'Select the items for fun by class',
     selector: '[for="fun"]',
     syntax: '[attribute]',
-    help: 'Attributes appear inside the opening tag of an element, like this: <tag>span attribute="value"</tag>. An attribute does not always have a value, it can be blank!',
+    help: 'Attributes appear inside the opening tag of an element, like this: <span attribute="value"></span>. An attribute does not always have a value, it can be blank!',
     examples: [
-      '<strong>a[href]</strong> selects all <tag>a</tag> elements that have a <strong>href="anything"</strong> attribute.',
-      '<strong>[type]</strong> selects all elements that have a <strong>type="anything"</strong>. attribute'
+      'a[href] selects all a elements that have a href="anything" attribute.',
+      '[type] selects all elements that have a type="anything". attribute'
     ],
     boardMarkup: `
     <branch>
@@ -496,10 +478,10 @@ export const levels = [
     doThis: "Select the meals for name that starts with 'qe'",
     selector: '[for^="qe"]',
     syntax: '[attribute*="value"]',
-    help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
+    help: 'A useful selector if you can identify a common pattern in things like class, href or src attributes.',
     examples: [
-      '<strong>img[src*="/thumbnails/"]</strong> selects all image elements that show images from the "thumbnails" folder.',
-      '<strong>[class*="heading"]</strong> selects all elements with "heading" in their class, like <strong>class="main-heading"</strong> and <strong>class="sub-heading"</strong>'
+      'img[src*="/thumbnails/"] selects all image elements that show images from the "thumbnails" folder.',
+      '[class*="heading"] selects all elements with "heading" in their class, like class="main-heading" and class="sub-heading"'
     ],
     boardMarkup: `
     <branch>
@@ -529,10 +511,10 @@ export const levels = [
     syntax: '[attribute*="value"]',
     doThis: "Select the dumpling for someone with the name containing 'teq'",
     selector: '[for*="teq"]',
-    help: 'A useful selector if you can identify a common pattern in things like <strong>class</strong>, <strong>href</strong> or <strong>src</strong> attributes.',
+    help: 'A useful selector if you can identify a common pattern in things like class, href or src attributes.',
     examples: [
-      '<strong>img[src*="/thumbnails/"]</strong> selects all image elements that show images from the "thumbnails" folder.',
-      '<strong>[class*="heading"]</strong> selects all elements with "heading" in their class, like <strong>class="main-heading"</strong> and <strong>class="sub-heading"</strong>'
+      'img[src*="/thumbnails/"] selects all image elements that show images from the "thumbnails" folder.',
+      '[class*="heading"] selects all elements with "heading" in their class, like class="main-heading" and class="sub-heading"'
     ],
     boardMarkup: `
     <branch>

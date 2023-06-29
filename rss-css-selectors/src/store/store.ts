@@ -2,6 +2,7 @@
 import { Observer } from '@/components/observer';
 
 export const currentLevelObserver = new Observer();
+
 export const store = {
   _currentLevel: 0,
   currentLevelObserver,

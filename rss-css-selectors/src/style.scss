@@ -14,7 +14,7 @@ $ui-elements-color-day: #e5fff4;
 $ui-border-color: rgb(32, 1, 32);
 $font-color-night: rgb(246, 227, 246);
 $font-color-day: rgb(58, 16, 66);
-$link-hover: rgb(240, 130, 108);
+$link-hover: rgb(255, 144, 122);
 $shadow-color: rgba(0, 0, 0, 0.4);
 $scroll-color: linear-gradient(#7affca, #e75e8a);
 $button-text-color: rgb(62, 17, 62);
@@ -128,7 +128,7 @@ body::-webkit-scrollbar-thumb {
 
   &_links_wrapper {
     width: 24%;
-    min-width: 150px;
+    min-width: 100px;
     max-width: 280px;
     display: flex;
     flex-direction: row;
@@ -165,7 +165,7 @@ body::-webkit-scrollbar-thumb {
 
   &_theme {
     width: 6%;
-    min-width: 80px;
+    min-width: 50px;
     max-width: 120px;
     height: 1 / 0.5;
   }
@@ -186,7 +186,8 @@ body::-webkit-scrollbar-thumb {
       background-image: url('./refs/icons/leaf-night.svg');
 
       &.active {
-        filter: drop-shadow(0px 0px 8px $link-hover);
+        filter: drop-shadow(0px 0px 8px $link-hover)
+          drop-shadow(0px 0px 4px $link-hover);
       }
     }
 
@@ -194,7 +195,8 @@ body::-webkit-scrollbar-thumb {
       background-image: url('./refs/icons/leaf-day.svg');
 
       &.active {
-        filter: drop-shadow(0px 0px 8px $link-hover);
+        filter: drop-shadow(0px 0px 8px $button-color)
+          drop-shadow(0px 0px 4px $button-color);
       }
     }
   }
@@ -202,6 +204,7 @@ body::-webkit-scrollbar-thumb {
   &_sound {
     display: inline-block;
     width: 4%;
+    min-width: 30px;
     aspect-ratio: 0.85 / 1;
     background-image: url('./refs/icons/wind-chime-1.svg');
     background-repeat: no-repeat;
@@ -266,7 +269,7 @@ body::-webkit-scrollbar-thumb {
 
 .button {
   width: 30%;
-  min-width: 50px;
+  min-width: 40px;
   max-width: 100px;
   aspect-ratio: 1 / 0.4;
   background-color: $button-color;
@@ -314,16 +317,40 @@ body::-webkit-scrollbar-thumb {
     color: $font-color-day;
   }
 
-  &_example {
-    padding-left: 1vw;
-    padding-top: 1vw;
-    padding-right: 1vw;
+  &_level_header {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+  }
+
+  &_level_title {
+    -webkit-text-stroke: 1px;
   }
 
   &_description {
     padding-left: 1vw;
     padding-top: 1vw;
     padding-right: 1vw;
+  }
+
+  &_description_title {
+    -webkit-text-stroke: 1px;
+  }
+
+  &_description_text {
+    margin-top: 1vh;
+  }
+
+  &_example {
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+  }
+
+  &_example_title {
+    -webkit-text-stroke: 1px;
   }
 
   &_level {
@@ -336,8 +363,24 @@ body::-webkit-scrollbar-thumb {
     margin-left: 0.5vw;
   }
 
+  &_selector_switchers_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_levels_switchers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
   &_next {
-    width: 1.2vw;
+    width: 2vw;
+    max-width: 30px;
     aspect-ratio: 1 / 1;
     background-repeat: no-repeat;
     background-size: contain;
@@ -347,6 +390,7 @@ body::-webkit-scrollbar-thumb {
     z-index: 10;
     position: relative;
     transition: all 0.2s ease-in-out;
+    margin-bottom: 1vh;
 
     &:hover {
       cursor: pointer;
@@ -355,22 +399,43 @@ body::-webkit-scrollbar-thumb {
   }
 
   &_previous {
-    width: 1.2vw;
+    width: 2vw;
+    max-width: 30px;
     aspect-ratio: 1 / 1;
     background-repeat: no-repeat;
     background-size: contain;
     resize: both;
     background-image: url('./refs/icons/paw-prints_left_magical.svg');
     display: inline-block;
-    margin-left: 0.5vw;
     z-index: 10;
     position: relative;
     transition: all 0.2s ease-in-out;
+    margin-bottom: 1vh;
 
     &:hover {
       cursor: pointer;
       background-image: url('./refs/icons/paw-prints_left_hover.svg');
     }
+  }
+
+  &_level_of {
+    padding-left: 0.5vw;
+  }
+
+  &_total_levels_number {
+    padding-left: 0.5vw;
+  }
+
+  &_help_title {
+    margin-top: 2vh;
+  }
+
+  &_syntax {
+    margin-top: 2vh;
+  }
+
+  &_examples {
+    margin-top: 1vh;
   }
 }
 
@@ -426,7 +491,6 @@ body::-webkit-scrollbar-thumb {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
   padding-right: 1vw;
@@ -842,6 +906,42 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.branches_imitation {
+  position: absolute;
+  width: 100%;
+  min-width: 100px;
+  max-width: 1100px;
+  height: 100%;
+  max-height: 850px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 500;
+}
+
+.branch_imitation {
+  position: relative;
+  width: 25%;
+  aspect-ratio: 1 / 1.6;
+  resize: both;
+
+  &:nth-child(1) {
+    transform: translate(0vw, 45%);
+  }
+
+  &:nth-child(2) {
+    transform: translate(0vw, 5%);
+  }
+
+  &:nth-child(3) {
+    transform: translate(0vw, 2%);
+  }
+
+  &:nth-child(4) {
+    transform: translate(0vw, 30%);
+  }
+}
+
 .qeteq {
   position: absolute;
   bottom: 0;
@@ -859,6 +959,7 @@ body::-webkit-scrollbar-thumb {
   animation-duration: 28s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  z-index: 1000;
 
   &:hover {
     cursor: pointer;
@@ -914,7 +1015,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   &_eye {
-    width: 15%;
+    width: 12%;
     min-width: 30px;
     max-width: 60px;
     aspect-ratio: 1 / 1;
@@ -961,12 +1062,17 @@ body::-webkit-scrollbar-thumb {
     color: $font-color-day;
   }
 
+  &_title {
+    -webkit-text-stroke: 1px;
+  }
+
   &_markup {
     width: 100%;
     height: 100%;
     right: 0;
     display: flex;
     flex-direction: row;
+    margin-top: 1vh;
   }
 
   &_numbers {
@@ -998,11 +1104,15 @@ body::-webkit-scrollbar-thumb {
     color: $font-color-day;
   }
 
+  &_title {
+    -webkit-text-stroke: 1px;
+  }
+
   &_input {
     width: 100%;
     height: 3vh;
     min-height: 20px;
-    background-color: rgb(252, 136, 115, 0.2);
+    background-color: rgb(252, 136, 115, 0.1);
     outline: none;
     border: none;
     margin-top: 1vw;
@@ -1042,7 +1152,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.css_editor_input.shake {
+.css_editor_input.shake_anim {
   animation-name: css_shake_anim;
   animation-duration: 0.4s;
   animation-iteration-count: 1;
@@ -1055,7 +1165,7 @@ body::-webkit-scrollbar-thumb {
     padding: 4px 8px;
     transform: translate(-8%, -24px);
     border-radius: 5px;
-    border: 2px solid $ui-elements-color;
+    border: 1px solid $ui-elements-color;
     background-color: $tooltip-background;
     transition: all 0.2s linear;
     font-size: 1rem;
@@ -1066,7 +1176,7 @@ body::-webkit-scrollbar-thumb {
     padding: 4px 8px;
     transform: translate(-8%, -24px);
     border-radius: 5px;
-    border: 2px solid $ui-elements-color;
+    border: 1px solid $ui-elements-color;
     background-color: $tooltip-background;
     transition: all 0.2s linear;
     font-size: 1rem;
@@ -1107,7 +1217,7 @@ apple {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/apple.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1128,7 +1238,7 @@ apple {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/apple.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1149,7 +1259,7 @@ banana {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/banana.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1170,7 +1280,7 @@ banana {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/banana_green.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1191,7 +1301,7 @@ mango {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/mango.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1212,7 +1322,7 @@ strawberry {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/strawberry.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1233,7 +1343,7 @@ cherry {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/cherry.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1254,7 +1364,7 @@ pear {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/pear.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1275,7 +1385,7 @@ butterfly {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/butterfly_blue.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1296,7 +1406,7 @@ butterfly {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/butterfly_blue.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1317,7 +1427,7 @@ butterfly {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/butterfly_purple.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1338,7 +1448,7 @@ leaf {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/leaf.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1359,7 +1469,7 @@ beehive {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/beehive.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1380,7 +1490,7 @@ bee {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/bee.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1401,7 +1511,7 @@ birdhouse {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/birdhouse.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1422,7 +1532,7 @@ sparrow {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/sparrow.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1443,7 +1553,7 @@ ladybug {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/ladybug.png');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1464,7 +1574,7 @@ dumpling {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/dumpling.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1485,7 +1595,7 @@ dumpling {
   background-position: center center;
   resize: both;
   background-image: url('./refs/fruits/dumpling.svg');
-  z-index: 1000 !important;
+  z-index: 1000;
   animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -1633,5 +1743,17 @@ dumpling {
 @media screen and (min-width: 379.98px) and (max-width: 767.98px) {
   html {
     font-size: 0.6rem;
+  }
+
+  .header {
+    &_links_wrapper {
+      width: 16%;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &_controls {
+      flex-direction: column;
+    }
   }
 }

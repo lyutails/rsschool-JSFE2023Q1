@@ -1,10 +1,14 @@
 import { BaseComponent } from '@/core/base-component';
 
 import { Branch } from '../branch';
+import { BranchImitation } from '../branch_imitation';
 import { treeObserverHighlight, treeObserverUnhighlight } from '../html_viewer';
 import { Leaf } from '../leaf';
 import { Observer } from '../observer';
 import { QeteqTag } from '../qeteq_custom_tag';
+
+import { levels } from '@/data/levels';
+import { currentLevelObserver, store } from '@/store';
 
 export const treeObserverDay = new Observer();
 export const treeObserverNight = new Observer();
@@ -12,6 +16,8 @@ export const treePicObserverDay = new Observer();
 export const treePicObserverNight = new Observer();
 
 export class Tree extends BaseComponent<'div'> {
+  public store = store;
+  public toDo: BaseComponent;
   constructor() {
     super({
       tagName: 'div',
@@ -35,10 +41,12 @@ export class Tree extends BaseComponent<'div'> {
 
     const branches = new Branch();
 
+    const branchesImitation = new BranchImitation();
+
     const treePic = new BaseComponent({
       tagName: 'div',
       classList: ['tree_pic'],
-      children: [branches]
+      children: [branchesImitation, branches]
     });
 
     treeObserverHighlight.subscribe(() => {
@@ -49,12 +57,18 @@ export class Tree extends BaseComponent<'div'> {
       treePic.node.style.filter = 'none';
     });
 
-    const toDo = new BaseComponent({
+    this.toDo = new BaseComponent({
       tagName: 'div',
       classList: ['tree_todo']
     });
 
-    toDo.node.textContent = 'What to pick on this level';
+    // this.toDo.node.textContent = 'What to pick on this level';
+
+    const { currentLevel } = this.store;
+    const { doThis } = levels[currentLevel];
+    this.toDo.node.textContent = `${doThis}`;
+
+    currentLevelObserver.subscribe(() => this.checkCurrentLevel());
 
     treeObserverDay.subscribe(() => this.node.classList.add('recolour'));
     treeObserverNight.subscribe(() => this.node.classList.remove('recolour'));
@@ -63,6 +77,12 @@ export class Tree extends BaseComponent<'div'> {
       treePic.node.classList.remove('recolour')
     );
 
-    this.node.append(leafPic.node, treePic.node, toDo.node, qeteq, qeteq1);
+    this.node.append(leafPic.node, treePic.node, this.toDo.node, qeteq, qeteq1);
+  }
+
+  public checkCurrentLevel(): void {
+    const { currentLevel } = this.store;
+    const { doThis } = levels[currentLevel];
+    this.toDo.node.textContent = `${doThis}`;
   }
 }

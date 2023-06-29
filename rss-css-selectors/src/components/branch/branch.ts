@@ -1,8 +1,6 @@
 import { BaseComponent } from '@/core/base-component';
 
 import {
-  appleTooltipAppendObserverTagHover,
-  appleTooltipRemoveObserverTagHover,
   branchFourObserverHighlight,
   branchFourObserverUnhighlight,
   branchOneObserverHighlight,
@@ -10,16 +8,9 @@ import {
   branchThreeObserverHighlight,
   branchThreeObserverUnhighlight,
   branchTwoObserverHighlight,
-  branchTwoObserverUnhighlight,
-  gameElementHighlightTagHover,
-  gameElementHighlihgtActualElementHover,
-  gameElementUnhighlightTagHover,
-  gameElementUnhighlihgtActualElementHover
+  branchTwoObserverUnhighlight
 } from '../html_viewer';
 import { Observer } from '../observer';
-
-import { levelsMarkup } from '@/data/levels_markup';
-import { currentLevelObserver, store } from '@/store';
 
 export const branchOneObserverDay = new Observer();
 export const branchOneObserverNight = new Observer();
@@ -35,7 +26,6 @@ export class Branch extends BaseComponent<'div'> {
   public branchTwo: HTMLElement;
   public branchThree: HTMLElement;
   public branchFour: HTMLElement;
-  public store = store;
   constructor() {
     super({
       tagName: 'div',
@@ -114,185 +104,11 @@ export class Branch extends BaseComponent<'div'> {
       this.branchFour.classList.remove('recolour')
     );
 
-    currentLevelObserver.subscribe(() => this.render());
-
-    this.render();
-  }
-
-  public render(): void {
-    this.branchOne.textContent = '';
-    this.branchTwo.textContent = '';
-    this.branchThree.textContent = '';
-    this.branchFour.textContent = '';
-
-    for (let i = 0; i < levelsMarkup[this.store.currentLevel].length; i++) {
-      for (
-        let index = 0;
-        index < levelsMarkup[this.store.currentLevel][i].length;
-        index++
-      ) {
-        if (levelsMarkup[this.store.currentLevel][i][index].tagName === '') {
-          // eslint-disable-next-line no-continue
-          continue;
-        }
-
-        const gameLevelElementTagName =
-          levelsMarkup[this.store.currentLevel][i][index].tagName;
-        const gameElement = document.createElement(gameLevelElementTagName);
-
-        const gameLevelElementClassName =
-          levelsMarkup[this.store.currentLevel][i][index].classList;
-        if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
-          gameElement.classList.add(gameLevelElementClassName);
-        }
-
-        const gameLevelElementID =
-          levelsMarkup[this.store.currentLevel][i][index].id;
-        if (levelsMarkup[this.store.currentLevel][i][index].id !== '') {
-          gameElement.setAttribute('id', gameLevelElementID);
-        }
-
-        const gameLevelElementAttribute =
-          levelsMarkup[this.store.currentLevel][i][index].attribute;
-        if (levelsMarkup[this.store.currentLevel][i][index].attribute !== '') {
-          gameElement.setAttribute('for', gameLevelElementAttribute);
-        }
-
-        const gameElementTooltip = new BaseComponent({
-          tagName: 'div',
-          classList: ['tooltip_apple'],
-          textContent: `<${gameLevelElementTagName}>`
-        });
-
-        Branch.setRandomPosition(gameElement, 20, 1);
-
-        Branch.setTransformOrigin(gameElement);
-
-        Branch.appendRemoveTooltip(gameElement, gameElementTooltip);
-
-        gameElementHighlightTagHover.subscribe(() => {
-          gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
-        });
-
-        gameElementUnhighlightTagHover.subscribe(() => {
-          gameElement.style.filter = 'none';
-        });
-
-        appleTooltipAppendObserverTagHover.subscribe(() => {
-          gameElement.append(gameElementTooltip.node);
-        });
-
-        appleTooltipRemoveObserverTagHover.subscribe(() => {
-          gameElementTooltip.node.remove();
-        });
-
-        gameElementHighlihgtActualElementHover.subscribe(() => {
-          gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
-        });
-
-        gameElement.addEventListener('mouseover', () => {
-          gameElementHighlihgtActualElementHover.notify('lalala');
-        });
-
-        gameElementUnhighlihgtActualElementHover.subscribe(() => {
-          gameElement.style.filter = 'none';
-        });
-
-        gameElement.addEventListener('mouseout', () => {
-          gameElementUnhighlihgtActualElementHover.notify('lalala');
-        });
-
-        this.node.append(
-          this.branchOne,
-          this.branchTwo,
-          this.branchThree,
-          this.branchFour
-        );
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
-          i === 0
-        ) {
-          this.branchOne.append(gameElement);
-          gameElement.style.display = 'flex';
-          gameElement.style.justifyContent = 'center';
-          gameElement.style.alignItems = 'center';
-          if (
-            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
-            ''
-          ) {
-            const childTag =
-              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
-            const gameElementChild = document.createElement(childTag);
-            gameElement.append(gameElementChild);
-            gameElementChild.style.width = '2vw';
-            gameElementChild.style.aspectRatio = '1 / 1';
-          }
-        }
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
-          i === 1
-        ) {
-          this.branchTwo.append(gameElement);
-          gameElement.style.display = 'flex';
-          gameElement.style.justifyContent = 'center';
-          gameElement.style.alignItems = 'center';
-          if (
-            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
-            ''
-          ) {
-            const childTag =
-              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
-            const gameElementChild = document.createElement(childTag);
-            gameElement.append(gameElementChild);
-            gameElementChild.style.width = '2vw';
-            gameElementChild.style.aspectRatio = '1 / 1';
-          }
-        }
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
-          i === 2
-        ) {
-          this.branchThree.append(gameElement);
-          gameElement.style.display = 'flex';
-          gameElement.style.justifyContent = 'center';
-          gameElement.style.alignItems = 'center';
-          if (
-            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
-            ''
-          ) {
-            const childTag =
-              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
-            const gameElementChild = document.createElement(childTag);
-            gameElement.append(gameElementChild);
-            gameElementChild.style.width = '2vw';
-            gameElementChild.style.aspectRatio = '1 / 1';
-          }
-        }
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
-          i === 3
-        ) {
-          this.branchFour.append(gameElement);
-          gameElement.style.display = 'flex';
-          gameElement.style.justifyContent = 'center';
-          gameElement.style.alignItems = 'center';
-          if (
-            levelsMarkup[this.store.currentLevel][i][index].children.tagName !==
-            ''
-          ) {
-            const childTag =
-              levelsMarkup[this.store.currentLevel][i][index].children.tagName;
-            const gameElementChild = document.createElement(childTag);
-            gameElement.append(gameElementChild);
-            gameElementChild.style.width = '2vw';
-            gameElementChild.style.aspectRatio = '1 / 1';
-          }
-        }
-      }
-    }
+    this.node.append(
+      this.branchOne,
+      this.branchTwo,
+      this.branchThree,
+      this.branchFour
+    );
   }
 }

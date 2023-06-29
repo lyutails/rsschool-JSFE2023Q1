@@ -36,7 +36,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
   constructor() {
     super({
       tagName: 'div',
-      classList: ['html_viewer'],
+      classList: ['html_viewer']
+    });
+
+    const htmlviewerTitle = new BaseComponent({
+      tagName: 'div',
+      classList: ['html_viewer_title'],
       textContent: 'HTML Viewer'
     });
 
@@ -242,6 +247,6 @@ export class HTMLViewer extends BaseComponent<'div'> {
       children: [htmlNumbers, htmlText]
     });
 
-    this.node.append(htmlMarkup.node);
+    this.node.append(htmlviewerTitle.node, htmlMarkup.node);
   }
 }
