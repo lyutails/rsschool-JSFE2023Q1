@@ -10,6 +10,9 @@ import { currentLevelObserver, store } from '@/store';
 export const instructionsObserverDay = new Observer();
 export const instructionsObserverNight = new Observer();
 
+export const levelCheckObserverDay = new Observer();
+export const levelCheckObserverNight = new Observer();
+
 export class Instructions extends BaseComponent<'div'> {
   public store = store;
   public thisLevelNumber: BaseComponent<'span'>;
@@ -82,15 +85,36 @@ export class Instructions extends BaseComponent<'div'> {
       textContent: '20'
     });
 
+    const levelCheck = new BaseComponent({
+      tagName: 'span',
+      classList: ['instructions_check']
+    });
+
+    levelCheckObserverDay.subscribe(() => {
+      levelCheck.node.classList.add('day');
+    });
+
+    levelCheckObserverNight.subscribe(() => {
+      levelCheck.node.classList.remove('day');
+    });
+
     const changeNext = new BaseComponent({
       tagName: 'span',
       classList: ['instructions_next']
     });
 
+    // changeNext.node.addEventListener('click', () => {
+    //   this.decrementLevel();
+    // });
+
     const changePrevious = new BaseComponent({
       tagName: 'span',
       classList: ['instructions_previous']
     });
+
+    // changeNext.node.addEventListener('click', () => {
+    //   this.incrementLevel();
+    // });
 
     this.thisLevelSelector = new BaseComponent({
       tagName: 'div',
@@ -123,7 +147,8 @@ export class Instructions extends BaseComponent<'div'> {
         levelTitle,
         this.thisLevelNumber,
         levelNumberOf,
-        totalNumberOfLevels
+        totalNumberOfLevels,
+        levelCheck
       ]
     });
 
@@ -179,6 +204,16 @@ export class Instructions extends BaseComponent<'div'> {
     );
 
     currentLevelObserver.subscribe(() => this.checkCurrentLevel());
+  }
+
+  public incrementLevel(): void {
+    const { currentLevel } = this.store;
+    this.store.currentLevel = currentLevel + 1;
+  }
+
+  public decrementLevel(): void {
+    const { currentLevel } = this.store;
+    this.store.currentLevel = currentLevel - 1;
   }
 
   public checkCurrentLevel(): void {

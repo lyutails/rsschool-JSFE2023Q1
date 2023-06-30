@@ -27,7 +27,9 @@ import { hintsObserverDay, hintsObserverNight } from '../hints';
 import { htmlviewerObserverDay, htmlviewerObserverNight } from '../html_viewer';
 import {
   instructionsObserverDay,
-  instructionsObserverNight
+  instructionsObserverNight,
+  levelCheckObserverDay,
+  levelCheckObserverNight
 } from '../instructions/instructions';
 import { leavesObserverDay, leavesObserverNight } from '../leaf';
 import { levelsObserverDay, levelsObserverNight } from '../levels_menu';
@@ -250,6 +252,7 @@ export class Header extends BaseComponent<'header'> {
       branchThreeObserverDay.notify('lalala');
       branchFourObserverDay.notify('lalala');
       leavesObserverDay.notify('lalala');
+      levelCheckObserverDay.notify('lalala');
     });
     element_two.node.addEventListener('click', () => {
       element_two.node.classList.add('active');
@@ -271,6 +274,7 @@ export class Header extends BaseComponent<'header'> {
       branchThreeObserverNight.notify('lalala');
       branchFourObserverNight.notify('lalala');
       leavesObserverNight.notify('lalala');
+      levelCheckObserverNight.notify('lalala');
     });
   }
 }

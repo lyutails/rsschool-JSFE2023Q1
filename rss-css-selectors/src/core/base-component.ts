@@ -69,6 +69,13 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     this.node.matches(selector);
   }
 
+  public appendAdjacentTag(
+    where: 'afterend' | 'afterbegin' | 'beforebegin' | 'beforeend',
+    data: string
+  ): void {
+    this.node.insertAdjacentText(where, data);
+  }
+
   public static appendRemoveTooltip = (
     element: HTMLElement,
     tooltip: BaseComponent

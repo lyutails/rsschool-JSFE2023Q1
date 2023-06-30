@@ -4,6 +4,7 @@ import { Observer } from '../observer';
 
 import { levelsMarkup } from '@/data/levels_markup';
 import { markupNumbers } from '@/data/markup_numbers';
+import { currentLevelObserver, store } from '@/store';
 
 export const appleTooltipAppendObserverTagHover = new Observer();
 export const appleTooltipRemoveObserverTagHover = new Observer();
@@ -33,6 +34,22 @@ export const gameElementHighlihgtActualElementHover = new Observer();
 export const gameElementUnhighlihgtActualElementHover = new Observer();
 
 export class HTMLViewer extends BaseComponent<'div'> {
+  public store = store;
+  public branchOneOpeningViewerTag: BaseComponent;
+  public branchOneClosingViewerTag: BaseComponent;
+  public branchTwoOpeningViewerTag: BaseComponent;
+  public branchTwoClosingViewerTag: BaseComponent;
+  public branchThreeOpeningViewerTag: BaseComponent;
+  public branchThreeClosingViewerTag: BaseComponent;
+  public branchFourOpeningViewerTag: BaseComponent;
+  public branchFourClosingViewerTag: BaseComponent;
+  public htmlText: BaseComponent;
+  public treeViewerOpeningTag: BaseComponent;
+  public treeViewerClosingTag: BaseComponent;
+  public firstBranchChildren: BaseComponent;
+  public secondBranchChildren: BaseComponent;
+  public thirdBranchChildren: BaseComponent;
+  public fourthBranchChildren: BaseComponent;
   constructor() {
     super({
       tagName: 'div',
@@ -64,134 +81,124 @@ export class HTMLViewer extends BaseComponent<'div'> {
       htmlNumbers.append(markupNumber);
     }
 
-    const appleTag = new BaseComponent({
-      tagName: 'div',
-      classList: ['markup_apple'],
-      textContent: `<${levelsMarkup[0][0][0].tagName}>`
-    });
-
-    appleTag.node.addEventListener('mouseover', () => {
-      gameElementHighlightTagHover.notify('lalala');
-      appleTooltipAppendObserverTagHover.notify('lalala');
-    });
-
-    appleTag.node.addEventListener('mouseout', () => {
-      gameElementUnhighlightTagHover.notify('lalala');
-      appleTooltipRemoveObserverTagHover.notify('lalala');
-    });
-
-    const branchOneOpeningViewerTag = new BaseComponent({
+    this.branchOneOpeningViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '<branch>'
     });
 
-    const branchOneClosingViewerTag = new BaseComponent({
+    this.branchOneClosingViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '</branch>'
     });
 
-    const branchTwoOpeningViewerTag = new BaseComponent({
+    this.branchTwoOpeningViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '<branch>'
     });
 
-    const branchTwoClosingViewerTag = new BaseComponent({
+    this.branchTwoClosingViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '</branch>'
     });
 
-    const branchThreeOpeningViewerTag = new BaseComponent({
+    this.branchThreeOpeningViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '<branch>'
     });
 
-    const branchThreeClosingViewerTag = new BaseComponent({
+    this.branchThreeClosingViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '</branch>'
     });
 
-    const branchFourOpeningViewerTag = new BaseComponent({
+    this.branchFourOpeningViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '<branch>'
     });
 
-    const branchFourClosingViewerTag = new BaseComponent({
+    this.branchFourClosingViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '</branch>'
     });
 
-    const treeViewerOpeningTag = new BaseComponent({
+    this.treeViewerOpeningTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_tree_opening'],
       textContent: '<tree>'
     });
 
-    const treeViewerClosingTag = new BaseComponent({
+    this.treeViewerClosingTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_tree_closing'],
       textContent: '</tree>'
     });
 
-    const htmlText = new BaseComponent({
+    this.htmlText = new BaseComponent({
       tagName: 'div',
       classList: ['html_viewer_text']
     });
 
-    htmlText.append(
-      treeViewerOpeningTag,
-      branchOneOpeningViewerTag,
-      appleTag,
-      branchOneClosingViewerTag,
-      branchTwoOpeningViewerTag,
-      branchTwoClosingViewerTag,
-      branchThreeOpeningViewerTag,
-      branchThreeClosingViewerTag,
-      branchFourOpeningViewerTag,
-      branchFourClosingViewerTag,
-      treeViewerClosingTag
-    );
+    this.firstBranchChildren = new BaseComponent({
+      tagName: 'div',
+      classList: ['first_branch_children']
+    });
 
-    treeViewerOpeningTag.node.addEventListener('mouseover', () => {
+    this.secondBranchChildren = new BaseComponent({
+      tagName: 'div',
+      classList: ['second_branch_children']
+    });
+
+    this.thirdBranchChildren = new BaseComponent({
+      tagName: 'div',
+      classList: ['second_branch_children']
+    });
+
+    this.fourthBranchChildren = new BaseComponent({
+      tagName: 'div',
+      classList: ['second_branch_children']
+    });
+
+    this.treeViewerOpeningTag.node.addEventListener('mouseover', () => {
       treeObserverHighlight.notify('lalala');
-      treeViewerClosingTag.node.style.color = 'red';
-      treeViewerOpeningTag.node.style.color = 'red';
+      this.treeViewerClosingTag.node.style.color = 'red';
+      this.treeViewerOpeningTag.node.style.color = 'red';
     });
-    treeViewerOpeningTag.node.addEventListener('mouseout', () => {
+    this.treeViewerOpeningTag.node.addEventListener('mouseout', () => {
       treeObserverUnhighlight.notify('lalala');
-      treeViewerClosingTag.node.style.color = 'unset';
-      treeViewerOpeningTag.node.style.color = 'unset';
+      this.treeViewerClosingTag.node.style.color = 'unset';
+      this.treeViewerOpeningTag.node.style.color = 'unset';
     });
-    treeViewerClosingTag.node.addEventListener('mouseover', () => {
+    this.treeViewerClosingTag.node.addEventListener('mouseover', () => {
       treeObserverHighlight.notify('lalala');
-      treeViewerOpeningTag.node.style.color = 'red';
-      treeViewerClosingTag.node.style.color = 'red';
+      this.treeViewerOpeningTag.node.style.color = 'red';
+      this.treeViewerClosingTag.node.style.color = 'red';
     });
-    treeViewerClosingTag.node.addEventListener('mouseout', () => {
+    this.treeViewerClosingTag.node.addEventListener('mouseout', () => {
       treeObserverUnhighlight.notify('lalala');
-      treeViewerOpeningTag.node.style.color = 'unset';
-      treeViewerClosingTag.node.style.color = 'unset';
+      this.treeViewerOpeningTag.node.style.color = 'unset';
+      this.treeViewerClosingTag.node.style.color = 'unset';
     });
 
     const branchesOpeningTags = [
-      branchOneOpeningViewerTag,
-      branchTwoOpeningViewerTag,
-      branchThreeOpeningViewerTag,
-      branchFourOpeningViewerTag
+      this.branchOneOpeningViewerTag,
+      this.branchTwoOpeningViewerTag,
+      this.branchThreeOpeningViewerTag,
+      this.branchFourOpeningViewerTag
     ];
 
     const branchesClosingTags = [
-      branchOneClosingViewerTag,
-      branchTwoClosingViewerTag,
-      branchThreeClosingViewerTag,
-      branchFourClosingViewerTag
+      this.branchOneClosingViewerTag,
+      this.branchTwoClosingViewerTag,
+      this.branchThreeClosingViewerTag,
+      this.branchFourClosingViewerTag
     ];
 
     const observersBranchHightlight = [
@@ -244,9 +251,302 @@ export class HTMLViewer extends BaseComponent<'div'> {
       tagName: 'div',
       classList: ['html_viewer_markup'],
       textContent: '',
-      children: [htmlNumbers, htmlText]
+      children: [htmlNumbers, this.htmlText]
     });
 
     this.node.append(htmlviewerTitle.node, htmlMarkup.node);
+
+    currentLevelObserver.subscribe(() => this.render());
+
+    this.render();
+  }
+
+  public render(): void {
+    this.firstBranchChildren.node.textContent = '';
+    this.secondBranchChildren.node.textContent = '';
+    this.thirdBranchChildren.node.textContent = '';
+    this.fourthBranchChildren.node.textContent = '';
+
+    const { currentLevel } = this.store;
+
+    for (let i = 0; i < levelsMarkup[currentLevel].length; i++) {
+      for (let j = 0; j < levelsMarkup[currentLevel][0].length; j++) {
+        if (
+          i === 0 &&
+          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i][j].tagName !== ''
+        ) {
+          const childTagOneOpening = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagOneOpening.node.textContent = `<${levelsMarkup[currentLevel][0][j].tagName}>`;
+
+          childTagOneOpening.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagOneOpening.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          if (levelsMarkup[currentLevel][0][j].children.tagName !== '') {
+            const childTagOneOpeningChild = new BaseComponent({
+              tagName: 'div',
+              classList: ['markup_child']
+            });
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName}>`;
+
+            childTagOneOpeningChild.node.addEventListener('mouseover', () => {
+              gameElementHighlightTagHover.notify('lalala');
+              appleTooltipAppendObserverTagHover.notify('lalala');
+            });
+
+            childTagOneOpeningChild.node.addEventListener('mouseout', () => {
+              gameElementUnhighlightTagHover.notify('lalala');
+              appleTooltipRemoveObserverTagHover.notify('lalala');
+            });
+
+            childTagOneOpening.append(childTagOneOpeningChild);
+          }
+
+          const childTagOneClosing = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+
+          childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
+
+          childTagOneClosing.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagOneClosing.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          this.firstBranchChildren.append(
+            childTagOneOpening,
+            childTagOneClosing
+          );
+        }
+      }
+
+      for (let j = 0; j < levelsMarkup[currentLevel][1].length; j++) {
+        if (
+          i === 1 &&
+          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i][j].tagName !== ''
+        ) {
+          const childTagTwoOpening = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagTwoOpening.node.textContent = `<${levelsMarkup[currentLevel][1][j].tagName}>`;
+
+          childTagTwoOpening.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagTwoOpening.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          if (levelsMarkup[currentLevel][1][j].children.tagName !== '') {
+            const childTagTwoOpeningChild = new BaseComponent({
+              tagName: 'div',
+              classList: ['markup_child']
+            });
+            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName}>`;
+
+            childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
+              gameElementHighlightTagHover.notify('lalala');
+              appleTooltipAppendObserverTagHover.notify('lalala');
+            });
+
+            childTagTwoOpeningChild.node.addEventListener('mouseout', () => {
+              gameElementUnhighlightTagHover.notify('lalala');
+              appleTooltipRemoveObserverTagHover.notify('lalala');
+            });
+
+            childTagTwoOpening.append(childTagTwoOpeningChild);
+          }
+
+          const childTagTwoClosing = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
+
+          childTagTwoClosing.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagTwoClosing.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          this.secondBranchChildren.append(
+            childTagTwoOpening,
+            childTagTwoClosing
+          );
+        }
+      }
+
+      for (let j = 0; j < levelsMarkup[currentLevel][2].length; j++) {
+        if (
+          i === 2 &&
+          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i][j].tagName !== ''
+        ) {
+          const childTagThreeOpening = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagThreeOpening.node.textContent = `<${levelsMarkup[currentLevel][2][j].tagName}>`;
+
+          childTagThreeOpening.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagThreeOpening.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          if (levelsMarkup[currentLevel][2][j].children.tagName !== '') {
+            const childTagThreeOpeningChild = new BaseComponent({
+              tagName: 'div',
+              classList: ['markup_child']
+            });
+            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName}>`;
+
+            childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
+              gameElementHighlightTagHover.notify('lalala');
+              appleTooltipAppendObserverTagHover.notify('lalala');
+            });
+
+            childTagThreeOpeningChild.node.addEventListener('mouseout', () => {
+              gameElementUnhighlightTagHover.notify('lalala');
+              appleTooltipRemoveObserverTagHover.notify('lalala');
+            });
+
+            childTagThreeOpening.append(childTagThreeOpeningChild);
+          }
+
+          const childTagThreeClosing = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
+
+          childTagThreeClosing.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagThreeClosing.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          this.thirdBranchChildren.append(
+            childTagThreeOpening,
+            childTagThreeClosing
+          );
+        }
+      }
+
+      for (let j = 0; j < levelsMarkup[currentLevel][3].length; j++) {
+        if (
+          i === 3 &&
+          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i][j].tagName !== ''
+        ) {
+          const childTagFourOpening = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagFourOpening.node.textContent = `<${levelsMarkup[currentLevel][3][j].tagName}>`;
+
+          childTagFourOpening.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagFourOpening.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          if (levelsMarkup[currentLevel][3][j].children.tagName !== '') {
+            const childTagFourOpeningChild = new BaseComponent({
+              tagName: 'div',
+              classList: ['markup_child']
+            });
+            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName}>`;
+
+            childTagFourOpeningChild.node.addEventListener('mouseover', () => {
+              gameElementHighlightTagHover.notify('lalala');
+              appleTooltipAppendObserverTagHover.notify('lalala');
+            });
+
+            childTagFourOpeningChild.node.addEventListener('mouseout', () => {
+              gameElementUnhighlightTagHover.notify('lalala');
+              appleTooltipRemoveObserverTagHover.notify('lalala');
+            });
+
+            childTagFourOpening.append(childTagFourOpeningChild);
+          }
+
+          const childTagFourClosing = new BaseComponent({
+            tagName: 'div',
+            classList: ['markup_child']
+          });
+          childTagFourClosing.node.textContent = `<${levelsMarkup[currentLevel][3][j].tagName}>`;
+
+          childTagFourClosing.node.addEventListener('mouseover', () => {
+            gameElementHighlightTagHover.notify('lalala');
+            appleTooltipAppendObserverTagHover.notify('lalala');
+          });
+
+          childTagFourClosing.node.addEventListener('mouseout', () => {
+            gameElementUnhighlightTagHover.notify('lalala');
+            appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          this.fourthBranchChildren.append(
+            childTagFourOpening,
+            childTagFourClosing
+          );
+        }
+      }
+    }
+
+    this.htmlText.append(
+      this.treeViewerOpeningTag,
+      this.branchOneOpeningViewerTag,
+      this.firstBranchChildren,
+      this.branchOneClosingViewerTag,
+      this.branchTwoOpeningViewerTag,
+      this.secondBranchChildren,
+      this.branchTwoClosingViewerTag,
+      this.branchThreeOpeningViewerTag,
+      this.thirdBranchChildren,
+      this.branchThreeClosingViewerTag,
+      this.branchFourOpeningViewerTag,
+      this.fourthBranchChildren,
+      this.branchFourClosingViewerTag,
+      this.treeViewerClosingTag
+    );
   }
 }

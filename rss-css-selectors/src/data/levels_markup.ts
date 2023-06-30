@@ -363,19 +363,6 @@ export const levelsMarkup = [
     ],
     [
       {
-        tagName: '',
-        classList: '',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: ''
-      },
-      {
         tagName: 'leaf',
         classList: 'leaf',
         children: {
