@@ -144,6 +144,8 @@ export class Header extends BaseComponent<'header'> {
     });
 
     soundControl.node.setAttribute('type', 'range');
+    soundControl.node.setAttribute('max', '100');
+    soundControl.node.setAttribute('value', '25');
 
     const soundWrapper = new BaseComponent({
       tagName: 'div',
