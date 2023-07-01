@@ -1,5 +1,15 @@
 import { BaseComponent } from '@/core/base-component';
 
+import danceMonkey from '../../refs/sounds/Dance_Monkey_cut.mp3';
+import king from '../../refs/sounds/King_cut.mp3';
+import letHerGo from '../../refs/sounds/Let-Her-Go_cut.mp3';
+import lostInJapan from '../../refs/sounds/Lost-In-Japan_cut.mp3';
+import missedConnection from '../../refs/sounds/Missed Connection_cut.mp3';
+import oneOfUs from '../../refs/sounds/One_Of_Us_cut.mp3';
+import strangersUniverse from '../../refs/sounds/Strangers_cut.mp3';
+import thousandMiles from '../../refs/sounds/Thousand_Miles_cut.mp3';
+import heartbeats from '../../refs/sounds/heartbeats_cut.mp3';
+import hometownSmile from '../../refs/sounds/hometown-smile_cut.mp3';
 import windChimeSoundOne from '../../refs/sounds/wind_chimes_01.mp3';
 import windChimeSoundTwo from '../../refs/sounds/wind_chimes_02.mp3';
 import windChimeSoundThree from '../../refs/sounds/wind_chimes_03.mp3';
@@ -58,6 +68,7 @@ export const windChimeSoundObserverPause = new Observer();
 export class Header extends BaseComponent<'header'> {
   public windChimeSoundsArray: string[];
   public isSoundClicked = false;
+  public soundControl: BaseComponent<'input'>;
   constructor() {
     super({
       tagName: 'header',
@@ -114,9 +125,25 @@ export class Header extends BaseComponent<'header'> {
 
     this.windChimeSoundsArray = [
       windChimeSoundOne,
+      lostInJapan,
       windChimeSoundTwo,
+      hometownSmile,
       windChimeSoundThree,
-      windChimeSoundFour
+      strangersUniverse,
+      windChimeSoundFour,
+      letHerGo,
+      windChimeSoundOne,
+      oneOfUs,
+      windChimeSoundTwo,
+      king,
+      windChimeSoundThree,
+      missedConnection,
+      windChimeSoundFour,
+      danceMonkey,
+      windChimeSoundOne,
+      thousandMiles,
+      windChimeSoundOne,
+      heartbeats
     ];
 
     const sound = new BaseComponent({
@@ -140,19 +167,19 @@ export class Header extends BaseComponent<'header'> {
       this.playWindChimeSound();
     });
 
-    const soundControl = new BaseComponent({
+    this.soundControl = new BaseComponent({
       tagName: 'input',
       classList: ['header_sound_control']
     });
 
-    soundControl.node.setAttribute('type', 'range');
-    soundControl.node.setAttribute('max', '100');
-    soundControl.node.setAttribute('value', '25');
+    this.soundControl.node.setAttribute('type', 'range');
+    this.soundControl.node.setAttribute('max', '100');
+    this.soundControl.node.setAttribute('value', '25');
 
     const soundWrapper = new BaseComponent({
       tagName: 'div',
       classList: ['header_sound_wrapper'],
-      children: [sound, soundControl]
+      children: [sound, this.soundControl]
     });
 
     const headerDay = new BaseComponent({
@@ -216,8 +243,16 @@ export class Header extends BaseComponent<'header'> {
         soundIndex = 0;
       }
       const windChime = new Audio(this.windChimeSoundsArray[soundIndex]);
-      console.log(soundIndex);
       windChime.play();
+      if (this.soundControl) {
+        this.soundControl.node.addEventListener('change', (e: Event) => {
+          if (e.currentTarget) {
+            windChime.volume =
+              +(e.currentTarget as HTMLInputElement).value / 100;
+          }
+        });
+      }
+      console.log(soundIndex);
       windChimeSoundObserverPause.subscribe(() => {
         windChime.pause();
       });

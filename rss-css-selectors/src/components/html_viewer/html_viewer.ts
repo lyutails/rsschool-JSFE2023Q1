@@ -512,7 +512,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
-          childTagFourClosing.node.textContent = `<${levelsMarkup[currentLevel][3][j].tagName}>`;
+          childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
