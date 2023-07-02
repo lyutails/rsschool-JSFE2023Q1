@@ -1003,7 +1003,7 @@ export const levelsMarkup = [
     [
       {
         tagName: 'pear',
-        classList: '',
+        classList: 'pear',
         children: {
           tagName: '',
           classList: '',
@@ -1016,7 +1016,7 @@ export const levelsMarkup = [
       },
       {
         tagName: 'strawberry',
-        classList: '',
+        classList: 'strawberry',
         children: {
           tagName: '',
           classList: '',
@@ -1029,7 +1029,7 @@ export const levelsMarkup = [
       },
       {
         tagName: 'pear',
-        classList: '',
+        classList: 'pear',
         children: {
           tagName: '',
           classList: '',
@@ -1042,7 +1042,7 @@ export const levelsMarkup = [
       },
       {
         tagName: 'pear',
-        classList: '',
+        classList: 'pear',
         children: {
           tagName: '',
           classList: '',
@@ -1665,21 +1665,8 @@ export const levelsMarkup = [
     ],
     [
       {
-        tagName: 'beehive',
-        classList: 'beehive',
-        children: {
-          tagName: 'bee',
-          classList: 'bee',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: ''
-      },
-      {
-        tagName: 'birdhouse',
-        classList: 'birdhouse',
+        tagName: 'mango',
+        classList: 'mango',
         children: {
           tagName: '',
           classList: '',
@@ -1689,6 +1676,19 @@ export const levelsMarkup = [
         },
         id: '',
         attribute: ''
+      },
+      {
+        tagName: 'strawberry',
+        classList: 'strawberry',
+        children: {
+          tagName: '',
+          classList: '',
+          children: {},
+          id: '',
+          attribute: ''
+        },
+        id: '',
+        attribute: 'for="fun"'
       }
     ]
   ],

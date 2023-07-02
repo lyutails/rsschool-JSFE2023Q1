@@ -1130,7 +1130,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .html_viewer {
-  height: 70%;
+  height: 65%;
   border-top: 1px solid $ui-border-color;
   border-bottom: 1px solid $ui-border-color;
   padding-left: 1vw;
@@ -1162,17 +1162,19 @@ body::-webkit-scrollbar-thumb {
     width: 10%;
     display: flex;
     flex-direction: column;
+    font-size: 0.9rem;
   }
 
   &_text {
     width: 90%;
     display: flex;
     flex-direction: column;
+    font-size: 0.9rem;
   }
 }
 
 .css_editor {
-  height: 30%;
+  height: 35%;
   border-top: 1px solid $ui-border-color;
   border-bottom: 1px solid $ui-border-color;
   padding-left: 1vw;

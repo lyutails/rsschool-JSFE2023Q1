@@ -125,6 +125,9 @@ export class Header extends BaseComponent<'header'> {
 
     this.windChimeSoundsArray = [
       windChimeSoundOne,
+      windChimeSoundTwo,
+      windChimeSoundThree,
+      windChimeSoundFour,
       lostInJapan,
       windChimeSoundTwo,
       hometownSmile,

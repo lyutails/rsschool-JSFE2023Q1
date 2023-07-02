@@ -477,7 +477,7 @@ export const levels = [
     selectorName: 'Attribute Starts With Selector',
     doThis: "Select the meals for name that starts with 'qe'",
     selector: '[for^="qe"]',
-    syntax: '[attribute*="value"]',
+    syntax: '[attribute^="value"]',
     help: 'A useful selector if you can identify a common pattern in things like class, href or src attributes.',
     examples: [
       'img[src*="/thumbnails/"] selects all image elements that show images from the "thumbnails" folder.',
