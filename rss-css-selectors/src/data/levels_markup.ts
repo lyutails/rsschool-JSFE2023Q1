@@ -1732,7 +1732,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"',
+        attribute: 'fun',
         anim: 'yes'
       },
       {
@@ -1747,7 +1747,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"',
+        attribute: 'fun',
         anim: 'yes'
       }
     ],
@@ -1764,7 +1764,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"',
+        attribute: 'fun',
         anim: 'yes'
       }
     ],
@@ -1781,7 +1781,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="supply"',
+        attribute: 'supply',
         anim: 'no'
       },
       {
@@ -1796,7 +1796,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"',
+        attribute: 'fun',
         anim: 'yes'
       }
     ],
@@ -1813,7 +1813,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="game"',
+        attribute: 'game',
         anim: 'no'
       },
       {
@@ -1828,7 +1828,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"',
+        attribute: 'fun',
         anim: 'yes'
       }
     ]
@@ -1847,7 +1847,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"',
+        attribute: 'qeteq',
         anim: 'yes'
       },
       {
@@ -1862,7 +1862,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="game"',
+        attribute: 'game',
         anim: 'no'
       },
       {
@@ -1877,7 +1877,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"',
+        attribute: 'qeteq',
         anim: 'yes'
       }
     ],
@@ -1894,7 +1894,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="game"',
+        attribute: 'game',
         anim: 'no'
       },
       {
@@ -1909,7 +1909,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="tomorrow"',
+        attribute: 'tomorrow',
         anim: 'no'
       }
     ],
@@ -1926,7 +1926,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="me"',
+        attribute: 'me',
         anim: 'no'
       },
       {
@@ -1941,7 +1941,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="game"',
+        attribute: 'game',
         anim: 'no'
       },
       {
@@ -1956,7 +1956,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="food"',
+        attribute: 'food',
         anim: 'no'
       }
     ],
@@ -1973,7 +1973,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"',
+        attribute: 'qeteq',
         anim: 'yes'
       },
       {
@@ -1988,7 +1988,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"',
+        attribute: 'qeteq',
         anim: 'yes'
       }
     ]
@@ -2007,7 +2007,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="you"',
+        attribute: 'you',
         anim: 'no'
       }
     ],
@@ -2024,7 +2024,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="me"',
+        attribute: 'me',
         anim: 'no'
       }
     ],
@@ -2041,14 +2041,14 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="supply"',
+        attribute: 'supply',
         anim: 'no'
       }
     ],
     [
       {
         tagName: 'dumpling',
-        classList: 'dumpling',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
@@ -2058,7 +2058,7 @@ export const levelsMarkup = [
           anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"',
+        attribute: 'qeteq',
         anim: 'yes'
       }
     ]

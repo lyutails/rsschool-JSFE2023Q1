@@ -561,7 +561,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
-          childTagOneOpening.node.textContent = `<${levelsMarkup[currentLevel][0][j].tagName} attribute=[${levelsMarkup[currentLevel][0][j].attribute}]>`;
+          childTagOneOpening.node.textContent = `<${levelsMarkup[currentLevel][0][j].tagName} for='${levelsMarkup[currentLevel][0][j].attribute}'>`;
 
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -910,7 +910,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
-          childTagTwoOpening.node.textContent = `<${levelsMarkup[currentLevel][1][j].tagName} attribute=[${levelsMarkup[currentLevel][1][j].attribute}]>`;
+          childTagTwoOpening.node.textContent = `<${levelsMarkup[currentLevel][1][j].tagName} for='${levelsMarkup[currentLevel][1][j].attribute}'>`;
 
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1259,7 +1259,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
-          childTagThreeOpening.node.textContent = `<${levelsMarkup[currentLevel][2][j].tagName} attribute=[${levelsMarkup[currentLevel][2][j].attribute}]>`;
+          childTagThreeOpening.node.textContent = `<${levelsMarkup[currentLevel][2][j].tagName} for='${levelsMarkup[currentLevel][2][j].attribute}'>`;
 
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1611,7 +1611,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
-          childTagFourOpening.node.textContent = `<${levelsMarkup[currentLevel][3][j].tagName} attribute=[${levelsMarkup[currentLevel][3][j].attribute}]>`;
+          childTagFourOpening.node.textContent = `<${levelsMarkup[currentLevel][3][j].tagName} for='${levelsMarkup[currentLevel][3][j].attribute}'>`;
 
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
