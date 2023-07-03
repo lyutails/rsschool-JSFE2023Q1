@@ -256,7 +256,6 @@ export class Header extends BaseComponent<'header'> {
           }
         });
       }
-      console.log(soundIndex);
       windChimeSoundObserverPause.subscribe(() => {
         windChime.pause();
       });

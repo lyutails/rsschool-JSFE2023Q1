@@ -24,15 +24,26 @@ export class LevelsMenu extends BaseComponent {
     this.node.append(levelTitle.node);
 
     for (let i = 0; i < levelsNamesArray.length; i++) {
+      const levelName = new BaseComponent({
+        tagName: 'span',
+        classList: ['levels_name'],
+        textContent: `${levelsNamesArray[i]}`
+      });
+
+      const levelCheck = new BaseComponent({
+        tagName: 'span',
+        classList: ['levels_check']
+      });
+
       const levelItem = new BaseComponent({
         tagName: 'div',
         classList: ['levels_item'],
-        textContent: `${levelsNamesArray[i]}`
+        children: [levelCheck, levelName]
       });
+
       this.node.append(levelItem.node);
     }
 
-    // burgerObserver.subscribe(this.moveMenu);
     burgerObserver.subscribe(() => this.moveMenu());
 
     levelsObserverDay.subscribe(() => this.node.classList.add('recolour'));

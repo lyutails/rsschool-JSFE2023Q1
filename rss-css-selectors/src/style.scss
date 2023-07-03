@@ -544,6 +544,29 @@ body::-webkit-scrollbar-thumb {
       color: $button-color;
     }
   }
+
+  &_check {
+    width: 1.2vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/icons/check_evening.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    margin-right: 0.5vw;
+
+    &.morning {
+      background-image: url('./refs/icons/check_morning.svg');
+    }
+
+    &.pure_win {
+      background-image: url('./refs/icons/check_greenish.svg');
+    }
+
+    &.hint_win {
+      background-image: url('./refs/icons/check_pinkish.svg');
+    }
+  }
 }
 
 .levels_burger {
