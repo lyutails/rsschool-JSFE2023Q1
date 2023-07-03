@@ -295,7 +295,7 @@ export const levels = [
   {
     helpTitle: 'Select elements that follows another element',
     selectorName: 'General Sibling Selector',
-    doThis: 'Select the pears next to the strawberries by class',
+    doThis: 'Select the pears next to the strawberry by class',
     selector: '.strawberry ~ .pear',
     syntax: '.classnameA ~ .classnameB',
     help: 'You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.',
@@ -393,12 +393,13 @@ export const levels = [
   },
   {
     selectorName: 'Empty Selector',
-    helpTitle: "Select elements that don't have children",
-    doThis: 'Select by class the empty beehives and birdhouses',
-    selector: '.birdhouse:empty, .beehive:empty',
-    syntax: ':empty',
-    help: "Selects elements that don't have any other elements inside of them.",
-    examples: ['div:empty selects all empty div elements.'],
+    helpTitle: "Skip elements that don't have children",
+    doThis:
+      'Select by class the beehives and birdhouses having habitants (not empty)',
+    selector: '.birdhouse:not(:empty), .beehive:not(:empty)',
+    syntax: ':not(:empty)',
+    help: "Skip the elements that don't have any other elements inside of them.",
+    examples: ['div:not(:empty) selects all not empty div elements.'],
     boardMarkup: `
     <branch>
       <birdhouse class="birdhouse">
@@ -444,7 +445,7 @@ export const levels = [
   {
     helpTitle: 'Select all elements that have a specific attribute',
     selectorName: 'Attribute Selector',
-    doThis: 'Select the items for fun by class',
+    doThis: 'Select the items for fun by attribute',
     selector: '[for="fun"]',
     syntax: '[attribute]',
     help: 'Attributes appear inside the opening tag of an element, like this: <span attribute="value"></span>. An attribute does not always have a value, it can be blank!',

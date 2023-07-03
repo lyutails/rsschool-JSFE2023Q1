@@ -9,10 +9,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -24,10 +26,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -39,10 +43,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -54,10 +60,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -71,10 +79,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -86,10 +96,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -101,10 +113,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -116,10 +130,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -133,10 +149,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -148,10 +166,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: 'mango',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -163,10 +183,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: 'mango',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -178,10 +200,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -193,18 +217,14 @@ export const levelsMarkup = [
         children: {
           tagName: 'bee',
           classList: '',
-          children: {
-            tagName: '',
-            classList: '',
-            children: {},
-            id: '',
-            attribute: ''
-          },
+          children: {},
           id: '',
-          attribute: ['']
+          attribute: [''],
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -216,10 +236,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -231,10 +253,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -246,10 +270,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -263,10 +289,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -278,10 +306,12 @@ export const levelsMarkup = [
           classList: 'sparrow',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -293,10 +323,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -308,10 +340,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -325,10 +359,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -340,10 +376,12 @@ export const levelsMarkup = [
           classList: 'ladybug',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: 'leaf',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -355,10 +393,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -370,10 +410,12 @@ export const levelsMarkup = [
           classList: 'ladybug',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: 'leaf',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -387,10 +429,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -402,10 +446,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -417,10 +463,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -432,10 +480,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ]
   ],
@@ -449,10 +499,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'banana',
@@ -462,10 +514,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -477,10 +531,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -492,10 +548,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -507,10 +565,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ]
   ],
@@ -524,10 +584,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'butterfly',
@@ -537,10 +599,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -552,10 +616,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'bee',
@@ -565,10 +631,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -580,10 +648,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'butterfly',
@@ -593,10 +663,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'ladybug',
@@ -606,10 +678,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -621,10 +695,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ]
   ],
@@ -638,10 +714,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'cherry',
@@ -651,10 +729,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -666,10 +746,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -679,10 +761,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -694,10 +778,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -709,10 +795,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ]
   ],
@@ -723,19 +811,15 @@ export const levelsMarkup = [
         classList: '',
         children: {
           tagName: 'ladybug',
+          children: {},
           classList: '',
-          children: {
-            tagName: '',
-            classList: '',
-            children: {},
-            id: '',
-            attribute: ''
-          },
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -747,10 +831,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -762,10 +848,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -775,18 +863,14 @@ export const levelsMarkup = [
         children: {
           tagName: 'bee',
           classList: '',
-          children: {
-            tagName: '',
-            classList: '',
-            children: {},
-            id: '',
-            attribute: ''
-          },
+          children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -803,7 +887,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'apple',
@@ -816,7 +901,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'mango',
@@ -829,7 +915,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -844,7 +931,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'apple',
@@ -857,7 +945,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'mango',
@@ -870,7 +959,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -885,20 +975,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
-      },
-      {
-        tagName: 'apple',
-        classList: '',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'mango',
@@ -911,7 +989,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'pear',
@@ -924,10 +1003,25 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
+      {
+        tagName: 'mango',
+        classList: '',
+        children: {
+          tagName: '',
+          classList: '',
+          children: {},
+          id: '',
+          attribute: ''
+        },
+        id: '',
+        attribute: '',
+        anim: 'no'
+      },
       {
         tagName: 'apple',
         classList: '',
@@ -939,33 +1033,8 @@ export const levelsMarkup = [
           attribute: ''
         },
         id: '',
-        attribute: ''
-      },
-      {
-        tagName: 'mango',
-        classList: '',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: ''
-      },
-      {
-        tagName: 'mango',
-        classList: '',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -979,10 +1048,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -994,10 +1065,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1009,10 +1082,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'strawberry',
@@ -1022,10 +1097,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'pear',
@@ -1035,10 +1112,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'pear',
@@ -1048,10 +1127,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -1063,10 +1144,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -1080,10 +1163,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'mango',
@@ -1093,10 +1178,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'mango',
@@ -1106,10 +1193,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1121,10 +1210,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'banana',
@@ -1134,10 +1225,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1149,10 +1242,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1164,10 +1259,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -1181,10 +1278,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'butterfly',
@@ -1194,10 +1293,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'butterfly',
@@ -1207,10 +1308,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -1222,10 +1325,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1237,10 +1342,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1252,10 +1359,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'butterfly',
@@ -1265,10 +1374,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'butterfly',
@@ -1278,10 +1389,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -1295,10 +1408,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -1308,10 +1423,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -1321,10 +1438,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1336,10 +1455,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -1349,10 +1470,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -1362,10 +1485,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -1375,10 +1500,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'dumpling',
@@ -1388,10 +1515,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1403,10 +1532,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ],
     [
@@ -1418,10 +1549,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -1435,10 +1568,12 @@ export const levelsMarkup = [
           classList: 'sparrow',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'beehive',
@@ -1448,10 +1583,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'beehive',
@@ -1461,10 +1598,12 @@ export const levelsMarkup = [
           classList: 'bee',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'ys'
       }
     ],
     [
@@ -1476,10 +1615,12 @@ export const levelsMarkup = [
           classList: 'sparrow',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'birdhouse',
@@ -1489,10 +1630,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       },
       {
         tagName: 'beehive',
@@ -1502,10 +1645,12 @@ export const levelsMarkup = [
           classList: 'bee',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -1517,10 +1662,12 @@ export const levelsMarkup = [
           classList: 'sparrow',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'beehive',
@@ -1530,10 +1677,12 @@ export const levelsMarkup = [
           classList: 'bee',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       }
     ],
     [
@@ -1545,10 +1694,12 @@ export const levelsMarkup = [
           classList: 'bee',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'yes'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'yes'
       },
       {
         tagName: 'birdhouse',
@@ -1558,10 +1709,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: '',
+        anim: 'no'
       }
     ]
   ],
@@ -1569,126 +1722,114 @@ export const levelsMarkup = [
     [
       {
         tagName: 'cherry',
-        classList: 'cherry',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"'
+        attribute: 'for="fun"',
+        anim: 'yes'
       },
       {
         tagName: 'pear',
-        classList: 'pear',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"'
+        attribute: 'for="fun"',
+        anim: 'yes'
       }
     ],
     [
       {
         tagName: 'strawberry',
-        classList: 'strawberry',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"'
-      },
-      {
-        tagName: 'apple',
-        classList: 'apple',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: 'for="supply"'
+        attribute: 'for="fun"',
+        anim: 'yes'
       }
     ],
     [
       {
-        tagName: 'banana',
-        classList: 'banana',
+        tagName: 'apple',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: 'for="supply"',
+        anim: 'no'
       },
       {
         tagName: 'banana',
-        classList: 'banana',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"'
-      },
-      {
-        tagName: 'banana',
-        classList: 'banana',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: ''
+        attribute: 'for="fun"',
+        anim: 'yes'
       }
     ],
     [
       {
         tagName: 'mango',
-        classList: 'mango',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: ''
+        attribute: 'for="game"',
+        anim: 'no'
       },
       {
         tagName: 'strawberry',
-        classList: 'strawberry',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="fun"'
+        attribute: 'for="fun"',
+        anim: 'yes'
       }
     ]
   ],
@@ -1696,139 +1837,159 @@ export const levelsMarkup = [
     [
       {
         tagName: 'mango',
-        classList: 'mango',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"'
+        attribute: 'for="qeteq"',
+        anim: 'yes'
       },
       {
         tagName: 'cherry',
-        classList: 'cherry',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="game"'
+        attribute: 'for="game"',
+        anim: 'no'
       },
       {
         tagName: 'pear',
-        classList: 'pear',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"'
+        attribute: 'for="qeteq"',
+        anim: 'yes'
       }
     ],
     [
       {
         tagName: 'mango',
-        classList: 'mango',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="game"'
+        attribute: 'for="game"',
+        anim: 'no'
       },
       {
         tagName: 'mango',
-        classList: 'mango',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="tomorrow"'
+        attribute: 'for="tomorrow"',
+        anim: 'no'
       }
     ],
     [
       {
         tagName: 'banana',
-        classList: 'banana',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="me"'
+        attribute: 'for="me"',
+        anim: 'no'
       },
       {
         tagName: 'dumpling',
-        classList: 'dumpling',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="game"'
+        attribute: 'for="game"',
+        anim: 'no'
       },
       {
         tagName: 'apple',
-        classList: 'apple',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="food"'
+        attribute: 'for="food"',
+        anim: 'no'
       }
     ],
     [
       {
         tagName: 'dumpling',
-        classList: 'dumpling',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="qeteq"'
+        attribute: 'for="qeteq"',
+        anim: 'yes'
       },
       {
         tagName: 'strawberry',
-        classList: 'strawberry',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="me"'
+        attribute: 'for="qeteq"',
+        anim: 'yes'
       }
     ]
   ],
@@ -1836,31 +1997,52 @@ export const levelsMarkup = [
     [
       {
         tagName: 'apple',
-        classList: 'apple',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="you"'
+        attribute: 'for="you"',
+        anim: 'no'
       }
     ],
     [
       {
         tagName: 'mango',
-        classList: 'mango',
+        classList: '',
         children: {
           tagName: '',
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="me"'
+        attribute: 'for="me"',
+        anim: 'no'
+      }
+    ],
+    [
+      {
+        tagName: 'dumpling',
+        classList: '',
+        children: {
+          tagName: '',
+          classList: '',
+          children: {},
+          id: '',
+          attribute: '',
+          anim: 'no'
+        },
+        id: '',
+        attribute: 'for="supply"',
+        anim: 'no'
       }
     ],
     [
@@ -1872,25 +2054,12 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
-        attribute: 'for="supply"'
-      }
-    ],
-    [
-      {
-        tagName: 'dumpling',
-        classList: 'dumpling',
-        children: {
-          tagName: '',
-          classList: '',
-          children: {},
-          id: '',
-          attribute: ''
-        },
-        id: '',
-        attribute: 'for="qeteq"'
+        attribute: 'for="qeteq"',
+        anim: 'yes'
       }
     ]
   ]
