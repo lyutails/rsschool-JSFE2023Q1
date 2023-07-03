@@ -9,6 +9,7 @@ import {
   gameElementUnhighlihgtActualElementHover
 } from '../html_viewer';
 
+import { levels } from '@/data/levels';
 import { levelsMarkup } from '@/data/levels_markup';
 import { currentLevelObserver, store } from '@/store';
 
@@ -86,6 +87,77 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.setAttribute('for', gameLevelElementAttribute);
         }
 
+        if (
+          levelsMarkup[this.store.currentLevel][i][index].tagName ===
+            levels[this.store.currentLevel].selector &&
+          levelsMarkup[this.store.currentLevel][i][index].classList === ''
+        ) {
+          gameElement.style.animationName = 'pick_me_anim';
+        }
+
+        if (
+          levelsMarkup[this.store.currentLevel][i][index].classList ===
+          levels[this.store.currentLevel].selector
+        ) {
+          gameElement.style.animationName = 'pick_me_anim';
+        }
+
+        if (levels[this.store.currentLevel].selector.charAt(0) === '#') {
+          if (
+            levelsMarkup[this.store.currentLevel][i][index].id ===
+            levels[this.store.currentLevel].selector.slice(1)
+          ) {
+            gameElement.style.animationName = 'pick_me_anim';
+          }
+        }
+
+        const selectorWinPartTag = levels[this.store.currentLevel].selector
+          .replace(/,/g, '')
+          .split(' ')
+          .find((selectorPart) => {
+            return selectorPart.indexOf(
+              levelsMarkup[this.store.currentLevel][i][index].tagName
+            );
+          });
+
+        if (selectorWinPartTag) {
+          gameElement.style.animationName = 'pick_me_anim';
+        }
+
+        if (
+          levelsMarkup[this.store.currentLevel][i][index].classList ===
+            'banana_green' &&
+          levelsMarkup[this.store.currentLevel][i][index].tagName === 'banana'
+        ) {
+          gameElement.style.animationName = 'pick_me_anim';
+        }
+
+        if (
+          levelsMarkup[this.store.currentLevel][i][index].classList ===
+            'yellow' &&
+          levelsMarkup[this.store.currentLevel][i][index].tagName === 'banana'
+        ) {
+          gameElement.style.animationName = 'unset';
+        }
+
+        if (
+          levels[this.store.currentLevel].selector ===
+          '.bee, .ladybug, .butterfly_blue'
+        ) {
+          if (gameElement.classList.contains('bee')) {
+            gameElement.style.animationName = 'pick_me_anim';
+          }
+          if (gameElement.classList.contains('ladybug')) {
+            gameElement.style.animationName = 'pick_me_anim';
+          }
+          if (gameElement.classList.contains('butterfly_blue')) {
+            gameElement.style.animationName = 'pick_me_anim';
+          }
+          if (gameElement.classList.contains('butterfly_purple')) {
+            gameElement.style.animationName = 'unset';
+          }
+        }
+
         const gameElementTooltip = new BaseComponent({
           tagName: 'div',
           classList: ['tooltip_apple'],
@@ -155,6 +227,22 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
+
+            const selectorChildWinPartTag = levels[
+              this.store.currentLevel
+            ].selector
+              .replace(/,/g, '')
+              .split(' ')
+              .find((selectorPart) => {
+                return selectorPart.indexOf(
+                  levelsMarkup[this.store.currentLevel][i][index].children
+                    .tagName
+                );
+              });
+
+            if (selectorChildWinPartTag) {
+              gameElementChild.style.animationName = 'pick_me_child_anim';
+            }
           }
         }
 
@@ -176,6 +264,22 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
+
+            const selectorChildWinPartTag = levels[
+              this.store.currentLevel
+            ].selector
+              .replace(/,/g, '')
+              .split(' ')
+              .find((selectorPart) => {
+                return selectorPart.indexOf(
+                  levelsMarkup[this.store.currentLevel][i][index].children
+                    .tagName
+                );
+              });
+
+            if (selectorChildWinPartTag) {
+              gameElementChild.style.animationName = 'pick_me_child_anim';
+            }
           }
         }
 
@@ -197,6 +301,22 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
+
+            const selectorChildWinPartTag = levels[
+              this.store.currentLevel
+            ].selector
+              .replace(/,/g, '')
+              .split(' ')
+              .find((selectorPart) => {
+                return selectorPart.indexOf(
+                  levelsMarkup[this.store.currentLevel][i][index].children
+                    .tagName
+                );
+              });
+
+            if (selectorChildWinPartTag) {
+              gameElementChild.style.animationName = 'pick_me_child_anim';
+            }
           }
         }
 
@@ -218,6 +338,22 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
+
+            const selectorChildWinPartTag = levels[
+              this.store.currentLevel
+            ].selector
+              .replace(/,/g, '')
+              .split(' ')
+              .find((selectorPart) => {
+                return selectorPart.indexOf(
+                  levelsMarkup[this.store.currentLevel][i][index].children
+                    .tagName
+                );
+              });
+
+            if (selectorChildWinPartTag) {
+              gameElementChild.style.animationName = 'pick_me_child_anim';
+            }
           }
         }
       }

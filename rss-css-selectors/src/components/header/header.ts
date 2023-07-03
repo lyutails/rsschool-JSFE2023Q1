@@ -8,6 +8,7 @@ import missedConnection from '../../refs/sounds/Missed Connection_cut.mp3';
 import oneOfUs from '../../refs/sounds/One_Of_Us_cut.mp3';
 import strangersUniverse from '../../refs/sounds/Strangers_cut.mp3';
 import thousandMiles from '../../refs/sounds/Thousand_Miles_cut.mp3';
+import whyYou from '../../refs/sounds/Why_You.mp3';
 import heartbeats from '../../refs/sounds/heartbeats_cut.mp3';
 import hometownSmile from '../../refs/sounds/hometown-smile_cut.mp3';
 import windChimeSoundOne from '../../refs/sounds/wind_chimes_01.mp3';
@@ -125,9 +126,6 @@ export class Header extends BaseComponent<'header'> {
 
     this.windChimeSoundsArray = [
       windChimeSoundOne,
-      windChimeSoundTwo,
-      windChimeSoundThree,
-      windChimeSoundFour,
       lostInJapan,
       windChimeSoundTwo,
       hometownSmile,
@@ -145,8 +143,11 @@ export class Header extends BaseComponent<'header'> {
       danceMonkey,
       windChimeSoundOne,
       thousandMiles,
-      windChimeSoundOne,
-      heartbeats
+      windChimeSoundTwo,
+      heartbeats,
+      windChimeSoundThree,
+      whyYou,
+      windChimeSoundFour
     ];
 
     const sound = new BaseComponent({

@@ -299,7 +299,8 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName}>`;
+
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName}></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -315,7 +316,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
           }
 
           const childTagOneClosing = new BaseComponent({
-            tagName: 'div',
+            tagName: 'span',
             classList: ['markup_child']
           });
 
@@ -368,7 +369,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} class="${levelsMarkup[currentLevel][0][j].children.classList}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} class="${levelsMarkup[currentLevel][0][j].children.classList}"></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -437,7 +438,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} id="${levelsMarkup[currentLevel][0][j].children.id}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} id="${levelsMarkup[currentLevel][0][j].children.id}"></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -506,7 +507,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} class="${levelsMarkup[currentLevel][0][j].children.classList}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} class="${levelsMarkup[currentLevel][0][j].children.classList}"></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -576,7 +577,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} id="${levelsMarkup[currentLevel][0][j].children.id}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} id="${levelsMarkup[currentLevel][0][j].children.id}"></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -646,7 +647,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} id="${levelsMarkup[currentLevel][0][j].children.id}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName} id="${levelsMarkup[currentLevel][0][j].children.id}"></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -717,7 +718,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName}>`;
+            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName}></${levelsMarkup[currentLevel][1][j].children.tagName}>`;
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -785,7 +786,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} class="${levelsMarkup[currentLevel][1][j].children.classList}">`;
+            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} class="${levelsMarkup[currentLevel][1][j].children.classList}"></${levelsMarkup[currentLevel][1][j].children.tagName}>`;
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -853,7 +854,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} id="${levelsMarkup[currentLevel][1][j].children.id}">`;
+            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} id="${levelsMarkup[currentLevel][1][j].children.id}"></${levelsMarkup[currentLevel][1][j].children.tagName}>`;
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -921,7 +922,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} class="${levelsMarkup[currentLevel][1][j].children.classList}">`;
+            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} class="${levelsMarkup[currentLevel][1][j].children.classList}"></${levelsMarkup[currentLevel][1][j].children.tagName}>`;
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -991,7 +992,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} id="${levelsMarkup[currentLevel][1][j].children.id}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} id="${levelsMarkup[currentLevel][1][j].children.id}"></${levelsMarkup[currentLevel][1][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1061,7 +1062,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} id="${levelsMarkup[currentLevel][1][j].children.id}">`;
+            childTagTwoOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][1][j].children.tagName} id="${levelsMarkup[currentLevel][1][j].children.id}"></${levelsMarkup[currentLevel][1][j].children.tagName}>`;
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1132,7 +1133,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName}>`;
+            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName}></${levelsMarkup[currentLevel][2][j].children.tagName}>`;
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1200,7 +1201,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} class="${levelsMarkup[currentLevel][2][j].children.classList}">`;
+            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} class="${levelsMarkup[currentLevel][2][j].children.classList}"></${levelsMarkup[currentLevel][2][j].children.tagName}>`;
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1268,7 +1269,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} id="${levelsMarkup[currentLevel][2][j].children.id}">`;
+            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} id="${levelsMarkup[currentLevel][2][j].children.id}"></${levelsMarkup[currentLevel][2][j].children.tagName}>`;
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1336,7 +1337,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} class="${levelsMarkup[currentLevel][2][j].children.classList}">`;
+            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} class="${levelsMarkup[currentLevel][2][j].children.classList}"></${levelsMarkup[currentLevel][2][j].children.tagName}>`;
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1406,7 +1407,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} id="${levelsMarkup[currentLevel][2][j].children.id}">`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} id="${levelsMarkup[currentLevel][2][j].children.id}"></${levelsMarkup[currentLevel][2][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1476,7 +1477,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} id="${levelsMarkup[currentLevel][2][j].children.id}">`;
+            childTagThreeOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][2][j].children.tagName} id="${levelsMarkup[currentLevel][2][j].children.id}"></${levelsMarkup[currentLevel][2][j].children.tagName}>`;
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1547,7 +1548,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName}>`;
+            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName}></${levelsMarkup[currentLevel][3][j].children.tagName}>`;
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1566,6 +1567,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
+
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
@@ -1615,7 +1617,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} class="${levelsMarkup[currentLevel][3][j].children.classList}">`;
+            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} class="${levelsMarkup[currentLevel][3][j].children.classList}"></${levelsMarkup[currentLevel][3][j].children.tagName}>`;
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1634,6 +1636,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
+
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
@@ -1683,7 +1686,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} id="${levelsMarkup[currentLevel][3][j].children.id}">`;
+            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} id="${levelsMarkup[currentLevel][3][j].children.id}"></${levelsMarkup[currentLevel][3][j].children.tagName}>`;
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1702,6 +1705,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
+
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
@@ -1751,7 +1755,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} class="${levelsMarkup[currentLevel][3][j].children.classList}">`;
+            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} class="${levelsMarkup[currentLevel][3][j].children.classList}"></${levelsMarkup[currentLevel][3][j].children.tagName}>`;
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1821,7 +1825,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} attribute=[${levelsMarkup[currentLevel][3][j].children.id}]>`;
+            childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} attribute=[${levelsMarkup[currentLevel][3][j].children.id}]></${levelsMarkup[currentLevel][3][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
@@ -1891,7 +1895,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
               tagName: 'div',
               classList: ['markup_child']
             });
-            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} id="${levelsMarkup[currentLevel][3][j].children.id}">`;
+            childTagFourOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][3][j].children.tagName} id="${levelsMarkup[currentLevel][3][j].children.id}"></${levelsMarkup[currentLevel][3][j].children.tagName}>`;
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');

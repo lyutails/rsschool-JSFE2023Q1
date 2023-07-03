@@ -1303,7 +1303,6 @@ apple {
   resize: both;
   background-image: url('./refs/fruits/apple.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1324,7 +1323,7 @@ apple {
   resize: both;
   background-image: url('./refs/fruits/apple.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1345,7 +1344,7 @@ banana {
   resize: both;
   background-image: url('./refs/fruits/banana.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1366,7 +1365,7 @@ banana {
   resize: both;
   background-image: url('./refs/fruits/banana_green.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1387,7 +1386,7 @@ mango {
   resize: both;
   background-image: url('./refs/fruits/mango.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1408,7 +1407,7 @@ strawberry {
   resize: both;
   background-image: url('./refs/fruits/strawberry.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1429,7 +1428,7 @@ cherry {
   resize: both;
   background-image: url('./refs/fruits/cherry.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1450,7 +1449,7 @@ pear {
   resize: both;
   background-image: url('./refs/fruits/pear.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1471,7 +1470,7 @@ butterfly {
   resize: both;
   background-image: url('./refs/fruits/butterfly_blue.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1492,7 +1491,7 @@ butterfly {
   resize: both;
   background-image: url('./refs/fruits/butterfly_blue.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1513,7 +1512,7 @@ butterfly {
   resize: both;
   background-image: url('./refs/fruits/butterfly_purple.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1534,7 +1533,7 @@ leaf {
   resize: both;
   background-image: url('./refs/fruits/leaf.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1555,7 +1554,7 @@ beehive {
   resize: both;
   background-image: url('./refs/fruits/beehive.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1576,7 +1575,7 @@ bee {
   resize: both;
   background-image: url('./refs/fruits/bee.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1597,7 +1596,7 @@ birdhouse {
   resize: both;
   background-image: url('./refs/fruits/birdhouse.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1618,7 +1617,7 @@ sparrow {
   resize: both;
   background-image: url('./refs/fruits/sparrow.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1639,7 +1638,7 @@ ladybug {
   resize: both;
   background-image: url('./refs/fruits/ladybug.png');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1660,7 +1659,7 @@ dumpling {
   resize: both;
   background-image: url('./refs/fruits/dumpling.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1681,7 +1680,7 @@ dumpling {
   resize: both;
   background-image: url('./refs/fruits/dumpling.svg');
   z-index: 1000;
-  animation-name: pick_me_anim;
+  // animation-name: pick_me_anim;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1744,6 +1743,42 @@ dumpling {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes pick_me_child_anim {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  10% {
+    transform: translate(0%, 10%);
+  }
+  20% {
+    transform: translate(0%, -10%);
+  }
+  30% {
+    transform: translate(0%, 10%);
+  }
+  40% {
+    transform: translate(0%, -10%);
+  }
+  50% {
+    transform: translate(0%, 10%);
+  }
+  60% {
+    transform: translate(0%, -10%);
+  }
+  70% {
+    transform: translate(0%, 10%);
+  }
+  80% {
+    transform: translate(0%, -10%);
+  }
+  90% {
+    transform: translate(0%, 10%);
+  }
+  100% {
+    transform: translate(0%, 0%);
   }
 }
 
