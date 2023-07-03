@@ -4,11 +4,13 @@ import { burgerObserver } from '../levels_burger';
 import { Observer } from '../observer';
 
 import { levelsNamesArray } from '@/data/levels_names';
+import { store } from '@/store';
 
 export const levelsObserverDay = new Observer();
 export const levelsObserverNight = new Observer();
 
 export class LevelsMenu extends BaseComponent {
+  public store = store;
   constructor() {
     super({
       tagName: 'div',
@@ -48,6 +50,8 @@ export class LevelsMenu extends BaseComponent {
 
     levelsObserverDay.subscribe(() => this.node.classList.add('recolour'));
     levelsObserverNight.subscribe(() => this.node.classList.remove('recolour'));
+
+    const { currentLevel } = this.store;
   }
 
   public moveMenu(): void {

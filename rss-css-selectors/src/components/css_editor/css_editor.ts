@@ -10,6 +10,8 @@ export const csseditorObserverDay = new Observer();
 export const csseditorObserverNight = new Observer();
 export const inputObserverDay = new Observer();
 export const inputObserverNight = new Observer();
+export const incorrectSelectorElementShake = new Observer();
+export const correctSelectorElementShake = new Observer();
 
 export class CSSEditor extends BaseComponent<'div'> {
   public selectorsInput: BaseComponent<'input'>;
@@ -98,9 +100,12 @@ export class CSSEditor extends BaseComponent<'div'> {
     if (value === `${levels[currentLevel].selector}`) {
       this.clearInput();
       this.incrementLevel();
+      correctSelectorElementShake.notify('lalala');
+      localStorage.setItem('winLevel', `${currentLevel}`);
     }
     if (value !== `${levels[currentLevel].selector}`) {
       this.catchIncorrectSelector();
+      incorrectSelectorElementShake.notify('lalala');
     }
   }
 
@@ -112,9 +117,12 @@ export class CSSEditor extends BaseComponent<'div'> {
       if (value === `${levels[currentLevel].selector}`) {
         this.clearInput();
         this.incrementLevel();
+        correctSelectorElementShake.notify('lalala');
+        localStorage.setItem('winLevel', `${currentLevel}`);
       }
       if (value !== `${levels[currentLevel].selector}`) {
         this.catchIncorrectSelector();
+        incorrectSelectorElementShake.notify('lalala');
       }
     }
   }

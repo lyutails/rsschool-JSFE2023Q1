@@ -1,6 +1,10 @@
 import { BaseComponent } from '@/core/base-component';
 
 import {
+  correctSelectorElementShake,
+  incorrectSelectorElementShake
+} from '../css_editor';
+import {
   appleTooltipAppendObserverTagHover,
   appleTooltipRemoveObserverTagHover,
   gameElementHighlightTagHover,
@@ -43,9 +47,16 @@ export class BranchImitation extends BaseComponent<'div'> {
       this.branchThreeImitation,
       this.branchFourImitation
     );
-    currentLevelObserver.subscribe(() => this.render());
 
-    this.render();
+    currentLevelObserver.subscribe(() =>
+      setTimeout(() => {
+        this.render();
+      }, 1000)
+    );
+
+    setTimeout(() => {
+      this.render();
+    }, 1000);
   }
 
   public render(): void {
@@ -158,6 +169,16 @@ export class BranchImitation extends BaseComponent<'div'> {
         if (anim === 'no') {
           gameElement.style.animationName = 'unset';
         }
+
+        correctSelectorElementShake.subscribe(() => {
+          if (anim === 'yes') {
+            BranchImitation.correctSelectorElementAnim(gameElement);
+          }
+        });
+
+        incorrectSelectorElementShake.subscribe(() => {
+          BranchImitation.incorrectSelectorElementAnim(gameElement);
+        });
 
         const gameElementTooltip = new BaseComponent({
           tagName: 'div',
@@ -505,5 +526,27 @@ export class BranchImitation extends BaseComponent<'div'> {
         }
       }
     }
+  }
+
+  public static incorrectSelectorElementAnim(element: HTMLElement): void {
+    const thisElement = element;
+    thisElement.style.animationName = 'css_shake_anim';
+    thisElement.style.animationDuration = '1s';
+    thisElement.style.animationIterationCount = '1';
+    thisElement.style.animationTimingFunction = 'linear';
+    setTimeout(() => {
+      thisElement.style.animationName = 'pick_me_anim';
+      thisElement.style.animationDuration = '2s';
+      thisElement.style.animationIterationCount = 'infinite';
+      thisElement.style.animationTimingFunction = 'linear';
+    }, 1000);
+  }
+
+  public static correctSelectorElementAnim(element: HTMLElement): void {
+    const thisElement = element;
+    thisElement.style.animationName = 'win_anim';
+    thisElement.style.animationDuration = '1s';
+    thisElement.style.animationIterationCount = '1';
+    thisElement.style.animationTimingFunction = 'linear';
   }
 }

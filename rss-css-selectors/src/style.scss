@@ -1871,6 +1871,33 @@ dumpling {
   }
 }
 
+@keyframes win_anim {
+  0% {
+    transform: translate(0vw, 0vh);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2vw, -5vh);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(2vw, -10vh);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-2vw, -15vh);
+    opacity: 0.8;
+  }
+  80% {
+    transform: translate(2vw, -20vh);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-2vw, -25vh);
+    opacity: 0;
+  }
+}
+
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
   html {
     font-size: 1rem;
