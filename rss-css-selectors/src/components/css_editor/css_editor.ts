@@ -1,6 +1,7 @@
 import { BaseComponent } from '@/core/base-component';
 
 import { Observer } from '../observer';
+import { ModalWin } from '../win_modal';
 
 import { Button } from '@/UI/button';
 import { levels } from '@/data/levels';
@@ -12,8 +13,11 @@ export const inputObserverDay = new Observer();
 export const inputObserverNight = new Observer();
 export const incorrectSelectorElementShake = new Observer();
 export const correctSelectorElementShake = new Observer();
+export const incorrectSelectorChildElementShake = new Observer();
+export const correctSelectorChildElementShake = new Observer();
 
 export class CSSEditor extends BaseComponent<'div'> {
+  public modal: ModalWin;
   public selectorsInput: BaseComponent<'input'>;
   public enterButton: Button;
   // public currentLevel = store.currentLevel;
@@ -26,9 +30,12 @@ export class CSSEditor extends BaseComponent<'div'> {
       classList: ['css_editor']
     });
 
-    window.addEventListener('keydown', (event: KeyboardEvent) =>
-      this.registerEnterPress(event)
-    );
+    this.modal = new ModalWin();
+    this.modal.node.style.display = 'none';
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      this.registerEnterPress(event);
+    });
 
     const csseditorTitle = new BaseComponent({
       tagName: 'div',
@@ -43,7 +50,9 @@ export class CSSEditor extends BaseComponent<'div'> {
     this.enterButton = new Button();
     this.enterButton.addTextContent('Enter');
     this.enterButton.addMoreClasses('enter');
-    this.enterButton.node.addEventListener('click', () => this.onButtonClick());
+    this.enterButton.node.addEventListener('click', () => {
+      this.onButtonClick();
+    });
 
     this.selectorsInput = new BaseComponent({
       tagName: 'input',
@@ -78,6 +87,14 @@ export class CSSEditor extends BaseComponent<'div'> {
     );
   }
 
+  // public callModalWin(): void {
+  //   const { currentLevel } = this.store;
+  //   const { value } = this.selectorsInput.node;
+  //   if (currentLevel === 19 && value === `${levels[19].selector}`) {
+  //     this.modal.node.style.display = 'block';
+  //   }
+  // }
+
   public selfInputTyping(): void {
     this.selectorsInput.node.disabled = true;
     this.selectorsInput.node.value = '';
@@ -101,11 +118,16 @@ export class CSSEditor extends BaseComponent<'div'> {
       this.clearInput();
       this.incrementLevel();
       correctSelectorElementShake.notify('lalala');
+      correctSelectorChildElementShake.notify('lalala');
       localStorage.setItem('winLevel', `${currentLevel}`);
     }
     if (value !== `${levels[currentLevel].selector}`) {
       this.catchIncorrectSelector();
       incorrectSelectorElementShake.notify('lalala');
+      incorrectSelectorChildElementShake.notify('lalala');
+    }
+    if (currentLevel === 19 && value === `${levels[19].selector}`) {
+      this.modal.node.style.display = 'block';
     }
   }
 
@@ -118,18 +140,25 @@ export class CSSEditor extends BaseComponent<'div'> {
         this.clearInput();
         this.incrementLevel();
         correctSelectorElementShake.notify('lalala');
+        correctSelectorChildElementShake.notify('lalala');
         localStorage.setItem('winLevel', `${currentLevel}`);
       }
       if (value !== `${levels[currentLevel].selector}`) {
         this.catchIncorrectSelector();
         incorrectSelectorElementShake.notify('lalala');
+        incorrectSelectorChildElementShake.notify('lalala');
+      }
+      if (currentLevel === 19 && value === `${levels[19].selector}`) {
+        this.modal.node.style.display = 'block';
       }
     }
   }
 
   public incrementLevel(): void {
     const { currentLevel } = this.store;
-    this.store.currentLevel = currentLevel + 1;
+    if (this.store.currentLevel < 19) {
+      this.store.currentLevel = currentLevel + 1;
+    }
   }
 
   public clearInput(): void {

@@ -220,7 +220,7 @@ export const levelsMarkup = [
           children: {},
           id: '',
           attribute: [''],
-          anim: 'no'
+          anim: 'yes'
         },
         id: '',
         attribute: '',
@@ -884,7 +884,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -898,7 +899,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -912,7 +914,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -928,7 +931,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -942,7 +946,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -956,7 +961,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -972,7 +978,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -986,7 +993,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -1000,7 +1008,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -1016,7 +1025,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',
@@ -1030,7 +1040,8 @@ export const levelsMarkup = [
           classList: '',
           children: {},
           id: '',
-          attribute: ''
+          attribute: '',
+          anim: 'no'
         },
         id: '',
         attribute: '',

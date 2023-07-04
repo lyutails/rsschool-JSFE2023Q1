@@ -21,6 +21,7 @@ $button-text-color: rgb(62, 17, 62);
 $button-color: #7affca;
 $button-hover-color: #e75e8a;
 $tooltip-background: rgb(231, 94, 138, 0.4);
+$modal-background-color: rgb(255, 192, 214);
 
 $leaf-position: (
   transform1: translate(10vw, 10vh),
@@ -1232,7 +1233,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     padding-left: 1vw;
     font-family: 'Roboto', sans-serif;
-    color: $font-color-night;
+    color: $button-color;
 
     &::placeholder {
       font-size: 1rem;
@@ -1246,7 +1247,7 @@ body::-webkit-scrollbar-thumb {
     &.recolour {
       background-color: $ui-elements-color;
       animation-name: input_anim_day;
-      color: $font-color-day;
+      color: $button-hover-color;
 
       &::placeholder {
         font-size: 1rem;
@@ -1895,6 +1896,38 @@ dumpling {
   100% {
     transform: translate(-2vw, -25vh);
     opacity: 0;
+  }
+}
+
+.modal_win {
+  width: 50vw;
+  aspect-ratio: 1 / 1.1;
+  background-color: $modal-background-color;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  color: $font-color-day;
+  padding-top: 10px;
+  text-align: center;
+
+  &_text {
+    font-size: 1.4rem;
+  }
+
+  &_tree {
+    width: 80%;
+    aspect-ratio: 1 / 1.2;
+    background-image: url('./refs/seasons/seasons_tree.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    display: inline-block
   }
 }
 

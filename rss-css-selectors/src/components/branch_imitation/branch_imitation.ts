@@ -1,7 +1,9 @@
 import { BaseComponent } from '@/core/base-component';
 
 import {
+  correctSelectorChildElementShake,
   correctSelectorElementShake,
+  incorrectSelectorChildElementShake,
   incorrectSelectorElementShake
 } from '../css_editor';
 import {
@@ -51,12 +53,12 @@ export class BranchImitation extends BaseComponent<'div'> {
     currentLevelObserver.subscribe(() =>
       setTimeout(() => {
         this.render();
-      }, 1000)
+      }, 800)
     );
 
     setTimeout(() => {
       this.render();
-    }, 1000);
+    }, 800);
   }
 
   public render(): void {
@@ -177,7 +179,15 @@ export class BranchImitation extends BaseComponent<'div'> {
         });
 
         incorrectSelectorElementShake.subscribe(() => {
-          BranchImitation.incorrectSelectorElementAnim(gameElement);
+          if (anim === 'yes') {
+            BranchImitation.incorrectSelectorElementAnim(gameElement);
+            setTimeout(() => {
+              gameElement.style.animationName = 'pick_me_anim';
+              gameElement.style.animationDuration = '2s';
+              gameElement.style.animationIterationCount = 'infinite';
+              gameElement.style.animationTimingFunction = 'linear';
+            }, 1000);
+          }
         });
 
         const gameElementTooltip = new BaseComponent({
@@ -308,12 +318,43 @@ export class BranchImitation extends BaseComponent<'div'> {
               }
             }
 
-            if (anim === 'yes') {
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'yes'
+            ) {
               gameElementChild.style.animationName = 'pick_me_child_anim';
             }
-            if (anim === 'no') {
-              gameElement.style.animationName = 'unset';
+
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'no'
+            ) {
+              gameElementChild.style.animationName = 'unset';
             }
+
+            correctSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.correctSelectorElementAnim(gameElementChild);
+              }
+            });
+
+            incorrectSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.incorrectSelectorElementAnim(gameElementChild);
+                setTimeout(() => {
+                  gameElementChild.style.animationName = 'pick_me_child_anim';
+                  gameElementChild.style.animationDuration = '2s';
+                  gameElementChild.style.animationIterationCount = 'infinite';
+                  gameElementChild.style.animationTimingFunction = 'linear';
+                }, 1000);
+              }
+            });
           }
         }
 
@@ -375,12 +416,43 @@ export class BranchImitation extends BaseComponent<'div'> {
               }
             }
 
-            if (anim === 'yes') {
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'yes'
+            ) {
               gameElementChild.style.animationName = 'pick_me_child_anim';
             }
-            if (anim === 'no') {
-              gameElement.style.animationName = 'unset';
+
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'no'
+            ) {
+              gameElementChild.style.animationName = 'unset';
             }
+
+            correctSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.correctSelectorElementAnim(gameElementChild);
+              }
+            });
+
+            incorrectSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.incorrectSelectorElementAnim(gameElementChild);
+                setTimeout(() => {
+                  gameElementChild.style.animationName = 'pick_me_child_anim';
+                  gameElementChild.style.animationDuration = '2s';
+                  gameElementChild.style.animationIterationCount = 'infinite';
+                  gameElementChild.style.animationTimingFunction = 'linear';
+                }, 1000);
+              }
+            });
           }
         }
 
@@ -431,12 +503,43 @@ export class BranchImitation extends BaseComponent<'div'> {
               }
             }
 
-            if (anim === 'yes') {
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'yes'
+            ) {
               gameElementChild.style.animationName = 'pick_me_child_anim';
             }
-            if (anim === 'no') {
-              gameElement.style.animationName = 'unset';
+
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'no'
+            ) {
+              gameElementChild.style.animationName = 'unset';
             }
+
+            correctSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.correctSelectorElementAnim(gameElementChild);
+              }
+            });
+
+            incorrectSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.incorrectSelectorElementAnim(gameElementChild);
+                setTimeout(() => {
+                  gameElementChild.style.animationName = 'pick_me_child_anim';
+                  gameElementChild.style.animationDuration = '2s';
+                  gameElementChild.style.animationIterationCount = 'infinite';
+                  gameElementChild.style.animationTimingFunction = 'linear';
+                }, 1000);
+              }
+            });
           }
         }
 
@@ -516,12 +619,43 @@ export class BranchImitation extends BaseComponent<'div'> {
               }
             }
 
-            if (anim === 'yes') {
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'yes'
+            ) {
               gameElementChild.style.animationName = 'pick_me_child_anim';
             }
-            if (anim === 'no') {
-              gameElement.style.animationName = 'unset';
+
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].children.anim ===
+              'no'
+            ) {
+              gameElementChild.style.animationName = 'unset';
             }
+
+            correctSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.correctSelectorElementAnim(gameElementChild);
+              }
+            });
+
+            incorrectSelectorChildElementShake.subscribe(() => {
+              if (
+                levelsMarkup[this.store.currentLevel][i][index]?.children
+                  ?.anim === 'yes'
+              ) {
+                BranchImitation.incorrectSelectorElementAnim(gameElementChild);
+                setTimeout(() => {
+                  gameElementChild.style.animationName = 'pick_me_child_anim';
+                  gameElementChild.style.animationDuration = '2s';
+                  gameElementChild.style.animationIterationCount = 'infinite';
+                  gameElementChild.style.animationTimingFunction = 'linear';
+                }, 1000);
+              }
+            });
           }
         }
       }
@@ -531,21 +665,15 @@ export class BranchImitation extends BaseComponent<'div'> {
   public static incorrectSelectorElementAnim(element: HTMLElement): void {
     const thisElement = element;
     thisElement.style.animationName = 'css_shake_anim';
-    thisElement.style.animationDuration = '1s';
+    thisElement.style.animationDuration = '0.8s';
     thisElement.style.animationIterationCount = '1';
     thisElement.style.animationTimingFunction = 'linear';
-    setTimeout(() => {
-      thisElement.style.animationName = 'pick_me_anim';
-      thisElement.style.animationDuration = '2s';
-      thisElement.style.animationIterationCount = 'infinite';
-      thisElement.style.animationTimingFunction = 'linear';
-    }, 1000);
   }
 
   public static correctSelectorElementAnim(element: HTMLElement): void {
     const thisElement = element;
     thisElement.style.animationName = 'win_anim';
-    thisElement.style.animationDuration = '1s';
+    thisElement.style.animationDuration = '0.8s';
     thisElement.style.animationIterationCount = '1';
     thisElement.style.animationTimingFunction = 'linear';
   }
