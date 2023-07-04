@@ -4,7 +4,7 @@ import { Observer } from '@/components/observer';
 export const currentLevelObserver = new Observer();
 
 export const store = {
-  _currentLevel: 19,
+  _currentLevel: 0,
   currentLevelObserver,
   set currentLevel(value: number) {
     this._currentLevel = value;
