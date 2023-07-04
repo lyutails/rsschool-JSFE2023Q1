@@ -244,39 +244,28 @@ body::-webkit-scrollbar-thumb {
     height: 5px;
     transform: translate(0vw, -3vh);
     border-radius: 10px;
-
-    // &::-webkit-slider-runnable-track {
-    //   border-radius: 10px;
-    //   height: 5px;
-    //   background-color: $button-color;
-    //   margin-top: 5px;
-    // }
-
-    // &::-webkit-slider-thumb {
-    //   position: relative;
-    //   border-radius: 10px;
-    //   height: 5px;
-    //   background-color: $button-hover-color;
-    //   box-sizing: content-box;
-    //   cursor: pointer;
-    // }
-
-    // &:active::-webkit-slider-thumb {
-    //   background-color: $button-hover-color;
-    // }
   }
+}
 
-  &_controls {
-    position: relative;
-    width: 20%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+.start {
+  position: relative;
+  width: 80%;
+  min-width: 40px;
+  max-width: 100px;
+  aspect-ratio: 1 / 0.4;
+  background-color: $button-color;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $button-text-color;
+  -webkit-text-stroke: 1px $button-text-color;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
 
-  &_timer {
-    user-select: none;
+  &:hover {
+    cursor: pointer;
+    background-color: $button-hover-color;
   }
 }
 
@@ -490,6 +479,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .instructions_check {
+  &.night {
+    background-image: url('./refs/icons/check_evening.svg');
+  }
+
   &.day {
     background-image: url('./refs/icons/check_morning.svg');
   }
@@ -498,7 +491,7 @@ body::-webkit-scrollbar-thumb {
     background-image: url('./refs/icons/check_greenish.svg');
   }
 
-  &.win_pure {
+  &.win_hint {
     background-image: url('./refs/icons/check_pinkish.svg');
   }
 }
@@ -555,6 +548,10 @@ body::-webkit-scrollbar-thumb {
     resize: both;
     display: inline-block;
     margin-right: 0.5vw;
+
+    &.evening {
+      background-image: url('./refs/icons/check_evening.svg');
+    }
 
     &.morning {
       background-image: url('./refs/icons/check_morning.svg');

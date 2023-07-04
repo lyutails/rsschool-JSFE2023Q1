@@ -43,7 +43,12 @@ import {
   levelCheckObserverNight
 } from '../instructions/instructions';
 import { leavesObserverDay, leavesObserverNight } from '../leaf';
-import { levelsObserverDay, levelsObserverNight } from '../levels_menu';
+import {
+  checkMarkObserverDay,
+  checkMarkObserverNight,
+  levelsObserverDay,
+  levelsObserverNight
+} from '../levels_menu';
 import { Observer } from '../observer';
 import {
   treeObserverDay,
@@ -104,25 +109,9 @@ export class Header extends BaseComponent<'header'> {
       children: [RSSchool, year, author]
     });
 
-    const timer = new BaseComponent({
-      tagName: 'div',
-      classList: ['header_timer'],
-      textContent: '00:00'
-    });
-
-    const buttonPause = new Button();
-    buttonPause.addTextContent('Pause');
-    buttonPause.addMoreClasses('pause');
-
     const buttonStart = new Button();
     buttonStart.addTextContent('Start');
     buttonStart.addMoreClasses('start');
-
-    const controls = new BaseComponent({
-      tagName: 'div',
-      classList: ['header_controls'],
-      children: [buttonStart, buttonPause, timer]
-    });
 
     this.windChimeSoundsArray = [
       windChimeSoundOne,
@@ -216,7 +205,7 @@ export class Header extends BaseComponent<'header'> {
         headerLogo,
         headerTheme,
         soundWrapper,
-        controls,
+        buttonStart,
         headerLinksWrapper
       ]
     });
@@ -291,6 +280,7 @@ export class Header extends BaseComponent<'header'> {
       branchFourObserverDay.notify('lalala');
       leavesObserverDay.notify('lalala');
       levelCheckObserverDay.notify('lalala');
+      checkMarkObserverDay.notify('lalala');
     });
     element_two.node.addEventListener('click', () => {
       element_two.node.classList.add('active');
@@ -313,6 +303,7 @@ export class Header extends BaseComponent<'header'> {
       branchFourObserverNight.notify('lalala');
       leavesObserverNight.notify('lalala');
       levelCheckObserverNight.notify('lalala');
+      checkMarkObserverNight.notify('lalala');
     });
   }
 }
