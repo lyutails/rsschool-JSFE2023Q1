@@ -8,9 +8,14 @@ import { store } from '@/store';
 
 export const levelsObserverDay = new Observer();
 export const levelsObserverNight = new Observer();
+export const clickDesiredLevelObserver = new Observer();
+export const levelNameColorObserver = new Observer();
 
 export class LevelsMenu extends BaseComponent {
   public store = store;
+  public levelName?: BaseComponent<'span'>;
+  public levelsNamesMenu: BaseComponent<'span'>[];
+  public levelCheck?: BaseComponent<'span'>;
   constructor() {
     super({
       tagName: 'div',
@@ -25,14 +30,18 @@ export class LevelsMenu extends BaseComponent {
 
     this.node.append(levelTitle.node);
 
+    this.levelsNamesMenu = [];
+
     for (let i = 0; i < levelsNamesArray.length; i++) {
-      const levelName = new BaseComponent({
+      this.levelName = new BaseComponent({
         tagName: 'span',
         classList: ['levels_name'],
         textContent: `${levelsNamesArray[i]}`
       });
 
-      const levelCheck = new BaseComponent({
+      this.levelsNamesMenu.push(this.levelName);
+
+      this.levelCheck = new BaseComponent({
         tagName: 'span',
         classList: ['levels_check']
       });
@@ -40,21 +49,36 @@ export class LevelsMenu extends BaseComponent {
       const levelItem = new BaseComponent({
         tagName: 'div',
         classList: ['levels_item'],
-        children: [levelCheck, levelName]
+        children: [this.levelCheck, this.levelName]
       });
 
       this.node.append(levelItem.node);
+    }
+
+    this.levelsNamesMenu[this.store.currentLevel].node.style.color = '#7affca';
+
+    for (let i = 0; i < this.levelsNamesMenu.length; i++) {
+      levelNameColorObserver.subscribe(() => {
+        this.levelsNamesMenu[this.store.currentLevel].node.style.color =
+          '#7affca';
+        this.levelsNamesMenu[this.store.currentLevel - 1].node.style.color =
+          'unset';
+      });
     }
 
     burgerObserver.subscribe(() => this.moveMenu());
 
     levelsObserverDay.subscribe(() => this.node.classList.add('recolour'));
     levelsObserverNight.subscribe(() => this.node.classList.remove('recolour'));
-
-    const { currentLevel } = this.store;
   }
 
   public moveMenu(): void {
     this.node.classList.toggle('active');
+  }
+
+  public changeLevelByClickInMenu(): void {
+    this.levelsNamesMenu.forEach((levelMenu) => {
+      levelMenu.node.addEventListener('click', () => {});
+    });
   }
 }

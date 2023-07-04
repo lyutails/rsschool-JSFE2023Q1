@@ -82,7 +82,7 @@ export class Instructions extends BaseComponent<'div'> {
     const totalNumberOfLevels = new BaseComponent({
       tagName: 'span',
       classList: ['instructions_total_levels_number'],
-      textContent: '20'
+      textContent: '19'
     });
 
     const levelCheck = new BaseComponent({

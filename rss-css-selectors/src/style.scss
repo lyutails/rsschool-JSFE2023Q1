@@ -1945,6 +1945,13 @@ dumpling {
     right: -2.2vw;
     top: -2.2vw;
     cursor: pointer;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      transform: rotate(360deg);
+      border: 2px solid $button-hover-color;
+      background-image: url('./refs/icons/cross_close.svg');
+    }
 
     &.close {
       border: 2px solid $button-hover-color;

@@ -1,5 +1,6 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { levelNameColorObserver } from '../levels_menu';
 import { Observer } from '../observer';
 import { ModalWin, modalWinCloseObserver } from '../win_modal';
 
@@ -154,6 +155,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     const { currentLevel } = this.store;
     if (this.store.currentLevel < 19) {
       this.store.currentLevel = currentLevel + 1;
+      levelNameColorObserver.notify('lalala');
     }
   }
 
