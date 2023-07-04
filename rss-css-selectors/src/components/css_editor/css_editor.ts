@@ -1,11 +1,11 @@
 import { BaseComponent } from '@/core/base-component';
 
 import { Observer } from '../observer';
-import { ModalWin } from '../win_modal';
+import { ModalWin, modalWinCloseObserver } from '../win_modal';
 
 import { Button } from '@/UI/button';
 import { levels } from '@/data/levels';
-import { currentLevelObserver, store } from '@/store';
+import { store } from '@/store';
 
 export const csseditorObserverDay = new Observer();
 export const csseditorObserverNight = new Observer();
@@ -32,6 +32,10 @@ export class CSSEditor extends BaseComponent<'div'> {
 
     this.modal = new ModalWin();
     this.modal.node.style.display = 'none';
+
+    modalWinCloseObserver.subscribe(() => {
+      this.modal.node.style.display = 'none';
+    });
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       this.registerEnterPress(event);
@@ -86,14 +90,6 @@ export class CSSEditor extends BaseComponent<'div'> {
       helpButton.node
     );
   }
-
-  // public callModalWin(): void {
-  //   const { currentLevel } = this.store;
-  //   const { value } = this.selectorsInput.node;
-  //   if (currentLevel === 19 && value === `${levels[19].selector}`) {
-  //     this.modal.node.style.display = 'block';
-  //   }
-  // }
 
   public selfInputTyping(): void {
     this.selectorsInput.node.disabled = true;

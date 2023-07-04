@@ -1,10 +1,23 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { Observer } from '../observer';
+
+export const modalWinCloseObserver = new Observer();
+
 export class ModalWin extends BaseComponent<'div'> {
   constructor() {
     super({
       tagName: 'div',
       classList: ['modal_win']
+    });
+
+    const modalCross = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_cross']
+    });
+
+    modalCross.node.addEventListener('click', () => {
+      modalWinCloseObserver.notify('lalala');
     });
 
     const modalText = new BaseComponent({
@@ -18,7 +31,7 @@ export class ModalWin extends BaseComponent<'div'> {
       classList: ['modal_win_tree']
     });
 
-    this.node.append(modalText.node, seasonsTree.node);
+    this.node.append(modalCross.node, modalText.node, seasonsTree.node);
 
     const modalBody = document.body;
 

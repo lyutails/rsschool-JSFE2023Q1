@@ -1927,7 +1927,29 @@ dumpling {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    display: inline-block
+    display: inline-block;
+  }
+
+  &_cross {
+    width: 3vw;
+    aspect-ratio: 1 / 1;
+    display: inline-block;
+    background-image: url('./refs/icons/cross.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80% 80%;
+    resize: both;
+    border: 2px solid $button-color;
+    border-radius: 50%;
+    position: absolute;
+    right: -2.2vw;
+    top: -2.2vw;
+    cursor: pointer;
+
+    &.close {
+      border: 2px solid $button-hover-color;
+      background-image: url('./refs/icons/cross_close.svg');
+    }
   }
 }
 
