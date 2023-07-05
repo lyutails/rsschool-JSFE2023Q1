@@ -1901,9 +1901,9 @@ dumpling {
   }
 
   &_tree {
-    width: 80%;
+    width: 85%;
     aspect-ratio: 1 / 1.2;
-    background-image: url('./refs/seasons/seasons_tree.png');
+    background-image: url('./refs/seasons/seasons_tree_empty.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -1937,6 +1937,519 @@ dumpling {
       border: 2px solid $button-hover-color;
       background-image: url('./refs/icons/cross_close.svg');
     }
+  }
+
+  &_drop {
+    width: 1vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/drop.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &:nth-child(1) {
+      opacity: 0;
+      transform: translate(-16vw, 27vw);
+      animation-delay: 1.8s;
+      animation-name: drop_one_anim;
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: translate(-15.5vw, 27vw);
+      animation-delay: 2s;
+      animation-name: drop_two_anim;
+    }
+
+    &:nth-child(3) {
+      opacity: 0;
+      transform: translate(-14.6vw, 27.5vw);
+      animation-delay: 2.2s;
+      animation-name: drop_three_anim;
+    }
+
+    &:nth-child(4) {
+      opacity: 0;
+      transform: translate(-12vw, 27vw);
+      animation-delay: 2.4s;
+      animation-name: drop_four_anim;
+    }
+
+    &:nth-child(5) {
+      opacity: 0;
+      transform: translate(-6.5vw, 26vw);
+      animation-delay: 2.6s;
+      animation-name: drop_five_anim;
+    }
+  }
+
+  &_snow {
+    width: 8vw;
+    aspect-ratio: 1 / 0.5;
+    background-image: url('./refs/seasons/snow.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: snow_anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform: translate(-9.3vw, 37.5vh);
+    opacity: 0;
+  }
+
+  &_sakura_one {
+    width: 3vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/sakura_01.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: sakura_one_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(-11vw, 8.5vh);
+    animation-delay: 4.8s;
+    opacity: 0;
+  }
+
+  &_sakura_two {
+    width: 2.8vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/sakura_02.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: sakura_two_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(-19vw, 29vh);
+    animation-delay: 5.8s;
+    opacity: 0;
+  }
+
+  &_sakura_three {
+    width: 2.4vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/sakura_03.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: sakura_three_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(-4.5vw, 31vh);
+    animation-delay: 3.8s;
+    opacity: 0;
+  }
+
+  &_green_apples {
+    width: 4vw;
+    aspect-ratio: 1 / 2;
+    background-image: url('./refs/seasons/green_apples_small.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: green_apples_anim;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform: translate(-180%, 130%);
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  &_red_apple {
+    width: 3.8vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/red_apple.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: red_apple_anim;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform: translate(88%, 285%);
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  &_leaf_one {
+    width: 3vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/leaf_01.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: leaf_one_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(420%, 1080%);
+    animation-delay: 6.8s;
+    opacity: 0;
+  }
+
+  &_leaf_two {
+    width: 2.8vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/leaf_02.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: leaf_two_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(300%, 1200%);
+    animation-delay: 7s;
+    opacity: 0;
+  }
+
+  &_leaf_three {
+    width: 2.4vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/leaf_03.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: leaf_three_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(520%, 1025%);
+    animation-delay: 7.4s;
+    opacity: 0;
+  }
+
+  &_leaf_four {
+    width: 2.4vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/leaf_04.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: relative;
+    animation-name: leaf_four_anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: translate(620%, 1225%);
+    animation-delay: 7.6s;
+    opacity: 0;
+  }
+}
+
+@keyframes leaf_four_anim {
+  0% {
+    transform: translate(620%, 1225%);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(700%, 1265%);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(1020%, 1500%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(1100%, 1600%);
+    opacity: 0;
+  }
+}
+
+@keyframes leaf_three_anim {
+  0% {
+    transform: translate(520%, 1025%);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(600%, 1080%);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(820%, 1400%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(880%, 1420%);
+    opacity: 0;
+  }
+}
+
+@keyframes leaf_two_anim {
+  0% {
+    transform: translate(300%, 1200%);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(350%, 1250%);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(500%, 1500%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(520%, 1550%);
+    opacity: 0;
+  }
+}
+
+@keyframes leaf_one_anim {
+  0% {
+    transform: translate(420%, 1080%);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(480%, 1180%);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(620%, 1400%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(660%, 1480%);
+    opacity: 0;
+  }
+}
+
+@keyframes red_apple_anim {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes green_apples_anim {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sakura_one_anim {
+  0% {
+    transform: translate(-11vw, 10vh);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-8vw, 14vh);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(10vw, 24vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(12vw, 26vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sakura_two_anim {
+  0% {
+    transform: translate(-19vw, 29vh);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-16vw, 31vh);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(10vw, 36vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(12vw, 38vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sakura_three_anim {
+  0% {
+    transform: translate(-4.5vw, 31vh);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-2vw, 33vh);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(15vw, 38vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(16vw, 39vh);
+    opacity: 0;
+  }
+}
+
+@keyframes snow_anim {
+  0% {
+    transform: translate(-9.3vw, 37.5vh);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-9.3vw, 39vh);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-9.3vw, 51vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-9.3vw, 54vh);
+    opacity: 0;
+  }
+}
+
+@keyframes drop_one_anim {
+  0% {
+    transform: translate(-15.5vw, 27vw);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-15.5vw, 32vw);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-15.5vw, 37vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-15.5vw, 42vw);
+    opacity: 0;
+  }
+}
+
+@keyframes drop_two_anim {
+  0% {
+    transform: translate(-15.5vw, 27vw);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-15.5vw, 29vw);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-15.5vw, 36vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-15.5vw, 44vw);
+    opacity: 0;
+  }
+}
+
+@keyframes drop_three_anim {
+  0% {
+    transform: translate(-14.6vw, 27.5vw);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-14.6vw, 32.5vw);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-14.6vw, 37.5vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-14.6vw, 44vw);
+    opacity: 0;
+  }
+}
+
+@keyframes drop_four_anim {
+  0% {
+    transform: translate(-12vw, 27vw);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-12vw, 34vw);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-12vw, 46vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-12vw, 50vw);
+    opacity: 0;
+  }
+}
+
+@keyframes drop_five_anim {
+  0% {
+    transform: translate(-6.5vw, 26vw);
+    opacity: 0;
+  }
+  5% {
+    transform: translate(-6.5vw, 33vw);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-6.5vw, 45vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-6.5vw, 48vw);
+    opacity: 0;
   }
 }
 

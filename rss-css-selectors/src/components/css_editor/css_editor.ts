@@ -39,7 +39,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     });
 
     this.modal = new ModalWin();
-    this.modal.node.style.display = 'none';
+    this.modal.node.style.display = 'block';
 
     modalWinCloseObserver.subscribe(() => {
       this.modal.node.style.display = 'none';

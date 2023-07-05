@@ -31,6 +31,77 @@ export class ModalWin extends BaseComponent<'div'> {
       classList: ['modal_win_tree']
     });
 
+    const dropsArray = [1, 2, 3, 4, 5];
+
+    for (let i = 0; i < dropsArray.length; i++) {
+      const drop = new BaseComponent({
+        tagName: 'span',
+        classList: ['modal_win_drop']
+      });
+
+      seasonsTree.append(drop);
+    }
+
+    const snow = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_snow']
+    });
+
+    seasonsTree.append(snow);
+
+    const sakuraOne = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_sakura_one']
+    });
+
+    const sakuraTwo = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_sakura_two']
+    });
+
+    const sakuraThree = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_sakura_three']
+    });
+
+    seasonsTree.append(sakuraOne, sakuraTwo, sakuraThree);
+
+    const greenApples = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_green_apples']
+    });
+
+    seasonsTree.append(greenApples);
+
+    const redApple = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_red_apple']
+    });
+
+    seasonsTree.append(redApple);
+
+    const leafOne = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_leaf_one']
+    });
+
+    const leafTwo = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_leaf_two']
+    });
+
+    const leafThree = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_leaf_three']
+    });
+
+    const leafFour = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_leaf_four']
+    });
+
+    seasonsTree.append(leafOne, leafTwo, leafThree, leafFour);
+
     this.node.append(modalCross.node, modalText.node, seasonsTree.node);
 
     const modalBody = document.body;
