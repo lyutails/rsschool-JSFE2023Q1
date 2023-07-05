@@ -1,6 +1,11 @@
 import { BaseComponent } from '@/core/base-component';
 
-import { levelNameColorObserver } from '../levels_menu';
+import {
+  ifAllCheckedObserver,
+  levelMenuCheckMarkCorrectAnswer,
+  levelMenuCheckMarkHintAnswer,
+  levelNameColorObserver
+} from '../levels_menu';
 import { Observer } from '../observer';
 import { ModalWin, modalWinCloseObserver } from '../win_modal';
 
@@ -16,8 +21,10 @@ export const incorrectSelectorElementShake = new Observer();
 export const correctSelectorElementShake = new Observer();
 export const incorrectSelectorChildElementShake = new Observer();
 export const correctSelectorChildElementShake = new Observer();
+export const ifHelpButtonClicked = new Observer();
 
 export class CSSEditor extends BaseComponent<'div'> {
+  public isHelpClicked: boolean;
   public modal: ModalWin;
   public selectorsInput: BaseComponent<'input'>;
   public enterButton: Button;
@@ -40,6 +47,7 @@ export class CSSEditor extends BaseComponent<'div'> {
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       this.registerEnterPress(event);
+      // this.colorLevelCheckMarkOnCorrect();
     });
 
     const csseditorTitle = new BaseComponent({
@@ -57,6 +65,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     this.enterButton.addMoreClasses('enter');
     this.enterButton.node.addEventListener('click', () => {
       this.onButtonClick();
+      // this.colorLevelCheckMarkOnCorrect();
     });
 
     this.selectorsInput = new BaseComponent({
@@ -68,8 +77,12 @@ export class CSSEditor extends BaseComponent<'div'> {
     this.selectorsInput.addPlaceholder('Type in a CSS selector');
     this.selectorsInput.node.setAttribute('maxlength', '50');
 
+    this.isHelpClicked = false;
+
     helpButton.node.addEventListener('click', () => {
       this.selfInputTyping();
+      this.isHelpClicked = true;
+      levelMenuCheckMarkHintAnswer.notify('lalala');
     });
 
     csseditorObserverDay.subscribe(() => this.node.classList.add('recolour'));
@@ -113,6 +126,13 @@ export class CSSEditor extends BaseComponent<'div'> {
     const { currentLevel } = this.store;
     if (value === `${levels[currentLevel].selector}`) {
       this.clearInput();
+      if (
+        this.isHelpClicked === false &&
+        value === `${levels[currentLevel].selector}`
+      ) {
+        levelMenuCheckMarkCorrectAnswer.notify('lalala');
+      }
+      this.isHelpClicked = false;
       this.incrementLevel();
       correctSelectorElementShake.notify('lalala');
       correctSelectorChildElementShake.notify('lalala');
@@ -125,6 +145,9 @@ export class CSSEditor extends BaseComponent<'div'> {
     }
     if (currentLevel === 19 && value === `${levels[19].selector}`) {
       this.modal.node.style.display = 'block';
+      // ifAllCheckedObserver.subscribe(() => {
+      //   this.modal.node.style.display = 'block';
+      // });
     }
   }
 
@@ -135,6 +158,13 @@ export class CSSEditor extends BaseComponent<'div'> {
       const { currentLevel } = this.store;
       if (value === `${levels[currentLevel].selector}`) {
         this.clearInput();
+        if (
+          this.isHelpClicked === false &&
+          value === `${levels[currentLevel].selector}`
+        ) {
+          levelMenuCheckMarkCorrectAnswer.notify('lalala');
+        }
+        this.isHelpClicked = false;
         this.incrementLevel();
         correctSelectorElementShake.notify('lalala');
         correctSelectorChildElementShake.notify('lalala');
@@ -147,6 +177,9 @@ export class CSSEditor extends BaseComponent<'div'> {
       }
       if (currentLevel === 19 && value === `${levels[19].selector}`) {
         this.modal.node.style.display = 'block';
+        // ifAllCheckedObserver.subscribe(() => {
+        //   this.modal.node.style.display = 'block';
+        // });
       }
     }
   }

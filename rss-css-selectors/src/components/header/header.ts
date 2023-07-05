@@ -110,7 +110,7 @@ export class Header extends BaseComponent<'header'> {
     });
 
     const buttonStart = new Button();
-    buttonStart.addTextContent('Start');
+    buttonStart.addTextContent('Restart');
     buttonStart.addMoreClasses('start');
 
     this.windChimeSoundsArray = [

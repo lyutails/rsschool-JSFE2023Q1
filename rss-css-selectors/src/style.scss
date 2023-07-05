@@ -247,28 +247,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.start {
-  position: relative;
-  width: 80%;
-  min-width: 40px;
-  max-width: 100px;
-  aspect-ratio: 1 / 0.4;
-  background-color: $button-color;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $button-text-color;
-  -webkit-text-stroke: 1px $button-text-color;
-  transition: all 0.2s ease-in-out;
-  user-select: none;
-
-  &:hover {
-    cursor: pointer;
-    background-color: $button-hover-color;
-  }
-}
-
 @keyframes wind_chime_anim {
   0% {
     background-image: url('./refs/icons/wind-chime-1.svg');
@@ -319,6 +297,11 @@ body::-webkit-scrollbar-thumb {
 
   &.help {
     margin-top: 20px;
+  }
+
+  &.start {
+    width: 10%;
+    position: relative;
   }
 }
 

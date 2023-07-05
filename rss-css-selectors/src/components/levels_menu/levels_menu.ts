@@ -6,6 +6,11 @@ import { Observer } from '../observer';
 import { levelsNamesArray } from '@/data/levels_names';
 import { store } from '@/store';
 
+export const ifAllCheckedObserver = new Observer();
+
+export const levelMenuCheckMarkCorrectAnswer = new Observer();
+export const levelMenuCheckMarkHintAnswer = new Observer();
+
 export const levelsObserverDay = new Observer();
 export const levelsObserverNight = new Observer();
 export const clickDesiredLevelObserver = new Observer();
@@ -83,6 +88,28 @@ export class LevelsMenu extends BaseComponent {
           'unset';
       });
     }
+
+    levelMenuCheckMarkCorrectAnswer.subscribe(() => {
+      this.checkMarksMenu[this.store.currentLevel].node.classList.add(
+        'pure_win'
+      );
+    });
+
+    levelMenuCheckMarkHintAnswer.subscribe(() => {
+      this.checkMarksMenu[this.store.currentLevel].node.classList.add(
+        'hint_win'
+      );
+    });
+
+    // const whoChecked = this.checkMarksMenu.filter(
+    //   (checkMark) =>
+    //     !checkMark.node.classList.contains('pure_win') ||
+    //     !checkMark.node.classList.contains('hint_win')
+    // );
+
+    // if (whoChecked.length === 0) {
+    //   ifAllCheckedObserver.notify('lalala');
+    // }
 
     burgerObserver.subscribe(() => this.moveMenu());
 
