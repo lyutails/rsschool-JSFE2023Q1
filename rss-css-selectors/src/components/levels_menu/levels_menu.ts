@@ -10,6 +10,7 @@ export const ifAllCheckedObserver = new Observer();
 
 export const levelMenuCheckMarkCorrectAnswer = new Observer();
 export const levelMenuCheckMarkHintAnswer = new Observer();
+export const levelMenuCheckMarkUncolour = new Observer();
 
 export const levelsObserverDay = new Observer();
 export const levelsObserverNight = new Observer();
@@ -100,6 +101,15 @@ export class LevelsMenu extends BaseComponent {
       this.checkMarksMenu[this.store.currentLevel].node.classList.add(
         'hint_win'
       );
+    });
+
+    levelMenuCheckMarkUncolour.subscribe(() => {
+      if (this.store.currentLevel === 0) {
+        this.checkMarksMenu.forEach((checkMark) => {
+          checkMark.node.classList.remove('pure_win');
+          checkMark.node.classList.remove('hint_win');
+        });
+      }
     });
 
     burgerObserver.subscribe(() => this.moveMenu());

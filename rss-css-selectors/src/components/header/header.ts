@@ -46,6 +46,10 @@ import { leavesObserverDay, leavesObserverNight } from '../leaf';
 import {
   checkMarkObserverDay,
   checkMarkObserverNight,
+  levelMenuCheckMarkCorrectAnswer,
+  levelMenuCheckMarkHintAnswer,
+  levelMenuCheckMarkUncolour,
+  levelNameColorObserver,
   levelsObserverDay,
   levelsObserverNight
 } from '../levels_menu';
@@ -117,6 +121,8 @@ export class Header extends BaseComponent<'header'> {
 
     buttonStart.node.addEventListener('click', () => {
       this.store.currentLevel = 0;
+      levelNameColorObserver.notify('lalala');
+      levelMenuCheckMarkUncolour.notify('lalala');
     });
 
     this.windChimeSoundsArray = [
