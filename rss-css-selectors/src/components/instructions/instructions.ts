@@ -1,7 +1,7 @@
 import { BaseComponent } from '@/core/base-component';
 
 import { LevelsBurger } from '../levels_burger';
-import { LevelsMenu } from '../levels_menu';
+import { LevelsMenu, levelNameColorObserver } from '../levels_menu';
 import { Observer } from '../observer';
 
 import { levels } from '@/data/levels';
@@ -85,36 +85,23 @@ export class Instructions extends BaseComponent<'div'> {
       textContent: '19'
     });
 
-    const levelCheck = new BaseComponent({
-      tagName: 'span',
-      classList: ['instructions_check']
-    });
-
-    levelCheckObserverDay.subscribe(() => {
-      levelCheck.node.classList.add('day');
-    });
-
-    levelCheckObserverNight.subscribe(() => {
-      levelCheck.node.classList.remove('day');
-    });
-
     const changeNext = new BaseComponent({
       tagName: 'span',
       classList: ['instructions_next']
     });
 
-    // changeNext.node.addEventListener('click', () => {
-    //   this.decrementLevel();
-    // });
+    changeNext.node.addEventListener('click', () => {
+      this.incrementLevel();
+    });
 
     const changePrevious = new BaseComponent({
       tagName: 'span',
       classList: ['instructions_previous']
     });
 
-    // changeNext.node.addEventListener('click', () => {
-    //   this.incrementLevel();
-    // });
+    changePrevious.node.addEventListener('click', () => {
+      this.decrementLevel();
+    });
 
     this.thisLevelSelector = new BaseComponent({
       tagName: 'div',
@@ -147,8 +134,7 @@ export class Instructions extends BaseComponent<'div'> {
         levelTitle,
         this.thisLevelNumber,
         levelNumberOf,
-        totalNumberOfLevels,
-        levelCheck
+        totalNumberOfLevels
       ]
     });
 
@@ -209,11 +195,13 @@ export class Instructions extends BaseComponent<'div'> {
   public incrementLevel(): void {
     const { currentLevel } = this.store;
     this.store.currentLevel = currentLevel + 1;
+    levelNameColorObserver.notify('lalala');
   }
 
   public decrementLevel(): void {
     const { currentLevel } = this.store;
     this.store.currentLevel = currentLevel - 1;
+    levelNameColorObserver.notify('lalala');
   }
 
   public checkCurrentLevel(): void {

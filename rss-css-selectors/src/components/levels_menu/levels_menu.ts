@@ -84,8 +84,9 @@ export class LevelsMenu extends BaseComponent {
       levelNameColorObserver.subscribe(() => {
         this.levelsNamesMenu[this.store.currentLevel].node.style.color =
           '#7affca';
-        this.levelsNamesMenu[this.store.currentLevel - 1].node.style.color =
-          'unset';
+        if (i !== this.store.currentLevel) {
+          this.levelsNamesMenu[i].node.style.color = 'unset';
+        }
       });
     }
 
