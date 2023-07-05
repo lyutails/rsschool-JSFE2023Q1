@@ -9,6 +9,7 @@ import oneOfUs from '../../refs/sounds/One_Of_Us_cut.mp3';
 import strangersUniverse from '../../refs/sounds/Strangers_cut.mp3';
 import thousandMiles from '../../refs/sounds/Thousand_Miles_cut.mp3';
 import whyYou from '../../refs/sounds/Why_You.mp3';
+import armor from '../../refs/sounds/armor.mp3';
 import heartbeats from '../../refs/sounds/heartbeats_cut.mp3';
 import hometownSmile from '../../refs/sounds/hometown-smile_cut.mp3';
 import windChimeSoundOne from '../../refs/sounds/wind_chimes_01.mp3';
@@ -147,8 +148,9 @@ export class Header extends BaseComponent<'header'> {
       windChimeSoundTwo,
       heartbeats,
       windChimeSoundThree,
-      whyYou,
-      windChimeSoundFour
+      armor,
+      windChimeSoundFour,
+      whyYou
     ];
 
     const sound = new BaseComponent({
