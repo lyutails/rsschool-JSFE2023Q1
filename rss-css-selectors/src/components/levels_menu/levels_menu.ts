@@ -91,6 +91,13 @@ export class LevelsMenu extends BaseComponent {
       });
     }
 
+    this.levelsNamesMenu.forEach((levelMenu, index) => {
+      levelMenu.node.addEventListener('click', () => {
+        this.store.currentLevel = index;
+        levelNameColorObserver.notify('lalala');
+      });
+    });
+
     levelMenuCheckMarkCorrectAnswer.subscribe(() => {
       this.checkMarksMenu[this.store.currentLevel].node.classList.add(
         'pure_win'
