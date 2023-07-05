@@ -101,16 +101,6 @@ export class LevelsMenu extends BaseComponent {
       );
     });
 
-    // const whoChecked = this.checkMarksMenu.filter(
-    //   (checkMark) =>
-    //     !checkMark.node.classList.contains('pure_win') ||
-    //     !checkMark.node.classList.contains('hint_win')
-    // );
-
-    // if (whoChecked.length === 0) {
-    //   ifAllCheckedObserver.notify('lalala');
-    // }
-
     burgerObserver.subscribe(() => this.moveMenu());
 
     levelsObserverDay.subscribe(() => this.node.classList.add('recolour'));

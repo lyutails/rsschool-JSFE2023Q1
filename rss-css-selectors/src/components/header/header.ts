@@ -58,6 +58,7 @@ import {
 } from '../tree';
 
 import { Button } from '@/UI/button';
+import { store } from '@/store';
 
 export const dayObserver = new Observer();
 export const nightObserver = new Observer();
@@ -72,6 +73,7 @@ export const windChimeSoundObserver = new Observer();
 export const windChimeSoundObserverPause = new Observer();
 
 export class Header extends BaseComponent<'header'> {
+  public store = store;
   public windChimeSoundsArray: string[];
   public isSoundClicked = false;
   public soundControl: BaseComponent<'input'>;
@@ -112,6 +114,10 @@ export class Header extends BaseComponent<'header'> {
     const buttonStart = new Button();
     buttonStart.addTextContent('Restart');
     buttonStart.addMoreClasses('start');
+
+    buttonStart.node.addEventListener('click', () => {
+      this.store.currentLevel = 0;
+    });
 
     this.windChimeSoundsArray = [
       windChimeSoundOne,

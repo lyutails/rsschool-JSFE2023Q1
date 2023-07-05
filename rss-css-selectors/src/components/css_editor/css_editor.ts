@@ -28,7 +28,6 @@ export class CSSEditor extends BaseComponent<'div'> {
   public modal: ModalWin;
   public selectorsInput: BaseComponent<'input'>;
   public enterButton: Button;
-  // public currentLevel = store.currentLevel;
   public store = store;
   public incrementLevelEvent = new CustomEvent('increment_level');
   public shakeInput = new Observer();
@@ -47,7 +46,6 @@ export class CSSEditor extends BaseComponent<'div'> {
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       this.registerEnterPress(event);
-      // this.colorLevelCheckMarkOnCorrect();
     });
 
     const csseditorTitle = new BaseComponent({
@@ -65,7 +63,6 @@ export class CSSEditor extends BaseComponent<'div'> {
     this.enterButton.addMoreClasses('enter');
     this.enterButton.node.addEventListener('click', () => {
       this.onButtonClick();
-      // this.colorLevelCheckMarkOnCorrect();
     });
 
     this.selectorsInput = new BaseComponent({
@@ -145,9 +142,6 @@ export class CSSEditor extends BaseComponent<'div'> {
     }
     if (currentLevel === 19 && value === `${levels[19].selector}`) {
       this.modal.node.style.display = 'block';
-      // ifAllCheckedObserver.subscribe(() => {
-      //   this.modal.node.style.display = 'block';
-      // });
     }
   }
 
@@ -177,9 +171,6 @@ export class CSSEditor extends BaseComponent<'div'> {
       }
       if (currentLevel === 19 && value === `${levels[19].selector}`) {
         this.modal.node.style.display = 'block';
-        // ifAllCheckedObserver.subscribe(() => {
-        //   this.modal.node.style.display = 'block';
-        // });
       }
     }
   }
