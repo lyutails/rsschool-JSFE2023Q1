@@ -7,6 +7,7 @@ import {
   levelNameColorObserver
 } from '../levels_menu';
 import { Observer } from '../observer';
+import { Overlay, overlayObserver } from '../overlay';
 import { ModalWin, modalWinCloseObserver } from '../win_modal';
 
 import { Button } from '@/UI/button';
@@ -26,6 +27,7 @@ export const ifHelpButtonClicked = new Observer();
 export class CSSEditor extends BaseComponent<'div'> {
   public isHelpClicked: boolean;
   public modal: ModalWin;
+  public overlay: Overlay;
   public selectorsInput: BaseComponent<'input'>;
   public enterButton: Button;
   public store = store;
@@ -37,11 +39,20 @@ export class CSSEditor extends BaseComponent<'div'> {
       classList: ['css_editor']
     });
 
+    this.overlay = new Overlay();
+    this.overlay.node.style.display = 'none';
+
     this.modal = new ModalWin();
     this.modal.node.style.display = 'none';
 
     modalWinCloseObserver.subscribe(() => {
       this.modal.node.style.display = 'none';
+      this.overlay.node.style.display = 'none';
+    });
+
+    overlayObserver.subscribe(() => {
+      this.modal.node.style.display = 'none';
+      this.overlay.node.style.display = 'none';
     });
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
@@ -142,6 +153,7 @@ export class CSSEditor extends BaseComponent<'div'> {
     }
     if (currentLevel === 19 && value === `${levels[19].selector}`) {
       this.modal.node.style.display = 'block';
+      this.overlay.node.style.display = 'block';
     }
   }
 
@@ -171,6 +183,7 @@ export class CSSEditor extends BaseComponent<'div'> {
       }
       if (currentLevel === 19 && value === `${levels[19].selector}`) {
         this.modal.node.style.display = 'block';
+        this.overlay.node.style.display = 'block';
       }
     }
   }

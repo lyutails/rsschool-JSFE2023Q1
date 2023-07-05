@@ -22,6 +22,7 @@ $button-color: #7affca;
 $button-hover-color: #e75e8a;
 $tooltip-background: rgb(231, 94, 138, 0.4);
 $modal-background-color: rgb(255, 192, 214);
+$overlay: rgba(0, 0, 0, 0.4);
 
 $leaf-position: (
   transform1: translate(10vw, 10vh),
@@ -1877,6 +1878,21 @@ dumpling {
     transform: translate(-2vw, -25vh);
     opacity: 0;
   }
+}
+
+.overlay {
+  width: 100vw;
+  height: 100%;
+  background-color: $overlay;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 1800;
+  color: $font-color-day;
+  padding-top: 10px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .modal_win {
