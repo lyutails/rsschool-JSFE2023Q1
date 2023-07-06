@@ -196,6 +196,6 @@ export class LevelsMenu extends BaseComponent {
     const amountOfPassedLevels = LevelsMenu.arrayLevelsForLocalStorage.filter(
       (passedLevel) => passedLevel !== 'default'
     );
-    console.log(amountOfPassedLevels);
+    // console.log(amountOfPassedLevels);
   }
 }
