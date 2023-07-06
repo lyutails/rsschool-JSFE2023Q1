@@ -199,7 +199,7 @@ export class BranchImitation extends BaseComponent<'div'> {
           textContent: `<${gameLevelElementTagName}>`
         });
 
-        BranchImitation.setRandomPosition(gameElement, 12, 1);
+        BranchImitation.setRandomPosition(gameElement, 16, 1);
 
         BranchImitation.setTransformOrigin(gameElement);
 

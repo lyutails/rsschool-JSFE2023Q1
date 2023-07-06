@@ -159,6 +159,8 @@ export class LevelsMenu extends BaseComponent {
     levelsObserverNight.subscribe(() => this.node.classList.remove('recolour'));
 
     this.loadCheckMarkFromStorage();
+
+    LevelsMenu.amountOfPassedLevels();
   }
 
   public loadCheckMarkFromStorage(): void {
@@ -188,5 +190,12 @@ export class LevelsMenu extends BaseComponent {
     this.levelsNamesMenu.forEach((levelMenu) => {
       levelMenu.node.addEventListener('click', () => {});
     });
+  }
+
+  public static amountOfPassedLevels(): void {
+    const amountOfPassedLevels = LevelsMenu.arrayLevelsForLocalStorage.filter(
+      (passedLevel) => passedLevel !== 'default'
+    );
+    console.log(amountOfPassedLevels);
   }
 }
