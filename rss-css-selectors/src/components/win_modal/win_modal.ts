@@ -22,9 +22,11 @@ export class ModalWin extends BaseComponent<'div'> {
 
     const modalText = new BaseComponent({
       tagName: 'div',
-      classList: ['modal_win_text'],
-      textContent: "Hey there o/ you've mastered all the selectors \\o/ <3 ^^"
+      classList: ['modal_win_text']
     });
+
+    modalText.node.textContent =
+      "Hey there o/ you've mastered all the selectors \\o/ <3 ^^";
 
     const seasonsTree = new BaseComponent({
       tagName: 'div',
