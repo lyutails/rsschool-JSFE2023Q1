@@ -144,7 +144,7 @@ export class CSSEditor extends BaseComponent<'div'> {
       this.incrementLevel();
       correctSelectorElementShake.notify('lalala');
       correctSelectorChildElementShake.notify('lalala');
-      localStorage.setItem('winLevel', `${currentLevel}`);
+      localStorage.setItem('lastLevelWinValue', `${currentLevel}`);
     }
     if (value !== `${levels[currentLevel].selector}`) {
       this.catchIncorrectSelector();
@@ -174,7 +174,7 @@ export class CSSEditor extends BaseComponent<'div'> {
         this.incrementLevel();
         correctSelectorElementShake.notify('lalala');
         correctSelectorChildElementShake.notify('lalala');
-        localStorage.setItem('winLevel', `${currentLevel}`);
+        localStorage.setItem('lastLevelWinValue', `${currentLevel}`);
       }
       if (value !== `${levels[currentLevel].selector}`) {
         this.catchIncorrectSelector();

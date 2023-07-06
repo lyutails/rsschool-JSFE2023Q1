@@ -66,6 +66,23 @@ export class ModalWin extends BaseComponent<'div'> {
 
     seasonsTree.append(sakuraOne, sakuraTwo, sakuraThree);
 
+    const sakuraFour = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_sakura_four']
+    });
+
+    const sakuraFive = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_sakura_five']
+    });
+
+    const sakuraSix = new BaseComponent({
+      tagName: 'span',
+      classList: ['modal_win_sakura_six']
+    });
+
+    seasonsTree.append(sakuraFour, sakuraFive, sakuraSix);
+
     const greenApples = new BaseComponent({
       tagName: 'span',
       classList: ['modal_win_green_apples']

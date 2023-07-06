@@ -67,6 +67,9 @@ export class BranchImitation extends BaseComponent<'div'> {
     this.branchThreeImitation.textContent = '';
     this.branchFourImitation.textContent = '';
 
+    const { currentLevel } = this.store;
+    localStorage.setItem('lastLevelWinValue', `${currentLevel}`);
+
     for (let i = 0; i < levelsMarkup[this.store.currentLevel].length; i++) {
       for (
         let index = 0;

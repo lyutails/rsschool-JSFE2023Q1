@@ -5,9 +5,16 @@ import { Header } from './components/header';
 import { Hints } from './components/hints';
 import { HTMLViewer } from './components/html_viewer';
 import { Instructions } from './components/instructions/instructions';
+import {
+  levelMenuCheckMarkCorrectAnswer,
+  levelMenuCheckMarkHintAnswer,
+  levelMenuCheckMarkUncolour,
+  levelNameColorObserver
+} from './components/levels_menu';
 import { ViewerEditor } from './components/viewer_editor/viewer_editor';
 import { Viewport } from './components/viewport';
 import { BaseComponent } from './core/base-component';
+import { store } from './store';
 import './style.scss';
 
 const cssEditor = new CSSEditor();
@@ -40,3 +47,12 @@ const game = new BaseComponent({
 const selectorsBody = document.body;
 
 selectorsBody.append(header.node, game.node);
+
+function setInitialLevel(lastLevelWinValue: string): void {
+  const lastLevelValue = localStorage.getItem(lastLevelWinValue);
+  if (lastLevelValue) {
+    store.currentLevel = +lastLevelValue || 0;
+    levelNameColorObserver.notify('lalala');
+  }
+}
+setInitialLevel('lastLevelWinValue');

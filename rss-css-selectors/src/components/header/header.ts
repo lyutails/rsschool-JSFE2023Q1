@@ -124,6 +124,7 @@ export class Header extends BaseComponent<'header'> {
       this.store.currentLevel = 0;
       levelNameColorObserver.notify('lalala');
       levelMenuCheckMarkUncolour.notify('lalala');
+      localStorage.clear();
     });
 
     this.windChimeSoundsArray = [

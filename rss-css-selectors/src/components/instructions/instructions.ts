@@ -31,6 +31,8 @@ export class Instructions extends BaseComponent<'div'> {
 
     const levelsMenu = new LevelsMenu();
 
+    // levelsMenu.loadCheckMarkFromStorage();
+
     this.selectorExamples = new BaseComponent({
       tagName: 'div',
       classList: ['instructions_examples'],

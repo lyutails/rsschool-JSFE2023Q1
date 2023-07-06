@@ -20,6 +20,28 @@ export const checkMarkObserverDay = new Observer();
 export const checkMarkObserverNight = new Observer();
 
 export class LevelsMenu extends BaseComponent {
+  public static arrayLevelsForLocalStorage = [
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default',
+    'default'
+  ];
   public store = store;
   public levelName?: BaseComponent<'span'>;
   public levelsNamesMenu: BaseComponent<'span'>[];
@@ -102,12 +124,24 @@ export class LevelsMenu extends BaseComponent {
       this.checkMarksMenu[this.store.currentLevel].node.classList.add(
         'pure_win'
       );
+      LevelsMenu.arrayLevelsForLocalStorage[this.store.currentLevel] =
+        'greenish';
+      const saveStateString = JSON.stringify(
+        LevelsMenu.arrayLevelsForLocalStorage
+      );
+      localStorage.setItem('actuallyPurePassedLevel', saveStateString);
     });
 
     levelMenuCheckMarkHintAnswer.subscribe(() => {
       this.checkMarksMenu[this.store.currentLevel].node.classList.add(
         'hint_win'
       );
+      LevelsMenu.arrayLevelsForLocalStorage[this.store.currentLevel] =
+        'pinkish';
+      const saveStateString = JSON.stringify(
+        LevelsMenu.arrayLevelsForLocalStorage
+      );
+      localStorage.setItem('actuallyPurePassedLevel', saveStateString);
     });
 
     levelMenuCheckMarkUncolour.subscribe(() => {
@@ -123,6 +157,27 @@ export class LevelsMenu extends BaseComponent {
 
     levelsObserverDay.subscribe(() => this.node.classList.add('recolour'));
     levelsObserverNight.subscribe(() => this.node.classList.remove('recolour'));
+
+    this.loadCheckMarkFromStorage();
+  }
+
+  public loadCheckMarkFromStorage(): void {
+    const loadSavePureStateString = localStorage.getItem(
+      'actuallyPurePassedLevel'
+    );
+    if (loadSavePureStateString) {
+      LevelsMenu.arrayLevelsForLocalStorage = JSON.parse(
+        loadSavePureStateString
+      );
+      for (let i = 0; i < LevelsMenu.arrayLevelsForLocalStorage.length; i++) {
+        if (LevelsMenu.arrayLevelsForLocalStorage[i] === 'greenish') {
+          this.checkMarksMenu[i].node.classList.add('pure_win');
+        }
+        if (LevelsMenu.arrayLevelsForLocalStorage[i] === 'pinkish') {
+          this.checkMarksMenu[i].node.classList.add('hint_win');
+        }
+      }
+    }
   }
 
   public moveMenu(): void {

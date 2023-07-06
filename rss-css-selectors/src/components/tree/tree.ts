@@ -5,7 +5,6 @@ import { BranchImitation } from '../branch_imitation';
 import { treeObserverHighlight, treeObserverUnhighlight } from '../html_viewer';
 import { Leaf } from '../leaf';
 import { Observer } from '../observer';
-import { QeteqTag } from '../qeteq_custom_tag';
 
 import { levels } from '@/data/levels';
 import { currentLevelObserver, store } from '@/store';
@@ -34,8 +33,6 @@ export class Tree extends BaseComponent<'div'> {
     qeteq.classList.add('qeteq');
 
     Tree.appendRemoveTooltip(qeteq, tooltipQeteq);
-
-    const qeteq1 = new QeteqTag();
 
     const leafPic = new Leaf();
 
@@ -77,7 +74,7 @@ export class Tree extends BaseComponent<'div'> {
       treePic.node.classList.remove('recolour')
     );
 
-    this.node.append(leafPic.node, treePic.node, this.toDo.node, qeteq, qeteq1);
+    this.node.append(leafPic.node, treePic.node, this.toDo.node, qeteq);
   }
 
   public checkCurrentLevel(): void {

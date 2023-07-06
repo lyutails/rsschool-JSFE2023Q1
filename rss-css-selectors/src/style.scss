@@ -328,7 +328,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   &_level_header {
-    width: 75%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -344,6 +344,7 @@ body::-webkit-scrollbar-thumb {
     padding-left: 1vw;
     padding-top: 1vw;
     padding-right: 1vw;
+    word-wrap: break-word;
   }
 
   &_description_title {
@@ -358,6 +359,7 @@ body::-webkit-scrollbar-thumb {
     padding-left: 1vw;
     padding-top: 1vw;
     padding-right: 1vw;
+    word-wrap: break-word;
   }
 
   &_example_title {
@@ -368,6 +370,7 @@ body::-webkit-scrollbar-thumb {
     padding-left: 1vw;
     padding-top: 1vw;
     padding-right: 1vw;
+    word-wrap: break-word;
   }
 
   &_current {
@@ -826,6 +829,7 @@ body::-webkit-scrollbar-thumb {
     color: $button-text-color;
     font-size: 1.8rem;
     font-family: 'Fleur De Leah', cursive;
+    text-align: center;
   }
 }
 
@@ -1892,7 +1896,6 @@ dumpling {
   color: $font-color-day;
   padding-top: 10px;
   text-align: center;
-  cursor: pointer;
 }
 
 .modal_win {
@@ -2073,6 +2076,63 @@ dumpling {
     transform: translate(-4.5vw, 31vh);
     animation-delay: 3.8s;
     opacity: 0;
+  }
+
+  &_sakura_four {
+    width: 3vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/sakura_01.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: sakura_four_anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform: translate(-350%, 220%);
+    animation-delay: 5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  &_sakura_five {
+    width: 2.8vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/sakura_02.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: sakura_five_anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform: translate(-660%, 780%);
+    animation-delay: 5.4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  &_sakura_six {
+    width: 2vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('./refs/seasons/sakura_03.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    resize: both;
+    display: inline-block;
+    position: absolute;
+    animation-name: sakura_six_anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform: translate(-160%, 1160%);
+    animation-delay: 5.8s;
+    opacity: 0;
+    animation-fill-mode: forwards;
   }
 
   &_green_apples {
@@ -2355,6 +2415,42 @@ dumpling {
   }
 }
 
+@keyframes sakura_four_anim {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sakura_five_anim {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sakura_six_anim {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes snow_anim {
   0% {
     transform: translate(-9.3vw, 37.5vh);
@@ -2469,9 +2565,23 @@ dumpling {
   }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1600px) {
+@media screen and (min-width: 1600.98px) and (max-width: 1920px) {
   html {
     font-size: 1rem;
+  }
+
+  .html_viewer_text {
+    font-size: 0.8rem;
+  }
+
+  .html_viewer_numbers {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+  html {
+    font-size: 0.9rem;
   }
 }
 
