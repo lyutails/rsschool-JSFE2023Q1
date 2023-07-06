@@ -6,6 +6,8 @@ import { Observer } from '../observer';
 import { levelsNamesArray } from '@/data/levels_names';
 import { store } from '@/store';
 
+export const amountOfPassedLevelsObserver = new Observer();
+
 export const ifAllCheckedObserver = new Observer();
 
 export const levelMenuCheckMarkCorrectAnswer = new Observer();
@@ -18,6 +20,8 @@ export const clickDesiredLevelObserver = new Observer();
 export const levelNameColorObserver = new Observer();
 export const checkMarkObserverDay = new Observer();
 export const checkMarkObserverNight = new Observer();
+
+export const defaultLevelsStorageArrayObserver = new Observer();
 
 export class LevelsMenu extends BaseComponent {
   public static arrayLevelsForLocalStorage = [
@@ -160,7 +164,30 @@ export class LevelsMenu extends BaseComponent {
 
     this.loadCheckMarkFromStorage();
 
-    LevelsMenu.amountOfPassedLevels();
+    defaultLevelsStorageArrayObserver.subscribe(() => {
+      LevelsMenu.arrayLevelsForLocalStorage = [
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default',
+        'default'
+      ];
+    });
   }
 
   public loadCheckMarkFromStorage(): void {
@@ -192,10 +219,26 @@ export class LevelsMenu extends BaseComponent {
     });
   }
 
-  public static amountOfPassedLevels(): void {
-    const amountOfPassedLevels = LevelsMenu.arrayLevelsForLocalStorage.filter(
-      (passedLevel) => passedLevel !== 'default'
-    );
-    // console.log(amountOfPassedLevels);
-  }
+  // public static amountOfPassedLevels(): number {
+  //   return LevelsMenu.arrayLevelsForLocalStorage.filter(
+  //     (passedLevel) => passedLevel !== 'default'
+  //   ).length;
+  // }
 }
+
+// if (
+//   LevelsMenu.arrayLevelsForLocalStorage.filter(
+//     (passedLevel) => passedLevel !== 'default'
+//   ).length === 0
+// ) {
+//   return 'all';
+// }
+// if (
+//   LevelsMenu.arrayLevelsForLocalStorage.filter(
+//     (passedLevel) => passedLevel !== 'default'
+//   ).length > 0
+// ) {
+//   return LevelsMenu.arrayLevelsForLocalStorage.filter(
+//     (passedLevel) => passedLevel !== 'default'
+//   ).length;
+// }

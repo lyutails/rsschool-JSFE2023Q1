@@ -47,6 +47,7 @@ import { leavesObserverDay, leavesObserverNight } from '../leaf';
 import {
   checkMarkObserverDay,
   checkMarkObserverNight,
+  defaultLevelsStorageArrayObserver,
   levelMenuCheckMarkCorrectAnswer,
   levelMenuCheckMarkHintAnswer,
   levelMenuCheckMarkUncolour,
@@ -125,6 +126,7 @@ export class Header extends BaseComponent<'header'> {
       levelNameColorObserver.notify('lalala');
       levelMenuCheckMarkUncolour.notify('lalala');
       localStorage.clear();
+      defaultLevelsStorageArrayObserver.notify('lalala');
     });
 
     this.windChimeSoundsArray = [
