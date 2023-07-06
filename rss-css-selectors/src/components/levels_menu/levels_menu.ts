@@ -219,26 +219,16 @@ export class LevelsMenu extends BaseComponent {
     });
   }
 
-  public static amountOfPassedLevels(): number {
+  public static amountOfPassedLevels(): number | string {
+    if (
+      LevelsMenu.arrayLevelsForLocalStorage.filter(
+        (passedLevels) => passedLevels !== 'default'
+      ).length === 20
+    ) {
+      return 'all';
+    }
     return LevelsMenu.arrayLevelsForLocalStorage.filter(
       (passedLevel) => passedLevel !== 'default'
     ).length;
   }
 }
-
-// if (
-//   LevelsMenu.arrayLevelsForLocalStorage.filter(
-//     (passedLevel) => passedLevel !== 'default'
-//   ).length === 0
-// ) {
-//   return 'all';
-// }
-// if (
-//   LevelsMenu.arrayLevelsForLocalStorage.filter(
-//     (passedLevel) => passedLevel !== 'default'
-//   ).length > 0
-// ) {
-//   return LevelsMenu.arrayLevelsForLocalStorage.filter(
-//     (passedLevel) => passedLevel !== 'default'
-//   ).length;
-// }
