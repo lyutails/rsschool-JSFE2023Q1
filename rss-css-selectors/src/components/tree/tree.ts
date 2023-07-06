@@ -59,8 +59,6 @@ export class Tree extends BaseComponent<'div'> {
       classList: ['tree_todo']
     });
 
-    // this.toDo.node.textContent = 'What to pick on this level';
-
     const { currentLevel } = this.store;
     const { doThis } = levels[currentLevel];
     this.toDo.node.textContent = `${doThis}`;

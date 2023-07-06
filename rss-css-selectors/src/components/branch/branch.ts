@@ -1,6 +1,16 @@
 import { BaseComponent } from '@/core/base-component';
 
 import {
+  branchFourPicObserverHighlight,
+  branchFourPicObserverUnhighlight,
+  branchOnePicObserverHighlight,
+  branchOnePicObserverUnhighlight,
+  branchThreePicObserverHighlight,
+  branchThreePicObserverUnhighlight,
+  branchTwoPicObserverHighlight,
+  branchTwoPicObserverUnhighlight
+} from '../branch_imitation';
+import {
   branchFourObserverHighlight,
   branchFourObserverUnhighlight,
   branchOneObserverHighlight,
@@ -35,6 +45,14 @@ export class Branch extends BaseComponent<'div'> {
     this.branchOne = document.createElement('branch');
     this.branchOne.classList.add('branch');
 
+    branchOnePicObserverHighlight.subscribe(() => {
+      this.branchOne.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    branchOnePicObserverUnhighlight.subscribe(() => {
+      this.branchOne.style.filter = 'none';
+    });
+
     branchOneObserverHighlight.subscribe(() => {
       this.branchOne.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
     });
@@ -45,6 +63,14 @@ export class Branch extends BaseComponent<'div'> {
 
     this.branchTwo = document.createElement('branch');
     this.branchTwo.classList.add('branch');
+
+    branchTwoPicObserverHighlight.subscribe(() => {
+      this.branchTwo.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    branchTwoPicObserverUnhighlight.subscribe(() => {
+      this.branchTwo.style.filter = 'none';
+    });
 
     branchTwoObserverHighlight.subscribe(() => {
       this.branchTwo.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
@@ -57,6 +83,14 @@ export class Branch extends BaseComponent<'div'> {
     this.branchThree = document.createElement('branch');
     this.branchThree.classList.add('branch');
 
+    branchThreePicObserverHighlight.subscribe(() => {
+      this.branchThree.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    branchThreePicObserverUnhighlight.subscribe(() => {
+      this.branchThree.style.filter = 'none';
+    });
+
     branchThreeObserverHighlight.subscribe(() => {
       this.branchThree.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
     });
@@ -67,6 +101,14 @@ export class Branch extends BaseComponent<'div'> {
 
     this.branchFour = document.createElement('branch');
     this.branchFour.classList.add('branch');
+
+    branchFourPicObserverHighlight.subscribe(() => {
+      this.branchFour.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    branchFourPicObserverUnhighlight.subscribe(() => {
+      this.branchFour.style.filter = 'none';
+    });
 
     branchFourObserverHighlight.subscribe(() => {
       this.branchFour.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';

@@ -664,6 +664,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.2s ease-in-out;
 
   &.recolour {
     background: linear-gradient(#e2fff5, #fba95f, #fb5f96);
@@ -1032,9 +1033,11 @@ body::-webkit-scrollbar-thumb {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   z-index: 1000;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     cursor: pointer;
+    filter: drop-shadow(0 0 1vw #ffe5eb);
   }
 }
 
