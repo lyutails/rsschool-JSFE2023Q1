@@ -154,7 +154,7 @@ export class CSSEditor extends BaseComponent<'div'> {
       incorrectSelectorChildElementShake.notify('lalala');
     }
     if (currentLevel === 19 && value === `${levels[19].selector}`) {
-      // this.modal.node.textContent = `Hey there o/ you've mastered ${LevelsMenu.amountOfPassedLevels()} of the selectors \\o/ <3 ^^`;
+      ModalWin.modalText.node.textContent = `Hey there o/ you've mastered ${LevelsMenu.amountOfPassedLevels()} of the selectors \\o/ <3 ^^`;
       modalWinCloseObserver.notify('lalala');
       this.modal.node.style.display = 'block';
       this.overlay.node.style.display = 'block';
@@ -186,7 +186,7 @@ export class CSSEditor extends BaseComponent<'div'> {
         incorrectSelectorChildElementShake.notify('lalala');
       }
       if (currentLevel === 19 && value === `${levels[19].selector}`) {
-        // this.modal.node.textContent = `Hey there o/ you've mastered ${LevelsMenu.amountOfPassedLevels()} of the selectors \\o/ <3 ^^`;
+        ModalWin.modalText.node.textContent = `Hey there o/ you've mastered ${LevelsMenu.amountOfPassedLevels()} of the selectors \\o/ <3 ^^`;
         this.modal.node.style.display = 'block';
         this.overlay.node.style.display = 'block';
       }

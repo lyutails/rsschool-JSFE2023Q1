@@ -219,11 +219,11 @@ export class LevelsMenu extends BaseComponent {
     });
   }
 
-  // public static amountOfPassedLevels(): number {
-  //   return LevelsMenu.arrayLevelsForLocalStorage.filter(
-  //     (passedLevel) => passedLevel !== 'default'
-  //   ).length;
-  // }
+  public static amountOfPassedLevels(): number {
+    return LevelsMenu.arrayLevelsForLocalStorage.filter(
+      (passedLevel) => passedLevel !== 'default'
+    ).length;
+  }
 }
 
 // if (

@@ -5,6 +5,7 @@ import { Observer } from '../observer';
 export const modalWinCloseObserver = new Observer();
 
 export class ModalWin extends BaseComponent<'div'> {
+  public static modalText: BaseComponent;
   constructor() {
     super({
       tagName: 'div',
@@ -20,7 +21,7 @@ export class ModalWin extends BaseComponent<'div'> {
       modalWinCloseObserver.notify('lalala');
     });
 
-    const modalText = new BaseComponent({
+    ModalWin.modalText = new BaseComponent({
       tagName: 'div',
       classList: ['modal_win_text'],
       textContent: `Hey there o/ you've mastered all of the selectors \\o/ <3 ^^`
@@ -119,7 +120,11 @@ export class ModalWin extends BaseComponent<'div'> {
 
     seasonsTree.append(leafOne, leafTwo, leafThree, leafFour);
 
-    this.node.append(modalCross.node, modalText.node, seasonsTree.node);
+    this.node.append(
+      modalCross.node,
+      ModalWin.modalText.node,
+      seasonsTree.node
+    );
 
     const modalBody = document.body;
 
