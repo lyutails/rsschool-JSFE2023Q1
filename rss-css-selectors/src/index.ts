@@ -50,7 +50,6 @@ selectorsBody.append(header.node, game.node);
 
 function setInitialLevel(lastLevelWinValue: string): void {
   const lastLevelValue = localStorage.getItem(lastLevelWinValue);
-  console.log('lalala');
   if (lastLevelValue) {
     store.currentLevel = +lastLevelValue || 0;
     levelNameColorObserver.notify('lalala');
