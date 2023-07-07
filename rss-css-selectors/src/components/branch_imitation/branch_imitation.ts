@@ -176,6 +176,14 @@ export class BranchImitation extends BaseComponent<'div'> {
           levelsMarkup[this.store.currentLevel][i][index].tagName;
         const gameElement = document.createElement(gameLevelElementTagName);
 
+        gameElement.addEventListener('mouseover', () => {
+          tagHighlightByElementObserver.notify('lalala');
+        });
+
+        gameElement.addEventListener('mouseout', () => {
+          tagUnhighlightByElementObserver.notify('lalala');
+        });
+
         const gameLevelElementClassName =
           levelsMarkup[this.store.currentLevel][i][index].classList;
         if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
@@ -353,14 +361,6 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
-
-            gameElementChild.addEventListener('mouseover', () => {
-              tagHighlightByElementObserver.notify('lalala');
-            });
-
-            gameElementChild.addEventListener('mouseout', () => {
-              tagUnhighlightByElementObserver.notify('lalala');
-            });
 
             const selectorChildWinPartTag = levels[
               this.store.currentLevel

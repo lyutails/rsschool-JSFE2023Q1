@@ -33,8 +33,17 @@ export const gameElementUnhighlightTagHover = new Observer();
 export const gameElementHighlihgtActualElementHover = new Observer();
 export const gameElementUnhighlihgtActualElementHover = new Observer();
 
-export const viceVersaHighlightTagObserver = new Observer();
-export const viceVersaUnhighlightTagObserver = new Observer();
+export const viceVersaOneHighlightTagObserver = new Observer();
+export const viceVersaOneUnhighlightTagObserver = new Observer();
+
+export const viceVersaTwoHighlightTagObserver = new Observer();
+export const viceVersaTwoUnhighlightTagObserver = new Observer();
+
+export const viceVersaThreeHighlightTagObserver = new Observer();
+export const viceVersaThreeUnhighlightTagObserver = new Observer();
+
+export const viceVersaFourHighlightTagObserver = new Observer();
+export const viceVersaFourUnhighlightTagObserver = new Observer();
 
 export const tagHighlightByElementObserver = new Observer();
 export const tagUnhighlightByElementObserver = new Observer();
@@ -346,20 +355,20 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
-            viceVersaHighlightTagObserver.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
-            viceVersaUnhighlightTagObserver.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
-          viceVersaHighlightTagObserver.subscribe(() => {
+          viceVersaOneHighlightTagObserver.subscribe(() => {
             childTagOneOpening.node.classList.add('child_colour');
           });
 
-          viceVersaUnhighlightTagObserver.subscribe(() => {
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
             childTagOneOpening.node.classList.remove('child_colour');
           });
 
@@ -389,30 +398,35 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
 
-          // tagHighlightByElementObserver.subscribe(() => {
-          //   childTagOneOpening.node.classList.add('child_colour');
-          //   childTagOneClosing.node.classList.add('child_colour');
-          // });
+          tagHighlightByElementObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
+            childTagOneClosing.node.classList.remove('child_colour');
+          });
 
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
-            viceVersaHighlightTagObserver.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
-            viceVersaUnhighlightTagObserver.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
-          viceVersaHighlightTagObserver.subscribe(() => {
+          viceVersaOneHighlightTagObserver.subscribe(() => {
             childTagOneClosing.node.classList.add('child_colour');
           });
 
-          viceVersaUnhighlightTagObserver.subscribe(() => {
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
             childTagOneClosing.node.classList.remove('child_colour');
           });
 
@@ -439,11 +453,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -479,11 +503,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           this.firstBranchChildren.append(
@@ -509,11 +543,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -549,11 +593,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           this.firstBranchChildren.append(
@@ -579,11 +633,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -619,11 +683,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           this.firstBranchChildren.append(
@@ -649,11 +723,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -689,11 +773,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaOneHighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaOneUnhighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           this.firstBranchChildren.append(
@@ -721,11 +815,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -760,11 +864,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           this.secondBranchChildren.append(
@@ -790,11 +904,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -829,11 +953,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           this.secondBranchChildren.append(
@@ -859,11 +993,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -898,11 +1042,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           this.secondBranchChildren.append(
@@ -928,11 +1082,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -968,11 +1132,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           this.secondBranchChildren.append(
@@ -998,11 +1172,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1038,11 +1222,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaTwoHighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaTwoUnhighlightTagObserver.subscribe(() => {
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           this.secondBranchChildren.append(
@@ -1070,11 +1264,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1109,11 +1313,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           this.thirdBranchChildren.append(
@@ -1139,11 +1353,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1178,11 +1402,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           this.thirdBranchChildren.append(
@@ -1208,11 +1442,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1247,11 +1491,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           this.thirdBranchChildren.append(
@@ -1277,11 +1531,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1317,11 +1581,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           this.thirdBranchChildren.append(
@@ -1347,11 +1621,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1387,11 +1671,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaThreeHighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaThreeUnhighlightTagObserver.subscribe(() => {
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           this.thirdBranchChildren.append(
@@ -1419,11 +1713,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1459,11 +1763,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           this.fourthBranchChildren.append(
@@ -1489,11 +1803,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1529,11 +1853,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           this.fourthBranchChildren.append(
@@ -1559,11 +1893,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1599,11 +1943,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           this.fourthBranchChildren.append(
@@ -1629,11 +1983,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1669,11 +2033,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           this.fourthBranchChildren.append(
@@ -1699,11 +2073,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
           });
 
           if (
@@ -1739,11 +2123,21 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          viceVersaFourHighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaFourUnhighlightTagObserver.subscribe(() => {
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           this.fourthBranchChildren.append(
