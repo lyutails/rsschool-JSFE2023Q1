@@ -187,6 +187,46 @@ export class BranchImitation extends BaseComponent<'div'> {
           levelsMarkup[this.store.currentLevel][i][index].classList;
         if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
           gameElement.classList.add(gameLevelElementClassName);
+
+          if (i === 0) {
+            gameElement.addEventListener('mouseover', () => {
+              tagHighlightByElementOneObserver.notify('lalala');
+            });
+
+            gameElement.addEventListener('mouseout', () => {
+              tagUnhighlightByElementOneObserver.notify('lalala');
+            });
+          }
+
+          if (i === 1) {
+            gameElement.addEventListener('mouseover', () => {
+              tagHighlightByElementTwoObserver.notify('lalala');
+            });
+
+            gameElement.addEventListener('mouseout', () => {
+              tagUnhighlightByElementTwoObserver.notify('lalala');
+            });
+          }
+
+          if (i === 2) {
+            gameElement.addEventListener('mouseover', () => {
+              tagHighlightByElementThreeObserver.notify('lalala');
+            });
+
+            gameElement.addEventListener('mouseout', () => {
+              tagUnhighlightByElementThreeObserver.notify('lalala');
+            });
+          }
+
+          if (i === 3) {
+            gameElement.addEventListener('mouseover', () => {
+              tagHighlightByElementFourObserver.notify('lalala');
+            });
+
+            gameElement.addEventListener('mouseout', () => {
+              tagUnhighlightByElementFourObserver.notify('lalala');
+            });
+          }
         }
 
         const gameLevelElementID =
@@ -239,69 +279,6 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.addEventListener('mouseout', () => {
             tagUnhighlightByElementFourObserver.notify('lalala');
           });
-        }
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].tagName ===
-            levels[this.store.currentLevel].selector &&
-          levelsMarkup[this.store.currentLevel][i][index].classList === ''
-        ) {
-          gameElement.style.animationName = 'pick_me_anim';
-        }
-
-        const selectorWinPartTag = levels[this.store.currentLevel].selector
-          .replace(/,/g, '')
-          .split(' ')
-          .find((selectorPart) => {
-            return selectorPart.indexOf(
-              levelsMarkup[this.store.currentLevel][i][index].tagName
-            );
-          });
-
-        if (
-          selectorWinPartTag &&
-          levels[this.store.currentLevel].selector !== 'leaf *' &&
-          levels[this.store.currentLevel].selector !==
-            '.birdhouse > .sparrow' &&
-          levels[this.store.currentLevel].selector !==
-            'beehive bee, leaf butterfly' &&
-          levels[this.store.currentLevel].selector !== 'apple + mango'
-        ) {
-          gameElement.style.animationName = 'pick_me_anim';
-        }
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].classList ===
-            'banana_green' &&
-          levelsMarkup[this.store.currentLevel][i][index].tagName === 'banana'
-        ) {
-          gameElement.style.animationName = 'pick_me_anim';
-        }
-
-        if (
-          levelsMarkup[this.store.currentLevel][i][index].classList ===
-            'yellow' &&
-          levelsMarkup[this.store.currentLevel][i][index].tagName === 'banana'
-        ) {
-          gameElement.style.animationName = 'unset';
-        }
-
-        if (
-          levels[this.store.currentLevel].selector ===
-          '.bee, .ladybug, .butterfly_blue'
-        ) {
-          if (gameElement.classList.contains('bee')) {
-            gameElement.style.animationName = 'pick_me_anim';
-          }
-          if (gameElement.classList.contains('ladybug')) {
-            gameElement.style.animationName = 'pick_me_anim';
-          }
-          if (gameElement.classList.contains('butterfly_blue')) {
-            gameElement.style.animationName = 'pick_me_anim';
-          }
-          if (gameElement.classList.contains('butterfly_purple')) {
-            gameElement.style.animationName = 'unset';
-          }
         }
 
         const { anim } = levelsMarkup[this.store.currentLevel][i][index];
@@ -401,62 +378,14 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
-            const selectorChildWinPartTag = levels[
-              this.store.currentLevel
-            ].selector
-              .replace(/,/g, '')
-              .split(' ')
-              .find((selectorPart) => {
-                return selectorPart.indexOf(
-                  levelsMarkup[this.store.currentLevel][i][index].children
-                    .tagName
-                );
+            if (i === 0) {
+              gameElement.addEventListener('mouseover', () => {
+                tagHighlightByElementOneObserver.notify('lalala');
               });
 
-            if (selectorChildWinPartTag) {
-              gameElementChild.style.animationName = 'pick_me_child_anim';
-            }
-
-            if (levels[this.store.currentLevel].selector === 'leaf *') {
-              if (gameElementChild.classList.contains('bee')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElementChild.classList.contains('ladybug')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElement.classList.contains('leaf')) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
-            if (
-              levels[this.store.currentLevel].selector ===
-              '.birdhouse > .sparrow'
-            ) {
-              if (gameElementChild.classList.contains('sparrow')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElement.classList.contains('birdhouse')) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
-            if (
-              levels[this.store.currentLevel].selector ===
-              'beehive bee, leaf butterfly'
-            ) {
-              if (
-                levelsMarkup[this.store.currentLevel][i][index].children
-                  .tagName === 'bee'
-              ) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (
-                levelsMarkup[this.store.currentLevel][i][index].tagName ===
-                'beehive'
-              ) {
-                gameElement.style.animationName = 'unset';
-              }
+              gameElement.addEventListener('mouseout', () => {
+                tagUnhighlightByElementOneObserver.notify('lalala');
+              });
             }
 
             if (
@@ -528,45 +457,6 @@ export class BranchImitation extends BaseComponent<'div'> {
               });
             }
 
-            const selectorChildWinPartTag = levels[
-              this.store.currentLevel
-            ].selector
-              .replace(/,/g, '')
-              .split(' ')
-              .find((selectorPart) => {
-                return selectorPart.indexOf(
-                  levelsMarkup[this.store.currentLevel][i][index].children
-                    .tagName
-                );
-              });
-
-            if (selectorChildWinPartTag) {
-              gameElementChild.style.animationName = 'pick_me_child_anim';
-            }
-
-            if (levels[this.store.currentLevel].selector === 'leaf *') {
-              if (gameElementChild.classList.contains('bee')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElementChild.classList.contains('ladybug')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElement.classList.contains('leaf')) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
-            if (levels[this.store.currentLevel].selector === '#leaf .ladybug') {
-              if (gameElementChild.classList.contains('ladybug')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (
-                levelsMarkup[this.store.currentLevel][i][index].id === 'leaf'
-              ) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
             if (
               levelsMarkup[this.store.currentLevel][i][index].children.anim ===
               'yes'
@@ -636,34 +526,6 @@ export class BranchImitation extends BaseComponent<'div'> {
               });
             }
 
-            const selectorChildWinPartTag = levels[
-              this.store.currentLevel
-            ].selector
-              .replace(/,/g, '')
-              .split(' ')
-              .find((selectorPart) => {
-                return selectorPart.indexOf(
-                  levelsMarkup[this.store.currentLevel][i][index].children
-                    .tagName
-                );
-              });
-
-            if (selectorChildWinPartTag) {
-              gameElementChild.style.animationName = 'pick_me_child_anim';
-            }
-
-            if (levels[this.store.currentLevel].selector === 'leaf *') {
-              if (gameElementChild.classList.contains('bee')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElementChild.classList.contains('ladybug')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElement.classList.contains('leaf')) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
             if (
               levelsMarkup[this.store.currentLevel][i][index].children.anim ===
               'yes'
@@ -731,63 +593,6 @@ export class BranchImitation extends BaseComponent<'div'> {
               gameElement.addEventListener('mouseout', () => {
                 tagUnhighlightByElementFourObserver.notify('lalala');
               });
-            }
-
-            const selectorChildWinPartTag = levels[
-              this.store.currentLevel
-            ].selector
-              .replace(/,/g, '')
-              .split(' ')
-              .find((selectorPart) => {
-                return selectorPart.indexOf(
-                  levelsMarkup[this.store.currentLevel][i][index].children
-                    .tagName
-                );
-              });
-
-            if (selectorChildWinPartTag) {
-              gameElementChild.style.animationName = 'pick_me_child_anim';
-            }
-
-            if (levels[this.store.currentLevel].selector === 'leaf *') {
-              if (gameElementChild.classList.contains('bee')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElementChild.classList.contains('ladybug')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (gameElement.classList.contains('leaf')) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
-            if (
-              levels[this.store.currentLevel].selector ===
-              'beehive bee, leaf butterfly'
-            ) {
-              if (
-                levelsMarkup[this.store.currentLevel][i][index].children
-                  .tagName === 'butterfly'
-              ) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (
-                levelsMarkup[this.store.currentLevel][i][index].tagName ===
-                'leaf'
-              ) {
-                gameElement.style.animationName = 'unset';
-              }
-            }
-
-            if (levels[this.store.currentLevel].selector === '#leaf .ladybug') {
-              if (gameElementChild.classList.contains('ladybug')) {
-                gameElementChild.style.animationName = 'pick_me_child_anim';
-              }
-              if (
-                levelsMarkup[this.store.currentLevel][i][index].id === 'leaf'
-              ) {
-                gameElement.style.animationName = 'unset';
-              }
             }
 
             if (
