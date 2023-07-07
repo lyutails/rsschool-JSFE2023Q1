@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { Tree } from './components';
 import { CSSEditor } from './components/css_editor';
 import { GameProgress } from './components/game_progress/game_progress';

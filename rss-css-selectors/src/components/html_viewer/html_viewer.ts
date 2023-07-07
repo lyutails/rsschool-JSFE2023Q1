@@ -1,7 +1,7 @@
+/* eslint-disable import/no-cycle */
 import { BaseComponent } from '@/core/base-component';
 
 import { Observer } from '../observer';
-// eslint-disable-next-line import/no-cycle
 import {
   Tree,
   qeteqTagByElementHighlight,

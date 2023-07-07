@@ -1,5 +1,6 @@
 import { BaseComponent } from '@/core/base-component';
 
+import { LevelsMenu } from '../levels_menu';
 import { Observer } from '../observer';
 
 import { currentLevelObserver, store } from '@/store';
@@ -28,7 +29,7 @@ export class GameProgress extends BaseComponent<'div'> {
     gameProgressBar.node.setAttribute('value', '0');
 
     currentLevelObserver.subscribe(() => {
-      gameProgressBar.node.value = this.store.currentLevel / 20;
+      gameProgressBar.node.value = LevelsMenu.amountOfLevelsProgress() / 20;
     });
 
     this.node.append(gameProgressBar.node);

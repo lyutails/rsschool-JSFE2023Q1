@@ -219,6 +219,12 @@ export class LevelsMenu extends BaseComponent {
     });
   }
 
+  public static amountOfLevelsProgress(): number {
+    return LevelsMenu.arrayLevelsForLocalStorage.filter(
+      (passedLevels) => passedLevels !== 'default'
+    ).length;
+  }
+
   public static amountOfPassedLevels(): number | string {
     if (
       LevelsMenu.arrayLevelsForLocalStorage.filter(

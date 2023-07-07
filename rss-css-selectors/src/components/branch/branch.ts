@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { BaseComponent } from '@/core/base-component';
 
 import {
