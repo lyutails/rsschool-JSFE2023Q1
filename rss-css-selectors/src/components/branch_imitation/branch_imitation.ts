@@ -8,8 +8,6 @@ import {
   incorrectSelectorElementShake
 } from '../css_editor';
 import {
-  appleTooltipAppendObserverTagHover,
-  appleTooltipRemoveObserverTagHover,
   branchFourTagHighlightByElementObserver,
   branchFourTagUnhighlightByElementObserver,
   branchOneTagHighlightByElementObserver,
@@ -24,6 +22,14 @@ import {
   gameElementHighlightThreeTagHover,
   gameElementHighlightTwoTagHover,
   gameElementHighlihgtActualElementHover,
+  gameElementTooltipAppendObserverFourTagHover,
+  gameElementTooltipAppendObserverOneTagHover,
+  gameElementTooltipAppendObserverThreeTagHover,
+  gameElementTooltipAppendObserverTwoTagHover,
+  gameElementTooltipRemoveObserverFourTagHover,
+  gameElementTooltipRemoveObserverOneTagHover,
+  gameElementTooltipRemoveObserverThreeTagHover,
+  gameElementTooltipRemoveObserverTwoTagHover,
   gameElementUnhighlightFourTagHover,
   gameElementUnhighlightOneTagHover,
   gameElementUnhighlightTagHover,
@@ -197,6 +203,12 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.setAttribute('for', gameLevelElementAttribute);
         }
 
+        const gameElementTooltip = new BaseComponent({
+          tagName: 'div',
+          classList: ['tooltip_apple'],
+          textContent: `<${gameLevelElementTagName}>`
+        });
+
         if (i === 0) {
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementOneObserver.notify('lalala');
@@ -212,6 +224,14 @@ export class BranchImitation extends BaseComponent<'div'> {
 
           gameElementUnhighlightOneTagHover.subscribe(() => {
             gameElement.style.filter = 'none';
+          });
+
+          gameElementTooltipAppendObserverOneTagHover.subscribe(() => {
+            gameElement.append(gameElementTooltip.node);
+          });
+
+          gameElementTooltipRemoveObserverOneTagHover.subscribe(() => {
+            gameElementTooltip.node.remove();
           });
         }
 
@@ -231,6 +251,14 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElementUnhighlightTwoTagHover.subscribe(() => {
             gameElement.style.filter = 'none';
           });
+
+          gameElementTooltipAppendObserverTwoTagHover.subscribe(() => {
+            gameElement.append(gameElementTooltip.node);
+          });
+
+          gameElementTooltipRemoveObserverTwoTagHover.subscribe(() => {
+            gameElementTooltip.node.remove();
+          });
         }
 
         if (i === 2) {
@@ -249,6 +277,14 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElementUnhighlightThreeTagHover.subscribe(() => {
             gameElement.style.filter = 'none';
           });
+
+          gameElementTooltipAppendObserverThreeTagHover.subscribe(() => {
+            gameElement.append(gameElementTooltip.node);
+          });
+
+          gameElementTooltipRemoveObserverThreeTagHover.subscribe(() => {
+            gameElementTooltip.node.remove();
+          });
         }
 
         if (i === 3) {
@@ -266,6 +302,14 @@ export class BranchImitation extends BaseComponent<'div'> {
 
           gameElementUnhighlightFourTagHover.subscribe(() => {
             gameElement.style.filter = 'none';
+          });
+
+          gameElementTooltipAppendObserverFourTagHover.subscribe(() => {
+            gameElement.append(gameElementTooltip.node);
+          });
+
+          gameElementTooltipRemoveObserverFourTagHover.subscribe(() => {
+            gameElementTooltip.node.remove();
           });
         }
 
@@ -296,25 +340,11 @@ export class BranchImitation extends BaseComponent<'div'> {
           }
         });
 
-        const gameElementTooltip = new BaseComponent({
-          tagName: 'div',
-          classList: ['tooltip_apple'],
-          textContent: `<${gameLevelElementTagName}>`
-        });
-
         BranchImitation.setRandomPosition(gameElement, 16, 1);
 
         BranchImitation.setTransformOrigin(gameElement);
 
         BranchImitation.appendRemoveTooltip(gameElement, gameElementTooltip);
-
-        appleTooltipAppendObserverTagHover.subscribe(() => {
-          gameElement.append(gameElementTooltip.node);
-        });
-
-        appleTooltipRemoveObserverTagHover.subscribe(() => {
-          gameElementTooltip.node.remove();
-        });
 
         gameElementHighlihgtActualElementHover.subscribe(() => {
           gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';

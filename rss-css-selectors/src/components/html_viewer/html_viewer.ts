@@ -12,8 +12,17 @@ import { levelsMarkup } from '@/data/levels_markup';
 import { markupNumbers } from '@/data/markup_numbers';
 import { currentLevelObserver, store } from '@/store';
 
-export const appleTooltipAppendObserverTagHover = new Observer();
-export const appleTooltipRemoveObserverTagHover = new Observer();
+export const gameElementTooltipAppendObserverOneTagHover = new Observer();
+export const gameElementTooltipRemoveObserverOneTagHover = new Observer();
+
+export const gameElementTooltipAppendObserverTwoTagHover = new Observer();
+export const gameElementTooltipRemoveObserverTwoTagHover = new Observer();
+
+export const gameElementTooltipAppendObserverThreeTagHover = new Observer();
+export const gameElementTooltipRemoveObserverThreeTagHover = new Observer();
+
+export const gameElementTooltipAppendObserverFourTagHover = new Observer();
+export const gameElementTooltipRemoveObserverFourTagHover = new Observer();
 
 export const htmlviewerObserverDay = new Observer();
 export const htmlviewerObserverNight = new Observer();
@@ -409,13 +418,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightOneTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -437,12 +446,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpening.append(childTagOneOpeningChild);
@@ -467,13 +476,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightOneTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -507,13 +516,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightOneTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -537,12 +546,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpening.append(childTagOneOpeningChild);
@@ -557,13 +566,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -597,13 +606,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightOneTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -627,12 +636,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpening.append(childTagOneOpeningChild);
@@ -647,13 +656,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -687,13 +696,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightOneTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -717,12 +726,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpening.append(childTagOneOpeningChild);
@@ -737,13 +746,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -777,13 +786,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightOneTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -807,12 +816,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             });
 
             childTagOneOpening.append(childTagOneOpeningChild);
@@ -827,13 +836,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverOneTagHover.notify('lalala');
             viceVersaOneHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
@@ -869,13 +878,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTwoTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTwoTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -899,12 +908,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpening.append(childTagTwoOpeningChild);
@@ -928,13 +937,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -968,13 +977,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTwoTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTwoTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -998,12 +1007,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpening.append(childTagTwoOpeningChild);
@@ -1017,13 +1026,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1057,13 +1066,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTwoTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTwoTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1087,12 +1096,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpening.append(childTagTwoOpeningChild);
@@ -1106,13 +1115,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1146,13 +1155,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTwoTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTwoTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1176,12 +1185,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpening.append(childTagTwoOpeningChild);
@@ -1196,13 +1205,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1236,13 +1245,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTwoTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTwoTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1266,12 +1275,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagTwoOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             });
 
             childTagTwoOpening.append(childTagTwoOpeningChild);
@@ -1286,13 +1295,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
             viceVersaTwoHighlightTagObserver.notify('lalala');
           });
 
           childTagTwoClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1328,13 +1337,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightThreeTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightThreeTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1358,12 +1367,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpening.append(childTagThreeOpeningChild);
@@ -1388,13 +1397,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1428,13 +1437,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightThreeTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightThreeTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1458,12 +1467,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpening.append(childTagThreeOpeningChild);
@@ -1477,13 +1486,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1517,13 +1526,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightThreeTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightThreeTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1547,12 +1556,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpening.append(childTagThreeOpeningChild);
@@ -1566,13 +1575,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1606,13 +1615,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightThreeTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightThreeTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1636,12 +1645,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpening.append(childTagThreeOpeningChild);
@@ -1656,13 +1665,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1696,13 +1705,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightThreeTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightThreeTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1726,12 +1735,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagThreeOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             });
 
             childTagThreeOpening.append(childTagThreeOpeningChild);
@@ -1746,13 +1755,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagThreeClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1788,13 +1797,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightFourTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightFourTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1818,12 +1827,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpening.append(childTagFourOpeningChild);
@@ -1848,13 +1857,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1888,13 +1897,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightFourTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightFourTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1918,12 +1927,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpening.append(childTagFourOpeningChild);
@@ -1938,13 +1947,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -1978,13 +1987,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightFourTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightFourTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -2008,12 +2017,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpening.append(childTagFourOpeningChild);
@@ -2028,13 +2037,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -2068,13 +2077,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightFourTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaThreeHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightFourTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
@@ -2098,12 +2107,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpening.append(childTagFourOpeningChild);
@@ -2118,13 +2127,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -2158,13 +2167,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightFourTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightFourTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
@@ -2188,12 +2197,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
             childTagFourOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
-              appleTooltipAppendObserverTagHover.notify('lalala');
+              gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
-              appleTooltipRemoveObserverTagHover.notify('lalala');
+              gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             });
 
             childTagFourOpening.append(childTagFourOpeningChild);
@@ -2208,13 +2217,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
-            appleTooltipAppendObserverTagHover.notify('lalala');
+            gameElementTooltipAppendObserverFourTagHover.notify('lalala');
             viceVersaFourHighlightTagObserver.notify('lalala');
           });
 
           childTagFourClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
-            appleTooltipRemoveObserverTagHover.notify('lalala');
+            gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
