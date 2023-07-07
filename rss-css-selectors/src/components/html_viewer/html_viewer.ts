@@ -45,8 +45,17 @@ export const viceVersaThreeUnhighlightTagObserver = new Observer();
 export const viceVersaFourHighlightTagObserver = new Observer();
 export const viceVersaFourUnhighlightTagObserver = new Observer();
 
-export const tagHighlightByElementObserver = new Observer();
-export const tagUnhighlightByElementObserver = new Observer();
+export const tagHighlightByElementOneObserver = new Observer();
+export const tagUnhighlightByElementOneObserver = new Observer();
+
+export const tagHighlightByElementTwoObserver = new Observer();
+export const tagUnhighlightByElementTwoObserver = new Observer();
+
+export const tagHighlightByElementThreeObserver = new Observer();
+export const tagUnhighlightByElementThreeObserver = new Observer();
+
+export const tagHighlightByElementFourObserver = new Observer();
+export const tagUnhighlightByElementFourObserver = new Observer();
 
 export const branchOneTagHighlightByElementObserver = new Observer();
 export const branchOneTagUnhighlightByElementObserver = new Observer();
@@ -398,12 +407,12 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
 
-          tagHighlightByElementObserver.subscribe(() => {
+          tagHighlightByElementOneObserver.subscribe(() => {
             childTagOneOpening.node.classList.add('child_colour');
             childTagOneClosing.node.classList.add('child_colour');
           });
 
-          tagUnhighlightByElementObserver.subscribe(() => {
+          tagUnhighlightByElementOneObserver.subscribe(() => {
             childTagOneOpening.node.classList.remove('child_colour');
             childTagOneClosing.node.classList.remove('child_colour');
           });
@@ -861,6 +870,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
           childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
 
+          tagHighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
+            childTagTwoClosing.node.classList.remove('child_colour');
+          });
+
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
@@ -1308,6 +1327,17 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'div',
             classList: ['markup_child']
           });
+
+          tagHighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
+            childTagThreeClosing.node.classList.remove('child_colour');
+          });
+
           childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
@@ -1756,6 +1786,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
           const childTagFourClosing = new BaseComponent({
             tagName: 'div',
             classList: ['markup_child']
+          });
+
+          tagHighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;

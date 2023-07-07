@@ -21,8 +21,14 @@ import {
   gameElementHighlihgtActualElementHover,
   gameElementUnhighlightTagHover,
   gameElementUnhighlihgtActualElementHover,
-  tagHighlightByElementObserver,
-  tagUnhighlightByElementObserver
+  tagHighlightByElementFourObserver,
+  tagHighlightByElementOneObserver,
+  tagHighlightByElementThreeObserver,
+  tagHighlightByElementTwoObserver,
+  tagUnhighlightByElementFourObserver,
+  tagUnhighlightByElementOneObserver,
+  tagUnhighlightByElementThreeObserver,
+  tagUnhighlightByElementTwoObserver
 } from '../html_viewer';
 import { Observer } from '../observer';
 
@@ -176,13 +182,45 @@ export class BranchImitation extends BaseComponent<'div'> {
           levelsMarkup[this.store.currentLevel][i][index].tagName;
         const gameElement = document.createElement(gameLevelElementTagName);
 
-        gameElement.addEventListener('mouseover', () => {
-          tagHighlightByElementObserver.notify('lalala');
-        });
+        if (i === 0) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementOneObserver.notify('lalala');
+          });
 
-        gameElement.addEventListener('mouseout', () => {
-          tagUnhighlightByElementObserver.notify('lalala');
-        });
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementOneObserver.notify('lalala');
+          });
+        }
+
+        if (i === 1) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementTwoObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementTwoObserver.notify('lalala');
+          });
+        }
+
+        if (i === 2) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementThreeObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementThreeObserver.notify('lalala');
+          });
+        }
+
+        if (i === 3) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementFourObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementFourObserver.notify('lalala');
+          });
+        }
 
         const gameLevelElementClassName =
           levelsMarkup[this.store.currentLevel][i][index].classList;
@@ -479,6 +517,16 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
+            if (i === 1) {
+              gameElement.addEventListener('mouseover', () => {
+                tagHighlightByElementTwoObserver.notify('lalala');
+              });
+
+              gameElement.addEventListener('mouseout', () => {
+                tagUnhighlightByElementTwoObserver.notify('lalala');
+              });
+            }
+
             const selectorChildWinPartTag = levels[
               this.store.currentLevel
             ].selector
@@ -577,6 +625,16 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
+            if (i === 2) {
+              gameElement.addEventListener('mouseover', () => {
+                tagHighlightByElementThreeObserver.notify('lalala');
+              });
+
+              gameElement.addEventListener('mouseout', () => {
+                tagUnhighlightByElementThreeObserver.notify('lalala');
+              });
+            }
+
             const selectorChildWinPartTag = levels[
               this.store.currentLevel
             ].selector
@@ -663,6 +721,16 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
+
+            if (i === 3) {
+              gameElement.addEventListener('mouseover', () => {
+                tagHighlightByElementFourObserver.notify('lalala');
+              });
+
+              gameElement.addEventListener('mouseout', () => {
+                tagUnhighlightByElementFourObserver.notify('lalala');
+              });
+            }
 
             const selectorChildWinPartTag = levels[
               this.store.currentLevel

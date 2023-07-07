@@ -2590,17 +2590,25 @@ dumpling {
   }
 
   .html_viewer_text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .html_viewer_numbers {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
   html {
     font-size: 16px;
+  }
+
+  .html_viewer_text {
+    font-size: 0.8rem;
+  }
+
+  .html_viewer_numbers {
+    font-size: 0.8rem;
   }
 }
 
@@ -2610,11 +2618,11 @@ dumpling {
   }
 
   .html_viewer_text {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .html_viewer_numbers {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -2633,5 +2641,13 @@ dumpling {
     &_controls {
       flex-direction: column;
     }
+  }
+
+  .html_viewer_text {
+    font-size: 0.7rem;
+  }
+
+  .html_viewer_numbers {
+    font-size: 0.7rem;
   }
 }
