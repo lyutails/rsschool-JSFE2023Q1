@@ -129,18 +129,6 @@ export class BranchImitation extends BaseComponent<'div'> {
       branchFourTagUnhighlightByElementObserver.notify('lalala');
     });
 
-    // this.node.addEventListener('mouseout', () => {
-    //   treePicObserverUnighlight.notify('lalala');
-    // });
-
-    // treePicObserverHighlight.subscribe(() => {
-    //   treePic.node.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
-    // });
-
-    // treePicObserverUnighlight.subscribe(() => {
-    //   treePic.node.style.filter = 'none';
-    // });
-
     this.node.append(
       this.branchOneImitation,
       this.branchTwoImitation,
@@ -241,46 +229,6 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.setAttribute('for', gameLevelElementAttribute);
         }
 
-        if (i === 0) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementOneObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementOneObserver.notify('lalala');
-          });
-        }
-
-        if (i === 1) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementTwoObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementTwoObserver.notify('lalala');
-          });
-        }
-
-        if (i === 2) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementThreeObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementThreeObserver.notify('lalala');
-          });
-        }
-
-        if (i === 3) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementFourObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementFourObserver.notify('lalala');
-          });
-        }
-
         const { anim } = levelsMarkup[this.store.currentLevel][i][index];
 
         if (anim === 'yes') {
@@ -359,6 +307,46 @@ export class BranchImitation extends BaseComponent<'div'> {
           this.branchFourImitation
         );
 
+        if (i === 0) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementOneObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementOneObserver.notify('lalala');
+          });
+        }
+
+        if (i === 1) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementTwoObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementTwoObserver.notify('lalala');
+          });
+        }
+
+        if (i === 2) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementThreeObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementThreeObserver.notify('lalala');
+          });
+        }
+
+        if (i === 3) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementFourObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementFourObserver.notify('lalala');
+          });
+        }
+
         if (
           levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&
           i === 0
@@ -378,16 +366,6 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
-            if (i === 0) {
-              gameElement.addEventListener('mouseover', () => {
-                tagHighlightByElementOneObserver.notify('lalala');
-              });
-
-              gameElement.addEventListener('mouseout', () => {
-                tagUnhighlightByElementOneObserver.notify('lalala');
-              });
-            }
-
             if (
               levelsMarkup[this.store.currentLevel][i][index].children.anim ===
               'yes'
@@ -403,12 +381,7 @@ export class BranchImitation extends BaseComponent<'div'> {
             }
 
             correctSelectorChildElementShake.subscribe(() => {
-              if (
-                levelsMarkup[this.store.currentLevel][i][index]?.children
-                  ?.anim === 'yes'
-              ) {
-                BranchImitation.correctSelectorElementAnim(gameElementChild);
-              }
+              BranchImitation.correctSelectorElementAnim(gameElementChild);
             });
 
             incorrectSelectorChildElementShake.subscribe(() => {
@@ -447,16 +420,6 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
-            if (i === 1) {
-              gameElement.addEventListener('mouseover', () => {
-                tagHighlightByElementTwoObserver.notify('lalala');
-              });
-
-              gameElement.addEventListener('mouseout', () => {
-                tagUnhighlightByElementTwoObserver.notify('lalala');
-              });
-            }
-
             if (
               levelsMarkup[this.store.currentLevel][i][index].children.anim ===
               'yes'
@@ -472,12 +435,7 @@ export class BranchImitation extends BaseComponent<'div'> {
             }
 
             correctSelectorChildElementShake.subscribe(() => {
-              if (
-                levelsMarkup[this.store.currentLevel][i][index]?.children
-                  ?.anim === 'yes'
-              ) {
-                BranchImitation.correctSelectorElementAnim(gameElementChild);
-              }
+              BranchImitation.correctSelectorElementAnim(gameElementChild);
             });
 
             incorrectSelectorChildElementShake.subscribe(() => {
@@ -516,16 +474,6 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
-            if (i === 2) {
-              gameElement.addEventListener('mouseover', () => {
-                tagHighlightByElementThreeObserver.notify('lalala');
-              });
-
-              gameElement.addEventListener('mouseout', () => {
-                tagUnhighlightByElementThreeObserver.notify('lalala');
-              });
-            }
-
             if (
               levelsMarkup[this.store.currentLevel][i][index].children.anim ===
               'yes'
@@ -541,12 +489,7 @@ export class BranchImitation extends BaseComponent<'div'> {
             }
 
             correctSelectorChildElementShake.subscribe(() => {
-              if (
-                levelsMarkup[this.store.currentLevel][i][index]?.children
-                  ?.anim === 'yes'
-              ) {
-                BranchImitation.correctSelectorElementAnim(gameElementChild);
-              }
+              BranchImitation.correctSelectorElementAnim(gameElementChild);
             });
 
             incorrectSelectorChildElementShake.subscribe(() => {
@@ -585,16 +528,6 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
 
-            if (i === 3) {
-              gameElement.addEventListener('mouseover', () => {
-                tagHighlightByElementFourObserver.notify('lalala');
-              });
-
-              gameElement.addEventListener('mouseout', () => {
-                tagUnhighlightByElementFourObserver.notify('lalala');
-              });
-            }
-
             if (
               levelsMarkup[this.store.currentLevel][i][index].children.anim ===
               'yes'
@@ -610,12 +543,7 @@ export class BranchImitation extends BaseComponent<'div'> {
             }
 
             correctSelectorChildElementShake.subscribe(() => {
-              if (
-                levelsMarkup[this.store.currentLevel][i][index]?.children
-                  ?.anim === 'yes'
-              ) {
-                BranchImitation.correctSelectorElementAnim(gameElementChild);
-              }
+              BranchImitation.correctSelectorElementAnim(gameElementChild);
             });
 
             incorrectSelectorChildElementShake.subscribe(() => {
