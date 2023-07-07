@@ -36,6 +36,21 @@ export const gameElementUnhighlihgtActualElementHover = new Observer();
 export const viceVersaHighlightTagObserver = new Observer();
 export const viceVersaUnhighlightTagObserver = new Observer();
 
+export const tagHighlightByElementObserver = new Observer();
+export const tagUnhighlightByElementObserver = new Observer();
+
+export const branchOneTagHighlightByElementObserver = new Observer();
+export const branchOneTagUnhighlightByElementObserver = new Observer();
+
+export const branchTwoTagHighlightByElementObserver = new Observer();
+export const branchTwoTagUnhighlightByElementObserver = new Observer();
+
+export const branchThreeTagHighlightByElementObserver = new Observer();
+export const branchThreeTagUnhighlightByElementObserver = new Observer();
+
+export const branchFourTagHighlightByElementObserver = new Observer();
+export const branchFourTagUnhighlightByElementObserver = new Observer();
+
 export class HTMLViewer extends BaseComponent<'div'> {
   public store = store;
   public branchOneOpeningViewerTag: BaseComponent;
@@ -96,6 +111,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
       textContent: '</branch>'
     });
 
+    branchOneTagHighlightByElementObserver.subscribe(() => {
+      this.branchOneOpeningViewerTag.node.style.color = 'aqua';
+      this.branchOneClosingViewerTag.node.style.color = 'aqua';
+    });
+
+    branchOneTagUnhighlightByElementObserver.subscribe(() => {
+      this.branchOneOpeningViewerTag.node.style.color = 'unset';
+      this.branchOneClosingViewerTag.node.style.color = 'unset';
+    });
+
     this.branchTwoOpeningViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
@@ -106,6 +131,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '</branch>'
+    });
+
+    branchTwoTagHighlightByElementObserver.subscribe(() => {
+      this.branchTwoOpeningViewerTag.node.style.color = 'aqua';
+      this.branchTwoClosingViewerTag.node.style.color = 'aqua';
+    });
+
+    branchTwoTagUnhighlightByElementObserver.subscribe(() => {
+      this.branchTwoOpeningViewerTag.node.style.color = 'unset';
+      this.branchTwoClosingViewerTag.node.style.color = 'unset';
     });
 
     this.branchThreeOpeningViewerTag = new BaseComponent({
@@ -120,6 +155,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
       textContent: '</branch>'
     });
 
+    branchThreeTagHighlightByElementObserver.subscribe(() => {
+      this.branchThreeOpeningViewerTag.node.style.color = 'aqua';
+      this.branchThreeClosingViewerTag.node.style.color = 'aqua';
+    });
+
+    branchThreeTagUnhighlightByElementObserver.subscribe(() => {
+      this.branchThreeOpeningViewerTag.node.style.color = 'unset';
+      this.branchThreeClosingViewerTag.node.style.color = 'unset';
+    });
+
     this.branchFourOpeningViewerTag = new BaseComponent({
       tagName: 'div',
       classList: ['markup_branch'],
@@ -130,6 +175,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
       tagName: 'div',
       classList: ['markup_branch'],
       textContent: '</branch>'
+    });
+
+    branchFourTagHighlightByElementObserver.subscribe(() => {
+      this.branchFourOpeningViewerTag.node.style.color = 'aqua';
+      this.branchFourClosingViewerTag.node.style.color = 'aqua';
+    });
+
+    branchFourTagUnhighlightByElementObserver.subscribe(() => {
+      this.branchFourOpeningViewerTag.node.style.color = 'unset';
+      this.branchFourClosingViewerTag.node.style.color = 'unset';
     });
 
     this.treeViewerOpeningTag = new BaseComponent({
@@ -300,6 +355,14 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaUnhighlightTagObserver.notify('lalala');
           });
 
+          viceVersaHighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+          });
+
+          viceVersaUnhighlightTagObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
+          });
+
           if (levelsMarkup[currentLevel][0][j].children.tagName !== '') {
             const childTagOneOpeningChild = new BaseComponent({
               tagName: 'div',
@@ -326,16 +389,23 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
 
+          // tagHighlightByElementObserver.subscribe(() => {
+          //   childTagOneOpening.node.classList.add('child_colour');
+          //   childTagOneClosing.node.classList.add('child_colour');
+          // });
+
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaHighlightTagObserver.notify('lalala');
           });
 
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaUnhighlightTagObserver.notify('lalala');
           });
 
           viceVersaHighlightTagObserver.subscribe(() => {

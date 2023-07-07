@@ -9,10 +9,20 @@ import {
 import {
   appleTooltipAppendObserverTagHover,
   appleTooltipRemoveObserverTagHover,
+  branchFourTagHighlightByElementObserver,
+  branchFourTagUnhighlightByElementObserver,
+  branchOneTagHighlightByElementObserver,
+  branchOneTagUnhighlightByElementObserver,
+  branchThreeTagHighlightByElementObserver,
+  branchThreeTagUnhighlightByElementObserver,
+  branchTwoTagHighlightByElementObserver,
+  branchTwoTagUnhighlightByElementObserver,
   gameElementHighlightTagHover,
   gameElementHighlihgtActualElementHover,
   gameElementUnhighlightTagHover,
-  gameElementUnhighlihgtActualElementHover
+  gameElementUnhighlihgtActualElementHover,
+  tagHighlightByElementObserver,
+  tagUnhighlightByElementObserver
 } from '../html_viewer';
 import { Observer } from '../observer';
 
@@ -58,18 +68,22 @@ export class BranchImitation extends BaseComponent<'div'> {
 
     this.branchOneImitation.addEventListener('mouseover', () => {
       branchOnePicObserverHighlight.notify('lalala');
+      branchOneTagHighlightByElementObserver.notify('lalala');
     });
 
     this.branchOneImitation.addEventListener('mouseout', () => {
       branchOnePicObserverUnhighlight.notify('lalala');
+      branchOneTagUnhighlightByElementObserver.notify('lalala');
     });
 
     this.branchTwoImitation.addEventListener('mouseover', () => {
       branchTwoPicObserverHighlight.notify('lalala');
+      branchTwoTagHighlightByElementObserver.notify('lalala');
     });
 
     this.branchTwoImitation.addEventListener('mouseout', () => {
       branchTwoPicObserverUnhighlight.notify('lalala');
+      branchTwoTagUnhighlightByElementObserver.notify('lalala');
     });
 
     this.branchThreeImitation.addEventListener('mouseover', () => {
@@ -80,12 +94,32 @@ export class BranchImitation extends BaseComponent<'div'> {
       branchThreePicObserverUnhighlight.notify('lalala');
     });
 
+    this.branchThreeImitation.addEventListener('mouseover', () => {
+      branchThreePicObserverHighlight.notify('lalala');
+      branchThreeTagHighlightByElementObserver.notify('lalala');
+    });
+
+    this.branchThreeImitation.addEventListener('mouseout', () => {
+      branchThreePicObserverUnhighlight.notify('lalala');
+      branchThreeTagUnhighlightByElementObserver.notify('lalala');
+    });
+
     this.branchFourImitation.addEventListener('mouseover', () => {
       branchFourPicObserverHighlight.notify('lalala');
     });
 
     this.branchFourImitation.addEventListener('mouseout', () => {
       branchFourPicObserverUnhighlight.notify('lalala');
+    });
+
+    this.branchFourImitation.addEventListener('mouseover', () => {
+      branchFourPicObserverHighlight.notify('lalala');
+      branchFourTagHighlightByElementObserver.notify('lalala');
+    });
+
+    this.branchFourImitation.addEventListener('mouseout', () => {
+      branchFourPicObserverUnhighlight.notify('lalala');
+      branchFourTagUnhighlightByElementObserver.notify('lalala');
     });
 
     // this.node.addEventListener('mouseout', () => {
@@ -319,6 +353,14 @@ export class BranchImitation extends BaseComponent<'div'> {
             gameElement.append(gameElementChild);
             gameElementChild.style.width = '2vw';
             gameElementChild.style.aspectRatio = '1 / 1';
+
+            gameElementChild.addEventListener('mouseover', () => {
+              tagHighlightByElementObserver.notify('lalala');
+            });
+
+            gameElementChild.addEventListener('mouseout', () => {
+              tagUnhighlightByElementObserver.notify('lalala');
+            });
 
             const selectorChildWinPartTag = levels[
               this.store.currentLevel
