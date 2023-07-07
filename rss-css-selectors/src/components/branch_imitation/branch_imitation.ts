@@ -18,12 +18,16 @@ import {
   branchThreeTagUnhighlightByElementObserver,
   branchTwoTagHighlightByElementObserver,
   branchTwoTagUnhighlightByElementObserver,
+  gameElementHighlightFourTagHover,
   gameElementHighlightOneTagHover,
   gameElementHighlightTagHover,
+  gameElementHighlightThreeTagHover,
   gameElementHighlightTwoTagHover,
   gameElementHighlihgtActualElementHover,
+  gameElementUnhighlightFourTagHover,
   gameElementUnhighlightOneTagHover,
   gameElementUnhighlightTagHover,
+  gameElementUnhighlightThreeTagHover,
   gameElementUnhighlightTwoTagHover,
   gameElementUnhighlihgtActualElementHover,
   tagHighlightByElementFourObserver,
@@ -181,7 +185,19 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.classList.add(gameLevelElementClassName);
         }
 
-        if (levelsMarkup[this.store.currentLevel][0]) {
+        const gameLevelElementID =
+          levelsMarkup[this.store.currentLevel][i][index].id;
+        if (levelsMarkup[this.store.currentLevel][i][index].id !== '') {
+          gameElement.setAttribute('id', gameLevelElementID);
+        }
+
+        const gameLevelElementAttribute =
+          levelsMarkup[this.store.currentLevel][i][index].attribute;
+        if (levelsMarkup[this.store.currentLevel][i][index].attribute !== '') {
+          gameElement.setAttribute('for', gameLevelElementAttribute);
+        }
+
+        if (i === 0) {
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementOneObserver.notify('lalala');
           });
@@ -199,7 +215,7 @@ export class BranchImitation extends BaseComponent<'div'> {
           });
         }
 
-        if (levelsMarkup[this.store.currentLevel][1]) {
+        if (i === 1) {
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementTwoObserver.notify('lalala');
           });
@@ -217,7 +233,7 @@ export class BranchImitation extends BaseComponent<'div'> {
           });
         }
 
-        if (levelsMarkup[this.store.currentLevel][2]) {
+        if (i === 2) {
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementThreeObserver.notify('lalala');
           });
@@ -225,9 +241,17 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.addEventListener('mouseout', () => {
             tagUnhighlightByElementThreeObserver.notify('lalala');
           });
+
+          gameElementHighlightThreeTagHover.subscribe(() => {
+            gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+          });
+
+          gameElementUnhighlightThreeTagHover.subscribe(() => {
+            gameElement.style.filter = 'none';
+          });
         }
 
-        if (levelsMarkup[this.store.currentLevel][3]) {
+        if (i === 3) {
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementFourObserver.notify('lalala');
           });
@@ -235,18 +259,14 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.addEventListener('mouseout', () => {
             tagUnhighlightByElementFourObserver.notify('lalala');
           });
-        }
 
-        const gameLevelElementID =
-          levelsMarkup[this.store.currentLevel][i][index].id;
-        if (levelsMarkup[this.store.currentLevel][i][index].id !== '') {
-          gameElement.setAttribute('id', gameLevelElementID);
-        }
+          gameElementHighlightFourTagHover.subscribe(() => {
+            gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+          });
 
-        const gameLevelElementAttribute =
-          levelsMarkup[this.store.currentLevel][i][index].attribute;
-        if (levelsMarkup[this.store.currentLevel][i][index].attribute !== '') {
-          gameElement.setAttribute('for', gameLevelElementAttribute);
+          gameElementUnhighlightFourTagHover.subscribe(() => {
+            gameElement.style.filter = 'none';
+          });
         }
 
         const { anim } = levelsMarkup[this.store.currentLevel][i][index];
@@ -318,46 +338,6 @@ export class BranchImitation extends BaseComponent<'div'> {
           this.branchThreeImitation,
           this.branchFourImitation
         );
-
-        if (i === 0) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementOneObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementOneObserver.notify('lalala');
-          });
-        }
-
-        if (i === 1) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementTwoObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementTwoObserver.notify('lalala');
-          });
-        }
-
-        if (i === 2) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementThreeObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementThreeObserver.notify('lalala');
-          });
-        }
-
-        if (i === 3) {
-          gameElement.addEventListener('mouseover', () => {
-            tagHighlightByElementFourObserver.notify('lalala');
-          });
-
-          gameElement.addEventListener('mouseout', () => {
-            tagUnhighlightByElementFourObserver.notify('lalala');
-          });
-        }
 
         if (
           levelsMarkup[this.store.currentLevel][i][index].tagName !== '' &&

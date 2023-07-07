@@ -673,7 +673,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 0 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
@@ -763,7 +763,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 0 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
@@ -855,7 +855,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
       for (let j = 0; j < levelsMarkup[currentLevel][1].length; j++) {
         if (
           i === 1 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
@@ -954,7 +954,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 1 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
@@ -1043,7 +1043,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 1 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
@@ -1132,7 +1132,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 1 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
@@ -1222,7 +1222,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 1 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
@@ -1314,7 +1314,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
       for (let j = 0; j < levelsMarkup[currentLevel][2].length; j++) {
         if (
           i === 2 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
@@ -1414,7 +1414,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 2 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
@@ -1503,7 +1503,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 2 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
@@ -1592,7 +1592,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 2 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
@@ -1682,7 +1682,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 2 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
@@ -1774,7 +1774,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
       for (let j = 0; j < levelsMarkup[currentLevel][3].length; j++) {
         if (
           i === 3 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
@@ -1874,7 +1874,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 3 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
@@ -1964,7 +1964,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 3 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
@@ -2054,7 +2054,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 3 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id !== '' &&
           levelsMarkup[currentLevel][i][j].classList !== '' &&
@@ -2144,7 +2144,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
         if (
           i === 3 &&
-          levelsMarkup[currentLevel][j] &&
+          levelsMarkup[currentLevel][i] &&
           levelsMarkup[currentLevel][i][j].tagName !== '' &&
           levelsMarkup[currentLevel][i][j].id === '' &&
           levelsMarkup[currentLevel][i][j].classList === '' &&
