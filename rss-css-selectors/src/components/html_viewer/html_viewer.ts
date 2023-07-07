@@ -33,6 +33,9 @@ export const gameElementUnhighlightTagHover = new Observer();
 export const gameElementHighlihgtActualElementHover = new Observer();
 export const gameElementUnhighlihgtActualElementHover = new Observer();
 
+export const viceVersaHighlightTagObserver = new Observer();
+export const viceVersaUnhighlightTagObserver = new Observer();
+
 export class HTMLViewer extends BaseComponent<'div'> {
   public store = store;
   public branchOneOpeningViewerTag: BaseComponent;
@@ -288,11 +291,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneOpening.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             appleTooltipAppendObserverTagHover.notify('lalala');
+            viceVersaHighlightTagObserver.notify('lalala');
           });
 
           childTagOneOpening.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+            viceVersaUnhighlightTagObserver.notify('lalala');
           });
 
           if (levelsMarkup[currentLevel][0][j].children.tagName !== '') {
@@ -331,6 +336,14 @@ export class HTMLViewer extends BaseComponent<'div'> {
           childTagOneClosing.node.addEventListener('mouseout', () => {
             gameElementUnhighlightTagHover.notify('lalala');
             appleTooltipRemoveObserverTagHover.notify('lalala');
+          });
+
+          viceVersaHighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          viceVersaUnhighlightTagObserver.subscribe(() => {
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           this.firstBranchChildren.append(
