@@ -1918,7 +1918,7 @@ dumpling {
 }
 
 .modal_win {
-  width: 50vw;
+  width: 40vw;
   aspect-ratio: 1 / 1.1;
   background-color: $modal-background-color;
   border-radius: 20px;
@@ -1949,7 +1949,7 @@ dumpling {
   }
 
   &_cross {
-    width: 3vw;
+    width: 2.8vw;
     aspect-ratio: 1 / 1;
     display: inline-block;
     background-image: url('./refs/icons/cross.svg');
@@ -1992,42 +1992,42 @@ dumpling {
 
     &:nth-child(1) {
       opacity: 0;
-      transform: translate(-16vw, 27vw);
+      transform: translate(-1180%, 2110%);
       animation-delay: 1.8s;
       animation-name: drop_one_anim;
     }
 
     &:nth-child(2) {
       opacity: 0;
-      transform: translate(-15.5vw, 27vw);
-      animation-delay: 2s;
+      transform: translate(-950%, 2180%);
+      animation-delay: 2.4s;
       animation-name: drop_two_anim;
     }
 
     &:nth-child(3) {
       opacity: 0;
-      transform: translate(-14.6vw, 27.5vw);
-      animation-delay: 2.2s;
+      transform: translate(-880%, 2190%);
+      animation-delay: 2.8s;
       animation-name: drop_three_anim;
     }
 
     &:nth-child(4) {
       opacity: 0;
-      transform: translate(-12vw, 27vw);
-      animation-delay: 2.4s;
+      transform: translate(-780%, 2220%);
+      animation-delay: 3s;
       animation-name: drop_four_anim;
     }
 
     &:nth-child(5) {
-      opacity: 0;
-      transform: translate(-6.5vw, 26vw);
+      opacity: 3.2;
+      transform: translate(-420%, 2300%);
       animation-delay: 2.6s;
       animation-name: drop_five_anim;
     }
   }
 
   &_snow {
-    width: 8vw;
+    width: 7vw;
     aspect-ratio: 1 / 0.5;
     background-image: url('./refs/seasons/snow.png');
     background-repeat: no-repeat;
@@ -2039,7 +2039,7 @@ dumpling {
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-    transform: translate(-9.3vw, 37.5vh);
+    transform: translate(-100%, 630%);
     opacity: 0;
   }
 
@@ -2110,7 +2110,7 @@ dumpling {
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-    transform: translate(-350%, 220%);
+    transform: translate(-280%, 170%);
     animation-delay: 5s;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -2129,7 +2129,7 @@ dumpling {
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-    transform: translate(-660%, 780%);
+    transform: translate(-520%, 610%);
     animation-delay: 5.4s;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -2148,7 +2148,7 @@ dumpling {
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-    transform: translate(-160%, 1160%);
+    transform: translate(-130%, 920%);
     animation-delay: 5.8s;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -2275,11 +2275,11 @@ dumpling {
     opacity: 1;
   }
   90% {
-    transform: translate(1020%, 1500%);
+    transform: translate(1020%, 1300%);
     opacity: 1;
   }
   100% {
-    transform: translate(1100%, 1600%);
+    transform: translate(1100%, 1400%);
     opacity: 0;
   }
 }
@@ -2290,15 +2290,15 @@ dumpling {
     opacity: 0;
   }
   5% {
-    transform: translate(600%, 1080%);
+    transform: translate(600%, 1040%);
     opacity: 1;
   }
   90% {
-    transform: translate(820%, 1400%);
+    transform: translate(820%, 1200%);
     opacity: 1;
   }
   100% {
-    transform: translate(880%, 1420%);
+    transform: translate(880%, 1320%);
     opacity: 0;
   }
 }
@@ -2313,11 +2313,11 @@ dumpling {
     opacity: 1;
   }
   90% {
-    transform: translate(500%, 1500%);
+    transform: translate(500%, 1300%);
     opacity: 1;
   }
   100% {
-    transform: translate(520%, 1550%);
+    transform: translate(520%, 1350%);
     opacity: 0;
   }
 }
@@ -2328,15 +2328,15 @@ dumpling {
     opacity: 0;
   }
   5% {
-    transform: translate(480%, 1180%);
+    transform: translate(480%, 1090%);
     opacity: 1;
   }
   90% {
-    transform: translate(620%, 1400%);
+    transform: translate(620%, 1280%);
     opacity: 1;
   }
   100% {
-    transform: translate(660%, 1480%);
+    transform: translate(660%, 1300%);
     opacity: 0;
   }
 }
@@ -2472,114 +2472,114 @@ dumpling {
 
 @keyframes snow_anim {
   0% {
-    transform: translate(-9.3vw, 37.5vh);
+    transform: translate(-100%, 630%);
     opacity: 0;
   }
   5% {
-    transform: translate(-9.3vw, 39vh);
+    transform: translate(-100%, 680%);
     opacity: 1;
   }
   90% {
-    transform: translate(-9.3vw, 51vh);
+    transform: translate(-100%, 880%);
     opacity: 1;
   }
   100% {
-    transform: translate(-9.3vw, 54vh);
+    transform: translate(-100%, 900%);
     opacity: 0;
   }
 }
 
 @keyframes drop_one_anim {
   0% {
-    transform: translate(-15.5vw, 27vw);
+    transform: translate(-1180%, 2110%);
     opacity: 0;
   }
   5% {
-    transform: translate(-15.5vw, 32vw);
+    transform: translate(-1180%, 2200%);
     opacity: 1;
   }
   90% {
-    transform: translate(-15.5vw, 37vw);
+    transform: translate(-1180%, 3000%);
     opacity: 1;
   }
   100% {
-    transform: translate(-15.5vw, 42vw);
+    transform: translate(-1180%, 3400%);
     opacity: 0;
   }
 }
 
 @keyframes drop_two_anim {
   0% {
-    transform: translate(-15.5vw, 27vw);
+    transform: translate(-950%, 2180%);
     opacity: 0;
   }
   5% {
-    transform: translate(-15.5vw, 29vw);
+    transform: translate(-950%, 2250%);
     opacity: 1;
   }
   90% {
-    transform: translate(-15.5vw, 36vw);
+    transform: translate(-950%, 2980%);
     opacity: 1;
   }
   100% {
-    transform: translate(-15.5vw, 44vw);
+    transform: translate(-950%, 3510%);
     opacity: 0;
   }
 }
 
 @keyframes drop_three_anim {
   0% {
-    transform: translate(-14.6vw, 27.5vw);
+    transform: translate(-880%, 2190%);
     opacity: 0;
   }
   5% {
-    transform: translate(-14.6vw, 32.5vw);
+    transform: translate(-880%, 2280%);
     opacity: 1;
   }
   90% {
-    transform: translate(-14.6vw, 37.5vw);
+    transform: translate(-880%, 3310%);
     opacity: 1;
   }
   100% {
-    transform: translate(-14.6vw, 44vw);
+    transform: translate(-880%, 3500%);
     opacity: 0;
   }
 }
 
 @keyframes drop_four_anim {
   0% {
-    transform: translate(-12vw, 27vw);
+    transform: translate(-780%, 2220%);
     opacity: 0;
   }
   5% {
-    transform: translate(-12vw, 34vw);
+    transform: translate(-780%, 2300%);
     opacity: 1;
   }
   90% {
-    transform: translate(-12vw, 46vw);
+    transform: translate(-780%, 3380%);
     opacity: 1;
   }
   100% {
-    transform: translate(-12vw, 50vw);
+    transform: translate(-780%, 3480%);
     opacity: 0;
   }
 }
 
 @keyframes drop_five_anim {
   0% {
-    transform: translate(-6.5vw, 26vw);
+    transform: translate(-420%, 2300%);
     opacity: 0;
   }
   5% {
-    transform: translate(-6.5vw, 33vw);
+    transform: translate(-420%, 2400%);
     opacity: 1;
   }
   90% {
-    transform: translate(-6.5vw, 45vw);
+    transform: translate(-420%, 3400%);
     opacity: 1;
   }
   100% {
-    transform: translate(-6.5vw, 48vw);
+    transform: translate(-420%, 3510%);
     opacity: 0;
   }
 }
@@ -2597,11 +2597,11 @@ dumpling {
   }
 
   .html_viewer_text {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .html_viewer_numbers {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -2611,11 +2611,11 @@ dumpling {
   }
 
   .html_viewer_text {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .html_viewer_numbers {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 

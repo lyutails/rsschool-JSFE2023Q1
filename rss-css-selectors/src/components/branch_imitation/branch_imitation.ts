@@ -18,9 +18,13 @@ import {
   branchThreeTagUnhighlightByElementObserver,
   branchTwoTagHighlightByElementObserver,
   branchTwoTagUnhighlightByElementObserver,
+  gameElementHighlightOneTagHover,
   gameElementHighlightTagHover,
+  gameElementHighlightTwoTagHover,
   gameElementHighlihgtActualElementHover,
+  gameElementUnhighlightOneTagHover,
   gameElementUnhighlightTagHover,
+  gameElementUnhighlightTwoTagHover,
   gameElementUnhighlihgtActualElementHover,
   tagHighlightByElementFourObserver,
   tagHighlightByElementOneObserver,
@@ -175,46 +179,62 @@ export class BranchImitation extends BaseComponent<'div'> {
           levelsMarkup[this.store.currentLevel][i][index].classList;
         if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
           gameElement.classList.add(gameLevelElementClassName);
+        }
 
-          if (i === 0) {
-            gameElement.addEventListener('mouseover', () => {
-              tagHighlightByElementOneObserver.notify('lalala');
-            });
+        if (levelsMarkup[this.store.currentLevel][0]) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementOneObserver.notify('lalala');
+          });
 
-            gameElement.addEventListener('mouseout', () => {
-              tagUnhighlightByElementOneObserver.notify('lalala');
-            });
-          }
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementOneObserver.notify('lalala');
+          });
 
-          if (i === 1) {
-            gameElement.addEventListener('mouseover', () => {
-              tagHighlightByElementTwoObserver.notify('lalala');
-            });
+          gameElementHighlightOneTagHover.subscribe(() => {
+            gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+          });
 
-            gameElement.addEventListener('mouseout', () => {
-              tagUnhighlightByElementTwoObserver.notify('lalala');
-            });
-          }
+          gameElementUnhighlightOneTagHover.subscribe(() => {
+            gameElement.style.filter = 'none';
+          });
+        }
 
-          if (i === 2) {
-            gameElement.addEventListener('mouseover', () => {
-              tagHighlightByElementThreeObserver.notify('lalala');
-            });
+        if (levelsMarkup[this.store.currentLevel][1]) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementTwoObserver.notify('lalala');
+          });
 
-            gameElement.addEventListener('mouseout', () => {
-              tagUnhighlightByElementThreeObserver.notify('lalala');
-            });
-          }
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementTwoObserver.notify('lalala');
+          });
 
-          if (i === 3) {
-            gameElement.addEventListener('mouseover', () => {
-              tagHighlightByElementFourObserver.notify('lalala');
-            });
+          gameElementHighlightTwoTagHover.subscribe(() => {
+            gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+          });
 
-            gameElement.addEventListener('mouseout', () => {
-              tagUnhighlightByElementFourObserver.notify('lalala');
-            });
-          }
+          gameElementUnhighlightTwoTagHover.subscribe(() => {
+            gameElement.style.filter = 'none';
+          });
+        }
+
+        if (levelsMarkup[this.store.currentLevel][2]) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementThreeObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementThreeObserver.notify('lalala');
+          });
+        }
+
+        if (levelsMarkup[this.store.currentLevel][3]) {
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementFourObserver.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementFourObserver.notify('lalala');
+          });
         }
 
         const gameLevelElementID =
@@ -267,14 +287,6 @@ export class BranchImitation extends BaseComponent<'div'> {
         BranchImitation.setTransformOrigin(gameElement);
 
         BranchImitation.appendRemoveTooltip(gameElement, gameElementTooltip);
-
-        gameElementHighlightTagHover.subscribe(() => {
-          gameElement.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
-        });
-
-        gameElementUnhighlightTagHover.subscribe(() => {
-          gameElement.style.filter = 'none';
-        });
 
         appleTooltipAppendObserverTagHover.subscribe(() => {
           gameElement.append(gameElementTooltip.node);
