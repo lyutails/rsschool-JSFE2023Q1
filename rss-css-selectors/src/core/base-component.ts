@@ -77,16 +77,45 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   }
 
   public static appendRemoveTooltip = (
-    element: HTMLElement,
+    element: HTMLElement | BaseComponent,
     tooltip: BaseComponent
   ): void => {
+    if (element instanceof BaseComponent) {
+      const thisElement = element;
+      thisElement.node.addEventListener('mouseover', () => {
+        thisElement.node.append(tooltip.node);
+      });
+      thisElement.node.addEventListener('mouseout', () => {
+        tooltip.node.remove();
+      });
+    }
+    if (element instanceof HTMLElement) {
+      const thisElement = element;
+      thisElement.addEventListener('mouseover', () => {
+        thisElement.append(tooltip.node);
+      });
+      thisElement.addEventListener('mouseout', () => {
+        tooltip.node.remove();
+      });
+    }
+  };
+
+  public static appendRemoveTooltipBase = (
+    element: BaseComponent<'div'> | BaseComponent<'span'>,
+    tooltip: BaseComponent,
+    elementToAppendTooltipTo: BaseComponent<'div'> | BaseComponent<'span'>
+  ): void => {
     const thisElement = element;
-    thisElement.addEventListener('mouseover', () => {
-      thisElement.append(tooltip.node);
-    });
-    thisElement.addEventListener('mouseout', () => {
-      tooltip.node.remove();
-    });
+    const tooltipElmeent = tooltip;
+    const elementAppendTo = elementToAppendTooltipTo;
+    if (tooltipElmeent) {
+      thisElement.node.addEventListener('mouseover', () => {
+        elementAppendTo.append(tooltipElmeent);
+      });
+      thisElement.node.addEventListener('mouseout', () => {
+        tooltipElmeent.node.remove();
+      });
+    }
   };
 
   public static setRandomPosition(

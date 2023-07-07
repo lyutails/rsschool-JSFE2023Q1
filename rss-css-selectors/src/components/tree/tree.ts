@@ -1,8 +1,15 @@
 import { BaseComponent } from '@/core/base-component';
 
+// eslint-disable-next-line import/no-cycle
 import { Branch } from '../branch';
 import { BranchImitation } from '../branch_imitation';
-import { treeObserverHighlight, treeObserverUnhighlight } from '../html_viewer';
+import {
+  HTMLViewer,
+  qeteqTagHighlight,
+  qeteqTagUnhighlight,
+  treeObserverHighlight,
+  treeObserverUnhighlight
+} from '../html_viewer';
 import { Leaf } from '../leaf';
 import { Observer } from '../observer';
 
@@ -14,25 +21,55 @@ export const treeObserverNight = new Observer();
 export const treePicObserverDay = new Observer();
 export const treePicObserverNight = new Observer();
 
+export const qeteqTagByElementHighlight = new Observer();
+export const qeteqTagByElementUnhighlight = new Observer();
+
 export class Tree extends BaseComponent<'div'> {
   public store = store;
   public toDo: BaseComponent;
+  public static tooltipQeteq: BaseComponent;
   constructor() {
     super({
       tagName: 'div',
       classList: ['tree']
     });
 
-    const tooltipQeteq = new BaseComponent({
+    Tree.tooltipQeteq = new BaseComponent({
       tagName: 'div',
       classList: ['tooltip_qeteq'],
       textContent: '<qeteq>'
     });
 
-    const qeteq = document.createElement('qeteq');
-    qeteq.classList.add('qeteq');
+    const qeteq = new BaseComponent({
+      tagName: 'div',
+      classList: ['qeteq']
+    });
 
-    Tree.appendRemoveTooltip(qeteq, tooltipQeteq);
+    qeteq.node.addEventListener('mouseover', () => {
+      qeteq.node.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+      qeteqTagByElementHighlight.notify('lalala');
+    });
+
+    qeteq.node.addEventListener('mouseout', () => {
+      qeteq.node.style.filter = 'none';
+      qeteqTagByElementUnhighlight.notify('lalala');
+    });
+
+    Tree.appendRemoveTooltip(qeteq, Tree.tooltipQeteq);
+
+    qeteqTagHighlight.subscribe(() => {
+      qeteq.node.style.filter = 'drop-shadow(0 0 1vw #ffe5eb)';
+    });
+
+    qeteqTagUnhighlight.subscribe(() => {
+      qeteq.node.style.filter = 'none';
+    });
+
+    Tree.appendRemoveTooltipBase(
+      HTMLViewer.qeteqTags,
+      Tree.tooltipQeteq,
+      qeteq
+    );
 
     const leafPic = new Leaf();
 
@@ -72,7 +109,7 @@ export class Tree extends BaseComponent<'div'> {
       treePic.node.classList.remove('recolour')
     );
 
-    this.node.append(leafPic.node, treePic.node, this.toDo.node, qeteq);
+    this.node.append(leafPic.node, treePic.node, this.toDo.node, qeteq.node);
   }
 
   public checkCurrentLevel(): void {

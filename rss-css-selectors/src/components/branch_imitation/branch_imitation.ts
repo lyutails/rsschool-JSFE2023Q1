@@ -182,6 +182,24 @@ export class BranchImitation extends BaseComponent<'div'> {
           levelsMarkup[this.store.currentLevel][i][index].tagName;
         const gameElement = document.createElement(gameLevelElementTagName);
 
+        const gameLevelElementClassName =
+          levelsMarkup[this.store.currentLevel][i][index].classList;
+        if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
+          gameElement.classList.add(gameLevelElementClassName);
+        }
+
+        const gameLevelElementID =
+          levelsMarkup[this.store.currentLevel][i][index].id;
+        if (levelsMarkup[this.store.currentLevel][i][index].id !== '') {
+          gameElement.setAttribute('id', gameLevelElementID);
+        }
+
+        const gameLevelElementAttribute =
+          levelsMarkup[this.store.currentLevel][i][index].attribute;
+        if (levelsMarkup[this.store.currentLevel][i][index].attribute !== '') {
+          gameElement.setAttribute('for', gameLevelElementAttribute);
+        }
+
         if (i === 0) {
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementOneObserver.notify('lalala');
@@ -220,24 +238,6 @@ export class BranchImitation extends BaseComponent<'div'> {
           gameElement.addEventListener('mouseout', () => {
             tagUnhighlightByElementFourObserver.notify('lalala');
           });
-        }
-
-        const gameLevelElementClassName =
-          levelsMarkup[this.store.currentLevel][i][index].classList;
-        if (levelsMarkup[this.store.currentLevel][i][index].classList !== '') {
-          gameElement.classList.add(gameLevelElementClassName);
-        }
-
-        const gameLevelElementID =
-          levelsMarkup[this.store.currentLevel][i][index].id;
-        if (levelsMarkup[this.store.currentLevel][i][index].id !== '') {
-          gameElement.setAttribute('id', gameLevelElementID);
-        }
-
-        const gameLevelElementAttribute =
-          levelsMarkup[this.store.currentLevel][i][index].attribute;
-        if (levelsMarkup[this.store.currentLevel][i][index].attribute !== '') {
-          gameElement.setAttribute('for', gameLevelElementAttribute);
         }
 
         if (

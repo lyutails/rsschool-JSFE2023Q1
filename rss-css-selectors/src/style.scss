@@ -2584,6 +2584,13 @@ dumpling {
   }
 }
 
+.qeteq_tags {
+  &:hover {
+    cursor: pointer;
+    color: pink;
+  }
+}
+
 @media screen and (min-width: 1600.98px) and (max-width: 1920px) {
   html {
     font-size: 18px;

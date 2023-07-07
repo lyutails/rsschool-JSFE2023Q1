@@ -1,6 +1,12 @@
 import { BaseComponent } from '@/core/base-component';
 
 import { Observer } from '../observer';
+// eslint-disable-next-line import/no-cycle
+import {
+  Tree,
+  qeteqTagByElementHighlight,
+  qeteqTagByElementUnhighlight
+} from '../tree';
 
 import { levelsMarkup } from '@/data/levels_markup';
 import { markupNumbers } from '@/data/markup_numbers';
@@ -69,6 +75,9 @@ export const branchThreeTagUnhighlightByElementObserver = new Observer();
 export const branchFourTagHighlightByElementObserver = new Observer();
 export const branchFourTagUnhighlightByElementObserver = new Observer();
 
+export const qeteqTagHighlight = new Observer();
+export const qeteqTagUnhighlight = new Observer();
+
 export class HTMLViewer extends BaseComponent<'div'> {
   public store = store;
   public branchOneOpeningViewerTag: BaseComponent;
@@ -86,6 +95,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
   public secondBranchChildren: BaseComponent;
   public thirdBranchChildren: BaseComponent;
   public fourthBranchChildren: BaseComponent;
+  public static qeteqTags: BaseComponent<'span'>;
   constructor() {
     super({
       tagName: 'div',
@@ -215,6 +225,30 @@ export class HTMLViewer extends BaseComponent<'div'> {
       tagName: 'div',
       classList: ['markup_tree_closing'],
       textContent: '</tree>'
+    });
+
+    HTMLViewer.qeteqTags = new BaseComponent({
+      tagName: 'span',
+      classList: ['qeteq_tags'],
+      textContent: '<qeteq></qeteq>'
+    });
+
+    HTMLViewer.qeteqTags.node.addEventListener('mouseover', () => {
+      qeteqTagHighlight.notify('lalala');
+      HTMLViewer.qeteqTags.node.style.color = 'pink';
+    });
+
+    HTMLViewer.qeteqTags.node.addEventListener('mouseout', () => {
+      qeteqTagUnhighlight.notify('lalala');
+      HTMLViewer.qeteqTags.node.style.color = 'unset';
+    });
+
+    qeteqTagByElementHighlight.subscribe(() => {
+      HTMLViewer.qeteqTags.node.style.color = 'pink';
+    });
+
+    qeteqTagByElementUnhighlight.subscribe(() => {
+      HTMLViewer.qeteqTags.node.style.color = 'unset';
     });
 
     this.htmlText = new BaseComponent({
@@ -2202,7 +2236,8 @@ export class HTMLViewer extends BaseComponent<'div'> {
       this.branchFourOpeningViewerTag,
       this.fourthBranchChildren,
       this.branchFourClosingViewerTag,
-      this.treeViewerClosingTag
+      this.treeViewerClosingTag,
+      HTMLViewer.qeteqTags
     );
   }
 }
