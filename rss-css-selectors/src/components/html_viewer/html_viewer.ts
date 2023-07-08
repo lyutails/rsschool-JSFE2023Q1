@@ -57,8 +57,17 @@ export const gameElementUnhighlightThreeTagHover = new Observer();
 export const gameElementHighlightFourTagHover = new Observer();
 export const gameElementUnhighlightFourTagHover = new Observer();
 
-export const gameElementHighlihgtActualElementHover = new Observer();
-export const gameElementUnhighlihgtActualElementHover = new Observer();
+export const gameElementOneHighlihgtActualElementHover = new Observer();
+export const gameElementOneUnhighlihgtActualElementHover = new Observer();
+
+export const gameElementTwoHighlihgtActualElementHover = new Observer();
+export const gameElementTwoUnhighlihgtActualElementHover = new Observer();
+
+export const gameElementThreeHighlihgtActualElementHover = new Observer();
+export const gameElementThreeUnhighlihgtActualElementHover = new Observer();
+
+export const gameElementFourHighlihgtActualElementHover = new Observer();
+export const gameElementFourUnhighlihgtActualElementHover = new Observer();
 
 export const viceVersaOneHighlightTagObserver = new Observer();
 export const viceVersaOneUnhighlightTagObserver = new Observer();
@@ -461,6 +470,7 @@ export class HTMLViewer extends BaseComponent<'div'> {
             tagName: 'span',
             classList: ['markup_child']
           });
+          childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
           tagHighlightByElementOneObserver.subscribe(() => {
             childTagOneOpening.node.classList.add('child_colour');
@@ -471,8 +481,6 @@ export class HTMLViewer extends BaseComponent<'div'> {
             childTagOneOpening.node.classList.remove('child_colour');
             childTagOneClosing.node.classList.remove('child_colour');
           });
-
-          childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
@@ -1383,6 +1391,8 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
 
+          childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
+
           tagHighlightByElementThreeObserver.subscribe(() => {
             childTagThreeOpening.node.classList.add('child_colour');
             childTagThreeClosing.node.classList.add('child_colour');
@@ -1392,8 +1402,6 @@ export class HTMLViewer extends BaseComponent<'div'> {
             childTagThreeOpening.node.classList.remove('child_colour');
             childTagThreeClosing.node.classList.remove('child_colour');
           });
-
-          childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1843,6 +1851,8 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
 
+          childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
+
           tagHighlightByElementFourObserver.subscribe(() => {
             childTagFourOpening.node.classList.add('child_colour');
             childTagFourClosing.node.classList.add('child_colour');
@@ -1852,8 +1862,6 @@ export class HTMLViewer extends BaseComponent<'div'> {
             childTagFourOpening.node.classList.remove('child_colour');
             childTagFourClosing.node.classList.remove('child_colour');
           });
-
-          childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');

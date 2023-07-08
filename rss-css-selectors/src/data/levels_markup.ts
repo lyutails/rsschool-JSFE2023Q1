@@ -1599,7 +1599,7 @@ export const levelsMarkup = [
         },
         id: '',
         attribute: '',
-        anim: 'ys'
+        anim: 'yes'
       }
     ],
     [

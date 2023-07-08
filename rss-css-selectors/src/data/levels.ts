@@ -7,6 +7,7 @@ export const levels = [
     syntax: 'A',
     help: 'Selects all elements of type A. Type refers to the type of tag, so <div></div>, <p></p> and <ul></ul> are all different element types.',
     examples: ['div selects all div elements', 'p selects all p elements'],
+    strokesInViewer: '13',
     boardMarkup: `
     <tree>
       <branch>
@@ -26,6 +27,7 @@ export const levels = [
     syntax: 'A',
     help: 'Selects all elements of type A. Type refers to the type of tag, so <div></div>, <p></p> and <ul></ul> are all different element types.',
     examples: ['div selects all div elements', 'p selects all p elements'],
+    strokesInViewer: '15',
     boardMarkup: `
       <branch>
         <banana>
@@ -48,6 +50,7 @@ export const levels = [
       '#cool selects any element with id="cool"',
       'ul#long selects ul id="long"'
     ],
+    strokesInViewer: '15',
     boardMarkup: `
     <branch></branch>
     <branch>
@@ -70,6 +73,7 @@ export const levels = [
       'p&nbsp;&nbsp;strong selects all strong elements that are inside of any p',
       '#fancy&nbsp;&nbsp;span selects any span elements that are inside of the element with id="fancy"'
     ],
+    strokesInViewer: '17',
     boardMarkup: `
     <branch>
       <beehive>
@@ -93,6 +97,7 @@ export const levels = [
     syntax: '.classnameA > .classnameB',
     help: 'You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element. Elements that are nested deeper than that are called descendant elements.',
     examples: ['A > B selects all B that are a direct children A'],
+    strokesInViewer: '14',
     boardMarkup: `
     <branch></branch>
     <branch>
@@ -114,6 +119,7 @@ export const levels = [
     examples: [
       '#cool&nbsp;span selects all span elements that are inside of elements with id="cool"'
     ],
+    strokesInViewer: '17',
     boardMarkup: `
     <branch></branch>
     <branch>
@@ -133,6 +139,7 @@ export const levels = [
     syntax: '.classname',
     help: 'The class selector selects all elements with that class attribute. Elements can only have one ID, but many classes.',
     examples: ['.neato selects all elements with class="neato"'],
+    strokesInViewer: '19',
     boardMarkup: `
     <branch>
       <cherry class='cherry'>
@@ -159,6 +166,7 @@ export const levels = [
       'ul.important selects all ul elements that have class="important"',
       '#big.wide selects all elements with id="big" that also have class="wide"'
     ],
+    strokesInViewer: '21',
     boardMarkup: `
     <branch>
       <banana class="yellow">
@@ -187,6 +195,7 @@ export const levels = [
       'p, .fun selects all p elements as well as all elements with class="fun"',
       'a, p, div selects all a, p and div elements'
     ],
+    strokesInViewer: '27',
     boardMarkup: `
     <branch>
       <butterfly class="butterfly_blue">
@@ -214,6 +223,7 @@ export const levels = [
     syntax: '*',
     help: 'You can select all elements with the universal selector!',
     examples: ['p * selects any element inside all p elements.'],
+    strokesInViewer: '23',
     boardMarkup: `
     <branch>
       <banana>
@@ -242,6 +252,7 @@ export const levels = [
       'p * selects every element inside all p elements.',
       'ul.fancy * selects every element inside all ul class="fancy" elements.'
     ],
+    strokesInViewer: '17',
     boardMarkup: `
     <branch>
       <leaf>
@@ -268,6 +279,7 @@ export const levels = [
       'p + .intro selects every element with class="intro" that directly follows a p',
       'div + a selects every a element that directly follows a div'
     ],
+    strokesInViewer: '33',
     boardMarkup: `
     <branch>
       <cherry>
@@ -300,6 +312,7 @@ export const levels = [
     syntax: '.classnameA ~ .classnameB',
     help: 'You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.',
     examples: ['A ~ B selects all B that follow a A'],
+    strokesInViewer: '19',
     boardMarkup: `
     <branch></branch>
     <branch></branch>
@@ -325,6 +338,7 @@ export const levels = [
       'p:first-child selects all first child p elements.',
       'div p:first-child selects all first child p elements that are in a div.'
     ],
+    strokesInViewer: '21',
     boardMarkup: `
     <branch>
       <mango>
@@ -351,6 +365,7 @@ export const levels = [
       'span:last-child selects all last-child span elements.',
       'ul li:last-child selects the last li elements inside of any ul.'
     ],
+    strokesInViewer: '23',
     boardMarkup: `
     <branch>
       <butterfly class="butterfly_blue">
@@ -374,6 +389,7 @@ export const levels = [
     syntax: ':not(:last-child)',
     help: "Selects elements that don't have any other elements inside of them.",
     examples: ['div:empty selects all empty div elements.'],
+    strokesInViewer: '27',
     boardMarkup: `
     <branch>
       <dumpling class="dumpling">
@@ -400,6 +416,7 @@ export const levels = [
     syntax: ':not(:empty)',
     help: "Skip the elements that don't have any other elements inside of them.",
     examples: ['div:not(:empty) selects all not empty div elements.'],
+    strokesInViewer: '35',
     boardMarkup: `
     <branch>
       <birdhouse class="birdhouse">
@@ -453,6 +470,7 @@ export const levels = [
       'a[href] selects all a elements that have a href="anything" attribute.',
       '[type] selects all elements that have a type="anything". attribute'
     ],
+    strokesInViewer: '25',
     boardMarkup: `
     <branch>
       <cherry for="fun">
@@ -484,6 +502,7 @@ export const levels = [
       'img[src*="/thumbnails/"] selects all image elements that show images from the "thumbnails" folder.',
       '[class*="heading"] selects all elements with "heading" in their class, like class="main-heading" and class="sub-heading"'
     ],
+    strokesInViewer: '31',
     boardMarkup: `
     <branch>
       <mango for="qeteq">
@@ -517,6 +536,7 @@ export const levels = [
       'img[src*="/thumbnails/"] selects all image elements that show images from the "thumbnails" folder.',
       '[class*="heading"] selects all elements with "heading" in their class, like class="main-heading" and class="sub-heading"'
     ],
+    strokesInViewer: '19',
     boardMarkup: `
     <branch>
       <apple for='you'>
