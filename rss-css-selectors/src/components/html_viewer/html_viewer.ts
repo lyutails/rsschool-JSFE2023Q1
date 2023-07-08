@@ -108,6 +108,126 @@ export const branchFourTagUnhighlightByElementObserver = new Observer();
 export const qeteqTagHighlight = new Observer();
 export const qeteqTagUnhighlight = new Observer();
 
+export const tagHighlightByElementApple = new Observer();
+export const tagUnhighlightByElementApple = new Observer();
+
+export const tagHighlightByElementCherry = new Observer();
+export const tagUnhighlightByElementCherry = new Observer();
+
+export const tagHighlightByElementBanana = new Observer();
+export const tagUnhighlightByElementBanana = new Observer();
+
+export const tagHighlightByElementMango = new Observer();
+export const tagUnhighlightByElementMango = new Observer();
+
+export const tagHighlightByElementStrawberry = new Observer();
+export const tagUnhighlightByElementStrawberry = new Observer();
+
+export const tagHighlightByElementPear = new Observer();
+export const tagUnhighlightByElementPear = new Observer();
+
+export const tagHighlightByElementAppleTwo = new Observer();
+export const tagUnhighlightByElementAppleTwo = new Observer();
+
+export const tagHighlightByElementCherryTwo = new Observer();
+export const tagUnhighlightByElementCherryTwo = new Observer();
+
+export const tagHighlightByElementBananaTwo = new Observer();
+export const tagUnhighlightByElementBananaTwo = new Observer();
+
+export const tagHighlightByElementMangoTwo = new Observer();
+export const tagUnhighlightByElementMangoTwo = new Observer();
+
+export const tagHighlightByElementStrawberryTwo = new Observer();
+export const tagUnhighlightByElementStrawberryTwo = new Observer();
+
+export const tagHighlightByElementPearTwo = new Observer();
+export const tagUnhighlightByElementPearTwo = new Observer();
+
+export const tagHighlightByElementAppleThree = new Observer();
+export const tagUnhighlightByElementAppleThree = new Observer();
+
+export const tagHighlightByElementCherryThree = new Observer();
+export const tagUnhighlightByElementCherryThree = new Observer();
+
+export const tagHighlightByElementBananaThree = new Observer();
+export const tagUnhighlightByElementBananaThree = new Observer();
+
+export const tagHighlightByElementMangoThree = new Observer();
+export const tagUnhighlightByElementMangoThree = new Observer();
+
+export const tagHighlightByElementStrawberryThree = new Observer();
+export const tagUnhighlightByElementStrawberryThree = new Observer();
+
+export const tagHighlightByElementPearThree = new Observer();
+export const tagUnhighlightByElementPearThree = new Observer();
+
+export const tagHighlightByElementAppleFour = new Observer();
+export const tagUnhighlightByElementAppleFour = new Observer();
+
+export const tagHighlightByElementCherryFour = new Observer();
+export const tagUnhighlightByElementCherryFour = new Observer();
+
+export const tagHighlightByElementBananaFour = new Observer();
+export const tagUnhighlightByElementBananaFour = new Observer();
+
+export const tagHighlightByElementMangoFour = new Observer();
+export const tagUnhighlightByElementMangoFour = new Observer();
+
+export const tagHighlightByElementStrawberryFour = new Observer();
+export const tagUnhighlightByElementStrawberryFour = new Observer();
+
+export const tagHighlightByElementPearFour = new Observer();
+export const tagUnhighlightByElementPearFour = new Observer();
+
+export const tagHighlightByElementButterflyOne = new Observer();
+export const tagUnhighlightByElementButterflyOne = new Observer();
+
+export const tagHighlightByElementButterflyTwo = new Observer();
+export const tagUnhighlightByElementButterflyTwo = new Observer();
+
+export const tagHighlightByElementButterflyThree = new Observer();
+export const tagUnhighlightByElementButterflyThree = new Observer();
+
+export const tagHighlightByElementButterflyFour = new Observer();
+export const tagUnhighlightByElementButterflyFour = new Observer();
+
+export const tagHighlightByElementBeeOne = new Observer();
+export const tagUnhighlightByElementBeeOne = new Observer();
+
+export const tagHighlightByElementBeeTwo = new Observer();
+export const tagUnhighlightByElementBeeTwo = new Observer();
+
+export const tagHighlightByElementBeeThree = new Observer();
+export const tagUnhighlightByElementBeeThree = new Observer();
+
+export const tagHighlightByElementBeeFour = new Observer();
+export const tagUnhighlightByElementBeeFour = new Observer();
+
+export const tagHighlightByElementLadybugOne = new Observer();
+export const tagUnhighlightByElementLadybugOne = new Observer();
+
+export const tagHighlightByElementLadybugTwo = new Observer();
+export const tagUnhighlightByElementLadybugTwo = new Observer();
+
+export const tagHighlightByElementLadybugThree = new Observer();
+export const tagUnhighlightByElementLadybugThree = new Observer();
+
+export const tagHighlightByElementLadybugFour = new Observer();
+export const tagUnhighlightByElementLadybugFour = new Observer();
+
+export const tagHighlightByElementDumplingOne = new Observer();
+export const tagUnhighlightByElementDumplingOne = new Observer();
+
+export const tagHighlightByElementDumplingTwo = new Observer();
+export const tagUnhighlightByElementDumplingTwo = new Observer();
+
+export const tagHighlightByElementDumplingThree = new Observer();
+export const tagUnhighlightByElementDumplingThree = new Observer();
+
+export const tagHighlightByElementDumplingFour = new Observer();
+export const tagUnhighlightByElementDumplingFour = new Observer();
+
 export class HTMLViewer extends BaseComponent<'div'> {
   public store = store;
   public branchOneOpeningViewerTag: BaseComponent;
@@ -474,15 +594,155 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
-          tagHighlightByElementOneObserver.subscribe(() => {
-            childTagOneOpening.node.classList.add('child_colour');
-            childTagOneClosing.node.classList.add('child_colour');
-          });
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagHighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
 
-          tagUnhighlightByElementOneObserver.subscribe(() => {
-            childTagOneOpening.node.classList.remove('child_colour');
-            childTagOneClosing.node.classList.remove('child_colour');
-          });
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          // tagHighlightByElementOneObserver.subscribe(() => {
+          //   childTagOneOpening.node.classList.add('child_colour');
+          //   childTagOneClosing.node.classList.add('child_colour');
+          // });
+
+          // tagUnhighlightByElementOneObserver.subscribe(() => {
+          //   childTagOneOpening.node.classList.remove('child_colour');
+          //   childTagOneClosing.node.classList.remove('child_colour');
+          // });
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightOneTagHover.notify('lalala');
@@ -573,6 +833,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
+
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagHighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -674,6 +1074,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagHighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverOneTagHover.notify('lalala');
@@ -773,6 +1313,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
+
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagHighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -874,6 +1554,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagHighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementApple.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBanana.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMango.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberry.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPear.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverOneTagHover.notify('lalala');
@@ -974,6 +1794,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
           childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
 
           tagHighlightByElementTwoObserver.subscribe(() => {
             childTagTwoOpening.node.classList.add('child_colour');
@@ -1084,6 +2044,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
           childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
 
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
@@ -1182,6 +2282,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
           childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1283,6 +2523,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
 
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
@@ -1382,6 +2762,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagTwoClosing.node.textContent = `</${levelsMarkup[currentLevel][1][j].tagName}>`;
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1484,6 +3004,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
 
           tagHighlightByElementThreeObserver.subscribe(() => {
             childTagThreeOpening.node.classList.add('child_colour');
@@ -1594,6 +3254,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
           childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
 
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
@@ -1692,6 +3492,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
             classList: ['markup_child']
           });
           childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1793,6 +3733,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
 
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
@@ -1892,6 +3972,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagThreeClosing.node.textContent = `</${levelsMarkup[currentLevel][2][j].tagName}>`;
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
@@ -1994,6 +4214,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
 
           tagHighlightByElementFourObserver.subscribe(() => {
             childTagFourOpening.node.classList.add('child_colour');
@@ -2105,6 +4465,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverFourTagHover.notify('lalala');
@@ -2205,6 +4705,145 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverFourTagHover.notify('lalala');
@@ -2305,6 +4944,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
 
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverFourTagHover.notify('lalala');
@@ -2404,6 +5183,146 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
 
           childTagFourClosing.node.textContent = `</${levelsMarkup[currentLevel][3][j].tagName}>`;
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagHighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<apple>') {
+            tagUnhighlightByElementAppleFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagHighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<cherry>') {
+            tagUnhighlightByElementCherryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagHighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<banana>') {
+            tagUnhighlightByElementBananaFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagHighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<mango>') {
+            tagUnhighlightByElementMangoFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagHighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<strawberry>') {
+            tagUnhighlightByElementStrawberryFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagHighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<pear>') {
+            tagUnhighlightByElementPearFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagHighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<butterfly>') {
+            tagUnhighlightByElementButterflyFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagHighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<bee>') {
+            tagUnhighlightByElementBeeFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagHighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<ladybug>') {
+            tagUnhighlightByElementLadybugFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagHighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<dumpling>') {
+            tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
 
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');

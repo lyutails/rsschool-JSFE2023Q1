@@ -42,12 +42,92 @@ import {
   gameElementUnhighlightTagHover,
   gameElementUnhighlightThreeTagHover,
   gameElementUnhighlightTwoTagHover,
+  tagHighlightByElementApple,
+  tagHighlightByElementAppleFour,
+  tagHighlightByElementAppleThree,
+  tagHighlightByElementAppleTwo,
+  tagHighlightByElementBanana,
+  tagHighlightByElementBananaFour,
+  tagHighlightByElementBananaThree,
+  tagHighlightByElementBananaTwo,
+  tagHighlightByElementBeeFour,
+  tagHighlightByElementBeeOne,
+  tagHighlightByElementBeeThree,
+  tagHighlightByElementBeeTwo,
+  tagHighlightByElementButterflyFour,
+  tagHighlightByElementButterflyOne,
+  tagHighlightByElementButterflyThree,
+  tagHighlightByElementButterflyTwo,
+  tagHighlightByElementCherry,
+  tagHighlightByElementCherryFour,
+  tagHighlightByElementCherryThree,
+  tagHighlightByElementCherryTwo,
+  tagHighlightByElementDumplingFour,
+  tagHighlightByElementDumplingOne,
+  tagHighlightByElementDumplingThree,
+  tagHighlightByElementDumplingTwo,
   tagHighlightByElementFourObserver,
+  tagHighlightByElementLadybugFour,
+  tagHighlightByElementLadybugOne,
+  tagHighlightByElementLadybugThree,
+  tagHighlightByElementLadybugTwo,
+  tagHighlightByElementMango,
+  tagHighlightByElementMangoFour,
+  tagHighlightByElementMangoThree,
+  tagHighlightByElementMangoTwo,
   tagHighlightByElementOneObserver,
+  tagHighlightByElementPear,
+  tagHighlightByElementPearFour,
+  tagHighlightByElementPearThree,
+  tagHighlightByElementPearTwo,
+  tagHighlightByElementStrawberry,
+  tagHighlightByElementStrawberryFour,
+  tagHighlightByElementStrawberryThree,
+  tagHighlightByElementStrawberryTwo,
   tagHighlightByElementThreeObserver,
   tagHighlightByElementTwoObserver,
+  tagUnhighlightByElementApple,
+  tagUnhighlightByElementAppleFour,
+  tagUnhighlightByElementAppleThree,
+  tagUnhighlightByElementAppleTwo,
+  tagUnhighlightByElementBanana,
+  tagUnhighlightByElementBananaFour,
+  tagUnhighlightByElementBananaThree,
+  tagUnhighlightByElementBananaTwo,
+  tagUnhighlightByElementBeeFour,
+  tagUnhighlightByElementBeeOne,
+  tagUnhighlightByElementBeeThree,
+  tagUnhighlightByElementBeeTwo,
+  tagUnhighlightByElementButterflyFour,
+  tagUnhighlightByElementButterflyOne,
+  tagUnhighlightByElementButterflyThree,
+  tagUnhighlightByElementButterflyTwo,
+  tagUnhighlightByElementCherry,
+  tagUnhighlightByElementCherryFour,
+  tagUnhighlightByElementCherryThree,
+  tagUnhighlightByElementCherryTwo,
+  tagUnhighlightByElementDumplingFour,
+  tagUnhighlightByElementDumplingOne,
+  tagUnhighlightByElementDumplingThree,
+  tagUnhighlightByElementDumplingTwo,
   tagUnhighlightByElementFourObserver,
+  tagUnhighlightByElementLadybugFour,
+  tagUnhighlightByElementLadybugOne,
+  tagUnhighlightByElementLadybugThree,
+  tagUnhighlightByElementLadybugTwo,
+  tagUnhighlightByElementMango,
+  tagUnhighlightByElementMangoFour,
+  tagUnhighlightByElementMangoThree,
+  tagUnhighlightByElementMangoTwo,
   tagUnhighlightByElementOneObserver,
+  tagUnhighlightByElementPear,
+  tagUnhighlightByElementPearFour,
+  tagUnhighlightByElementPearThree,
+  tagUnhighlightByElementPearTwo,
+  tagUnhighlightByElementStrawberry,
+  tagUnhighlightByElementStrawberryFour,
+  tagUnhighlightByElementStrawberryThree,
+  tagUnhighlightByElementStrawberryTwo,
   tagUnhighlightByElementThreeObserver,
   tagUnhighlightByElementTwoObserver
 } from '../html_viewer';
@@ -266,12 +346,128 @@ export class BranchImitation extends BaseComponent<'div'> {
 
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementOneObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagHighlightByElementApple.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagHighlightByElementCherry.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagHighlightByElementBanana.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagHighlightByElementMango.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagHighlightByElementStrawberry.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagHighlightByElementPear.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagHighlightByElementButterflyOne.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagHighlightByElementBeeOne.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagHighlightByElementLadybugOne.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagHighlightByElementDumplingOne.notify('lalala');
+            }
             branchOneTagUnhighlightByElementObserver.notify('lalala');
             branchOnePicObserverUnhighlight.notify('lalala');
           });
 
           gameElement.addEventListener('mouseout', () => {
             tagUnhighlightByElementOneObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagUnhighlightByElementApple.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagUnhighlightByElementCherry.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagUnhighlightByElementBanana.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagUnhighlightByElementMango.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagUnhighlightByElementStrawberry.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagUnhighlightByElementPear.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagUnhighlightByElementButterflyOne.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagUnhighlightByElementBeeOne.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagUnhighlightByElementLadybugOne.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagUnhighlightByElementDumplingOne.notify('lalala');
+            }
           });
 
           gameElementHighlightOneTagHover.subscribe(() => {
@@ -359,6 +555,132 @@ export class BranchImitation extends BaseComponent<'div'> {
 
           gameElement.addEventListener('mouseout', () => {
             gameElementTwoUnhighlihgtActualElementHover.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementTwoObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagHighlightByElementAppleTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagHighlightByElementCherryTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagHighlightByElementBananaTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagHighlightByElementMangoTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagHighlightByElementStrawberryTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagHighlightByElementPearTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagHighlightByElementButterflyTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagHighlightByElementBeeTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagHighlightByElementLadybugTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagHighlightByElementDumplingTwo.notify('lalala');
+            }
+            branchTwoTagUnhighlightByElementObserver.notify('lalala');
+            branchTwoPicObserverUnhighlight.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementTwoObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagUnhighlightByElementAppleTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagUnhighlightByElementCherryTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagUnhighlightByElementBananaTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagUnhighlightByElementMangoTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagUnhighlightByElementStrawberryTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagUnhighlightByElementPearTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagUnhighlightByElementButterflyTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagUnhighlightByElementBeeTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagUnhighlightByElementLadybugTwo.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagUnhighlightByElementDumplingTwo.notify('lalala');
+            }
           });
 
           gameElement.addEventListener('mouseover', () => {
@@ -460,6 +782,132 @@ export class BranchImitation extends BaseComponent<'div'> {
 
           gameElement.addEventListener('mouseover', () => {
             tagHighlightByElementThreeObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagHighlightByElementAppleThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagHighlightByElementCherryThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagHighlightByElementBananaThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagHighlightByElementMangoThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagHighlightByElementStrawberryThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagHighlightByElementPearThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagHighlightByElementButterflyThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagHighlightByElementBeeThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagHighlightByElementLadybugThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagHighlightByElementDumplingThree.notify('lalala');
+            }
+            branchThreeTagUnhighlightByElementObserver.notify('lalala');
+            branchThreePicObserverUnhighlight.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementThreeObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagUnhighlightByElementAppleThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagUnhighlightByElementCherryThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagUnhighlightByElementBananaThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagUnhighlightByElementMangoThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagUnhighlightByElementStrawberryThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagUnhighlightByElementPearThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagUnhighlightByElementButterflyThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagUnhighlightByElementBeeThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagUnhighlightByElementLadybugThree.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagUnhighlightByElementDumplingThree.notify('lalala');
+            }
+          });
+
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementThreeObserver.notify('lalala');
             branchThreeTagUnhighlightByElementObserver.notify('lalala');
             branchThreePicObserverUnhighlight.notify('lalala');
           });
@@ -553,6 +1001,132 @@ export class BranchImitation extends BaseComponent<'div'> {
 
           gameElement.addEventListener('mouseout', () => {
             gameElementFourUnhighlihgtActualElementHover.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseover', () => {
+            tagHighlightByElementFourObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagHighlightByElementAppleFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagHighlightByElementCherryFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagHighlightByElementBananaFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagHighlightByElementMangoFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagHighlightByElementStrawberryFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagHighlightByElementPearFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagHighlightByElementButterflyFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagHighlightByElementBeeFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagHighlightByElementLadybugFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagHighlightByElementDumplingFour.notify('lalala');
+            }
+            branchFourTagUnhighlightByElementObserver.notify('lalala');
+            branchFourPicObserverUnhighlight.notify('lalala');
+          });
+
+          gameElement.addEventListener('mouseout', () => {
+            tagUnhighlightByElementFourObserver.notify('lalala');
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'apple'
+            ) {
+              tagUnhighlightByElementAppleFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'cherry'
+            ) {
+              tagUnhighlightByElementCherryFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'banana'
+            ) {
+              tagUnhighlightByElementBananaFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'mango'
+            ) {
+              tagUnhighlightByElementMangoFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'strawberry'
+            ) {
+              tagUnhighlightByElementStrawberryFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'pear'
+            ) {
+              tagUnhighlightByElementPearFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'butterfly'
+            ) {
+              tagUnhighlightByElementButterflyFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName === 'bee'
+            ) {
+              tagUnhighlightByElementBeeFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'ladybug'
+            ) {
+              tagUnhighlightByElementLadybugFour.notify('lalala');
+            }
+            if (
+              levelsMarkup[this.store.currentLevel][i][index].tagName ===
+              'dumpling'
+            ) {
+              tagUnhighlightByElementDumplingFour.notify('lalala');
+            }
           });
 
           gameElement.addEventListener('mouseover', () => {
