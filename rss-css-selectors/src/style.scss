@@ -1754,6 +1754,14 @@ dumpling {
       color: plum;
     }
   }
+
+  &_child_child {
+    padding-left: 2vw;
+
+    &.child_child_colour {
+      color: #97e85d;
+    }
+  }
 }
 
 @keyframes pick_me_anim {

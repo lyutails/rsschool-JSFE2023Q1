@@ -125,10 +125,10 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   ): void {
     const thisElement = element;
     thisElement.style.marginTop = `${Math.floor(
-      Math.random() * ((max - min) * 0.8)
+      Math.random() * ((max - min) * 1.2)
     )}vw`;
     thisElement.style.marginLeft = `${Math.floor(
-      Math.random() * ((max - min) * 0.8)
+      Math.random() * ((max - min) * 0.6)
     )}vh`;
   }
 

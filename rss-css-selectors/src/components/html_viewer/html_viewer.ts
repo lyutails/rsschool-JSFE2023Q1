@@ -456,11 +456,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
               gameElementHighlightTagHover.notify('lalala');
               gameElementTooltipAppendObserverOneTagHover.notify('lalala');
+              viceVersaOneHighlightTagObserver.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
               gameElementUnhighlightTagHover.notify('lalala');
               gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
+              viceVersaOneUnhighlightTagObserver.notify('lalala');
             });
 
             childTagOneOpening.append(childTagOneOpeningChild);
@@ -584,6 +586,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
+            childTagOneClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaOneHighlightTagObserver.subscribe(() => {
             childTagOneClosing.node.classList.add('child_colour');
           });
@@ -672,6 +684,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           viceVersaOneHighlightTagObserver.subscribe(() => {
@@ -764,6 +786,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaOneUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
+            childTagOneClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaOneHighlightTagObserver.subscribe(() => {
             childTagOneClosing.node.classList.add('child_colour');
           });
@@ -852,6 +884,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
             viceVersaOneUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.add('child_colour');
+            childTagOneClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementOneObserver.subscribe(() => {
+            childTagOneOpening.node.classList.remove('child_colour');
+            childTagOneClosing.node.classList.remove('child_colour');
           });
 
           viceVersaOneHighlightTagObserver.subscribe(() => {
@@ -955,6 +997,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
+            childTagTwoClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaTwoHighlightTagObserver.subscribe(() => {
             childTagTwoClosing.node.classList.add('child_colour');
           });
@@ -1044,6 +1096,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
+            childTagTwoClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaTwoHighlightTagObserver.subscribe(() => {
             childTagTwoClosing.node.classList.add('child_colour');
           });
@@ -1131,6 +1193,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           viceVersaTwoHighlightTagObserver.subscribe(() => {
@@ -1223,6 +1295,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
+            childTagTwoClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaTwoHighlightTagObserver.subscribe(() => {
             childTagTwoClosing.node.classList.add('child_colour');
           });
@@ -1311,6 +1393,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverTwoTagHover.notify('lalala');
             viceVersaTwoUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.add('child_colour');
+            childTagTwoClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementTwoObserver.subscribe(() => {
+            childTagTwoOpening.node.classList.remove('child_colour');
+            childTagTwoClosing.node.classList.remove('child_colour');
           });
 
           viceVersaTwoHighlightTagObserver.subscribe(() => {
@@ -1415,6 +1507,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
+            childTagThreeClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaThreeHighlightTagObserver.subscribe(() => {
             childTagThreeClosing.node.classList.add('child_colour');
           });
@@ -1504,6 +1606,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
+            childTagThreeClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaThreeHighlightTagObserver.subscribe(() => {
             childTagThreeClosing.node.classList.add('child_colour');
           });
@@ -1591,6 +1703,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           viceVersaThreeHighlightTagObserver.subscribe(() => {
@@ -1683,6 +1805,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
+            childTagThreeClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaThreeHighlightTagObserver.subscribe(() => {
             childTagThreeClosing.node.classList.add('child_colour');
           });
@@ -1771,6 +1903,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverThreeTagHover.notify('lalala');
             viceVersaThreeUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.add('child_colour');
+            childTagThreeClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementThreeObserver.subscribe(() => {
+            childTagThreeOpening.node.classList.remove('child_colour');
+            childTagThreeClosing.node.classList.remove('child_colour');
           });
 
           viceVersaThreeHighlightTagObserver.subscribe(() => {
@@ -1875,6 +2017,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
+            childTagFourClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaFourHighlightTagObserver.subscribe(() => {
             childTagFourClosing.node.classList.add('child_colour');
           });
@@ -1963,6 +2115,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           viceVersaFourHighlightTagObserver.subscribe(() => {
@@ -2055,6 +2217,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
+            childTagFourClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaFourHighlightTagObserver.subscribe(() => {
             childTagFourClosing.node.classList.add('child_colour');
           });
@@ -2145,6 +2317,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             viceVersaFourUnhighlightTagObserver.notify('lalala');
           });
 
+          tagHighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
+            childTagFourClosing.node.classList.remove('child_colour');
+          });
+
           viceVersaFourHighlightTagObserver.subscribe(() => {
             childTagFourClosing.node.classList.add('child_colour');
           });
@@ -2233,6 +2415,16 @@ export class HTMLViewer extends BaseComponent<'div'> {
             gameElementUnhighlightTagHover.notify('lalala');
             gameElementTooltipRemoveObserverFourTagHover.notify('lalala');
             viceVersaFourUnhighlightTagObserver.notify('lalala');
+          });
+
+          tagHighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.add('child_colour');
+            childTagFourClosing.node.classList.add('child_colour');
+          });
+
+          tagUnhighlightByElementFourObserver.subscribe(() => {
+            childTagFourOpening.node.classList.remove('child_colour');
+            childTagFourClosing.node.classList.remove('child_colour');
           });
 
           viceVersaFourHighlightTagObserver.subscribe(() => {
