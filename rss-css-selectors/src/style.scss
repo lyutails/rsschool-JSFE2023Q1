@@ -2175,7 +2175,7 @@ dumpling {
     animation-duration: 4s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-    transform: translate(-180%, 130%);
+    transform: translate(-140%, 100%);
     animation-delay: 6s;
     animation-fill-mode: forwards;
     opacity: 0;
@@ -2656,6 +2656,10 @@ dumpling {
     &_controls {
       flex-direction: column;
     }
+  }
+
+  .tree_todo {
+    font-size: 1.4rem;
   }
 
   .html_viewer_text {

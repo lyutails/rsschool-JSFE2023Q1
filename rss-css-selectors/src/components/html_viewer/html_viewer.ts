@@ -228,6 +228,45 @@ export const tagUnhighlightByElementDumplingThree = new Observer();
 export const tagHighlightByElementDumplingFour = new Observer();
 export const tagUnhighlightByElementDumplingFour = new Observer();
 
+export const gameChildElementHighlightTagHover = new Observer();
+export const gameChildElementUnhighlightTagHover = new Observer();
+
+export const tagHighlightByElementBeehiveOne = new Observer();
+export const tagUnhighlightByElementBeehiveOne = new Observer();
+
+export const tagHighlightByElementBeehiveTwo = new Observer();
+export const tagUnhighlightByElementBeehiveTwo = new Observer();
+
+export const tagHighlightByElementBeehiveThree = new Observer();
+export const tagUnhighlightByElementBeehiveThree = new Observer();
+
+export const tagHighlightByElementBeehiveFour = new Observer();
+export const tagUnhighlightByElementBeehiveFour = new Observer();
+
+export const tagHighlightByElementLeafOne = new Observer();
+export const tagUnhighlightByElementLeafOne = new Observer();
+
+export const tagHighlightByElementLeafTwo = new Observer();
+export const tagUnhighlightByElementLeafTwo = new Observer();
+
+export const tagHighlightByElementLeafThree = new Observer();
+export const tagUnhighlightByElementLeafThree = new Observer();
+
+export const tagHighlightByElementLeafFour = new Observer();
+export const tagUnhighlightByElementLeafFour = new Observer();
+
+export const tagHighlightByElementBirdhouseOne = new Observer();
+export const tagUnhighlightByElementBirdhouseOne = new Observer();
+
+export const tagHighlightByElementBirdhouseTwo = new Observer();
+export const tagUnhighlightByElementBirdhouseTwo = new Observer();
+
+export const tagHighlightByElementBirdhouseThree = new Observer();
+export const tagUnhighlightByElementBirdhouseThree = new Observer();
+
+export const tagHighlightByElementBirdhouseFour = new Observer();
+export const tagUnhighlightByElementBirdhouseFour = new Observer();
+
 export class HTMLViewer extends BaseComponent<'div'> {
   public store = store;
   public branchOneOpeningViewerTag: BaseComponent;
@@ -574,13 +613,13 @@ export class HTMLViewer extends BaseComponent<'div'> {
             childTagOneOpeningChild.node.textContent = `<${levelsMarkup[currentLevel][0][j].children.tagName}></${levelsMarkup[currentLevel][0][j].children.tagName}>`;
 
             childTagOneOpeningChild.node.addEventListener('mouseover', () => {
-              gameElementHighlightTagHover.notify('lalala');
+              gameChildElementHighlightTagHover.notify('lalala');
               gameElementTooltipAppendObserverOneTagHover.notify('lalala');
               viceVersaOneHighlightTagObserver.notify('lalala');
             });
 
             childTagOneOpeningChild.node.addEventListener('mouseout', () => {
-              gameElementUnhighlightTagHover.notify('lalala');
+              gameChildElementUnhighlightTagHover.notify('lalala');
               gameElementTooltipRemoveObserverOneTagHover.notify('lalala');
               viceVersaOneUnhighlightTagObserver.notify('lalala');
             });
@@ -594,33 +633,33 @@ export class HTMLViewer extends BaseComponent<'div'> {
           });
           childTagOneClosing.node.textContent = `</${levelsMarkup[currentLevel][0][j].tagName}>`;
 
-          if (childTagOneOpening.node.textContent === '<apple>') {
-            tagHighlightByElementApple.subscribe(() => {
+          tagHighlightByElementApple.subscribe(() => {
+            if (childTagOneOpening.node.textContent === '<apple>') {
               childTagOneOpening.node.classList.add('child_colour');
               childTagOneClosing.node.classList.add('child_colour');
-            });
-          }
+            }
+          });
 
-          if (childTagOneOpening.node.textContent === '<apple>') {
-            tagUnhighlightByElementApple.subscribe(() => {
-              childTagOneOpening.node.classList.remove('child_colour');
-              childTagOneClosing.node.classList.remove('child_colour');
-            });
-          }
-
-          if (childTagOneOpening.node.textContent === '<cherry>') {
-            tagHighlightByElementCherry.subscribe(() => {
+          tagUnhighlightByElementApple.subscribe(() => {
+            if (childTagOneOpening.node.textContent === '<apple>') {
               childTagOneOpening.node.classList.add('child_colour');
               childTagOneClosing.node.classList.add('child_colour');
-            });
-          }
+            }
+          });
 
-          if (childTagOneOpening.node.textContent === '<cherry>') {
-            tagUnhighlightByElementCherry.subscribe(() => {
-              childTagOneOpening.node.classList.remove('child_colour');
-              childTagOneClosing.node.classList.remove('child_colour');
-            });
-          }
+          tagHighlightByElementCherry.subscribe(() => {
+            if (childTagOneOpening.node.textContent === '<cherry>') {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            }
+          });
+
+          tagUnhighlightByElementCherry.subscribe(() => {
+            if (childTagOneOpening.node.textContent === '<cherry>') {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            }
+          });
 
           if (childTagOneOpening.node.textContent === '<banana>') {
             tagHighlightByElementBanana.subscribe(() => {
@@ -729,6 +768,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagOneOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafOne.subscribe(() => {
               childTagOneOpening.node.classList.remove('child_colour');
               childTagOneClosing.node.classList.remove('child_colour');
             });
@@ -974,6 +1055,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverOneTagHover.notify('lalala');
@@ -1209,6 +1332,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagOneOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafOne.subscribe(() => {
               childTagOneOpening.node.classList.remove('child_colour');
               childTagOneClosing.node.classList.remove('child_colour');
             });
@@ -1454,6 +1619,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagOneClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverOneTagHover.notify('lalala');
@@ -1689,6 +1896,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagOneOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveOne.subscribe(() => {
+              childTagOneOpening.node.classList.remove('child_colour');
+              childTagOneClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafOne.subscribe(() => {
+              childTagOneOpening.node.classList.add('child_colour');
+              childTagOneClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagOneOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafOne.subscribe(() => {
               childTagOneOpening.node.classList.remove('child_colour');
               childTagOneClosing.node.classList.remove('child_colour');
             });
@@ -1930,6 +2179,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagTwoOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafTwo.subscribe(() => {
               childTagTwoOpening.node.classList.remove('child_colour');
               childTagTwoClosing.node.classList.remove('child_colour');
             });
@@ -2184,6 +2475,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
@@ -2418,6 +2751,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagTwoOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafTwo.subscribe(() => {
               childTagTwoOpening.node.classList.remove('child_colour');
               childTagTwoClosing.node.classList.remove('child_colour');
             });
@@ -2663,6 +3038,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagTwoClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverTwoTagHover.notify('lalala');
@@ -2898,6 +3315,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagTwoOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.remove('child_colour');
+              childTagTwoClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafTwo.subscribe(() => {
+              childTagTwoOpening.node.classList.add('child_colour');
+              childTagTwoClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagTwoOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafTwo.subscribe(() => {
               childTagTwoOpening.node.classList.remove('child_colour');
               childTagTwoClosing.node.classList.remove('child_colour');
             });
@@ -3140,6 +3599,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagThreeOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafThree.subscribe(() => {
               childTagThreeOpening.node.classList.remove('child_colour');
               childTagThreeClosing.node.classList.remove('child_colour');
             });
@@ -3394,6 +3895,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
@@ -3628,6 +4171,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagThreeOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafThree.subscribe(() => {
               childTagThreeOpening.node.classList.remove('child_colour');
               childTagThreeClosing.node.classList.remove('child_colour');
             });
@@ -3873,6 +4458,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagThreeClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverThreeTagHover.notify('lalala');
@@ -4108,6 +4735,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagThreeOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveThree.subscribe(() => {
+              childTagThreeOpening.node.classList.remove('child_colour');
+              childTagThreeClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafThree.subscribe(() => {
+              childTagThreeOpening.node.classList.add('child_colour');
+              childTagThreeClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagThreeOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafThree.subscribe(() => {
               childTagThreeOpening.node.classList.remove('child_colour');
               childTagThreeClosing.node.classList.remove('child_colour');
             });
@@ -4350,6 +5019,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagFourOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafFour.subscribe(() => {
               childTagFourOpening.node.classList.remove('child_colour');
               childTagFourClosing.node.classList.remove('child_colour');
             });
@@ -4605,6 +5316,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverFourTagHover.notify('lalala');
@@ -4844,6 +5597,49 @@ export class HTMLViewer extends BaseComponent<'div'> {
               childTagFourClosing.node.classList.remove('child_colour');
             });
           }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverFourTagHover.notify('lalala');
@@ -5084,6 +5880,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
             });
           }
 
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
           childTagFourClosing.node.addEventListener('mouseover', () => {
             gameElementHighlightTagHover.notify('lalala');
             gameElementTooltipAppendObserverFourTagHover.notify('lalala');
@@ -5319,6 +6157,48 @@ export class HTMLViewer extends BaseComponent<'div'> {
 
           if (childTagFourOpening.node.textContent === '<dumpling>') {
             tagUnhighlightByElementDumplingFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagHighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<birdhouse>') {
+            tagUnhighlightByElementBirdhouseFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagHighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<beehive>') {
+            tagUnhighlightByElementBeehiveFour.subscribe(() => {
+              childTagFourOpening.node.classList.remove('child_colour');
+              childTagFourClosing.node.classList.remove('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagHighlightByElementLeafFour.subscribe(() => {
+              childTagFourOpening.node.classList.add('child_colour');
+              childTagFourClosing.node.classList.add('child_colour');
+            });
+          }
+
+          if (childTagFourOpening.node.textContent === '<leaf>') {
+            tagUnhighlightByElementLeafFour.subscribe(() => {
               childTagFourOpening.node.classList.remove('child_colour');
               childTagFourClosing.node.classList.remove('child_colour');
             });
