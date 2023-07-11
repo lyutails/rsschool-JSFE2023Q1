@@ -1,16 +1,25 @@
 {
-  "name": "async-race",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "newtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "serve": "vite --open",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "author": "lyutails",
+  "license": "ISC",
   "devDependencies": {
-    "prettier": "2.8.8",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.0"
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^3.0.0",
+    "sass": "^1.63.6",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.3",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }
