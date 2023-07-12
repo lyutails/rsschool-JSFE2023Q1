@@ -1,100 +1,113 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-
-  color: rgba(255, 255, 255, 0.87);
-
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$shadow-color: rgba(0, 0, 0, 0.4);
+$ui-color-one: antiquewhite;
+$ui-color-two: antiquewhite;
+
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body::-webkit-scrollbar {
+  width: 15px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px $shadow-color;
+  border-radius: 10px;
 }
 
-.card {
-  padding: 2em;
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient($ui-color-two, $ui-color-one);
+  outline: 1px solid transparent;
+  border-radius: 20px;
 }
 
-.read-the-docs {
-  color: #888;
-}
+.header {
+  width: 100%;
+  background-color: $ui-color-one;
+  //background: -webkit-linear-gradient(top, #ffe1ab, #8de3fd, #188c28);
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    padding: 0px 20px;
   }
-  a:hover {
-    color: #747bff;
+
+  &_control_panel {
+    display: flex;
   }
-  button {
-    background-color: #f9f9f9;
+
+  &_logo {
+    width: 100px;
+    height: 100px;
+    background-image: url("./refs/brooms_etc_icons/snitch-quidditch-ball_golden.svg");
+    transform: scaleX(-1);
+    background-repeat: no-repeat;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-image: url('./refs/brooms_etc_icons/snitch-quidditch-ball_silvery.svg');
+    }
+  }
+
+  &_buttons {
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_button {
+    width: 100px;
+    height: 36px;
+    border-radius: 10px;
+    border: solid 2px #8f6b29;
+    background: -webkit-linear-gradient(left, #8f6b29, #fde08d, #df9f28);
+    font-family: "Roboto";
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    transition: border 0.4s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      border: solid 2px #6476be;
+      animation-name: button_gradient_anim;
+      animation-duration: 0.4s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-play-state: running;
+    }
+  }
+
+  @keyframes button_gradient_anim {
+    0% {
+      background: -webkit-linear-gradient(left, #8f6b29, #fde08d, #df9f28);
+      opacity: 1;
+    }
+    40% {
+      background: -webkit-linear-gradient(left, #8f6b29, #fde08d, #df9f28);
+      opacity: 0.8;
+    }
+    60% {
+      background: -webkit-linear-gradient(left, #6b7f8f, #d0e6fe, #7a8edf);
+      opacity: 0.8;
+    }
+    100% {
+      background: -webkit-linear-gradient(left, #6b7f8f, #d0e6fe, #7a8edf);
+      opacity: 1;
+    }
   }
 }
