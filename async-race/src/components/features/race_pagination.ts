@@ -18,6 +18,7 @@ export class RacePagination extends BaseComponent {
     });
 
     this.paginationButtonBeginning.disableButton();
+    this.paginationButtonBeginning.setCursorPointer();
 
     this.paginationButtonLeft = new BaseComponent({
       tagName: 'button',
@@ -25,6 +26,7 @@ export class RacePagination extends BaseComponent {
     });
 
     this.paginationButtonLeft.disableButton();
+    this.paginationButtonLeft.setCursorPointer();
 
     this.paginationButtonNumber = new BaseComponent({
       tagName: 'button',
@@ -38,10 +40,16 @@ export class RacePagination extends BaseComponent {
       classList: ['race_pagination_button'],
     });
 
+    this.paginationButtonRight.enableButton();
+    this.paginationButtonRight.setCursorPointer();
+
     this.paginationButtonEnd = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
+
+    this.paginationButtonEnd.enableButton();
+    this.paginationButtonEnd.setCursorPointer();
 
     this.node.append(
       this.paginationButtonBeginning.node,

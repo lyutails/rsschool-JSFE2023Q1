@@ -21,7 +21,7 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     }
   }
 
-  public append = <U extends keyof HTMLElementTagNameMap> (
+  public append = <U extends keyof HTMLElementTagNameMap>(
     ...children: Array<BaseComponent<U>>
   ): void => {
     this.node.append(...children.map((component) => component.node));
@@ -66,5 +66,12 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
 
   public enableButton(): void {
     this.node.removeAttribute('disabled');
+  }
+
+  public setCursorPointer(): void {
+    if (this.node.hasAttribute('disabled')) {
+      this.node.style.cursor = 'pointer';
+    }
+    this.node.style.cursor = 'default';
   }
 }

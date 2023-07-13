@@ -10,7 +10,7 @@ export class NotFound extends BaseComponent {
     const quidditchWrapper = new BaseComponent({
       tagName: 'div',
       classList: ['not_found_wrapper'],
-      textContent: 'Highly likely you got lost in the castle - try another staircase leading to the quidditch field, brooms parking lot or winners room.'
+      textContent: 'Highly likely you got lost in the castle - try another staircase leading to the quidditch field, brooms parking or winners room.'
     });
 
     this.node.append(quidditchWrapper.node);

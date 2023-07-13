@@ -7,6 +7,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+// font-family: 'Meow Script', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+// font-family: 'Grape Nuts', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Shalimar&display=swap');
+// font-family: 'Shalimar', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+// font-family: 'Style Script', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap');
+// font-family: 'Kolker Brush', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+// font-family: 'Send Flowers', cursive;
 
 $shadow-color: rgba(0, 0, 0, 0.4);
 $ui-color-one: antiquewhite;
@@ -525,10 +537,6 @@ a {
     border: none;
     outline: none;
 
-    &:hover {
-      cursor: pointer;
-    }
-
     &:nth-child(1) {
       background-image: url('./refs/brooms_etc_icons/arrow-beginning_peach.svg');
 
@@ -581,6 +589,114 @@ a {
       background-color: $button-disabled;
     }
   }
+}
+
+.not_found {
+  width: 100%;
+  height: 100%;
+  background-image: url('./refs/castle/Hogwarts-Castle.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &_wrapper {
+    width: 90vw;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Meow Script', cursive;
+    text-shadow: 0px 0px 20px $text-shine;
+    animation-name: not_found_text_anim;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background-image: url('./refs/quidditch_field_set/harrypotter_quidditch_set_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes not_found_text_anim {
+  0% {
+    text-shadow: 0px 0px 20px $text-shine, 0px 0px 20px $text-shine;
+  }
+  50% {
+    text-shadow: 0px 0px 10px $text-shine, 0px 0px 5px $text-shine;
+  }
+  100% {
+    text-shadow: 0px 0px 20px $text-shine, 0px 0px 20px $text-shine;
+  }
+}
+
+.winners {
+  width: 100%;
+  height: 100%;
+  background-image: url('./refs/snitch/snitch.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &_line {
+    width: 50vw;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    color: $track-button-color;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  &_number {
+    width: 10%;
+  }
+
+  &_pic {
+    width: 10%;
+  }
+
+  &_name {
+    width: 50%;
+  }
+
+  &_wins {
+    width: 10%;
+  }
+
+  &_time {
+    width: 20%;
+  }
+}
+
+.brooms_parking {
+  width: 100%;
+  height: 100%;
+  background-image: url('./refs/brooms_parking/brooms_background_layered.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 10px
+}
+
+.parking_sign {
+  width: 15vw;
+  min-width: 100px;
+  max-width: 200px;
+  aspect-ratio: 1 / 0.7;
+  background-image: url('./refs/brooms_parking/broom_parking_1.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+}
+
+.brooms_wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .footer {
@@ -654,5 +770,9 @@ a {
 
   .control_widget_name {
     font-size: 12px;
+  }
+
+  .winners_line {
+    width: 80%;
   }
 }
