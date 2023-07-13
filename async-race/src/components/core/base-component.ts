@@ -46,4 +46,25 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   public toggleClass(className: string): void {
     this.node.classList.toggle(className);
   }
+
+  public addLink(link: string): void {
+    this.node.setAttribute('href', link);
+  }
+
+  public setPlaceholder(placeholder: string): void {
+    this.node.setAttribute('placeholder', placeholder);
+  }
+
+  public randomizeOwl(owls: string[]): string {
+    const randomOwl = owls[Math.floor(Math.random() * owls.length)];
+    return randomOwl;
+  }
+
+  public disableButton(): void {
+    this.node.setAttribute('disabled', '');
+  }
+
+  public enableButton(): void {
+    this.node.removeAttribute('disabled');
+  }
 }
