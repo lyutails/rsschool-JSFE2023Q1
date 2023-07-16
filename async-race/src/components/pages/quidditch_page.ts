@@ -23,15 +23,23 @@ export class Quidditch extends BaseComponent {
     const racePagination = new RacePagination();
 
     const wandsWarning = new BaseComponent({
-        tagName: 'div',
-        classList: ['quidditch_warning'],
-        textContent: 'Using magic wands during brooms racing is strictly probihited.'
-    })
+      tagName: 'div',
+      classList: ['quidditch_warning'],
+      textContent:
+        'Using magic wands during brooms racing is strictly probihited.',
+    });
 
     const quidditchWrapper = new BaseComponent({
       tagName: 'div',
       classList: ['quidditch_wrapper'],
-      children: [controlPanel, raceButtons, broomsCount, tracksWrapper, racePagination, wandsWarning]
+      children: [
+        controlPanel,
+        raceButtons,
+        broomsCount,
+        tracksWrapper,
+        racePagination,
+        wandsWarning,
+      ],
     });
 
     this.node.append(quidditchWrapper.node);

@@ -1,6 +1,9 @@
-import { broomsMaterials } from "../../data/brooms_materials";
-import { broomsModels } from "../../data/brooms_models";
-import { broomsNames } from "../../data/brooms_names";
+import { baseURL } from '../../constants';
+import { broomsMaterials } from '../../data/brooms_materials';
+import { broomsModels } from '../../data/brooms_models';
+import { broomsNames } from '../../data/brooms_names';
+import { path } from '../../types/enums';
+import { WitchBroom } from '../../types/interfaces';
 
 export type Props<T extends keyof HTMLElementTagNameMap = 'div'> = {
   tagName?: T;
@@ -80,9 +83,12 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   }
 
   public getRandomName(): string {
-    const broomName = broomsNames[Math.floor(Math.random() * broomsNames.length)];
-    const broomModel = broomsModels[Math.floor(Math.random() * broomsModels.length)];
-    const broomMaterial = broomsMaterials[Math.floor(Math.random() * broomsMaterials.length)];
+    const broomName =
+      broomsNames[Math.floor(Math.random() * broomsNames.length)];
+    const broomModel =
+      broomsModels[Math.floor(Math.random() * broomsModels.length)];
+    const broomMaterial =
+      broomsMaterials[Math.floor(Math.random() * broomsMaterials.length)];
     return `${broomName} ${broomModel} ${broomMaterial}`;
   }
 
@@ -93,5 +99,11 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       colour += symbols[Math.floor(Math.random() * 16)];
     }
     return colour;
+  }
+
+  public async getWitches(): Promise<WitchBroom[]> {
+    const response = await fetch(`${baseURL}${path.garage}`);
+    const data = await response.json();
+    return data;
   }
 }
