@@ -1,3 +1,7 @@
+import { broomsMaterials } from "../../data/brooms_materials";
+import { broomsModels } from "../../data/brooms_models";
+import { broomsNames } from "../../data/brooms_names";
+
 export type Props<T extends keyof HTMLElementTagNameMap = 'div'> = {
   tagName?: T;
   classList?: string[];
@@ -73,5 +77,21 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       this.node.style.cursor = 'pointer';
     }
     this.node.style.cursor = 'default';
+  }
+
+  public getRandomName(): string {
+    const broomName = broomsNames[Math.floor(Math.random() * broomsNames.length)];
+    const broomModel = broomsModels[Math.floor(Math.random() * broomsModels.length)];
+    const broomMaterial = broomsMaterials[Math.floor(Math.random() * broomsMaterials.length)];
+    return `${broomName} ${broomModel} ${broomMaterial}`;
+  }
+
+  public getRandomColor(): string {
+    const symbols = '0123456789abcdef';
+    let colour = '#';
+    for (let i = 0; i < 6; i++) {
+      colour += symbols[Math.floor(Math.random() * 16)];
+    }
+    return colour;
   }
 }
