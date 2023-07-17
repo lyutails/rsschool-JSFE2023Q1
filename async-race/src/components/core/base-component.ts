@@ -1,4 +1,4 @@
-import { baseURL } from '../../constants';
+import { baseURL } from '../../types/constants';
 import { broomsMaterials } from '../../data/brooms_materials';
 import { broomsModels } from '../../data/brooms_models';
 import { broomsNames } from '../../data/brooms_names';
@@ -103,7 +103,16 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
 
   public async getWitches(): Promise<WitchBroom[]> {
     const response = await fetch(`${baseURL}${path.garage}`);
+    if(!response.ok) {
+      throw new Error('some error happened on the way')
+    }
     const data = await response.json();
     return data;
   }
+
+  // public async currentWitchesAmount(): Promise<WitchBroom[]> {
+  //   return await fetch(`${baseURL}${path.garage}`).then(response => {
+  //     return response.json();
+  //   }).then(json => { return json.length });
+  // }
 }
