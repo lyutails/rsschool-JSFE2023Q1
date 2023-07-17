@@ -1,5 +1,4 @@
-import { currentWitchesObserver } from '../../store';
-import { WitchBroom } from '../../types/interfaces';
+// import { currentWitchesObserver } from '../../store';
 import { BaseComponent } from '../core/base-component';
 import { BroomsCount } from '../features/brooms_count';
 import { ControlPanel } from '../features/control_panel';
@@ -20,13 +19,12 @@ export class Quidditch extends BaseComponent {
 
     const broomsCount = new BroomsCount();
 
-    currentWitchesObserver.subscribe(() =>
-      this.getWitches().then((witchesCount) => witchesCount.length)
-    );
+    const countWitches = async () => {
+      const count = await this.totalWitchesCount();
+      broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
+    }
 
-    broomsCount.node.textContent = `Currently total brooms' count is ${this.getWitches()
-      .then((witchesCount: WitchBroom[]) => Promise.all(witchesCount))
-      .then((witches) => { return witches.length })}`;
+    countWitches();
 
     const tracksWrapper = new TrackWrapper();
 

@@ -17,7 +17,7 @@ export class TrackWrapper extends BaseComponent {
       classList: ['track_wrapper'],
     });
 
-    this.getWitches().then((serverWitches: WitchBroom[]) =>
+    this.getAllWitches().then((serverWitches: WitchBroom[]) =>
       serverWitches.forEach((serverWitch) => {
         const witch = new Witch();
 
@@ -49,10 +49,6 @@ export class TrackWrapper extends BaseComponent {
         });
 
         witch.node.style.backgroundColor = serverWitch.color;
-
-        // witchNameUpdateObserver.subscribe(() => {
-        //   controlName.node.value = serverWitch.name;
-        // })
 
         TrackWrapper.broomWitchName.node.textContent = serverWitch.name;
 
