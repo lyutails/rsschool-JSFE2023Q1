@@ -500,6 +500,7 @@ a {
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    user-select: none;
 
     &:hover {
       cursor: pointer;

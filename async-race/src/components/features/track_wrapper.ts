@@ -5,6 +5,9 @@ import { Witch } from '../reused/witch';
 import { Owl } from '../reused/owl';
 import { owlsArray } from '../../data/owls';
 import { WitchBroom } from '../../types/interfaces';
+import { Observer } from '../../observer';
+
+export const witchNameUpdateObserver = new Observer();
 
 export class TrackWrapper extends BaseComponent {
   public static broomWitchName: BaseComponent;
@@ -46,6 +49,10 @@ export class TrackWrapper extends BaseComponent {
         });
 
         witch.node.style.backgroundColor = serverWitch.color;
+
+        // witchNameUpdateObserver.subscribe(() => {
+        //   controlName.node.value = serverWitch.name;
+        // })
 
         TrackWrapper.broomWitchName.node.textContent = serverWitch.name;
 

@@ -1,5 +1,8 @@
+import { Observer } from '../../observer';
 import { ControlButton } from '../UI/controls_button';
 import { BaseComponent } from '../core/base-component';
+
+export const updateInputObserver = new Observer();
 
 export class ControlWidgetUpdate extends BaseComponent {
   public static controlButton: ControlButton;
@@ -29,6 +32,10 @@ export class ControlWidgetUpdate extends BaseComponent {
 
     ControlWidgetUpdate.controlButton.node.textContent = 'Update';
 
-    this.node.append(controlName.node, controlColor.node, ControlWidgetUpdate.controlButton.node);
+    this.node.append(
+      controlName.node,
+      controlColor.node,
+      ControlWidgetUpdate.controlButton.node
+    );
   }
 }
