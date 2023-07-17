@@ -103,8 +103,8 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
 
   public async getAllWitches(): Promise<WitchBroom[]> {
     const response = await fetch(`${baseURL}${path.garage}`);
-    if(!response.ok) {
-      throw new Error('some error happened on the way')
+    if (!response.ok) {
+      throw new Error('some error happened on the way');
     }
     const data = await response.json();
     return data;
@@ -112,7 +112,12 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
 
   public totalWitchesCount(): Promise<string | null> {
     const totalWitches = fetch(`${baseURL}${path.garage}?_page=1&_limit=1`);
-    const witchesCount = totalWitches.then((response) => { return response.headers.get('X-Total-Count') });
+    if (!totalWitches) {
+      throw new Error('no witches found');
+    }
+    const witchesCount = totalWitches.then((response) => {
+      return response.headers.get('X-Total-Count');
+    });
     return witchesCount;
   }
 }

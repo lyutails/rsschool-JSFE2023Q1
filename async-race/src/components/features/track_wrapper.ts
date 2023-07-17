@@ -6,6 +6,7 @@ import { Owl } from '../reused/owl';
 import { owlsArray } from '../../data/owls';
 import { WitchBroom } from '../../types/interfaces';
 import { Observer } from '../../observer';
+import { currentWitchesObserver } from '../../store';
 
 export const witchNameUpdateObserver = new Observer();
 
@@ -17,6 +18,29 @@ export class TrackWrapper extends BaseComponent {
       classList: ['track_wrapper'],
     });
 
+    // currentLevelObserver.subscribe(() =>
+    //       setTimeout(() => {
+    //         this.render();
+    //       }, 800)
+    //     );
+
+    //     setTimeout(() => {
+    //       this.render();
+    //     }, 800);
+    //   }
+
+    currentWitchesObserver.subscribe(() => {
+      setTimeout(() => {
+        this.render();
+      }, 100);
+    });
+
+    setTimeout(() => {
+      this.render();
+    }, 100);
+  }
+
+  public render(): void {
     this.getAllWitches().then((serverWitches: WitchBroom[]) =>
       serverWitches.forEach((serverWitch) => {
         const witch = new Witch();

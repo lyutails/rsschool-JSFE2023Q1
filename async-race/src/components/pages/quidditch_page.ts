@@ -1,4 +1,5 @@
 // import { currentWitchesObserver } from '../../store';
+import { store } from '../../store';
 import { BaseComponent } from '../core/base-component';
 import { BroomsCount } from '../features/brooms_count';
 import { ControlPanel } from '../features/control_panel';
@@ -7,11 +8,14 @@ import { RacePagination } from '../features/race_pagination';
 import { TrackWrapper } from '../features/track_wrapper';
 
 export class Quidditch extends BaseComponent {
+  public store = store;
   constructor() {
     super({
       tagName: 'div',
       classList: ['quidditch'],
     });
+
+    let { currentWitches } = this.store;
 
     const controlPanel = new ControlPanel();
 
@@ -21,8 +25,12 @@ export class Quidditch extends BaseComponent {
 
     const countWitches = async () => {
       const count = await this.totalWitchesCount();
+      if (!count) {
+        throw new Error('no witches encounted');
+      }
       broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
-    }
+      currentWitches = +count;
+    };
 
     countWitches();
 
