@@ -1,9 +1,9 @@
 import { BaseComponent } from '../core/base-component';
 
-export class HeaderButton extends BaseComponent {
+export class HeaderButton extends BaseComponent<'a'> {
   constructor() {
     super({
-      tagName: 'div',
+      tagName: 'a',
       classList: ['header_button'],
     });
   }

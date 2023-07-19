@@ -1,6 +1,5 @@
 import { TrackButton } from '../UI/track_button';
 import { BaseComponent } from '../core/base-component';
-import { witchNameUpdateObserver } from '../features/track_wrapper';
 
 export class TrackButtons extends BaseComponent {
   public flyButton: TrackButton;
@@ -21,10 +20,6 @@ export class TrackButtons extends BaseComponent {
 
     this.pickButton = new TrackButton();
     this.pickButton.node.textContent = 'Pick';
-
-    this.pickButton.node.addEventListener('click', () => {
-      witchNameUpdateObserver.notify('lalala');
-    });
 
     this.delButton = new TrackButton();
     this.delButton.node.textContent = 'Del';

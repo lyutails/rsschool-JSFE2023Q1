@@ -23,7 +23,7 @@
 // font-family: 'Oooh Baby', cursive;
 
 $shadow-color: rgba(0, 0, 0, 0.4);
-$ui-color-one: antiquewhite;
+$ui-color-one: #faebd7;
 $ui-color-two: antiquewhite;
 $font-color-main: black;
 $track-color: rgb(246, 246, 246);
@@ -34,7 +34,8 @@ $text-shine: rgb(255, 246, 163);
 $links-hover: #ff7478;
 $owl-shine: rgba(255, 246, 163, 0.8);
 $button-disabled: rgb(192, 192, 192);
-$scroll-color: linear-gradient(#ffdc68, #5171c8);
+$scroll-color: linear-gradient(#faebd7, #24ffc5);
+$current-count: #24ffc5;
 
 html {
   scroll-behavior: smooth;
@@ -183,7 +184,7 @@ a {
     font-family: 'Meow Script', cursive;
     user-select: none;
     text-shadow:
-      0 0 5px $text-shine,
+      0 0 10px $text-shine,
       0 0 5px $text-shine;
     -webkit-text-stroke: 1px;
     margin-top: 10px;
@@ -317,10 +318,13 @@ a {
 
 .brooms_count {
   font-size: 1.4rem;
-  color: $ui-color-one;
+  color: $current-count;
   font-family: 'Grape Nuts', cursive;
   text-align: center;
   margin-bottom: 10px;
+  text-shadow:
+    0 0 10px $text-shine,
+    0 0 5px $text-shine;
 }
 
 .track_wrapper {
@@ -369,6 +373,8 @@ a {
   mask-size: cover;
   background-position: center center;
   margin-bottom: 5px;
+  // filter: drop-shadow(0px 0px 5px $owl_shine);
+  // -webkit-filter: drop-shadow(0px 0px 5px $owl_shine);
 
   &_name {
     margin-left: 10px;
@@ -628,13 +634,19 @@ a {
 
 @keyframes not_found_text_anim {
   0% {
-    text-shadow: 0px 0px 20px $text-shine, 0px 0px 20px $text-shine;
+    text-shadow:
+      0px 0px 20px $text-shine,
+      0px 0px 20px $text-shine;
   }
   50% {
-    text-shadow: 0px 0px 10px $text-shine, 0px 0px 5px $text-shine;
+    text-shadow:
+      0px 0px 10px $text-shine,
+      0px 0px 5px $text-shine;
   }
   100% {
-    text-shadow: 0px 0px 20px $text-shine, 0px 0px 20px $text-shine;
+    text-shadow:
+      0px 0px 20px $text-shine,
+      0px 0px 20px $text-shine;
   }
 }
 
@@ -683,7 +695,7 @@ a {
   background-image: url('./refs/brooms_parking/brooms_background_layered.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 10px
+  padding-top: 10px;
 }
 
 .parking_sign {

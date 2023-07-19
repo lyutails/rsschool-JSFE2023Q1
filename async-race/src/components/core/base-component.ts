@@ -1,9 +1,9 @@
-import { baseURL } from '../../types/constants';
+import { quidditchURL } from '../../types/constants';
 import { broomsMaterials } from '../../data/brooms_materials';
 import { broomsModels } from '../../data/brooms_models';
 import { broomsNames } from '../../data/brooms_names';
-import { path } from '../../types/enums';
 import { WitchBroom } from '../../types/interfaces';
+import { statusCodes } from '../../types/enums';
 
 export type Props<T extends keyof HTMLElementTagNameMap = 'div'> = {
   tagName?: T;
@@ -34,7 +34,7 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     this.node.append(...children.map((component) => component.node));
   };
 
-  protected destroy(): void {
+  public destroy(): void {
     this.node.remove();
   }
 
@@ -102,7 +102,7 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   }
 
   public async getAllWitches(): Promise<WitchBroom[]> {
-    const response = await fetch(`${baseURL}${path.garage}`);
+    const response = await fetch(`${quidditchURL}`);
     if (!response.ok) {
       throw new Error('some error happened on the way');
     }
@@ -111,7 +111,7 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
   }
 
   public totalWitchesCount(): Promise<string | null> {
-    const totalWitches = fetch(`${baseURL}${path.garage}?_page=1&_limit=1`);
+    const totalWitches = fetch(`${quidditchURL}?_page=1&_limit=1`);
     if (!totalWitches) {
       throw new Error('no witches found');
     }
@@ -119,5 +119,38 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       return response.headers.get('X-Total-Count');
     });
     return witchesCount;
+  }
+
+  public getParticularWitch(id: number): Promise<WitchBroom> {
+    return fetch(`${quidditchURL}/${id}`, {
+      method: 'GET',
+    }).then((response) => response.json());
+  }
+
+  public deleteWitch(id: number): Promise<WitchBroom> {
+    return fetch(`${quidditchURL}/${id}`, {
+      method: 'DELETE',
+    }).then((response) => response.json());
+  }
+
+  public updateWitch(
+    name: string,
+    color: string,
+    id: number
+  ): Promise<Response> {
+    return fetch(`${quidditchURL}/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'applicatoin/json' },
+      body: JSON.stringify({
+        name: name,
+        color: color,
+        id: id,
+      }),
+    }).then((response) => {
+      if (statusCodes.OK in response) {
+        this.getParticularWitch(id);
+      }
+      return response;
+    });
   }
 }

@@ -3,7 +3,7 @@ import { Observer } from "./observer";
 export const currentWitchesObserver = new Observer();
 
 export const store = {
-  _currentWitches: 0,
+  _currentWitches: 4,
   currentWitchesObserver,
   set currentWitches(value: number) {
     this._currentWitches = value;

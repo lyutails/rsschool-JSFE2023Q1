@@ -1,8 +1,8 @@
 export enum RouteName {
-  Quidditch = '/quidditch',
-  BroomParking = '/broom_parking',
-  Winners = '/winners',
-  NotFound = '/404',
+  Quidditch = 'quidditch',
+  BroomParking = 'brooms_parking',
+  Winners = 'winners',
+  NotFound = '404',
 }
 
 export enum path {
