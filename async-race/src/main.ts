@@ -49,19 +49,15 @@ class App {
     if (idView === '') {
       App.pageBody.append(App.quidditch);
     }
-
     if (idView === RouteName.Quidditch) {
       App.pageBody.append(App.quidditch);
     }
-
     if (idView === RouteName.BroomParking) {
       App.pageBody.append(App.broomsParking);
     }
-
     if (idView === RouteName.Winners) {
       App.pageBody.append(App.winners);
     }
-
     if (idView === RouteName.NotFound) {
       App.pageBody.append(App.notFound);
     }

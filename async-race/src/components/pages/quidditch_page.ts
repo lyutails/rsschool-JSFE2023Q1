@@ -9,27 +9,27 @@ import { TrackWrapper } from '../features/track_wrapper';
 
 export class Quidditch extends BaseComponent {
   public store = store;
+  public static broomsCount: BroomsCount;
   constructor() {
     super({
       tagName: 'div',
       classList: ['quidditch'],
     });
 
-    let { currentWitches } = this.store;
+    // let { currentWitches } = this.store;
 
     const controlPanel = new ControlPanel();
 
     const raceButtons = new RaceButtons();
 
-    const broomsCount = new BroomsCount();
+    Quidditch.broomsCount = new BroomsCount();
 
     const countWitches = async () => {
       const count = await this.totalWitchesCount();
       if (!count) {
         throw new Error('no witches encounted');
       }
-      broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
-      currentWitches = +count;
+      Quidditch.broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
     };
 
     countWitches();
@@ -51,7 +51,7 @@ export class Quidditch extends BaseComponent {
       children: [
         controlPanel,
         raceButtons,
-        broomsCount,
+        Quidditch.broomsCount,
         tracksWrapper,
         racePagination,
         wandsWarning,

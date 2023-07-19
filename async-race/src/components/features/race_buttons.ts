@@ -1,30 +1,37 @@
 import { BaseComponent } from '../core/base-component';
 
 export class RaceButtons extends BaseComponent {
+  public static raceButton: BaseComponent;
+  public static resetButton: BaseComponent;
+  public static moreWitchesButton: BaseComponent;
   constructor() {
     super({
       tagName: 'div',
       classList: ['race_buttons'],
     });
 
-    const raceButton = new BaseComponent({
-        tagName: 'div',
-        classList: ['race_buttons_button'],
-        textContent: 'Race'
-    })
+    RaceButtons.raceButton = new BaseComponent({
+      tagName: 'div',
+      classList: ['race_buttons_button'],
+      textContent: 'Race',
+    });
 
-    const resetButton = new BaseComponent({
-        tagName: 'div',
-        classList: ['race_buttons_button'],
-        textContent: 'Reset'
-    })
+    RaceButtons.resetButton = new BaseComponent({
+      tagName: 'div',
+      classList: ['race_buttons_button'],
+      textContent: 'Reset',
+    });
 
-    const moreWitchesButton = new BaseComponent({
-        tagName: 'div',
-        classList: ['race_buttons_button'],
-        textContent: 'More Witches'
-    })
+    RaceButtons.moreWitchesButton = new BaseComponent({
+      tagName: 'div',
+      classList: ['race_buttons_button'],
+      textContent: 'More Witches',
+    });
 
-    this.node.append(raceButton.node, resetButton.node, moreWitchesButton.node);
+    this.node.append(
+      RaceButtons.raceButton.node,
+      RaceButtons.resetButton.node,
+      RaceButtons.moreWitchesButton.node
+    );
   }
 }

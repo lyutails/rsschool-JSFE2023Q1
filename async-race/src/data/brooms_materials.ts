@@ -8,5 +8,9 @@ export const broomsMaterials = [
   'sakura',
   'sequoia',
   'whomping willow',
-  'oak'
+  'oak',
+  'appletree',
+  'aspen',
+  'bamboo',
+  'rosehip'
 ];

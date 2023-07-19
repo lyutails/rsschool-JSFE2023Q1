@@ -1,4 +1,4 @@
-import { quidditchURL } from '../../types/constants';
+import { engineURL, quidditchURL } from '../../types/constants';
 import { broomsMaterials } from '../../data/brooms_materials';
 import { broomsModels } from '../../data/brooms_models';
 import { broomsNames } from '../../data/brooms_names';
@@ -133,6 +133,27 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     }).then((response) => response.json());
   }
 
+  public async createWitch(name: string, color: string): Promise<WitchBroom> {
+    try {
+      const newWitch = await fetch(`${quidditchURL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'applicatoin/json' },
+        body: JSON.stringify({
+          name: name,
+          color: color,
+        }),
+      }).then((response) => {
+        if (statusCodes.OK in response) {
+          this.getAllWitches();
+        }
+        return response.json();
+      });
+      return newWitch;
+    } catch {
+      throw new Error('failed to create new witch');
+    }
+  }
+
   public updateWitch(
     name: string,
     color: string,
@@ -149,6 +170,35 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
     }).then((response) => {
       if (statusCodes.OK in response) {
         this.getParticularWitch(id);
+      }
+      return response;
+    });
+  }
+
+  public startEngine(
+    id: number
+  ): Promise<{ velocity: number; distance: number }> {
+    return fetch(`${engineURL}?&id=${id}&status=started`, {
+      method: 'PATCH',
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        return response;
+      });
+  }
+
+  public async stopEngine(id: number) {
+    await fetch(`${engineURL}?&id=${id}&status=stopped`, {
+      method: 'PATCH',
+    }).then((response) => response.json());
+  }
+
+  public async flyMode(id: number) {
+    await fetch(`${engineURL}?&id=${id}&status=drive`, {
+      method: 'PATCH',
+    }).then((response) => {
+      if (statusCodes.STOP in response) {
+        this.stopEngine(id);
       }
       return response;
     });

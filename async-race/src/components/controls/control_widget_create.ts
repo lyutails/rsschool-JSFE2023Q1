@@ -3,32 +3,40 @@ import { BaseComponent } from '../core/base-component';
 
 export class ControlWidgetCreate extends BaseComponent {
   public static controlButton: ControlButton;
+  public static controlName: BaseComponent<'input'>;
+  public static controlColor: BaseComponent<'input'>;
   constructor() {
     super({
       tagName: 'div',
       classList: ['control_widget'],
     });
 
-    const controlName = new BaseComponent({
+    ControlWidgetCreate.controlName = new BaseComponent({
       tagName: 'input',
       classList: ['control_widget_name'],
     });
 
-    controlName.setPlaceholder('Imagine Name');
+    ControlWidgetCreate.controlName.setPlaceholder('Imagine Name');
 
-    controlName.node.setAttribute('type', 'text');
+    ControlWidgetCreate.controlName.node.setAttribute('type', 'text');
 
-    const controlColor = new BaseComponent({
+    ControlWidgetCreate.controlColor = new BaseComponent({
       tagName: 'input',
       classList: ['control_widget_color'],
     });
 
-    controlColor.node.setAttribute('type', 'color');
+    ControlWidgetCreate.controlColor.node.setAttribute('type', 'color');
+
+    ControlWidgetCreate.controlColor.node.value = '#24ffc5';
 
     ControlWidgetCreate.controlButton = new ControlButton();
 
     ControlWidgetCreate.controlButton.node.textContent = 'Create';
 
-    this.node.append(controlName.node, controlColor.node, ControlWidgetCreate.controlButton.node);
+    this.node.append(
+      ControlWidgetCreate.controlName.node,
+      ControlWidgetCreate.controlColor.node,
+      ControlWidgetCreate.controlButton.node
+    );
   }
 }

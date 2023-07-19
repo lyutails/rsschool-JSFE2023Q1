@@ -361,11 +361,7 @@ a {
   aspect-ratio: 1.3 / 1;
   background-image: url('./refs/brooms_etc_icons/witch-silhouette.svg');
   background-repeat: no-repeat;
-  animation-name: witch_anim;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
+  animation: witch_anim 10s linear infinite running;
   background-size: 0px 0px;
   -webkit-mask-image: url('./refs/brooms_etc_icons/witch-silhouette.svg');
   mask-image: url('./refs/brooms_etc_icons/witch-silhouette.svg');
@@ -381,6 +377,15 @@ a {
     font-family: 'Roboto';
     font-size: 14px;
     color: white;
+  }
+}
+
+@keyframes witch_fly_anim {
+  0% {
+    transform: translate(0vw, 0vh);
+  }
+  100% {
+    transform: translate(80vw, 0vh);
   }
 }
 

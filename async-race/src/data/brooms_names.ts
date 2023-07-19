@@ -8,12 +8,13 @@ export const broomsNames = [
   'Silverrain',
   'Vitalii',
   'Alexxuss',
-  'Tasha',
+  'Tashenka',
   'Cherry',
   'Tornado',
   'Abyss',
   'Tails',
   'Butterfly',
   'Colibri',
-  'Night Star'
+  'Night Star',
+  'Myth'
 ];
