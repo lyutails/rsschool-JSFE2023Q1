@@ -7,6 +7,6 @@ export class BroomsCount extends BaseComponent {
       classList: ['brooms_count'],
     });
 
-    this.node.textContent = `Currently total brooms' count is paste-here-number.`
+    this.node.textContent = `Currently total brooms' count is paste-here-number.`;
   }
 }

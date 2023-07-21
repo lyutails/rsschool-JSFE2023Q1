@@ -3,7 +3,7 @@ import { broomsMaterials } from '../../data/brooms_materials';
 import { broomsModels } from '../../data/brooms_models';
 import { broomsNames } from '../../data/brooms_names';
 import { WitchBroom } from '../../types/interfaces';
-import { statusCodes } from '../../types/enums';
+import { StatusCodes } from '../../types/enums';
 
 export type Props<T extends keyof HTMLElementTagNameMap = 'div'> = {
   tagName?: T;
@@ -116,7 +116,7 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       throw new Error('no witches found');
     }
     const witchesCount = totalWitches.then((response) => {
-      return response.headers.get('X-Total-Count');
+      return response.headers.get('X-Total-Count') || '0';
     });
     return witchesCount;
   }
@@ -139,11 +139,11 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
         method: 'POST',
         headers: { 'Content-Type': 'applicatoin/json' },
         body: JSON.stringify({
-          name: name,
-          color: color,
+          name,
+          color,
         }),
       }).then((response) => {
-        if (statusCodes.OK in response) {
+        if (StatusCodes.OK in response) {
           this.getAllWitches();
         }
         return response.json();
@@ -163,12 +163,12 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       method: 'PUT',
       headers: { 'Content-Type': 'applicatoin/json' },
       body: JSON.stringify({
-        name: name,
-        color: color,
-        id: id,
+        name,
+        color,
+        id,
       }),
     }).then((response) => {
-      if (statusCodes.OK in response) {
+      if (StatusCodes.OK in response) {
         this.getParticularWitch(id);
       }
       return response;
@@ -187,17 +187,17 @@ export class BaseComponent<T extends keyof HTMLElementTagNameMap = 'div'> {
       });
   }
 
-  public async stopEngine(id: number) {
+  public async stopEngine(id: number): Promise<void> {
     await fetch(`${engineURL}?&id=${id}&status=stopped`, {
       method: 'PATCH',
     }).then((response) => response.json());
   }
 
-  public async flyMode(id: number) {
+  public async flyMode(id: number): Promise<void> {
     await fetch(`${engineURL}?&id=${id}&status=drive`, {
       method: 'PATCH',
     }).then((response) => {
-      if (statusCodes.STOP in response) {
+      if (StatusCodes.STOP in response) {
         this.stopEngine(id);
       }
       return response;

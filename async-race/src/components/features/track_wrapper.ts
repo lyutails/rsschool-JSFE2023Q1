@@ -1,4 +1,4 @@
-import { ControlWidgetCreate } from './../controls/control_widget_create';
+import { ControlWidgetCreate } from '../controls/control_widget_create';
 import { TrackButtons } from '../reused/track_buttons';
 import { BaseComponent } from '../core/base-component';
 import { Track } from '../reused/track';
@@ -11,6 +11,7 @@ import { currentWitchesObserver, store } from '../../store';
 import { ControlWidgetUpdate } from '../controls/control_widget_update';
 import { quidditchURL } from '../../types/constants';
 import { RaceButtons } from './race_buttons';
+// eslint-disable-next-line import/no-cycle
 import { Quidditch } from '../pages/quidditch_page';
 
 export const witchNameUpdateObserver = new Observer();
@@ -85,10 +86,9 @@ export class TrackWrapper extends BaseComponent {
           ControlWidgetUpdate.controlColor.node.value = serverWitch.color;
           fetch(`${quidditchURL}/${index}`)
             .then((response) => response.json())
-            .then(
-              (witchName) =>
-                (ControlWidgetUpdate.controlName.node.value = witchName.name)
-            );
+            .then((witchName) => {
+              ControlWidgetUpdate.controlName.node.value = witchName.name;
+            });
 
           ControlWidgetUpdate.controlButton.node.addEventListener(
             'click',
@@ -114,7 +114,7 @@ export class TrackWrapper extends BaseComponent {
 
           this.startEngine(index);
 
-          const getTime = async () => {
+          const getTime = async (): Promise<void> => {
             const speed = await this.startEngine(index).then(
               (response) => response.velocity
             );
@@ -125,15 +125,46 @@ export class TrackWrapper extends BaseComponent {
           getTime();
           this.flyMode(index);
 
-          const stopWitch = async () => {
-            await this.stopEngine(index).then(
-              () => (witch.node.style.animationPlayState = 'paused')
-            );
-          };
-          stopWitch();
+          // const stopWitch = async () => {
+          //   await this.stopEngine(index).then(
+          //     () => (witch.node.style.animationPlayState = 'paused')
+          //   );
+          // };
+          // stopWitch();
         });
 
-        const countWitchesAfterDelete = async () => {
+        RaceButtons.raceButton.node.addEventListener('click', () => {
+          Promise.all(serverWitches).then((raceWitches: WitchBroom[]) =>
+            raceWitches.forEach(() => {
+              witch.node.style.animationName = 'witch_fly_anim';
+              witch.node.style.animationIterationCount = '1';
+              witch.node.style.animationFillMode = 'forwards';
+              witch.node.style.animationTimingFunction = 'ease-in-out';
+
+              this.startEngine(index);
+
+              const getTime = async (): Promise<void> => {
+                const speed = await this.startEngine(index).then(
+                  (response) => response.velocity
+                );
+                witch.node.style.animationDuration = `${
+                  (+window.innerWidth * 0.8) / +speed
+                }s`;
+              };
+              getTime();
+              this.flyMode(index);
+
+              // const stopWitch = async () => {
+              //   await this.stopEngine(index).then(
+              //     () => (witch.node.style.animationPlayState = 'paused')
+              //   );
+              // };
+              // stopWitch();
+            })
+          );
+        });
+
+        const countWitchesAfterDelete = async (): Promise<void> => {
           const count = await this.totalWitchesCount();
           if (!count) {
             throw new Error('no witches encounted');
@@ -144,7 +175,7 @@ export class TrackWrapper extends BaseComponent {
               throw new Error('no del button found out there');
             }
             this.deleteWitch(index);
-            currentWitches - 1;
+            currentWitches -= 1;
           });
         };
 
@@ -189,9 +220,9 @@ export class TrackWrapper extends BaseComponent {
 
       this.node.append(trackPath.node, track.node, buttonsAndName.node);
 
-      currentWitches + 1;
+      currentWitches += 1;
 
-      const countWitches = async () => {
+      const countWitches = async (): Promise<void> => {
         const count = await this.totalWitchesCount();
         if (!count) {
           throw new Error('no witches encounted');
@@ -208,7 +239,7 @@ export class TrackWrapper extends BaseComponent {
     });
 
     RaceButtons.moreWitchesButton.node.addEventListener('click', () => {
-      let witchesPerOneGeneration = 10;
+      const witchesPerOneGeneration = 10;
       for (let i = 0; i < witchesPerOneGeneration; i++) {
         const witch = new Witch();
 
@@ -244,11 +275,11 @@ export class TrackWrapper extends BaseComponent {
 
         this.node.append(trackPath.node, track.node, buttonsAndName.node);
 
-        currentWitches + 1;
+        currentWitches += 1;
 
         this.createWitch(this.getRandomName(), this.getRandomName());
 
-        const countWitches = async () => {
+        const countWitches = async (): Promise<void> => {
           const count = await this.totalWitchesCount();
           if (!count) {
             throw new Error('no witches encounted');

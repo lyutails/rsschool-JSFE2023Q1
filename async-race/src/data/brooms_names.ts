@@ -16,5 +16,5 @@ export const broomsNames = [
   'Butterfly',
   'Colibri',
   'Night Star',
-  'Myth'
+  'Myth',
 ];

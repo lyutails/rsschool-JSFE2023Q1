@@ -1,4 +1,4 @@
-import { Subscriber } from "./types/types";
+import { Subscriber } from './types/types';
 
 export class Observer<T> {
   public observers: Subscriber<T>[] = [];

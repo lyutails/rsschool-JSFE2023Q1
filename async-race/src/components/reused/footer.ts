@@ -31,7 +31,7 @@ export class Footer extends BaseComponent {
     const author = new BaseComponent({
       tagName: 'a',
       classList: ['footer_author'],
-      textContent: 'lyutails'
+      textContent: 'lyutails',
     });
 
     author.addLink('https://github.com/lyutails');

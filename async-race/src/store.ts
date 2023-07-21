@@ -1,4 +1,4 @@
-import { Observer } from "./observer";
+import { Observer } from './observer';
 
 export const currentWitchesObserver = new Observer();
 
@@ -11,5 +11,5 @@ export const store = {
   },
   get currentWitches(): number {
     return this._currentWitches;
-  }
+  },
 };

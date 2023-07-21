@@ -5,13 +5,13 @@ export enum RouteName {
   NotFound = '404',
 }
 
-export enum path {
+export enum Path {
   garage = '/garage',
   winners = '/winners',
   engine = '/engine',
 }
 
-export enum statusCodes {
+export enum StatusCodes {
   OK = '200',
   STOP = '500',
   notFound = '404',

@@ -27,7 +27,7 @@ export class ControlWidgetCreate extends BaseComponent {
 
     ControlWidgetCreate.controlColor.node.setAttribute('type', 'color');
 
-    ControlWidgetCreate.controlColor.node.value = '#24ffc5';
+    ControlWidgetCreate.controlColor.node.value = '#55c6a8';
 
     ControlWidgetCreate.controlButton = new ControlButton();
 

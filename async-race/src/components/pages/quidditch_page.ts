@@ -5,6 +5,7 @@ import { BroomsCount } from '../features/brooms_count';
 import { ControlPanel } from '../features/control_panel';
 import { RaceButtons } from '../features/race_buttons';
 import { RacePagination } from '../features/race_pagination';
+// eslint-disable-next-line import/no-cycle
 import { TrackWrapper } from '../features/track_wrapper';
 
 export class Quidditch extends BaseComponent {
@@ -24,7 +25,7 @@ export class Quidditch extends BaseComponent {
 
     Quidditch.broomsCount = new BroomsCount();
 
-    const countWitches = async () => {
+    const countWitches = async (): Promise<void> => {
       const count = await this.totalWitchesCount();
       if (!count) {
         throw new Error('no witches encounted');

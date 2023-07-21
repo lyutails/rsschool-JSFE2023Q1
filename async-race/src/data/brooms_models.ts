@@ -20,5 +20,6 @@ export const broomsModels = [
   'Waterproof',
   'Firebreath',
   'Glitch',
-  'No Trace'
+  'No Trace',
+  'Pick',
 ];

@@ -1,6 +1,9 @@
 import { BaseComponent } from '../core/base-component';
 
 export class Winners extends BaseComponent {
+  public winnersTable: BaseComponent;
+  public totalNumberOfWinners: BaseComponent;
+
   constructor() {
     super({
       tagName: 'div',
@@ -40,9 +43,21 @@ export class Winners extends BaseComponent {
     const winnersLine = new BaseComponent({
       tagName: 'div',
       classList: ['winners_line'],
-      children: [number, pic, witchBroomName, winsAmount, bestTime]
+      children: [number, pic, witchBroomName, winsAmount, bestTime],
     });
 
-    this.node.append(winnersLine.node);
+    this.winnersTable = new BaseComponent({
+      tagName: 'div',
+      classList: ['winners_table'],
+      children: [winnersLine],
+    });
+
+    this.totalNumberOfWinners = new BaseComponent({
+      tagName: 'div',
+      classList: ['winners_total_number'],
+      textContent: `Total Number of Winners is ${'~paste amount here~'}`,
+    });
+
+    this.node.append(this.totalNumberOfWinners.node, this.winnersTable.node);
   }
 }

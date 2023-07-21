@@ -36,6 +36,7 @@ $owl-shine: rgba(255, 246, 163, 0.8);
 $button-disabled: rgb(192, 192, 192);
 $scroll-color: linear-gradient(#faebd7, #24ffc5);
 $current-count: #24ffc5;
+$current-count: #55c6a8;
 
 html {
   scroll-behavior: smooth;
@@ -317,7 +318,7 @@ a {
 }
 
 .brooms_count {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: $current-count;
   font-family: 'Grape Nuts', cursive;
   text-align: center;
@@ -325,6 +326,12 @@ a {
   text-shadow:
     0 0 10px $text-shine,
     0 0 5px $text-shine;
+  -webkit-text-stroke: 0.5px;
+  animation-name: not_found_text_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  padding-top: 1vh;
 }
 
 .track_wrapper {
@@ -662,10 +669,30 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
 
-  &_line {
+  &_total_number {
+    margin: 0 auto;
+    text-align: center;
+    color: $control-button-color;
+    font-size: 1.6rem;
+    text-shadow: 0px 0px 10px $text-shine, 0px 0px 5px $text-shine;
+    animation-name: not_found_text_anim;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    padding-top: 1vh;
+    font-family: 'Grape Nuts', cursive;
+  }
+
+  &_table {
     width: 50vw;
+    min-width: 300px;
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_line {
     display: flex;
     flex-direction: row;
     color: $track-button-color;
@@ -694,6 +721,15 @@ a {
   }
 }
 
+.brooms_wrapper {
+  width: 90vw;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .brooms_parking {
   width: 100%;
   height: 100%;
@@ -706,7 +742,7 @@ a {
 .parking_sign {
   width: 15vw;
   min-width: 100px;
-  max-width: 200px;
+  max-width: 220px;
   aspect-ratio: 1 / 0.7;
   background-image: url('./refs/brooms_parking/broom_parking_1.jpg');
   background-repeat: no-repeat;
@@ -714,12 +750,47 @@ a {
   margin: 0 auto;
 }
 
-.brooms_wrapper {
-  width: 90vw;
-  margin: 0 auto;
+.parking_witches {
+  width: 100%;
+  height: 60%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.witch_path {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parking_cat {
+  width: 15vw;
+  min-width: 120px;
+  max-width: 200px;
+  aspect-ratio: 1 / 0.8;
+  background-image: url('./refs/brooms_etc_icons/black-cat-horror.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  animation-name: cat_anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  align-self: flex-end;
+}
+
+@keyframes cat_anim {
+  0% {
+    background-image: url('./refs/brooms_etc_icons/black-cat-horror.svg');
+  }
+  50% {
+    background-image: url('./refs/brooms_etc_icons/black-cat-horror_other-eyes.svg');
+  }
+  100% {
+    background-image: url('./refs/brooms_etc_icons/black-cat-horror.svg');
+  }
 }
 
 .footer {

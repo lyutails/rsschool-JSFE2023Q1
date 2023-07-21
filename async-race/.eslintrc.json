@@ -34,6 +34,7 @@
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/no-non-null-assertion": "error",
+    "no-plusplus": "off",
     "no-param-reassign": "off",
     "no-debugger": "off",
     "no-console": 0,
@@ -60,7 +61,7 @@
     ],
     "max-lines-per-function": [
       "error",
-      60
+      400
     ]
   },
   "settings": {
