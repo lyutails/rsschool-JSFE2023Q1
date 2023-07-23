@@ -1,6 +1,6 @@
 import { RouteName } from '../../types/enums';
 import { HeaderButton } from '../UI/header_button';
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 
 export class Header extends BaseComponent {
   public static headerSnitch: BaseComponent<'a'>;

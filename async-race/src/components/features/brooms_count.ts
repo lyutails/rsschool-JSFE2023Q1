@@ -1,6 +1,6 @@
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 
-export class BroomsCount extends BaseComponent {
+class BroomsCount extends BaseComponent {
   constructor() {
     super({
       tagName: 'div',
@@ -10,3 +10,5 @@ export class BroomsCount extends BaseComponent {
     this.node.textContent = `Currently total brooms' count is paste-here-number.`;
   }
 }
+
+export const broomsCount = new BroomsCount();

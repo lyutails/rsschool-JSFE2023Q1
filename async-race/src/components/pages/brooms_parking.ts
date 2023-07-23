@@ -1,4 +1,4 @@
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 import { ParkingWitches } from '../features/parking_witches';
 
 export class BroomsParking extends BaseComponent {

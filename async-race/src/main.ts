@@ -1,4 +1,4 @@
-import { BaseComponent } from './components/core/base-component';
+import { BaseComponent } from './core/base-component';
 import { BroomsParking } from './components/pages/brooms_parking';
 import { NotFound } from './components/pages/not_found_page';
 import { Quidditch } from './components/pages/quidditch_page';
@@ -43,7 +43,7 @@ class App {
     this.raceBody.append(header.node, App.pageBody.node, footer.node);
   }
 
-  static renderNewView(idView: string) {
+  public static renderNewView(idView: string): void {
     App.pageBody.node.textContent = '';
 
     if (idView === '') {
@@ -63,7 +63,7 @@ class App {
     }
   }
 
-  private static enableRouteChange() {
+  private static enableRouteChange(): void {
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.slice(1);
       App.renderNewView(hash);
@@ -75,7 +75,7 @@ class App {
     });
   }
 
-  static run() {
+  public static run(): void {
     App.renderNewView(RouteName.Quidditch);
     App.enableRouteChange();
   }

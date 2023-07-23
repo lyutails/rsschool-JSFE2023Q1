@@ -37,6 +37,7 @@ $button-disabled: rgb(192, 192, 192);
 $scroll-color: linear-gradient(#faebd7, #24ffc5);
 $current-count: #24ffc5;
 $current-count: #55c6a8;
+$overlay: rgba(0, 0, 0, 0.4);
 
 html {
   scroll-behavior: smooth;
@@ -109,6 +110,7 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
+    user-select: none;
 
     &:hover {
       cursor: pointer;
@@ -189,6 +191,7 @@ a {
       0 0 5px $text-shine;
     -webkit-text-stroke: 1px;
     margin-top: 10px;
+    user-select: none;
   }
 }
 
@@ -276,6 +279,7 @@ a {
     align-items: center;
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
+    user-select: none;
 
     &:hover {
       cursor: pointer;
@@ -309,6 +313,7 @@ a {
     border-radius: 10px;
     text-align: center;
     transition: all 0.2s ease-in-out;
+    user-select: none;
 
     &:hover {
       cursor: pointer;
@@ -332,6 +337,7 @@ a {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   padding-top: 1vh;
+  user-select: none;
 }
 
 .track_wrapper {
@@ -376,8 +382,6 @@ a {
   mask-size: cover;
   background-position: center center;
   margin-bottom: 5px;
-  // filter: drop-shadow(0px 0px 5px $owl_shine);
-  // -webkit-filter: drop-shadow(0px 0px 5px $owl_shine);
 
   &_name {
     margin-left: 10px;
@@ -681,6 +685,7 @@ a {
     animation-iteration-count: infinite;
     padding-top: 1vh;
     font-family: 'Grape Nuts', cursive;
+    user-select: none;
   }
 
   &_table {
@@ -698,6 +703,7 @@ a {
     color: $track-button-color;
     text-align: center;
     padding-top: 10px;
+    user-select: none;
   }
 
   &_number {
@@ -836,6 +842,29 @@ a {
       color: $links-hover;
     }
   }
+}
+
+.imagined_name_modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(50%, 50%);
+  width: 50vw;
+  height: 20vh;
+  border-radius: 10px;
+  background-color: $ui-color-one;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $overlay;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1600px) {

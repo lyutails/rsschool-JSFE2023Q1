@@ -1,5 +1,6 @@
 import { ControlButton } from '../UI/controls_button';
-import { BaseComponent } from '../core/base-component';
+import { updateWitch } from '../../core/api';
+import { BaseComponent } from '../../core/base-component';
 
 export class ControlWidgetUpdate extends BaseComponent {
   public static controlButton: ControlButton;
@@ -37,6 +38,19 @@ export class ControlWidgetUpdate extends BaseComponent {
       ControlWidgetUpdate.controlName.node,
       ControlWidgetUpdate.controlColor.node,
       ControlWidgetUpdate.controlButton.node
+    );
+  }
+
+  public static updateWitchHandler(id: number): void {
+    ControlWidgetUpdate.controlButton.node.addEventListener(
+      'click',
+      async () => {
+        await updateWitch(
+          `${ControlWidgetUpdate.controlName.node.value}`,
+          `${ControlWidgetUpdate.controlColor.node.value}`,
+          id
+        );
+      }
     );
   }
 }

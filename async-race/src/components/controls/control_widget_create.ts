@@ -1,5 +1,5 @@
 import { ControlButton } from '../UI/controls_button';
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 
 export class ControlWidgetCreate extends BaseComponent {
   public static controlButton: ControlButton;
@@ -17,6 +17,8 @@ export class ControlWidgetCreate extends BaseComponent {
     });
 
     ControlWidgetCreate.controlName.setPlaceholder('Imagine Name');
+
+    ControlWidgetCreate.controlName.node.value = '';
 
     ControlWidgetCreate.controlName.node.setAttribute('type', 'text');
 

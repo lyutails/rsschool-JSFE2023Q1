@@ -1,4 +1,4 @@
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 
 export class Owl extends BaseComponent {
   constructor() {

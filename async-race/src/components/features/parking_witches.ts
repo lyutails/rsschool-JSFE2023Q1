@@ -1,6 +1,6 @@
 import { currentWitchesObserver, store } from '../../store';
 import { WitchBroom } from '../../types/interfaces';
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 import { Witch } from '../reused/witch';
 import { TrackWrapper } from './track_wrapper';
 

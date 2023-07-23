@@ -6,8 +6,6 @@ export const broomsNames = [
   'Moonlight Strike',
   'Ghost Broom',
   'Silverrain',
-  'Vitalii',
-  'Alexxuss',
   'Tashenka',
   'Cherry',
   'Tornado',

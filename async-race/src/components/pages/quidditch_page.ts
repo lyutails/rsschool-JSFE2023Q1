@@ -1,16 +1,16 @@
 // import { currentWitchesObserver } from '../../store';
 import { store } from '../../store';
-import { BaseComponent } from '../core/base-component';
-import { BroomsCount } from '../features/brooms_count';
+import { BaseComponent } from '../../core/base-component';
+import { broomsCount } from '../features/brooms_count';
 import { ControlPanel } from '../features/control_panel';
 import { RaceButtons } from '../features/race_buttons';
 import { RacePagination } from '../features/race_pagination';
 // eslint-disable-next-line import/no-cycle
 import { TrackWrapper } from '../features/track_wrapper';
+import { totalWitchesCount } from '../../core/api';
 
 export class Quidditch extends BaseComponent {
   public store = store;
-  public static broomsCount: BroomsCount;
   constructor() {
     super({
       tagName: 'div',
@@ -23,14 +23,12 @@ export class Quidditch extends BaseComponent {
 
     const raceButtons = new RaceButtons();
 
-    Quidditch.broomsCount = new BroomsCount();
-
     const countWitches = async (): Promise<void> => {
-      const count = await this.totalWitchesCount();
+      const count = await totalWitchesCount();
       if (!count) {
         throw new Error('no witches encounted');
       }
-      Quidditch.broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
+      broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
     };
 
     countWitches();
@@ -52,7 +50,7 @@ export class Quidditch extends BaseComponent {
       children: [
         controlPanel,
         raceButtons,
-        Quidditch.broomsCount,
+        broomsCount,
         tracksWrapper,
         racePagination,
         wandsWarning,

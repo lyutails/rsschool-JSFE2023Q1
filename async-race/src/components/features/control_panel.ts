@@ -1,6 +1,6 @@
 import { ControlWidgetCreate } from '../controls/control_widget_create';
 import { ControlWidgetUpdate } from '../controls/control_widget_update';
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 
 export class ControlPanel extends BaseComponent {
   constructor() {

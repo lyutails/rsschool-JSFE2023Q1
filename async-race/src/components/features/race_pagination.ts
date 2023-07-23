@@ -1,4 +1,4 @@
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from '../../core/base-component';
 
 export class RacePagination extends BaseComponent {
   public paginationButtonBeginning: BaseComponent<'button'>;
