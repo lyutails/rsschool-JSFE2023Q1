@@ -14,4 +14,5 @@ export const broomsMaterials = [
   'bamboo',
   'rosehip',
   'nickel',
+  'ivy',
 ];

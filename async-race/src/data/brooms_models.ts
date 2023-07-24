@@ -23,4 +23,7 @@ export const broomsModels = [
   'No Trace',
   'Pick',
   'Naked',
+  'Hurricane',
+  'Silent',
+  'Dragon',
 ];
