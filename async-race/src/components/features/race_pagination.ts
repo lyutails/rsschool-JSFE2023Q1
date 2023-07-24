@@ -81,7 +81,6 @@ export class RacePagination extends BaseComponent {
 
   public turnPageLeft(): void {
     const witchesPerPage = 7;
-    // const responseWitches = await getAllWitches(forPaginationUrl);
     const catchWitches = store.currentWitches;
     const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
 
@@ -95,7 +94,6 @@ export class RacePagination extends BaseComponent {
 
   public turnPageRight(): void {
     const witchesPerPage = 7;
-    // const responseWitches = await getAllWitches(forPaginationUrl);
     const catchWitches = store.currentWitches;
     const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
 
