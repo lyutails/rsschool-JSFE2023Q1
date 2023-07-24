@@ -1,10 +1,16 @@
-import { WitchBroom } from '../types/interfaces';
 import { engineURL, quidditchURL } from '../types/constants';
 import { StatusCodes } from '../types/enums';
 import { Witch } from '../components/reused/witch';
+import { PageLimitResponse, WitchBroom } from '../types/interfaces';
 
-export const getAllWitches = async (): Promise<WitchBroom[]> => {
-  const response = await fetch(`${quidditchURL}`);
+export const getAllWitches = async (
+  elements: PageLimitResponse[]
+): Promise<WitchBroom[]> => {
+  const pageWitchLimit = (items: PageLimitResponse[]): string =>
+    items
+      .map((item: PageLimitResponse): string => `${item.key}=${item.value}`)
+      .join('&');
+  const response = await fetch(`${quidditchURL}?${pageWitchLimit(elements)}`);
   if (!response.ok) {
     throw new Error('some error happened on the way');
   }
@@ -16,26 +22,6 @@ export const getParticularWitch = async (id: number): Promise<WitchBroom> => {
   return fetch(`${quidditchURL}/${id}`, {
     method: 'GET',
   }).then((response) => response.json());
-};
-
-export const updateWitch = async (
-  name: string,
-  color: string,
-  id: number
-): Promise<Response> => {
-  return fetch(`${quidditchURL}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name,
-      color,
-    }),
-  }).then((response) => {
-    if (StatusCodes.OK in response) {
-      getParticularWitch(id);
-    }
-    return response.json();
-  });
 };
 
 export const createWitch = async (
@@ -61,6 +47,26 @@ export const createWitch = async (
   } catch {
     throw new Error('failed to create new witch');
   }
+};
+
+export const updateWitch = async (
+  name: string,
+  color: string,
+  id: number
+): Promise<Response> => {
+  return fetch(`${quidditchURL}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name,
+      color,
+    }),
+  }).then((response) => {
+    if (StatusCodes.OK in response) {
+      getParticularWitch(id);
+    }
+    return response.json();
+  });
 };
 
 export const stopEngine = async (id: number): Promise<void> => {

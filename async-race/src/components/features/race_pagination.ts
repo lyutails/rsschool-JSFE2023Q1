@@ -1,4 +1,6 @@
 import { BaseComponent } from '../../core/base-component';
+import { store } from '../../store';
+import { forPaginationUrl } from '../../types/constants';
 
 export class RacePagination extends BaseComponent {
   public paginationButtonBeginning: BaseComponent<'button'>;
@@ -25,15 +27,19 @@ export class RacePagination extends BaseComponent {
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonLeft.disableButton();
+    this.paginationButtonLeft.enableButton();
     this.paginationButtonLeft.setCursorPointer();
+
+    this.paginationButtonLeft.node.addEventListener('click', () => {
+      this.turnPageRight();
+    });
 
     this.paginationButtonNumber = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonNumber.node.textContent = '1';
+    this.paginationButtonNumber.node.textContent = `${store.currentPage}`;
 
     this.paginationButtonRight = new BaseComponent({
       tagName: 'button',
@@ -43,13 +49,26 @@ export class RacePagination extends BaseComponent {
     this.paginationButtonRight.enableButton();
     this.paginationButtonRight.setCursorPointer();
 
+    this.paginationButtonRight.node.addEventListener('click', () => {
+      this.turnPageLeft();
+    });
+
     this.paginationButtonEnd = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonEnd.enableButton();
+    this.paginationButtonEnd.disableButton();
     this.paginationButtonEnd.setCursorPointer();
+
+    // if (store.currentWitches > 7) {
+    //   this.paginationButtonLeft.enableButton();
+    //   this.paginationButtonEnd.enableButton();
+    // }
+
+    // if (store.currentWitches > 7 && store.currentPage > 1) {
+    //   this.paginationButtonRight.enableButton();
+    // }
 
     this.node.append(
       this.paginationButtonBeginning.node,
@@ -58,5 +77,33 @@ export class RacePagination extends BaseComponent {
       this.paginationButtonRight.node,
       this.paginationButtonEnd.node
     );
+  }
+
+  public turnPageLeft(): void {
+    const witchesPerPage = 7;
+    // const responseWitches = await getAllWitches(forPaginationUrl);
+    const catchWitches = store.currentWitches;
+    const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
+
+    if (store.currentPage < totalPagesCount) {
+      this.paginationButtonNumber.node.textContent = '';
+      store.currentPage += 1;
+      this.paginationButtonNumber.node.textContent = `${store.currentPage}`;
+      forPaginationUrl[0].value = String(store.currentPage);
+    }
+  }
+
+  public turnPageRight(): void {
+    const witchesPerPage = 7;
+    // const responseWitches = await getAllWitches(forPaginationUrl);
+    const catchWitches = store.currentWitches;
+    const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
+
+    if (store.currentPage < totalPagesCount) {
+      this.paginationButtonNumber.node.textContent = '';
+      store.currentPage -= 1;
+      this.paginationButtonNumber.node.textContent = `${store.currentPage}`;
+      forPaginationUrl[0].value = String(store.currentPage);
+    }
   }
 }

@@ -22,4 +22,5 @@ export const broomsModels = [
   'Glitch',
   'No Trace',
   'Pick',
+  'Naked',
 ];

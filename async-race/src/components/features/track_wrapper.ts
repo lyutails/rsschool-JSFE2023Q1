@@ -23,9 +23,9 @@ import {
   startEngine,
   totalWitchesCount,
 } from '../../core/api';
+import { forPaginationUrl } from '../../types/constants';
 
-export const modalNameObserver = new Observer();
-
+export const updateWitchObserver = new Observer();
 export const witchNameUpdateObserver = new Observer();
 
 export class TrackWrapper extends BaseComponent {
@@ -49,9 +49,10 @@ export class TrackWrapper extends BaseComponent {
   }
 
   public render(): void {
+    this.node.textContent = '';
     let { currentWitches } = this.store;
 
-    getAllWitches().then((serverWitches: WitchBroom[]) =>
+    getAllWitches(forPaginationUrl).then((serverWitches: WitchBroom[]) =>
       serverWitches.forEach((serverWitch, index) => {
         const witch = new Witch();
 
@@ -93,25 +94,13 @@ export class TrackWrapper extends BaseComponent {
         trackButtons.pickButton.node.onclick = (e): void =>
           this.pickWitch(e, serverWitch);
 
-        ControlWidgetUpdate.updateWitchHandler(index);
-
         trackButtons.flyButton.node.onclick = (e): void =>
           this.flyWitch(e, witch, index);
 
         RaceButtons.raceButton.node.onclick = (): Promise<void> =>
           flyAllWitches(serverWitches, index, witch);
 
-        const countWitchesAfterDelete = async (): Promise<void> => {
-          const count = await totalWitchesCount();
-          if (!count) {
-            throw new Error('no witches encounted');
-          }
-
-          trackButtons.delButton.node.onclick = (e): void =>
-            this.countWitches(e, index, currentWitches);
-        };
-
-        countWitchesAfterDelete();
+        this.countWitchesAfterDelete(trackButtons, index, currentWitches);
 
         this.node.append(trackPath.node, track.node, buttonsAndName.node);
       })
@@ -132,11 +121,11 @@ export class TrackWrapper extends BaseComponent {
         ControlWidgetCreate.controlName.node.value
       );
 
-      modalNameObserver.subscribe(() => {
-        TrackWrapper.broomWitchName.node.textContent = this.ifInputName(
-          ControlWidgetCreate.controlName.node.value
-        );
-      });
+      const inputName = this.ifInputName(
+        ControlWidgetCreate.controlName.node.value
+      );
+
+      TrackWrapper.broomWitchName.node.textContent = inputName;
 
       const owl = new Owl();
       owl.node.style.backgroundImage = `url('${owl.randomizeOwl(owlsArray)}')`;
@@ -183,16 +172,29 @@ export class TrackWrapper extends BaseComponent {
         throw new Error('no name generated');
       }
 
+      const cross = new BaseComponent({
+        tagName: 'div',
+        classList: ['cross'],
+      });
+
       if (ControlWidgetCreate.controlName.node.value === '') {
         const overlay = new Overlay();
         const nameModal = new ImaginedName();
+        nameModal.node.textContent = `you skipped imagining name then now '${inputName}' is the name`;
         setTimeout(() => {
           overlay.destroy();
           nameModal.destroy();
         }, 4000);
+        nameModal.node.append(cross.node);
         overlay.node.addEventListener('click', () => {
           overlay.destroy();
           nameModal.destroy();
+          cross.destroy();
+        });
+        cross.node.addEventListener('click', () => {
+          overlay.destroy();
+          nameModal.destroy();
+          cross.destroy();
         });
       }
     });
@@ -204,6 +206,7 @@ export class TrackWrapper extends BaseComponent {
     if (!e.target) {
       throw new Error('no pick button found out there');
     }
+    store.indexForUpdate = witch.id;
     ControlWidgetUpdate.controlName.node.value = witch.name;
     ControlWidgetUpdate.controlColor.node.value = witch.color;
   }
@@ -240,12 +243,12 @@ export class TrackWrapper extends BaseComponent {
   }
 
   public plusWitches(): void {
-    const witchesPerOneGeneration = 10;
+    const witchesPerOneGeneration = 100;
     for (let i = 0; i < witchesPerOneGeneration; i++) {
       createWitch(this.getRandomName(), this.getRandomColor());
     }
     let { currentWitches } = store;
-    currentWitches += 10;
+    currentWitches += 100;
     broomsCount.node.textContent = `Currently total brooms' count is ${currentWitches}`;
     this.node.textContent = '';
     store.currentWitches = currentWitches;
@@ -257,10 +260,24 @@ export class TrackWrapper extends BaseComponent {
     }
     deleteWitch(index);
 
-    this.node.textContent = '';
-
     currentWitches -= 1;
     broomsCount.node.textContent = `Currently total brooms' count is ${currentWitches}`;
+
+    this.node.textContent = '';
     store.currentWitches = currentWitches;
   }
+
+  public countWitchesAfterDelete = async (
+    trackButtons: TrackButtons,
+    index: number,
+    currentWitches: number
+  ): Promise<void> => {
+    const count = await totalWitchesCount();
+    if (!count) {
+      throw new Error('no witches encounted');
+    }
+
+    trackButtons.delButton.node.onclick = (e): void =>
+      this.countWitches(e, index, currentWitches);
+  };
 }

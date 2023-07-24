@@ -1,6 +1,10 @@
 import { ControlButton } from '../UI/controls_button';
 import { updateWitch } from '../../core/api';
 import { BaseComponent } from '../../core/base-component';
+import { Observer } from '../../observer';
+import { store } from '../../store';
+
+export const updateWitchObserver = new Observer();
 
 export class ControlWidgetUpdate extends BaseComponent {
   public static controlButton: ControlButton;
@@ -34,6 +38,10 @@ export class ControlWidgetUpdate extends BaseComponent {
 
     ControlWidgetUpdate.controlButton.node.textContent = 'Update';
 
+    ControlWidgetUpdate.controlButton.node.onclick = (): void => {
+      ControlWidgetUpdate.updateWitchHandler();
+    };
+
     this.node.append(
       ControlWidgetUpdate.controlName.node,
       ControlWidgetUpdate.controlColor.node,
@@ -41,16 +49,12 @@ export class ControlWidgetUpdate extends BaseComponent {
     );
   }
 
-  public static updateWitchHandler(id: number): void {
-    ControlWidgetUpdate.controlButton.node.addEventListener(
-      'click',
-      async () => {
-        await updateWitch(
-          `${ControlWidgetUpdate.controlName.node.value}`,
-          `${ControlWidgetUpdate.controlColor.node.value}`,
-          id
-        );
-      }
+  public static updateWitchHandler(): void {
+    updateWitch(
+      `${ControlWidgetUpdate.controlName.node.value}`,
+      `${ControlWidgetUpdate.controlColor.node.value}`,
+      store.indexForUpdate
     );
+    store.currentUpdate += 1;
   }
 }

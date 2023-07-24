@@ -3,3 +3,8 @@ export interface WitchBroom {
   color: string;
   id: number;
 }
+
+export interface PageLimitResponse {
+  key: string;
+  value: string;
+}

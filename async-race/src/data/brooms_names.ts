@@ -15,4 +15,9 @@ export const broomsNames = [
   'Colibri',
   'Night Star',
   'Myth',
+  'Crab',
+  'Phenomenon',
+  'Salute',
+  'Rumours',
+  'Craquelure',
 ];
