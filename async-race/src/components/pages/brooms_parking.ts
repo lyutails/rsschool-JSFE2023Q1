@@ -1,5 +1,5 @@
 import { BaseComponent } from '../../core/base-component';
-import { ParkingWitches } from '../features/parking_witches';
+// import { ParkingWitches } from '../features/parking_witches';
 
 export class BroomsParking extends BaseComponent {
   constructor() {
@@ -18,12 +18,13 @@ export class BroomsParking extends BaseComponent {
       classList: ['parking_cat'],
     });
 
-    const parkingWitches = new ParkingWitches();
+    // const parkingWitches = new ParkingWitches();
 
     const broomsWrapper = new BaseComponent({
       tagName: 'div',
       classList: ['brooms_wrapper'],
-      children: [parkingSign, parkingWitches, parkingCat],
+      // children: [parkingSign, parkingWitches, parkingCat],
+      children: [parkingSign, parkingCat],
     });
 
     this.node.append(broomsWrapper.node);
