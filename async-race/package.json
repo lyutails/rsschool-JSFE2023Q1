@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "serve": "vite --open",
-    "build":"vite build --base=/REPO/async-race/",
+    "build":"vite build --base=/lyutails-JSFE2023Q1/witch-race/",
     "preview": "vite preview"
   },
   "devDependencies": {
