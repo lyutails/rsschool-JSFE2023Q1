@@ -19,7 +19,7 @@ export class RacePagination extends BaseComponent {
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonBeginning.disableButton();
+    this.paginationButtonBeginning.enableButton();
     this.paginationButtonBeginning.setCursorPointer();
 
     this.paginationButtonLeft = new BaseComponent({
@@ -58,7 +58,7 @@ export class RacePagination extends BaseComponent {
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonEnd.disableButton();
+    this.paginationButtonEnd.enableButton();
     this.paginationButtonEnd.setCursorPointer();
 
     // if (store.currentWitches > 7) {
