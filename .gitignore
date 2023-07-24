@@ -2,6 +2,8 @@ rss-css-selectors
 
 migration-newip-to-ts
 
+async-race
+
 # Logs
 logs
 *.log
