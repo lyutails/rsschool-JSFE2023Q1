@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "serve": "vite --open",
-    "build": "tsc && vite build",
+    "build":"vite build --base=/REPO/async-race/",
     "preview": "vite preview"
   },
   "devDependencies": {

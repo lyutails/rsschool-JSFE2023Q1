@@ -55,6 +55,9 @@ export class ControlWidgetUpdate extends BaseComponent {
       `${ControlWidgetUpdate.controlColor.node.value}`,
       store.indexForUpdate
     );
+    setTimeout(() => {
+      ControlWidgetUpdate.controlName.node.value = '';
+    }, 100);
     store.currentUpdate += 1;
   }
 }
