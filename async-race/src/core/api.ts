@@ -2,6 +2,9 @@ import { engineURL, quidditchURL } from '../types/constants';
 import { StatusCodes } from '../types/enums';
 import { Witch } from '../components/reused/witch';
 import { PageLimitResponse, WitchBroom } from '../types/interfaces';
+import { Observer } from '../observer';
+
+export const stopWitchObserver = new Observer();
 
 export const getAllWitches = async (
   elements: PageLimitResponse[]
@@ -37,9 +40,6 @@ export const createWitch = async (
         color,
       }),
     }).then((response) => {
-      // if (StatusCodes.OK in response) {
-      //   this.getAllWitches();
-      // }
       const witch = response.json();
       return witch;
     });
@@ -79,10 +79,12 @@ export const flyMode = async (id: number): Promise<void> => {
   await fetch(`${engineURL}?&id=${id}&status=drive`, {
     method: 'PATCH',
   }).then((response) => {
-    if (StatusCodes.STOP in response) {
+    console.log(response);
+    if (response.status === +StatusCodes.STOP) {
       stopEngine(id);
+      stopWitchObserver.notify('lalala');
     }
-    return response;
+    return response.json();
   });
 };
 

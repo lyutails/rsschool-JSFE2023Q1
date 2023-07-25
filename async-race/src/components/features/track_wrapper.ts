@@ -21,6 +21,7 @@ import {
   flyMode,
   getAllWitches,
   startEngine,
+  stopWitchObserver,
   totalWitchesCount,
 } from '../../core/api';
 import { forPaginationUrl } from '../../types/constants';
@@ -150,15 +151,18 @@ export class TrackWrapper extends BaseComponent {
 
       currentWitches += 1;
 
-      const countWitches = async (): Promise<void> => {
+      // broomsCount.node.textContent = `Currently total brooms' count is ${currentWitches}`;
+      // this.node.textContent = '';
+      // store.currentWitches = currentWitches;
+
+      const countCreatedWitches = async (): Promise<void> => {
         const count = await totalWitchesCount();
         if (!count) {
           throw new Error('no witches encounted');
         }
         broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
       };
-
-      countWitches();
+      countCreatedWitches();
 
       if (TrackWrapper.broomWitchName.node.textContent) {
         createWitch(
@@ -172,31 +176,7 @@ export class TrackWrapper extends BaseComponent {
         throw new Error('no name generated');
       }
 
-      const cross = new BaseComponent({
-        tagName: 'div',
-        classList: ['cross'],
-      });
-
-      if (ControlWidgetCreate.controlName.node.value === '') {
-        const overlay = new Overlay();
-        const nameModal = new ImaginedName();
-        nameModal.node.textContent = `you skipped imagining name then now '${inputName}' is the name`;
-        setTimeout(() => {
-          overlay.destroy();
-          nameModal.destroy();
-        }, 4000);
-        nameModal.node.append(cross.node);
-        overlay.node.addEventListener('click', () => {
-          overlay.destroy();
-          nameModal.destroy();
-          cross.destroy();
-        });
-        cross.node.addEventListener('click', () => {
-          overlay.destroy();
-          nameModal.destroy();
-          cross.destroy();
-        });
-      }
+      this.createNameModal(inputName);
     });
 
     RaceButtons.moreWitchesButton.node.onclick = (): void => this.plusWitches();
@@ -234,12 +214,9 @@ export class TrackWrapper extends BaseComponent {
     getTime();
     flyMode(index);
 
-    // const stopWitch = async () => {
-    //   await this.stopEngine(index).then(
-    //     () => (witch.node.style.animationPlayState = 'paused')
-    //   );
-    // };
-    // stopWitch();
+    stopWitchObserver.subscribe(() => {
+      witchItem.node.style.animationPlayState = 'paused';
+    });
   }
 
   public plusWitches(): void {
@@ -280,4 +257,32 @@ export class TrackWrapper extends BaseComponent {
     trackButtons.delButton.node.onclick = (e): void =>
       this.countWitches(e, index, currentWitches);
   };
+
+  public createNameModal(name: string): void {
+    const cross = new BaseComponent({
+      tagName: 'div',
+      classList: ['cross'],
+    });
+
+    if (ControlWidgetCreate.controlName.node.value === '') {
+      const overlay = new Overlay();
+      const nameModal = new ImaginedName();
+      nameModal.node.textContent = `you skipped imagining name then now '${name}' is the name`;
+      setTimeout(() => {
+        overlay.destroy();
+        nameModal.destroy();
+      }, 4000);
+      nameModal.node.append(cross.node);
+      overlay.node.addEventListener('click', () => {
+        overlay.destroy();
+        nameModal.destroy();
+        cross.destroy();
+      });
+      cross.node.addEventListener('click', () => {
+        overlay.destroy();
+        nameModal.destroy();
+        cross.destroy();
+      });
+    }
+  }
 }
