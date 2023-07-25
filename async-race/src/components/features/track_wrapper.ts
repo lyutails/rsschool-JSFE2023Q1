@@ -15,6 +15,7 @@ import { ImaginedName } from './imagined_name_modal';
 import { Overlay } from './overlay';
 import { broomsCount } from './brooms_count';
 import {
+  continueMoveObserver,
   createWitch,
   deleteWitch,
   flyAllWitches,
@@ -90,6 +91,8 @@ export class TrackWrapper extends BaseComponent {
 
         index = serverWitch.id;
 
+        witch.node.setAttribute('id', String(serverWitch.id));
+
         trackButtons.pickButton.node.setAttribute('id', `${index}`);
 
         trackButtons.pickButton.node.onclick = (e): void =>
@@ -97,6 +100,10 @@ export class TrackWrapper extends BaseComponent {
 
         trackButtons.flyButton.node.onclick = (e): void =>
           this.flyWitch(e, witch, index);
+
+        trackButtons.backButton.node.onclick = (e): void => {
+          this.flyBack(e, witch);
+        };
 
         RaceButtons.raceButton.node.onclick = (): Promise<void> =>
           flyAllWitches(serverWitches, index, witch);
@@ -191,6 +198,17 @@ export class TrackWrapper extends BaseComponent {
     ControlWidgetUpdate.controlColor.node.value = witch.color;
   }
 
+  public flyBack(e: Event, witchItem: Witch): void {
+    if (!e.target) {
+      throw new Error('no back button found out there');
+    }
+    witchItem.node.style.animation = 'unset';
+    // witchItem.node.addEventListener('animationend', () => {
+    //   witchItem.node.style.transform = 'translate(100px, 0px)';
+    //   console.log('moveme');
+    // });
+  }
+
   public flyWitch(e: Event, witchItem: Witch, index: number): void {
     if (!e.target) {
       throw new Error('no fly button found out there');
@@ -216,6 +234,10 @@ export class TrackWrapper extends BaseComponent {
 
     stopWitchObserver.subscribe(() => {
       witchItem.node.style.animationPlayState = 'paused';
+    });
+
+    continueMoveObserver.subscribe(() => {
+      witchItem.node.style.animationPlayState = 'running';
     });
   }
 

@@ -5,6 +5,7 @@ import { PageLimitResponse, WitchBroom } from '../types/interfaces';
 import { Observer } from '../observer';
 
 export const stopWitchObserver = new Observer();
+export const continueMoveObserver = new Observer();
 
 export const getAllWitches = async (
   elements: PageLimitResponse[]
@@ -79,11 +80,14 @@ export const flyMode = async (id: number): Promise<void> => {
   await fetch(`${engineURL}?&id=${id}&status=drive`, {
     method: 'PATCH',
   }).then((response) => {
-    console.log(response);
     if (response.status === +StatusCodes.STOP) {
-      stopEngine(id);
       stopWitchObserver.notify('lalala');
+      stopEngine(id);
     }
+    // if (response.status === +StatusCodes.OK) {
+    //   continueMoveObserver.notify('lalala');
+    //   console.log(response.status);
+    // }
     return response.json();
   });
 };
