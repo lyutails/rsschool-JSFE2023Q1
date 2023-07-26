@@ -32,22 +32,14 @@ export const createWitch = async (
   name: string,
   color: string
 ): Promise<void> => {
-  try {
-    const newWitch = await fetch(`${quidditchURL}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        color,
-      }),
-    }).then((response) => {
-      const witch = response.json();
-      return witch;
-    });
-    return newWitch;
-  } catch {
-    throw new Error('failed to create new witch');
-  }
+  await fetch(`${quidditchURL}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name,
+      color,
+    }),
+  });
 };
 
 export const updateWitch = async (
@@ -62,11 +54,6 @@ export const updateWitch = async (
       name,
       color,
     }),
-  }).then((response) => {
-    if (StatusCodes.OK in response) {
-      getParticularWitch(id);
-    }
-    return response.json();
   });
 };
 
@@ -76,20 +63,21 @@ export const stopEngine = async (id: number): Promise<void> => {
   }).then((response) => response.json());
 };
 
-export const flyMode = async (id: number): Promise<void> => {
-  await fetch(`${engineURL}?&id=${id}&status=drive`, {
+export const flyMode = async (id: number, witch: Witch): Promise<void> => {
+  fetch(`${engineURL}?&id=${id}&status=drive`, {
     method: 'PATCH',
-  }).then((response) => {
-    if (response.status === +StatusCodes.STOP) {
-      stopWitchObserver.notify('lalala');
+  })
+    .then((response) => {
+      // if (response.status === +StatusCodes.STOP) {
+      //   witch.node.style.animationPlayState = 'paused';
+      //   stopEngine(id);
+      // }
+      return response.json();
+    })
+    .catch(() => {
+      witch.node.style.animationPlayState = 'paused';
       stopEngine(id);
-    }
-    // if (response.status === +StatusCodes.OK) {
-    //   continueMoveObserver.notify('lalala');
-    //   console.log(response.status);
-    // }
-    return response.json();
-  });
+    });
 };
 
 export const startEngine = async (
@@ -128,7 +116,7 @@ export const flyAllWitches = async (
       witch.node.style.animationIterationCount = '1';
       witch.node.style.animationFillMode = 'forwards';
       witch.node.style.animationTimingFunction = 'ease-in-out';
-      flyMode(index);
+      flyMode(index, witch);
     });
 };
 
