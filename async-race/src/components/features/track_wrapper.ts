@@ -168,10 +168,19 @@ export class TrackWrapper extends BaseComponent {
     for (let i = 0; i < witchesPerOneGeneration; i++) {
       createWitch(this.getRandomName(), this.getRandomColor());
     }
+
+    const countCreatedWitches = async (): Promise<void> => {
+      const count = await totalWitchesCount();
+      if (!count) {
+        throw new Error('no witches encounted');
+      }
+      broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
+    };
+    countCreatedWitches();
+
     let { currentWitches } = store;
     currentWitches += 100;
-    broomsCount.node.textContent = `Currently total brooms' count is ${currentWitches}`;
-    this.node.textContent = '';
+    // this.node.textContent = '';
     store.currentWitches = currentWitches;
   }
 
@@ -250,7 +259,8 @@ export class TrackWrapper extends BaseComponent {
     };
     countCreatedWitches();
 
-    const { currentWitches } = this.store;
+    let { currentWitches } = store;
+    currentWitches += 1;
     store.currentWitches = currentWitches;
 
     setTimeout(() => {
