@@ -135,10 +135,6 @@ export class TrackWrapper extends BaseComponent {
       throw new Error('no back button found out there');
     }
     witchItem.node.style.animation = 'unset';
-    // witchItem.node.addEventListener('animationend', () => {
-    //   witchItem.node.style.transform = 'translate(100px, 0px)';
-    //   console.log('moveme');
-    // });
   }
 
   public flyWitch(e: Event, witchItem: Witch, index: number): void {
@@ -180,7 +176,6 @@ export class TrackWrapper extends BaseComponent {
 
     let { currentWitches } = store;
     currentWitches += 100;
-    // this.node.textContent = '';
     store.currentWitches = currentWitches;
   }
 
