@@ -1,9 +1,9 @@
 import { BaseComponent } from '../../core/base-component';
 
 export class RaceButtons extends BaseComponent {
-  public static raceButton: BaseComponent;
-  public static resetButton: BaseComponent;
-  public static moreWitchesButton: BaseComponent;
+  public static raceButton: BaseComponent<'button'>;
+  public static resetButton: BaseComponent<'button'>;
+  public static moreWitchesButton: BaseComponent<'button'>;
   constructor() {
     super({
       tagName: 'div',
@@ -11,19 +11,19 @@ export class RaceButtons extends BaseComponent {
     });
 
     RaceButtons.raceButton = new BaseComponent({
-      tagName: 'div',
+      tagName: 'button',
       classList: ['race_buttons_button'],
       textContent: 'Race',
     });
 
     RaceButtons.resetButton = new BaseComponent({
-      tagName: 'div',
+      tagName: 'button',
       classList: ['race_buttons_button'],
       textContent: 'Reset',
     });
 
     RaceButtons.moreWitchesButton = new BaseComponent({
-      tagName: 'div',
+      tagName: 'button',
       classList: ['race_buttons_button'],
       textContent: 'More Witches',
     });

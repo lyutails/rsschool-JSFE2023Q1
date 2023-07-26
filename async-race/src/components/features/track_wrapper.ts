@@ -1,5 +1,9 @@
 import { ControlWidgetCreate } from '../controls/control_widget_create';
-import { TrackButtons } from '../reused/track_buttons';
+import {
+  TrackButtons,
+  disableTrackButtonsObserver,
+  enableTrackButtonsObserver,
+} from '../reused/track_buttons';
 import { BaseComponent } from '../../core/base-component';
 import { Track } from '../reused/track';
 import { Witch } from '../reused/witch';
@@ -17,16 +21,18 @@ import { broomsCount } from './brooms_count';
 import {
   createWitch,
   deleteWitch,
-  flyAllWitches,
   flyMode,
   getAllWitches,
   startEngine,
   totalWitchesCount,
 } from '../../core/api';
 import { forPaginationUrl } from '../../types/constants';
+import { RacePagination } from './race_pagination';
 
 export const updateWitchObserver = new Observer();
 export const witchNameUpdateObserver = new Observer();
+export const disableButtonsObserver = new Observer();
+export const enableButtonsObserver = new Observer();
 
 export class TrackWrapper extends BaseComponent {
   public store = store;
@@ -103,8 +109,20 @@ export class TrackWrapper extends BaseComponent {
           this.flyBack(e, witch);
         };
 
-        RaceButtons.raceButton.node.onclick = (): Promise<void> =>
-          flyAllWitches(serverWitches, serverWitch.id, witch);
+        RaceButtons.raceButton.node.onclick = (e): void => {
+          this.flyAllWitches(e, serverWitch.id, witch);
+          disableButtonsObserver.notify(this.disableButtons());
+          disableTrackButtonsObserver.notify('lalala');
+
+          window.addEventListener('animationend', () => {
+            enableButtonsObserver.notify(this.enableButtons());
+            enableTrackButtonsObserver.notify('lalala');
+          });
+        };
+
+        RaceButtons.resetButton.node.onclick = (): void => {
+          witch.node.style.animation = 'unset';
+        };
 
         this.countWitchesAfterDelete(
           trackButtons,
@@ -261,5 +279,46 @@ export class TrackWrapper extends BaseComponent {
     setTimeout(() => {
       ControlWidgetCreate.controlName.node.value = '';
     }, 100);
+  }
+
+  public flyAllWitches = (e: Event, index: number, witch: Witch): void => {
+    if (!e.target) {
+      throw new Error('no fly button found out there');
+    }
+    const speed = startEngine(index).then((response) => response.velocity);
+    witch.node.style.animationDuration = `${
+      (+window.innerWidth * 0.8) / +speed
+    }s`;
+    witch.node.style.animationName = 'witch_fly_anim';
+    witch.node.style.animationIterationCount = '1';
+    witch.node.style.animationFillMode = 'forwards';
+    witch.node.style.animationTimingFunction = 'ease-in-out';
+    flyMode(index, witch);
+  };
+
+  public enableButtons(): void {
+    enableButtonsObserver.subscribe(() => {
+      RacePagination.paginationButtonBeginning.enableButton();
+      RacePagination.paginationButtonLeft.enableButton();
+      RacePagination.paginationButtonRight.enableButton();
+      RacePagination.paginationButtonEnd.enableButton();
+      RaceButtons.resetButton.enableButton();
+      RaceButtons.moreWitchesButton.enableButton();
+      ControlWidgetCreate.controlButton.enableButton();
+      ControlWidgetUpdate.controlButton.enableButton();
+    });
+  }
+
+  public disableButtons(): void {
+    disableButtonsObserver.subscribe(() => {
+      RacePagination.paginationButtonBeginning.disableButton();
+      RacePagination.paginationButtonLeft.disableButton();
+      RacePagination.paginationButtonRight.disableButton();
+      RacePagination.paginationButtonEnd.disableButton();
+      RaceButtons.resetButton.disableButton();
+      RaceButtons.moreWitchesButton.disableButton();
+      ControlWidgetCreate.controlButton.disableButton();
+      ControlWidgetUpdate.controlButton.disableButton();
+    });
   }
 }

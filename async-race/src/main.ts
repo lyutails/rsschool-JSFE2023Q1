@@ -41,6 +41,10 @@ class App {
     App.run();
 
     this.raceBody.append(header.node, App.pageBody.node, footer.node);
+
+    // window.onload = (): void => {
+    //   this.savePageNumberOnReload();
+    // };
   }
 
   public static renderNewView(idView: string): void {
@@ -79,6 +83,15 @@ class App {
     App.renderNewView(RouteName.Quidditch);
     App.enableRouteChange();
   }
+
+  // public savePageNumberOnReload(): void {
+  //   const page = localStorage.getItem('page');
+  //   console.log(page);
+  //   console.log(store.currentPage);
+  //   if (page) {
+  //     Number(store.currentPage) = page;
+  //   }
+  // }
 }
 
 new App();

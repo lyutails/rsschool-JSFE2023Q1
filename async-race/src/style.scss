@@ -280,10 +280,16 @@ a {
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
     user-select: none;
+    outline: none;
+    border: none;
 
     &:hover {
       cursor: pointer;
       color: $control-buttons-hover;
+    }
+
+    &:disabled {
+      background-color: $button-disabled;
     }
   }
 }
@@ -314,10 +320,16 @@ a {
     text-align: center;
     transition: all 0.2s ease-in-out;
     user-select: none;
+    outline: none;
+    border: none;
 
     &:hover {
       cursor: pointer;
       color: $control-buttons-hover;
+    }
+
+    &:disabled {
+      background-color: $button-disabled;
     }
   }
 }
@@ -365,6 +377,7 @@ a {
 
 .track_broom_witch_name {
   color: $track-color;
+  user-select: none;
 }
 
 .witch {
@@ -532,6 +545,10 @@ a {
 
     &:not(:last-child) {
       margin-right: 10px;
+    }
+
+    &:disabled {
+      background-color: $button-disabled;
     }
   }
 }

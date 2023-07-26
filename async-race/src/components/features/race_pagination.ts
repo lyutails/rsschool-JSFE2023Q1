@@ -3,63 +3,63 @@ import { store } from '../../store';
 import { forPaginationUrl } from '../../types/constants';
 
 export class RacePagination extends BaseComponent {
-  public paginationButtonBeginning: BaseComponent<'button'>;
-  public paginationButtonLeft: BaseComponent<'button'>;
-  public paginationButtonNumber: BaseComponent<'button'>;
-  public paginationButtonRight: BaseComponent<'button'>;
-  public paginationButtonEnd: BaseComponent<'button'>;
+  public static paginationButtonBeginning: BaseComponent<'button'>;
+  public static paginationButtonLeft: BaseComponent<'button'>;
+  public static paginationButtonNumber: BaseComponent<'button'>;
+  public static paginationButtonRight: BaseComponent<'button'>;
+  public static paginationButtonEnd: BaseComponent<'button'>;
   constructor() {
     super({
       tagName: 'div',
       classList: ['race_pagination'],
     });
 
-    this.paginationButtonBeginning = new BaseComponent({
+    RacePagination.paginationButtonBeginning = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonBeginning.enableButton();
-    this.paginationButtonBeginning.setCursorPointer();
+    RacePagination.paginationButtonBeginning.enableButton();
+    RacePagination.paginationButtonBeginning.setCursorPointer();
 
-    this.paginationButtonLeft = new BaseComponent({
+    RacePagination.paginationButtonLeft = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonLeft.enableButton();
-    this.paginationButtonLeft.setCursorPointer();
+    RacePagination.paginationButtonLeft.enableButton();
+    RacePagination.paginationButtonLeft.setCursorPointer();
 
-    this.paginationButtonLeft.node.addEventListener('click', () => {
+    RacePagination.paginationButtonLeft.node.addEventListener('click', () => {
       this.turnPageRight();
     });
 
-    this.paginationButtonNumber = new BaseComponent({
+    RacePagination.paginationButtonNumber = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonNumber.node.textContent = `${store.currentPage}`;
+    RacePagination.paginationButtonNumber.node.textContent = `${store.currentPage}`;
 
-    this.paginationButtonRight = new BaseComponent({
+    RacePagination.paginationButtonRight = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonRight.enableButton();
-    this.paginationButtonRight.setCursorPointer();
+    RacePagination.paginationButtonRight.enableButton();
+    RacePagination.paginationButtonRight.setCursorPointer();
 
-    this.paginationButtonRight.node.addEventListener('click', () => {
+    RacePagination.paginationButtonRight.node.addEventListener('click', () => {
       this.turnPageLeft();
     });
 
-    this.paginationButtonEnd = new BaseComponent({
+    RacePagination.paginationButtonEnd = new BaseComponent({
       tagName: 'button',
       classList: ['race_pagination_button'],
     });
 
-    this.paginationButtonEnd.enableButton();
-    this.paginationButtonEnd.setCursorPointer();
+    RacePagination.paginationButtonEnd.enableButton();
+    RacePagination.paginationButtonEnd.setCursorPointer();
 
     // if (store.currentWitches > 7) {
     //   this.paginationButtonLeft.enableButton();
@@ -71,11 +71,11 @@ export class RacePagination extends BaseComponent {
     // }
 
     this.node.append(
-      this.paginationButtonBeginning.node,
-      this.paginationButtonLeft.node,
-      this.paginationButtonNumber.node,
-      this.paginationButtonRight.node,
-      this.paginationButtonEnd.node
+      RacePagination.paginationButtonBeginning.node,
+      RacePagination.paginationButtonLeft.node,
+      RacePagination.paginationButtonNumber.node,
+      RacePagination.paginationButtonRight.node,
+      RacePagination.paginationButtonEnd.node
     );
   }
 
@@ -85,11 +85,14 @@ export class RacePagination extends BaseComponent {
     const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
 
     if (store.currentPage < totalPagesCount) {
-      this.paginationButtonNumber.node.textContent = '';
+      RacePagination.paginationButtonNumber.node.textContent = '';
       store.currentPage += 1;
-      this.paginationButtonNumber.node.textContent = `${store.currentPage}`;
+      RacePagination.paginationButtonNumber.node.textContent = `${store.currentPage}`;
       forPaginationUrl[0].value = String(store.currentPage);
     }
+
+    // const { currentPage } = store;
+    // localStorage.setItem('page', `${currentPage}`);
   }
 
   public turnPageRight(): void {
@@ -98,9 +101,9 @@ export class RacePagination extends BaseComponent {
     const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
 
     if (store.currentPage < totalPagesCount) {
-      this.paginationButtonNumber.node.textContent = '';
+      RacePagination.paginationButtonNumber.node.textContent = '';
       store.currentPage -= 1;
-      this.paginationButtonNumber.node.textContent = `${store.currentPage}`;
+      RacePagination.paginationButtonNumber.node.textContent = `${store.currentPage}`;
       forPaginationUrl[0].value = String(store.currentPage);
     }
   }
