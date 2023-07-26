@@ -65,6 +65,14 @@ class App {
     if (idView === RouteName.NotFound) {
       App.pageBody.append(App.notFound);
     }
+    if (
+      idView !== RouteName.Quidditch &&
+      idView !== RouteName.BroomParking &&
+      idView !== RouteName.Winners &&
+      idView !== ''
+    ) {
+      App.pageBody.append(App.notFound);
+    }
   }
 
   private static enableRouteChange(): void {
