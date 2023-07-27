@@ -24,11 +24,17 @@ export class Quidditch extends BaseComponent {
     const raceButtons = new RaceButtons();
 
     const countWitches = async (): Promise<void> => {
-      const count = await totalWitchesCount();
-      if (!count) {
-        throw new Error('no witches encounted');
+      try {
+
+        const count = await totalWitchesCount();
+        if (!count) {
+          throw new Error('no witches encounted');
+        }
+        broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
       }
-      broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
+      catch (error) {
+        throw new Error('smth actually wrong with witches count');
+      }
     };
 
     countWitches();

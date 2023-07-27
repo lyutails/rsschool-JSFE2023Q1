@@ -29,7 +29,11 @@ export const getAllWitches = async (
 export const getParticularWitch = async (id: number): Promise<WitchBroom> => {
   return fetch(`${quidditchURL}/${id}`, {
     method: 'GET',
-  }).then((response) => response.json());
+  })
+    .then((response) => response.json())
+    .catch(() => {
+      throw new Error('smth went wrong here');
+    });
 };
 
 export const createWitch = async (
@@ -64,7 +68,10 @@ export const updateWitch = async (
 export const stopEngine = async (id: number): Promise<void> => {
   await fetch(`${engineURL}?&id=${id}&status=stopped`, {
     method: 'PATCH',
-  }).then((response) => response.json());
+  }).then((response) => response.json())
+  .catch(() => {
+    throw new Error('smth went wrong here');
+  });
 };
 
 export const flyMode = async (id: number, witch: Witch): Promise<void> => {
@@ -103,6 +110,9 @@ export const startEngine = async (
     .then((response) => response.json())
     .then((response) => {
       return response;
+    })
+    .catch(() => {
+      throw new Error('smth went wrong here');
     });
 };
 
@@ -130,26 +140,30 @@ export const flyAllWitches = async (
   index: number,
   witch: Witch
 ): Promise<void> => {
-  Promise.all(serverWitches)
-    .then(() => {
-      const getTime = async (): Promise<void> => {
-        const speed = await startEngine(index).then(
-          (response) => response.velocity
-        );
-        witch.node.style.animationDuration = `${
-          (+window.innerWidth * 0.8) / +speed
-        }s`;
-      };
-      getTime();
-      witch.node.style.animationName = 'witch_fly_anim';
-      witch.node.style.animationIterationCount = '1';
-      witch.node.style.animationFillMode = 'forwards';
-      witch.node.style.animationTimingFunction = 'ease-in-out';
-      flyMode(index, witch);
-    });
+  Promise.all(serverWitches).then(() => {
+    const getTime = async (): Promise<void> => {
+      const speed = await startEngine(index).then(
+        (response) => response.velocity
+      );
+      witch.node.style.animationDuration = `${
+        (+window.innerWidth * 0.8) / +speed
+      }s`;
+    };
+    getTime();
+    witch.node.style.animationName = 'witch_fly_anim';
+    witch.node.style.animationIterationCount = '1';
+    witch.node.style.animationFillMode = 'forwards';
+    witch.node.style.animationTimingFunction = 'ease-in-out';
+    flyMode(index, witch);
+  })
+  .catch(() => {
+    throw new Error('smth went wrong here');
+  });
 };
 
-export const getWinners = async (elements: PageLimitResponse[]): Promise<void> => {
+export const getWinners = async (
+  elements: PageLimitResponse[]
+): Promise<void> => {
   const pageWitchLimit = (items: PageLimitResponse[]): string =>
     items
       .map((item: PageLimitResponse): string => `${item.key}=${item.value}`)

@@ -140,12 +140,12 @@ export class TrackWrapper extends BaseComponent {
             this.enableButtons();
             enableTrackButtonsObserver.notify('lalala');
           });
-        })
+        });
 
         RaceButtons.resetButton.node.addEventListener('click', () => {
           witch.node.style.animation = 'unset';
           flyBackButtonsObserver.notify('lalala');
-        })
+        });
 
         this.countWitchesAfterDelete(
           trackButtons,
@@ -189,12 +189,16 @@ export class TrackWrapper extends BaseComponent {
     witchItem.node.style.animationTimingFunction = 'ease-in-out';
 
     const getTime = async (): Promise<void> => {
-      const speed = await startEngine(index).then(
-        (response) => response.velocity
-      );
-      witchItem.node.style.animationDuration = `${
-        (+window.innerWidth * 0.8) / +speed
-      }s`;
+      try {
+        const speed = await startEngine(index).then(
+          (response) => response.velocity
+        );
+        witchItem.node.style.animationDuration = `${
+          (+window.innerWidth * 0.8) / +speed
+        }s`;
+      } catch (error) {
+        throw new Error('smth wrong went with getting time');
+      }
     };
     getTime();
     flyMode(index, witchItem);
@@ -207,11 +211,15 @@ export class TrackWrapper extends BaseComponent {
     }
 
     const countCreatedWitches = async (): Promise<void> => {
-      const count = await totalWitchesCount();
-      if (!count) {
-        throw new Error('no witches encounted');
+      try {
+        const count = await totalWitchesCount();
+        if (!count) {
+          throw new Error('no witches encounted');
+        }
+        broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
+      } catch (error) {
+        throw new Error('smth wrong went with total count');
       }
-      broomsCount.node.textContent = `Currently total brooms' count is ${count}`;
     };
     countCreatedWitches();
 
@@ -238,13 +246,16 @@ export class TrackWrapper extends BaseComponent {
     index: number,
     currentWitches: number
   ): Promise<void> => {
-    const count = await totalWitchesCount();
-    if (!count) {
-      throw new Error('no witches encounted');
+    try {
+      const count = await totalWitchesCount();
+      if (!count) {
+        throw new Error('no witches encounted');
+      }
+      trackButtons.delButton.node.onclick = (e): void =>
+        this.countWitches(e, index, currentWitches);
+    } catch (error) {
+      throw new Error('smth went wrotn with count after delete');
     }
-
-    trackButtons.delButton.node.onclick = (e): void =>
-      this.countWitches(e, index, currentWitches);
   };
 
   public createNameModal(name: string): void {
