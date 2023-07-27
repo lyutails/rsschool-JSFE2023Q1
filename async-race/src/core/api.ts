@@ -2,6 +2,11 @@ import { engineURL, quidditchURL } from '../types/constants';
 import { Witch } from '../components/reused/witch';
 import { PageLimitResponse, WitchBroom } from '../types/interfaces';
 import { Observer } from '../observer';
+import { enableTrackButtonsObserver } from '../components/reused/track_buttons';
+import { RaceButtons } from '../components/features/race_buttons';
+import { ControlWidgetCreate } from '../components/controls/control_widget_create';
+import { ControlWidgetUpdate } from '../components/controls/control_widget_update';
+import { RacePagination } from '../components/features/race_pagination';
 
 export const stopWitchObserver = new Observer();
 export const continueMoveObserver = new Observer();
@@ -76,6 +81,16 @@ export const flyMode = async (id: number, witch: Witch): Promise<void> => {
     .catch(() => {
       witch.node.style.animationPlayState = 'paused';
       stopEngine(id);
+      RacePagination.paginationButtonBeginning.enableButton();
+      RacePagination.paginationButtonLeft.enableButton();
+      RacePagination.paginationButtonRight.enableButton();
+      RacePagination.paginationButtonEnd.enableButton();
+      RaceButtons.resetButton.enableButton();
+      RaceButtons.moreWitchesButton.enableButton();
+      ControlWidgetCreate.controlButton.enableButton();
+      ControlWidgetUpdate.controlButton.enableButton();
+      enableTrackButtonsObserver.notify('lalala');
+      RaceButtons.raceButton.enableButton();
     });
 };
 

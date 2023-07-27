@@ -3,6 +3,7 @@ import {
   TrackButtons,
   disableTrackButtonsObserver,
   enableTrackButtonsObserver,
+  flyBackButtonsObserver,
 } from '../reused/track_buttons';
 import { BaseComponent } from '../../core/base-component';
 import { Track } from '../reused/track';
@@ -102,11 +103,22 @@ export class TrackWrapper extends BaseComponent {
         trackButtons.pickButton.node.onclick = (e): void =>
           this.pickWitch(e, serverWitch);
 
-        trackButtons.flyButton.node.onclick = (e): void =>
+        trackButtons.flyButton.node.onclick = (e): void => {
           this.flyWitch(e, witch, serverWitch.id);
+          disableButtonsObserver.notify(this.disableButtons());
+          disableTrackButtonsObserver.notify('lalala');
+          RaceButtons.raceButton.disableButton();
+
+          window.addEventListener('animationend', () => {
+            enableButtonsObserver.notify(this.enableButtons());
+            enableTrackButtonsObserver.notify('lalala');
+            RaceButtons.raceButton.enableButton();
+          });
+        };
 
         trackButtons.backButton.node.onclick = (e): void => {
           this.flyBack(e, witch);
+          flyBackButtonsObserver.notify('lalala');
         };
 
         RaceButtons.raceButton.node.onclick = (e): void => {
@@ -311,14 +323,24 @@ export class TrackWrapper extends BaseComponent {
 
   public disableButtons(): void {
     disableButtonsObserver.subscribe(() => {
-      RacePagination.paginationButtonBeginning.disableButton();
-      RacePagination.paginationButtonLeft.disableButton();
-      RacePagination.paginationButtonRight.disableButton();
-      RacePagination.paginationButtonEnd.disableButton();
-      RaceButtons.resetButton.disableButton();
-      RaceButtons.moreWitchesButton.disableButton();
-      ControlWidgetCreate.controlButton.disableButton();
-      ControlWidgetUpdate.controlButton.disableButton();
+      this.justDisableButtons();
     });
+  }
+
+  public disableButtonsOnFly(): void {
+    disableButtonsObserver.subscribe(() => {
+      this.justDisableButtons();
+    });
+  }
+
+  public justDisableButtons(): void {
+    RacePagination.paginationButtonBeginning.disableButton();
+    RacePagination.paginationButtonLeft.disableButton();
+    RacePagination.paginationButtonRight.disableButton();
+    RacePagination.paginationButtonEnd.disableButton();
+    RaceButtons.resetButton.disableButton();
+    RaceButtons.moreWitchesButton.disableButton();
+    ControlWidgetCreate.controlButton.disableButton();
+    ControlWidgetUpdate.controlButton.disableButton();
   }
 }

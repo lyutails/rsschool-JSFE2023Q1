@@ -4,6 +4,7 @@ import { Observer } from '../../observer';
 
 export const disableTrackButtonsObserver = new Observer();
 export const enableTrackButtonsObserver = new Observer();
+export const flyBackButtonsObserver = new Observer();
 
 export class TrackButtons extends BaseComponent {
   public flyButton: TrackButton;
@@ -21,6 +22,7 @@ export class TrackButtons extends BaseComponent {
 
     this.backButton = new TrackButton();
     this.backButton.node.textContent = 'Back';
+    this.backButton.disableButton();
 
     this.pickButton = new TrackButton();
     this.pickButton.node.textContent = 'Pick';
@@ -43,10 +45,14 @@ export class TrackButtons extends BaseComponent {
     });
 
     enableTrackButtonsObserver.subscribe(() => {
-      this.flyButton.enableButton();
       this.backButton.enableButton();
       this.pickButton.enableButton();
       this.delButton.enableButton();
+    });
+
+    flyBackButtonsObserver.subscribe(() => {
+      this.flyButton.enableButton();
+      this.backButton.disableButton();
     });
   }
 }
