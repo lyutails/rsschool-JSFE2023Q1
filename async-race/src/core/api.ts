@@ -198,3 +198,14 @@ export const updateWinner = async (id: number): Promise<void> => {
   const data = await response.json();
   return data;
 };
+
+export const totalWinnersCount = async (): Promise<string | null> => {
+  const totalWitches = fetch(`${winnersURL}?_page=1&_limit=1`);
+  if (!totalWitches) {
+    throw new Error('no witches found');
+  }
+  const witchesCount = totalWitches.then((response) => {
+    return response.headers.get('X-Total-Count') || '0';
+  });
+  return witchesCount;
+};

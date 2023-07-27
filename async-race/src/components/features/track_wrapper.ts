@@ -144,6 +144,7 @@ export class TrackWrapper extends BaseComponent {
 
         RaceButtons.resetButton.node.addEventListener('click', () => {
           witch.node.style.animation = 'unset';
+          flyBackButtonsObserver.notify('lalala');
         })
 
         this.countWitchesAfterDelete(
