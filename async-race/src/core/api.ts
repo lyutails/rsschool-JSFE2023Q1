@@ -1,4 +1,4 @@
-import { engineURL, quidditchURL } from '../types/constants';
+import { engineURL, quidditchURL, winnersURL } from '../types/constants';
 import { Witch } from '../components/reused/witch';
 import { PageLimitResponse, WitchBroom } from '../types/interfaces';
 import { Observer } from '../observer';
@@ -151,4 +151,54 @@ export const flyAllWitches = async (
       witch.node.style.animationTimingFunction = 'ease-in-out';
       flyMode(index, witch);
     });
+};
+
+export const getWinners = async (elements: PageLimitResponse[]): Promise<void> => {
+  const pageWitchLimit = (items: PageLimitResponse[]): string =>
+    items
+      .map((item: PageLimitResponse): string => `${item.key}=${item.value}`)
+      .join('&');
+  const response = await fetch(`${winnersURL}?${pageWitchLimit(elements)}`, {
+    method: 'GET',
+  });
+  if (!response.ok) {
+    throw new Error('no winners found to get');
+  }
+  const data = await response.json();
+  return data;
+};
+
+export const createWinner = async (): Promise<void> => {
+  const response = await fetch(`${winnersURL}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (!response.ok) {
+    throw new Error('no winner found for create');
+  }
+  const data = await response.json();
+  return data;
+};
+
+export const deleteWinner = async (id: number): Promise<void> => {
+  const response = await fetch(`${winnersURL}/${id}`, {
+    method: 'DELETE',
+  });
+  if (!response.ok) {
+    throw new Error('no wanted winner found for delete');
+  }
+  const data = await response.json();
+  return data;
+};
+
+export const updateWinner = async (id: number): Promise<void> => {
+  const response = await fetch(`${winnersURL}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (!response.ok) {
+    throw new Error('no winner found to update');
+  }
+  const data = await response.json();
+  return data;
 };

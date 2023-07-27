@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../core/base-component';
 import { store } from '../../store';
 import { forPaginationUrl } from '../../types/constants';
-import { TrackWrapper, enablePaginationObserver } from './track_wrapper';
+import { enablePaginationObserver } from './track_wrapper';
 
 export class RacePagination extends BaseComponent {
   public static paginationButtonBeginning: BaseComponent<'button'>;

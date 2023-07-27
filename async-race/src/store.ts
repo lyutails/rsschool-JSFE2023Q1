@@ -9,6 +9,7 @@ export const store = {
   _indexForUpdate: 0,
   _currentUpdate: 0,
   _currentPage: 1,
+  _currentWinnersPage: 1,
   set currentWitches(value: number) {
     this._currentWitches = value;
     this.currentWitchesObserver.notify('lalala');
@@ -38,5 +39,12 @@ export const store = {
   },
   get currentPage(): number {
     return this._currentPage;
+  },
+
+  set currentWinnersPage(page: number) {
+    this._currentWinnersPage = page;
+  },
+  get currentWinnersPage(): number {
+    return this._currentWinnersPage;
   },
 };

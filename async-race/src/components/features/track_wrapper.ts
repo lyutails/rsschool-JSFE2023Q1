@@ -22,6 +22,7 @@ import { broomsCount } from './brooms_count';
 import {
   createWitch,
   deleteWitch,
+  flyAllWitches,
   flyMode,
   getAllWitches,
   startEngine,
@@ -129,8 +130,8 @@ export class TrackWrapper extends BaseComponent {
           enablePaginationObserver.notify('lalala');
         };
 
-        RaceButtons.raceButton.node.onclick = (e): void => {
-          this.flyAllWitches(e, serverWitch.id, witch);
+        RaceButtons.raceButton.node.onclick = (): void => {
+          flyAllWitches(serverWitches, serverWitch.id, witch);
           disableButtonsObserver.notify(this.disableButtons());
           disableTrackButtonsObserver.notify('lalala');
           RaceButtons.raceButton.disableButton();
