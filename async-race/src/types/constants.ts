@@ -1,6 +1,6 @@
 import { store } from '../store';
 import { Path } from './enums';
-import { GetWinners, PageLimitResponse } from './interfaces';
+import { PageLimitResponse } from './interfaces';
 
 export const baseURL = 'http://127.0.0.1:3000';
 export const quidditchURL = `${baseURL}${Path.garage}`;
