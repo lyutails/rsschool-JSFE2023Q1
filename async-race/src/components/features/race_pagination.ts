@@ -1,6 +1,7 @@
 import { BaseComponent } from '../../core/base-component';
 import { store } from '../../store';
 import { forPaginationUrl } from '../../types/constants';
+import { TrackWrapper, enablePaginationObserver } from './track_wrapper';
 
 export class RacePagination extends BaseComponent {
   public static paginationButtonBeginning: BaseComponent<'button'>;
@@ -61,14 +62,22 @@ export class RacePagination extends BaseComponent {
     RacePagination.paginationButtonEnd.enableButton();
     RacePagination.paginationButtonEnd.setCursorPointer();
 
+    // if (store.currentWitches <= 7) {
+    //   RacePagination.paginationButtonBeginning.disableButton();
+    //   RacePagination.paginationButtonLeft.disableButton();
+    //   RacePagination.paginationButtonRight.disableButton();
+    //   RacePagination.paginationButtonEnd.disableButton();
+    // }
     // if (store.currentWitches > 7) {
-    //   this.paginationButtonLeft.enableButton();
-    //   this.paginationButtonEnd.enableButton();
+    //   TrackWrapper.enablePagination();
     // }
 
-    // if (store.currentWitches > 7 && store.currentPage > 1) {
-    //   this.paginationButtonRight.enableButton();
-    // }
+    enablePaginationObserver.subscribe(() => {
+      RacePagination.paginationButtonBeginning.enableButton();
+      RacePagination.paginationButtonLeft.enableButton();
+      RacePagination.paginationButtonRight.enableButton();
+      RacePagination.paginationButtonEnd.enableButton();
+    });
 
     this.node.append(
       RacePagination.paginationButtonBeginning.node,

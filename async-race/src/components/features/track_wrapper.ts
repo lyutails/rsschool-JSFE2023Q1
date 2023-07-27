@@ -34,6 +34,7 @@ export const updateWitchObserver = new Observer();
 export const witchNameUpdateObserver = new Observer();
 export const disableButtonsObserver = new Observer();
 export const enableButtonsObserver = new Observer();
+export const enablePaginationObserver = new Observer();
 
 export class TrackWrapper extends BaseComponent {
   public store = store;
@@ -110,6 +111,9 @@ export class TrackWrapper extends BaseComponent {
           RaceButtons.raceButton.disableButton();
 
           window.addEventListener('animationend', () => {
+            // if (store.currentWitches > 7) {
+            TrackWrapper.enablePagination();
+            // }
             enableButtonsObserver.notify(this.enableButtons());
             enableTrackButtonsObserver.notify('lalala');
             RaceButtons.raceButton.enableButton();
@@ -119,15 +123,20 @@ export class TrackWrapper extends BaseComponent {
         trackButtons.backButton.node.onclick = (e): void => {
           this.flyBack(e, witch);
           flyBackButtonsObserver.notify('lalala');
+          // if (store.currentWitches > 7) {
+          //   TrackWrapper.enablePagination();
+          // }
+          enablePaginationObserver.notify('lalala');
         };
 
         RaceButtons.raceButton.node.onclick = (e): void => {
           this.flyAllWitches(e, serverWitch.id, witch);
           disableButtonsObserver.notify(this.disableButtons());
           disableTrackButtonsObserver.notify('lalala');
+          RaceButtons.raceButton.disableButton();
 
           window.addEventListener('animationend', () => {
-            enableButtonsObserver.notify(this.enableButtons());
+            this.enableButtons();
             enableTrackButtonsObserver.notify('lalala');
           });
         };
@@ -308,26 +317,22 @@ export class TrackWrapper extends BaseComponent {
     flyMode(index, witch);
   };
 
+  public static enablePagination(): void {
+    RacePagination.paginationButtonBeginning.enableButton();
+    RacePagination.paginationButtonLeft.enableButton();
+    RacePagination.paginationButtonRight.enableButton();
+    RacePagination.paginationButtonEnd.enableButton();
+  }
+
   public enableButtons(): void {
-    enableButtonsObserver.subscribe(() => {
-      RacePagination.paginationButtonBeginning.enableButton();
-      RacePagination.paginationButtonLeft.enableButton();
-      RacePagination.paginationButtonRight.enableButton();
-      RacePagination.paginationButtonEnd.enableButton();
-      RaceButtons.resetButton.enableButton();
-      RaceButtons.moreWitchesButton.enableButton();
-      ControlWidgetCreate.controlButton.enableButton();
-      ControlWidgetUpdate.controlButton.enableButton();
-    });
+    RaceButtons.resetButton.enableButton();
+    RaceButtons.moreWitchesButton.enableButton();
+    ControlWidgetCreate.controlButton.enableButton();
+    ControlWidgetUpdate.controlButton.enableButton();
+    RaceButtons.raceButton.enableButton();
   }
 
   public disableButtons(): void {
-    disableButtonsObserver.subscribe(() => {
-      this.justDisableButtons();
-    });
-  }
-
-  public disableButtonsOnFly(): void {
     disableButtonsObserver.subscribe(() => {
       this.justDisableButtons();
     });

@@ -124,3 +124,31 @@ export const totalWitchesCount = async (): Promise<string | null> => {
   });
   return witchesCount;
 };
+
+export const flyAllWitches = async (
+  serverWitches: WitchBroom[],
+  index: number,
+  witch: Witch
+): Promise<void> => {
+  Promise.all(serverWitches)
+    .then((raceWitches: WitchBroom[]) =>
+      raceWitches.forEach(() => {
+        const getTime = async (): Promise<void> => {
+          const speed = await startEngine(index).then(
+            (response) => response.velocity
+          );
+          witch.node.style.animationDuration = `${
+            (+window.innerWidth * 0.8) / +speed
+          }s`;
+        };
+        getTime();
+      })
+    )
+    .then(() => {
+      witch.node.style.animationName = 'witch_fly_anim';
+      witch.node.style.animationIterationCount = '1';
+      witch.node.style.animationFillMode = 'forwards';
+      witch.node.style.animationTimingFunction = 'ease-in-out';
+      flyMode(index, witch);
+    });
+};
