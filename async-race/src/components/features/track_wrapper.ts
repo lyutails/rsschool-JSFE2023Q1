@@ -130,8 +130,8 @@ export class TrackWrapper extends BaseComponent {
           enablePaginationObserver.notify('lalala');
         };
 
-        RaceButtons.raceButton.node.addEventListener('click', (e) => {
-          this.flyAllWitches(e, serverWitch.id, witch);
+        RaceButtons.raceButton.node.addEventListener('click', () => {
+          flyAllWitches(serverWitches, serverWitch.id, witch);
           disableButtonsObserver.notify(this.disableButtons());
           disableTrackButtonsObserver.notify('lalala');
           RaceButtons.raceButton.disableButton();
