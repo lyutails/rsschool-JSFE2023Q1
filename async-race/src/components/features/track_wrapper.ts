@@ -142,21 +142,9 @@ export class TrackWrapper extends BaseComponent {
           });
         })
 
-        // RaceButtons.raceButton.node.onclick = (): void => {
-        //   flyAllWitches(serverWitches, serverWitch.id, witch);
-        //   disableButtonsObserver.notify(this.disableButtons());
-        //   disableTrackButtonsObserver.notify('lalala');
-        //   RaceButtons.raceButton.disableButton();
-
-        //   window.addEventListener('animationend', () => {
-        //     this.enableButtons();
-        //     enableTrackButtonsObserver.notify('lalala');
-        //   });
-        // };
-
-        RaceButtons.resetButton.node.onclick = (): void => {
+        RaceButtons.resetButton.node.addEventListener('click', () => {
           witch.node.style.animation = 'unset';
-        };
+        })
 
         this.countWitchesAfterDelete(
           trackButtons,

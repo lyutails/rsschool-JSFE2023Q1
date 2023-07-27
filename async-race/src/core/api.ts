@@ -131,19 +131,6 @@ export const flyAllWitches = async (
   witch: Witch
 ): Promise<void> => {
   Promise.all(serverWitches)
-    // .then((raceWitches: WitchBroom[]) =>
-    //   raceWitches.map(() => {
-    //     const getTime = async (): Promise<void> => {
-    //       const speed = await startEngine(index).then(
-    //         (response) => response.velocity
-    //       );
-    //       witch.node.style.animationDuration = `${
-    //         (+window.innerWidth * 0.8) / +speed
-    //       }s`;
-    //     };
-    //     getTime();
-    //   })
-    // )
     .then(() => {
       const getTime = async (): Promise<void> => {
         const speed = await startEngine(index).then(
