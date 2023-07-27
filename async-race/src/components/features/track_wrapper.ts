@@ -130,8 +130,8 @@ export class TrackWrapper extends BaseComponent {
           enablePaginationObserver.notify('lalala');
         };
 
-        RaceButtons.raceButton.node.onclick = (): void => {
-          flyAllWitches(serverWitches, serverWitch.id, witch);
+        RaceButtons.raceButton.node.addEventListener('click', (e) => {
+          this.flyAllWitches(e, serverWitch.id, witch);
           disableButtonsObserver.notify(this.disableButtons());
           disableTrackButtonsObserver.notify('lalala');
           RaceButtons.raceButton.disableButton();
@@ -140,7 +140,19 @@ export class TrackWrapper extends BaseComponent {
             this.enableButtons();
             enableTrackButtonsObserver.notify('lalala');
           });
-        };
+        })
+
+        // RaceButtons.raceButton.node.onclick = (): void => {
+        //   flyAllWitches(serverWitches, serverWitch.id, witch);
+        //   disableButtonsObserver.notify(this.disableButtons());
+        //   disableTrackButtonsObserver.notify('lalala');
+        //   RaceButtons.raceButton.disableButton();
+
+        //   window.addEventListener('animationend', () => {
+        //     this.enableButtons();
+        //     enableTrackButtonsObserver.notify('lalala');
+        //   });
+        // };
 
         RaceButtons.resetButton.node.onclick = (): void => {
           witch.node.style.animation = 'unset';
