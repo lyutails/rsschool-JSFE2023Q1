@@ -62,16 +62,6 @@ export class RacePagination extends BaseComponent {
     RacePagination.paginationButtonEnd.enableButton();
     RacePagination.paginationButtonEnd.setCursorPointer();
 
-    // if (store.currentWitches <= 7) {
-    //   RacePagination.paginationButtonBeginning.disableButton();
-    //   RacePagination.paginationButtonLeft.disableButton();
-    //   RacePagination.paginationButtonRight.disableButton();
-    //   RacePagination.paginationButtonEnd.disableButton();
-    // }
-    // if (store.currentWitches > 7) {
-    //   TrackWrapper.enablePagination();
-    // }
-
     enablePaginationObserver.subscribe(() => {
       RacePagination.paginationButtonBeginning.enableButton();
       RacePagination.paginationButtonLeft.enableButton();
@@ -99,9 +89,6 @@ export class RacePagination extends BaseComponent {
       RacePagination.paginationButtonNumber.node.textContent = `${store.currentPage}`;
       forPaginationUrl[0].value = String(store.currentPage);
     }
-
-    // const { currentPage } = store;
-    // localStorage.setItem('page', `${currentPage}`);
   }
 
   public turnPageRight(): void {
@@ -109,7 +96,7 @@ export class RacePagination extends BaseComponent {
     const catchWitches = store.currentWitches;
     const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
 
-    if (store.currentPage < totalPagesCount) {
+    if (store.currentPage < totalPagesCount && store.currentPage > 1) {
       RacePagination.paginationButtonNumber.node.textContent = '';
       store.currentPage -= 1;
       RacePagination.paginationButtonNumber.node.textContent = `${store.currentPage}`;

@@ -85,13 +85,13 @@ export const stopEngine = async (id: number): Promise<void> => {
     });
 };
 
-export async function flyMode (id: number): Promise<any> {
+export async function flyMode(id: number): Promise<any> {
   const response = fetch(`${engineURL}?id=${id}&status=drive`, {
     method: 'PATCH',
-  })
+  });
   const json = (await response).json();
   return json;
-};
+}
 
 export const startEngine = async (
   id: number
@@ -144,16 +144,24 @@ export const getWinners = async (
   return data;
 };
 
-export const createWinner = async (): Promise<void> => {
-  const response = await fetch(`${winnersURL}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  if (!response.ok) {
-    throw new Error('no winner found for create');
+export const createWinner = async (
+  id: number,
+  wins: number,
+  time: number
+): Promise<void> => {
+  try {
+    await fetch(`${winnersURL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id,
+        wins,
+        time,
+      }),
+    });
+  } catch (error) {
+    throw new Error('smth wrong went with creating witch');
   }
-  const data = await response.json();
-  return data;
 };
 
 export const deleteWinner = async (id: number): Promise<void> => {
@@ -179,13 +187,13 @@ export const updateWinner = async (id: number): Promise<void> => {
   return data;
 };
 
-export const totalWinnersCount = async (): Promise<string | null> => {
-  const totalWitches = fetch(`${winnersURL}?&_page=1&_limit=10`);
-  if (!totalWitches) {
-    throw new Error('no witches found');
+export const totalWinnersCount = async (): Promise<string> => {
+  const totalWinners = fetch(`${winnersURL}?&_page=1&_limit=10`);
+  if (!totalWinners) {
+    throw new Error('no winners found');
   }
-  const witchesCount = totalWitches.then((response) => {
+  const winnersCount = totalWinners.then((response) => {
     return response.headers.get('X-Total-Count') || '0';
   });
-  return witchesCount;
+  return winnersCount;
 };

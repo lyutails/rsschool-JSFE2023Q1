@@ -20,7 +20,9 @@ import { ImaginedName } from './imagined_name_modal';
 import { Overlay } from './overlay';
 import { broomsCount } from './brooms_count';
 import {
+  createWinner,
   createWitch,
+  deleteWinner,
   deleteWitch,
   flyMode,
   getAllWitches,
@@ -31,6 +33,7 @@ import {
 import { forPaginationUrl } from '../../types/constants';
 import { RacePagination } from './race_pagination';
 import { WinnerModal } from './winner_modal';
+import { winnersCountObserver } from '../pages/winners_page';
 
 export const updateWitchObserver = new Observer();
 export const witchNameUpdateObserver = new Observer();
@@ -170,6 +173,30 @@ export class TrackWrapper extends BaseComponent {
     };
 
     RaceButtons.moreWitchesButton.node.onclick = (): void => this.plusWitches();
+
+    if (currentWitches <= 7) {
+      RacePagination.paginationButtonBeginning.disableButton();
+      RacePagination.paginationButtonLeft.disableButton();
+      RacePagination.paginationButtonRight.disableButton();
+      RacePagination.paginationButtonEnd.disableButton();
+    }
+    if (currentWitches > 7) {
+      RacePagination.paginationButtonBeginning.enableButton();
+      RacePagination.paginationButtonLeft.enableButton();
+      RacePagination.paginationButtonRight.enableButton();
+      RacePagination.paginationButtonEnd.enableButton();
+    }
+
+    const witchesPerPage = 7;
+    const catchWitches = store.currentWitches;
+    const totalPagesCount = Math.ceil(catchWitches / witchesPerPage);
+
+    if (totalPagesCount === 1) {
+      RacePagination.paginationButtonBeginning.disableButton();
+      RacePagination.paginationButtonLeft.disableButton();
+      RacePagination.paginationButtonRight.disableButton();
+      RacePagination.paginationButtonEnd.disableButton();
+    }
   }
 
   public static async getTime(id: number, witch: Witch): Promise<number> {
@@ -243,8 +270,12 @@ export class TrackWrapper extends BaseComponent {
         return obj?.id === winnerID;
       });
       const winnerName = serverWinnerObject[0]?.name;
-      console.log(promisedAllWitches);
       WinnerModal.winnerModalText.node.textContent = `aaaannnd... winner is ${winnerName} finished in ${minTime} \\o/ 🧙‍♂️`;
+      const winnerWins = winnerObject[0]?.wins;
+      if (winnerID !== undefined && winnerWins !== undefined) {
+        createWinner(winnerID, winnerWins, minTime);
+        // winnersCountObserver.notify('lalala');
+      }
 
       WinnerModal.cross.node.addEventListener('click', () => {
         winnerModal.destroy();
@@ -331,6 +362,7 @@ export class TrackWrapper extends BaseComponent {
       throw new Error('no del button found out there');
     }
     deleteWitch(index);
+    deleteWinner(index);
 
     currentWitches -= 1;
     broomsCount.node.textContent = `Currently total brooms' count is ${currentWitches}`;

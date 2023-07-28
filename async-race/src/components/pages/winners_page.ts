@@ -1,5 +1,8 @@
 import { totalWinnersCount } from '../../core/api';
 import { BaseComponent } from '../../core/base-component';
+import { Observer } from '../../observer';
+
+export const winnersCountObserver = new Observer();
 
 export class Winners extends BaseComponent {
   public winnersTable: BaseComponent;
@@ -55,22 +58,22 @@ export class Winners extends BaseComponent {
 
     this.totalNumberOfWinners = new BaseComponent({
       tagName: 'div',
-      classList: ['winners_total_number']
+      classList: ['winners_total_number'],
     });
+
+    this.totalNumberOfWinners.node.textContent = `Total Number of Winners is 1`;
 
     const countWinners = async (): Promise<void> => {
       try {
         const count = await totalWinnersCount();
-        if (!count) {
-          throw new Error('no witches encounted');
-        }
+        console.log(count);
         this.totalNumberOfWinners.node.textContent = `Total Number of Winners is ${count}`;
-      }
-      catch (error) {
+      } catch (error) {
         throw new Error('smth actually wrong with winners count');
       }
     };
-    countWinners();
+    countWinners()
+    // winnersCountObserver.subscribe(() => countWinners());
 
     this.node.append(this.totalNumberOfWinners.node, this.winnersTable.node);
   }
