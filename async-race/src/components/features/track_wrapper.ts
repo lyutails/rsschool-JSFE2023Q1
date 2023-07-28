@@ -182,7 +182,6 @@ export class TrackWrapper extends BaseComponent {
   }
 
   public async flyActuallyAllWitches(): Promise<void> {
-    // const promisedAllWitches = await getAllWitches(forPaginationUrl);
     const promiseWinner = await Promise.all(
       TrackWrapper.witchesArrayHTML.map(async (witch) => {
         try {
@@ -235,19 +234,29 @@ export class TrackWrapper extends BaseComponent {
       const winnerModal = new WinnerModal();
       const overlay = new Overlay();
       raceBody.append(overlay.node, winnerModal.node);
-      WinnerModal.winnerModalText.node.textContent = `aaaannnd... winner is name finished in ${minTime} \\o/ 🧙‍♂️`;
+      const winnerObject = filteredWinners.filter((obj) => {
+        return obj?.time === minTime;
+      });
+      const winnerID = winnerObject[0]?.id;
+      const promisedAllWitches = await getAllWitches(forPaginationUrl);
+      const serverWinnerObject = promisedAllWitches.filter((obj) => {
+        return obj?.id === winnerID;
+      });
+      const winnerName = serverWinnerObject[0]?.name;
+      console.log(promisedAllWitches);
+      WinnerModal.winnerModalText.node.textContent = `aaaannnd... winner is ${winnerName} finished in ${minTime} \\o/ 🧙‍♂️`;
 
       WinnerModal.cross.node.addEventListener('click', () => {
         winnerModal.destroy();
         WinnerModal.cross.destroy();
         overlay.destroy();
-      })
+      });
 
       overlay.node.addEventListener('click', () => {
         winnerModal.destroy();
         WinnerModal.cross.destroy();
         overlay.destroy();
-      })
+      });
     }
   }
 
