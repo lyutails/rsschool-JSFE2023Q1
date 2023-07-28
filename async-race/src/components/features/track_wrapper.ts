@@ -22,14 +22,15 @@ import { broomsCount } from './brooms_count';
 import {
   createWitch,
   deleteWitch,
-  flyAllWitches,
   flyMode,
   getAllWitches,
   startEngine,
+  stopEngine,
   totalWitchesCount,
 } from '../../core/api';
 import { forPaginationUrl } from '../../types/constants';
 import { RacePagination } from './race_pagination';
+import { WinnerModal } from './winner_modal';
 
 export const updateWitchObserver = new Observer();
 export const witchNameUpdateObserver = new Observer();
@@ -40,6 +41,7 @@ export const enablePaginationObserver = new Observer();
 export class TrackWrapper extends BaseComponent {
   public store = store;
   public static broomWitchName: BaseComponent;
+  public static witchesArrayHTML: Witch[] = [];
   constructor() {
     super({
       tagName: 'div',
@@ -55,11 +57,18 @@ export class TrackWrapper extends BaseComponent {
     setTimeout(() => {
       this.render();
     }, 100);
+
+    RaceButtons.raceButton.node.addEventListener(
+      'click',
+      this.flyActuallyAllWitches
+    );
   }
 
   public render(): void {
     this.node.textContent = '';
     const { currentWitches } = this.store;
+
+    TrackWrapper.witchesArrayHTML = [];
 
     getAllWitches(forPaginationUrl).then((serverWitches: WitchBroom[]) =>
       serverWitches.forEach((serverWitch) => {
@@ -131,7 +140,6 @@ export class TrackWrapper extends BaseComponent {
         };
 
         RaceButtons.raceButton.node.addEventListener('click', () => {
-          flyAllWitches(serverWitches, serverWitch.id, witch);
           disableButtonsObserver.notify(this.disableButtons());
           disableTrackButtonsObserver.notify('lalala');
           RaceButtons.raceButton.disableButton();
@@ -152,6 +160,8 @@ export class TrackWrapper extends BaseComponent {
           serverWitch.id,
           currentWitches
         );
+
+        TrackWrapper.witchesArrayHTML.push(witch);
       })
     );
 
@@ -160,6 +170,85 @@ export class TrackWrapper extends BaseComponent {
     };
 
     RaceButtons.moreWitchesButton.node.onclick = (): void => this.plusWitches();
+  }
+
+  public static async getTime(id: number, witch: Witch): Promise<number> {
+    const speed = await startEngine(id).then((response) => response.velocity);
+    const duration = (+window.innerWidth * 0.8) / +speed;
+    witch.node.style.animationDuration = `${
+      (+window.innerWidth * 0.8) / +speed
+    }s`;
+    return duration;
+  }
+
+  public async flyActuallyAllWitches(): Promise<void> {
+    // const promisedAllWitches = await getAllWitches(forPaginationUrl);
+    const promiseWinner = await Promise.all(
+      TrackWrapper.witchesArrayHTML.map(async (witch) => {
+        try {
+          const duration = TrackWrapper.getTime(+witch.node.id, witch);
+          witch.node.style.animationName = 'witch_fly_anim';
+          witch.node.style.animationIterationCount = '1';
+          witch.node.style.animationFillMode = 'forwards';
+          witch.node.style.animationTimingFunction = 'ease-in-out';
+          await flyMode(+witch.node.id);
+          const promisedWinner = {
+            id: +witch.node.id,
+            wins: 1,
+            time: parseFloat((await duration).toFixed(2)),
+          };
+          return promisedWinner;
+        } catch (error) {
+          witch.node.style.animationPlayState = 'paused';
+        } finally {
+          stopEngine(+witch.node.id);
+          RacePagination.paginationButtonBeginning.enableButton();
+          RacePagination.paginationButtonLeft.enableButton();
+          RacePagination.paginationButtonRight.enableButton();
+          RacePagination.paginationButtonEnd.enableButton();
+          RaceButtons.resetButton.enableButton();
+          RaceButtons.moreWitchesButton.enableButton();
+          ControlWidgetCreate.controlButton.enableButton();
+          ControlWidgetUpdate.controlButton.enableButton();
+          enableTrackButtonsObserver.notify('lalala');
+          RaceButtons.raceButton.enableButton();
+        }
+      })
+    );
+    if (!promiseWinner) {
+      throw new Error('no promised winner found');
+    }
+    const filteredWinners = promiseWinner.filter(
+      (result) => result !== undefined
+    );
+    console.log(filteredWinners);
+    const winnersTime = [];
+    for (let i = 0; i <= filteredWinners.length; i++) {
+      const time = filteredWinners[i];
+      if (time !== undefined) {
+        winnersTime.push(time.time);
+      }
+    }
+    if (winnersTime?.length > 0) {
+      const minTime = Math.min(...winnersTime);
+      const raceBody = document.body;
+      const winnerModal = new WinnerModal();
+      const overlay = new Overlay();
+      raceBody.append(overlay.node, winnerModal.node);
+      WinnerModal.winnerModalText.node.textContent = `aaaannnd... winner is name finished in ${minTime} \\o/ 🧙‍♂️`;
+
+      WinnerModal.cross.node.addEventListener('click', () => {
+        winnerModal.destroy();
+        WinnerModal.cross.destroy();
+        overlay.destroy();
+      })
+
+      overlay.node.addEventListener('click', () => {
+        winnerModal.destroy();
+        WinnerModal.cross.destroy();
+        overlay.destroy();
+      })
+    }
   }
 
   public pickWitch(e: Event, witch: WitchBroom): void {
@@ -201,7 +290,7 @@ export class TrackWrapper extends BaseComponent {
       }
     };
     getTime();
-    flyMode(index, witchItem);
+    flyMode(index);
   }
 
   public plusWitches(): void {
@@ -314,21 +403,6 @@ export class TrackWrapper extends BaseComponent {
       ControlWidgetCreate.controlName.node.value = '';
     }, 100);
   }
-
-  public flyAllWitches = (e: Event, index: number, witch: Witch): void => {
-    if (!e.target) {
-      throw new Error('no fly button found out there');
-    }
-    const speed = startEngine(index).then((response) => response.velocity);
-    witch.node.style.animationDuration = `${
-      (+window.innerWidth * 0.8) / +speed
-    }s`;
-    witch.node.style.animationName = 'witch_fly_anim';
-    witch.node.style.animationIterationCount = '1';
-    witch.node.style.animationFillMode = 'forwards';
-    witch.node.style.animationTimingFunction = 'ease-in-out';
-    flyMode(index, witch);
-  };
 
   public static enablePagination(): void {
     RacePagination.paginationButtonBeginning.enableButton();

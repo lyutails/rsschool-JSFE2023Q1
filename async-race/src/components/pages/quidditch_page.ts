@@ -25,7 +25,6 @@ export class Quidditch extends BaseComponent {
 
     const countWitches = async (): Promise<void> => {
       try {
-
         const count = await totalWitchesCount();
         if (!count) {
           throw new Error('no witches encounted');

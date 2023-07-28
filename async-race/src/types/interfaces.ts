@@ -9,8 +9,8 @@ export interface PageLimitResponse {
   value: string;
 }
 
-export interface GetWinners {
-  id: number;
-  wins: number;
-  time: number;
+export interface GetWinner {
+  id?: number;
+  wins?: number;
+  time?: number;
 }

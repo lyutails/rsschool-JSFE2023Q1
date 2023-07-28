@@ -1,3 +1,4 @@
+import { totalWinnersCount } from '../../core/api';
 import { BaseComponent } from '../../core/base-component';
 
 export class Winners extends BaseComponent {
@@ -54,9 +55,22 @@ export class Winners extends BaseComponent {
 
     this.totalNumberOfWinners = new BaseComponent({
       tagName: 'div',
-      classList: ['winners_total_number'],
-      textContent: `Total Number of Winners is ${'~paste amount here~'}`,
+      classList: ['winners_total_number']
     });
+
+    const countWinners = async (): Promise<void> => {
+      try {
+        const count = await totalWinnersCount();
+        if (!count) {
+          throw new Error('no witches encounted');
+        }
+        this.totalNumberOfWinners.node.textContent = `Total Number of Winners is ${count}`;
+      }
+      catch (error) {
+        throw new Error('smth actually wrong with winners count');
+      }
+    };
+    countWinners();
 
     this.node.append(this.totalNumberOfWinners.node, this.winnersTable.node);
   }

@@ -16,9 +16,11 @@ export const forPaginationUrl: PageLimitResponse[] = [
 
 // const sort: GetWinners = { `${id}`, `${wins}`, `${time}` };
 
-// export const forWinnersUrl: PageLimitResponse[] = [
-//   { key: '_page', value: `${store.currentWinnersPage}` },
-//   { key: '_limit', value: witchesPerPage },
-//   { key: '_sort', value: sort },
-//   { key: '_order', value: order }
-// ];
+const winnersPerPage = '10';
+
+export const forWinnersUrl: PageLimitResponse[] = [
+  { key: '_page', value: `${store.currentWinnersPage}` },
+  { key: '_limit', value: winnersPerPage },
+//  { key: '_sort', value: sort },
+//  { key: '_order', value: order }
+];

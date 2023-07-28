@@ -877,6 +877,7 @@ a {
   align-items: center;
   text-align: center;
   padding: 1vw;
+  font-size: 1.2rem;
 }
 
 .overlay {
@@ -887,6 +888,46 @@ a {
 }
 
 .cross {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  min-width: 20px;
+  max-width: 50px;
+  min-height: 20px;
+  max-height: 50px;
+  background-image: url('./refs/brooms_etc_icons/cross.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  transition: all 0.2s ease-in-out;
+  transform: translate(27vw, -12vh) rotate(0deg);
+
+  &:hover {
+    cursor: pointer;
+    transform: translate(27vw, -12vh) rotate(90deg);
+    background-image: url('./refs/brooms_etc_icons/cross_hover.svg');
+  }
+}
+
+.winner_modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(50%, 50%);
+  width: 50vw;
+  height: 20vh;
+  border-radius: 10px;
+  background: $scroll-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1vw;
+  font-size: 1.2rem;
+}
+
+.winner_cross {
   position: absolute;
   width: 5vw;
   height: 5vw;
