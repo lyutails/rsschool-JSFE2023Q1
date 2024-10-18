@@ -4,7 +4,7 @@ https://rolling-scopes-school.github.io/lyutails-JSFE2023Q1/migration-to-ts/
 
 <img src="./screenshot_news-portal.JPG">
 
-https://github.com/lyutails/rsschool-JSFE2023Q1/pull/3
+https://github.com/lyutails/rsschool-JSFE2023Q1/pull/2
 
 ### Witch Race
 
