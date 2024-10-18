@@ -1,4 +1,4 @@
-### News
+### News API
 
 https://rolling-scopes-school.github.io/lyutails-JSFE2023Q1/migration-to-ts/
 
